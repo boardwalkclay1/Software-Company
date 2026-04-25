@@ -1,0 +1,75 @@
+/* ================================
+   GO TIME SOFTWARE — ANIMATIONS
+   ================================ */
+
+/* Fade In */
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slide In */
+.slide-in {
+  animation: slideIn 0.7s ease forwards;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Pulse */
+.pulse {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Glow */
+.glow {
+  animation: glow 2s infinite ease-in-out;
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 10px #4f7cff55; }
+  50% { box-shadow: 0 0 25px #4f7cff; }
+  100% { box-shadow: 0 0 10px #4f7cff55; }
+}
+
+/* Bubble Float */
+.bubble {
+  position: fixed;
+  border-radius: 50%;
+  background: radial-gradient(circle at top, #4f7cff, #001);
+  box-shadow: 0 0 20px #4f7cffaa;
+  animation: floatBubble linear infinite;
+  cursor: pointer;
+  z-index: 999;
+  transition: transform 0.2s ease;
+}
+
+@keyframes floatBubble {
+  0% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-40px) translateX(20px); }
+  50% { transform: translateY(-80px) translateX(-20px); }
+  75% { transform: translateY(-40px) translateX(20px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+/* Bubble Pop */
+.bubble-pop {
+  animation: bubblePop 0.3s ease forwards;
+}
+
+@keyframes bubblePop {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
