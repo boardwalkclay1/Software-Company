@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Go Time Gaming Hub Template</title>
+  <link rel="stylesheet" href="../css/web-base.css" />
+  <link rel="stylesheet" href="../css/web-layout.css" />
+  <link rel="stylesheet" href="../css/web-theme-dark.css" />
+</head>
+<body class="theme-dark">
+  <header class="site-header">
+    <div class="logo">Go Time <span>Arcade</span></div>
+    <nav class="nav">
+      <a href="#games">Games</a>
+      <a href="#leaderboard">Leaderboard</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="game-hero">
+      <div>
+        <h1>Instant Browser Games.</h1>
+        <p>Use this template as a hub for HTML5 games or embedded game iframes.</p>
+        <button class="btn btn-primary">Play Random Game</button>
+      </div>
+    </section>
+
+    <!-- GAME GRID -->
+    <section id="games" class="section">
+      <h2>Games</h2>
+      <div id="game-grid" class="game-grid">
+        <!-- JS can populate game cards -->
+        <article class="game-card">
+          <div class="game-thumb"></div>
+          <h3>Space Runner</h3>
+          <button class="btn btn-secondary">Play</button>
+        </article>
+        <article class="game-card">
+          <div class="game-thumb"></div>
+          <h3>Brick Breaker</h3>
+          <button class="btn btn-secondary">Play</button>
+        </article>
+        <article class="game-card">
+          <div class="game-thumb"></div>
+          <h3>Pixel Racer</h3>
+          <button class="btn btn-secondary">Play</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- LEADERBOARD -->
+    <section id="leaderboard" class="section section-alt">
+      <h2>Leaderboard</h2>
+      <table class="leaderboard-table">
+        <thead>
+          <tr>
+            <th>Player</th>
+            <th>Game</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PlayerOne</td>
+            <td>Space Runner</td>
+            <td>12,430</td>
+          </tr>
+          <tr>
+            <td>SpeedDemon</td>
+            <td>Pixel Racer</td>
+            <td>9,870</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <h2>About This Template</h2>
+      <p>Use this layout as a base for a gaming portal, arcade, or mini‑game hub.</p>
+    </section>
+  </main>
+
+  <script src="../js/gaming.js" type="module"></script>
+</body>
+</html>
