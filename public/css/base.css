@@ -1,0 +1,44 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  color: #c8ffc8;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+.site-header,
+.site-footer {
+  background: rgba(0, 0, 0, 0.85);
+  padding: 1rem 3rem;
+  border-bottom: 2px solid #0aff0a;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #0aff0a;
+}
+
+.logo span {
+  color: #4f7cff;
+}
+
+.main-nav a {
+  margin-left: 1.5rem;
+  color: #4f7cff;
+  font-weight: 600;
+}
+
+.page-section {
+  padding: 3rem;
+}
