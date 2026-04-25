@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Portfolio / Agency Template – Go Time Software</title>
+  <script src="../js/portfolio.js" defer></script>
+</head>
+
+<body>
+  <div id="template-info">
+    <h1>Portfolio / Agency Template</h1>
+    <p>
+      This template showcases services, case studies, and metrics. Ideal for agencies, freelancers,
+      or studios.
+    </p>
+  </div>
+
+  <header class="header">
+    <div class="logo">Go Time <span>Studio</span></div>
+    <nav class="nav">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#metrics">Metrics</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-left">
+        <h1>We Build Clean, Powerful Interfaces.</h1>
+        <p>
+          Use this layout to present your studio or agency. Each section is designed to be reused
+          across clients.
+        </p>
+      </div>
+    </section>
+
+    <section id="services" class="section services">
+      <h2>Services</h2>
+      <div class="service-grid">
+        <div class="service-card">Web Design</div>
+        <div class="service-card">Dashboard UX</div>
+        <div class="service-card">Full‑Stack Development</div>
+        <div class="service-card">Automation & Integrations</div>
+      </div>
+    </section>
+
+    <section id="work" class="section portfolio">
+      <h2>Selected Work</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item" data-case="case1">Property Management Dashboard</div>
+        <div class="portfolio-item" data-case="case2">News Platform UI</div>
+        <div class="portfolio-item" data-case="case3">Meal Planner App</div>
+      </div>
+      <div id="case-detail" class="case-detail">
+        <p>Click a project to see how a case study section would look.</p>
+      </div>
+    </section>
+
+    <section id="metrics" class="section metrics">
+      <h2>Metrics</h2>
+      <div class="metrics-grid">
+        <div class="metric">
+          <strong>30+</strong>
+          <span>Projects shipped</span>
+        </div>
+        <div class="metric">
+          <strong>5+</strong>
+          <span>Industries</span>
+        </div>
+        <div class="metric">
+          <strong>100%</strong>
+          <span>Repeat clients</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <h2>Contact</h2>
+      <p>Use this form layout to collect project inquiries.</p>
+      <form id="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="project" placeholder="Tell me about your project"></textarea>
+        <button class="btn-primary" type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
