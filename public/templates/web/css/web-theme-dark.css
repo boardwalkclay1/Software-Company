@@ -1,0 +1,4 @@
+body.theme-dark {
+  background: radial-gradient(circle at top, #020617, #000);
+  color: #e5e7eb;
+}
