@@ -1,0 +1,83 @@
+/* LAYOUT ONLY — NO COLORS, NO EFFECTS */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+#template-info {
+  padding: 20px;
+  border-bottom: 2px solid;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+.nav a {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.hero {
+  display: flex;
+  padding: 60px;
+  gap: 40px;
+}
+
+.hero-left {
+  flex: 1;
+}
+
+.hero-title {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero-sub {
+  margin-bottom: 20px;
+}
+
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard-preview {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.kpi-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.chart-area {
+  height: 150px;
+  border-radius: 10px;
+}
+
+.features {
+  padding: 40px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.feature-card {
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+}
