@@ -1,0 +1,92 @@
+/* INTRO SCREEN */
+#intro-screen {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* IMAGE ANIMATION */
+#intro-image {
+  width: 0;
+  opacity: 0;
+  transform: scale(0.1);
+  animation:
+    flashGrow 2.2s ease-out forwards,
+    slapToBack 1.2s ease-out 2.2s forwards,
+    fadeOutIntro 1s ease-out 3.4s forwards;
+}
+
+/* FLASH + GROW */
+@keyframes flashGrow {
+  0% {
+    opacity: 0;
+    transform: scale(0.1);
+    filter: brightness(300%) drop-shadow(0 0 40px #0aff0a);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.5);
+    filter: brightness(500%) drop-shadow(0 0 80px #4f7cff);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.1);
+    filter: brightness(120%);
+  }
+}
+
+/* SLAP AGAINST BACKGROUND */
+@keyframes slapToBack {
+  0% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* FADE OUT INTRO */
+@keyframes fadeOutIntro {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* LIGHTNING EFFECT */
+#lightning {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(0,255,0,0.4), transparent 70%);
+  opacity: 0;
+  animation: lightningFlash 0.25s ease-out 1.8s forwards;
+}
+
+@keyframes lightningFlash {
+  0% { opacity: 0; }
+  50% { opacity: 1; filter: drop-shadow(0 0 50px #4f7cff); }
+  100% { opacity: 0; }
+}
+
+/* BRICK CRACKS */
+#brick-cracks {
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/brick-cracks.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: crackReveal 1.2s ease-out 2.2s forwards;
+}
+
+@keyframes crackReveal {
+  0% { opacity: 0; transform: scale(1.2); }
+  100% { opacity: 0.35; transform: scale(1); }
+}
+
+/* FINAL BACKGROUND */
+body.theme-dark {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background 1s ease-out;
+}
