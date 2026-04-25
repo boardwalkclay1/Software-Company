@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Go Time Software</title>
+
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/intro.css" />
+</head>
+
+<body class="theme-dark">
+
+  <!-- INTRO ANIMATION -->
+  <div id="intro-screen">
+    <img id="intro-image" src="../assets/your-photo.jpg" alt="Intro Image" />
+    <div id="lightning"></div>
+    <div id="brick-cracks"></div>
+  </div>
+
+  <!-- MAIN SITE SHELL -->
+  <div id="site-shell" class="hidden">
+    <header class="site-header">
+      <div class="logo">Go Time <span>Software</span></div>
+      <nav class="main-nav">
+        <a href="templates.html" data-nav>Templates</a>
+        <a href="dashboards.html" data-nav>Dashboards</a>
+        <a href="apps.html" data-nav>Apps</a>
+        <a href="iot.html" data-nav>Microcontrollers</a>
+        <a href="contact.html" data-nav>Contact</a>
+      </nav>
+    </header>
+
+    <main id="page-root" data-page="overview"></main>
+
+    <footer class="site-footer">
+      <span>© Go Time Software — Dashboards, Apps, IoT Systems</span>
+    </footer>
+  </div>
+
+  <script type="module" src="../js/intro.js"></script>
+  <script type="module" src="../js/master.js"></script>
+</body>
+</html>
