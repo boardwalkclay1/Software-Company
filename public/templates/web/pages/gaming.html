@@ -2,13 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Go Time Gaming Hub Template</title>
-  <link rel="stylesheet" href="../css/web-base.css" />
-  <link rel="stylesheet" href="../css/web-layout.css" />
-  <link rel="stylesheet" href="../css/web-theme-dark.css" />
+  <title>Gaming Hub Template – Go Time Software</title>
+  <script src="../js/gaming.js" defer></script>
 </head>
-<body class="theme-dark">
-  <header class="site-header">
+
+<body>
+  <div id="template-info">
+    <h1>Gaming Hub Template</h1>
+    <p>
+      This template is a hub for HTML5 games. Game cards can launch embedded games or external
+      iframes. Leaderboard shows how scores could be displayed.
+    </p>
+  </div>
+
+  <header class="header">
     <div class="logo">Go Time <span>Arcade</span></div>
     <nav class="nav">
       <a href="#games">Games</a>
@@ -18,40 +25,36 @@
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="game-hero">
-      <div>
+      <div class="game-hero-content">
         <h1>Instant Browser Games.</h1>
-        <p>Use this template as a hub for HTML5 games or embedded game iframes.</p>
-        <button class="btn btn-primary">Play Random Game</button>
+        <p>Use this layout as a base for a gaming portal or mini‑game hub.</p>
+        <button class="btn-primary" id="random-game-btn">Play Random Game</button>
       </div>
     </section>
 
-    <!-- GAME GRID -->
     <section id="games" class="section">
       <h2>Games</h2>
       <div id="game-grid" class="game-grid">
-        <!-- JS can populate game cards -->
-        <article class="game-card">
-          <div class="game-thumb"></div>
-          <h3>Space Runner</h3>
-          <button class="btn btn-secondary">Play</button>
+        <article class="game-card" data-game="space-runner">
+          <div class="game-thumb">Space Runner</div>
+          <button class="btn-secondary">Play</button>
         </article>
-        <article class="game-card">
-          <div class="game-thumb"></div>
-          <h3>Brick Breaker</h3>
-          <button class="btn btn-secondary">Play</button>
+        <article class="game-card" data-game="brick-breaker">
+          <div class="game-thumb">Brick Breaker</div>
+          <button class="btn-secondary">Play</button>
         </article>
-        <article class="game-card">
-          <div class="game-thumb"></div>
-          <h3>Pixel Racer</h3>
-          <button class="btn btn-secondary">Play</button>
+        <article class="game-card" data-game="pixel-racer">
+          <div class="game-thumb">Pixel Racer</div>
+          <button class="btn-secondary">Play</button>
         </article>
+      </div>
+      <div id="game-play-area" class="game-play-area">
+        <p>Select a game to see how an embedded game area would look.</p>
       </div>
     </section>
 
-    <!-- LEADERBOARD -->
-    <section id="leaderboard" class="section section-alt">
+    <section id="leaderboard" class="section leaderboard-section">
       <h2>Leaderboard</h2>
       <table class="leaderboard-table">
         <thead>
@@ -61,7 +64,7 @@
             <th>Score</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="leaderboard-body">
           <tr>
             <td>PlayerOne</td>
             <td>Space Runner</td>
@@ -76,13 +79,13 @@
       </table>
     </section>
 
-    <!-- ABOUT -->
     <section id="about" class="section">
       <h2>About This Template</h2>
-      <p>Use this layout as a base for a gaming portal, arcade, or mini‑game hub.</p>
+      <p>
+        This template demonstrates how to structure a gaming hub with game cards, a play area, and a
+        leaderboard. In a real build, scores would be stored in a backend.
+      </p>
     </section>
   </main>
-
-  <script src="../js/gaming.js" type="module"></script>
 </body>
 </html>
