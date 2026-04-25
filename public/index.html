@@ -4,17 +4,37 @@
   <meta charset="UTF-8" />
   <title>Go Time Software</title>
 
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="./assets/img/go-time-logo.png" />
   <link rel="shortcut icon" href="./favicon.ico" />
 
+  <!-- Social Preview -->
   <meta property="og:title" content="Go Time Software" />
   <meta property="og:description" content="Websites, Apps, Dashboards, IoT Systems — Built Fast. Built Right." />
   <meta property="og:image" content="./assets/img/social-preview.jpg" />
   <meta property="og:type" content="website" />
 
+  <!-- CSS -->
   <link rel="stylesheet" href="./css/base.css" />
-  <link rel="stylesheet" href="./css/theme.css" />
+
+  <!-- JS -->
   <script src="./js/master.js" defer></script>
+
+  <!-- BACKGROUND -->
+  <style>
+    body.theme-dark {
+      background: url("./assets/img/go-time-new-york.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
+    body.theme-dark::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(2px);
+      z-index: -1;
+    }
+  </style>
 </head>
 
 <body class="theme-dark">
@@ -25,6 +45,7 @@
       <img src="./assets/img/go-time-logo.png" class="logo-img" />
       <span>Go Time Software</span>
     </div>
+
     <nav class="main-nav">
       <a href="./index.html">Home</a>
       <a href="./sites.html">Sites</a>
@@ -37,19 +58,80 @@
   <!-- HERO -->
   <section class="hero">
     <h1>Websites. Apps. Dashboards. IoT.</h1>
-    <p>Built Fast. Built Right. Explore our templates and app engine.</p>
+    <p>We build fast, modular, scalable systems for real businesses.</p>
+
     <div class="hero-actions">
-      <a class="btn-primary" href="./sites.html">Browse Sites</a>
-      <a class="btn-secondary" href="./apps.html">Browse Apps</a>
+      <a class="btn-primary" href="./sites.html">Browse Website Templates</a>
+      <a class="btn-secondary" href="./apps.html">Browse App Templates</a>
     </div>
   </section>
 
-  <!-- FEATURE ROW -->
-  <section class="feature-row">
-    <div class="feature-card">Website Templates</div>
-    <div class="feature-card">App Templates</div>
-    <div class="feature-card">Dashboards</div>
-    <div class="feature-card">Microcontrollers</div>
+  <!-- WHAT WE DO -->
+  <section class="page-container">
+    <h2>What We Build</h2>
+    <p>
+      Go Time Software is a full-stack development company specializing in modular, reusable systems.
+      Every template, every app, every dashboard is built to be swapped, upgraded, and extended.
+    </p>
+
+    <div class="feature-row">
+      <div class="feature-card">Website Templates</div>
+      <div class="feature-card">App Templates</div>
+      <div class="feature-card">Dashboard Systems</div>
+      <div class="feature-card">Microcontrollers & IoT</div>
+    </div>
+  </section>
+
+  <!-- WEBSITE TEMPLATES PREVIEW -->
+  <section class="page-container">
+    <h2>Website Templates</h2>
+    <p>Scroll through and click any template to open the full interactive demo.</p>
+
+    <div id="site-templates-row" class="template-row"></div>
+  </section>
+
+  <!-- APP TEMPLATES PREVIEW -->
+  <section class="page-container">
+    <h2>App Templates</h2>
+    <p>These are powered by our modular App Engine. Click any combination to open the demo.</p>
+
+    <div id="apps-combos-row" class="apps-combos-row"></div>
+  </section>
+
+  <!-- REAL APPS -->
+  <section class="page-container">
+    <h2>Real Apps We Built</h2>
+    <div class="real-apps-grid">
+      <a class="real-app-card" href="#">Real App #1</a>
+      <a class="real-app-card" href="#">Real App #2</a>
+      <a class="real-app-card" href="#">Real App #3</a>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="page-container">
+    <h2>Pricing</h2>
+    <ul class="pricing-list">
+      <li>Simple Website — <strong>$200</strong></li>
+      <li>Advanced Website — <strong>$500</strong></li>
+      <li>Simple App — <strong>$300</strong></li>
+      <li>Advanced App — <strong>$600</strong></li>
+      <li>Full Custom App — <strong>$1,000+</strong></li>
+    </ul>
+  </section>
+
+  <!-- HOW TO GET STARTED -->
+  <section class="page-container">
+    <h2>How to Get Started</h2>
+    <ul>
+      <li>Choose a website or app template</li>
+      <li>Upload your logo</li>
+      <li>Tell us your business name</li>
+      <li>Describe the features you need</li>
+      <li>Submit your contact info</li>
+    </ul>
+
+    <a class="btn-primary" href="./contact.html">Start Your Project</a>
   </section>
 
   <!-- FOOTER -->
