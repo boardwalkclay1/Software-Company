@@ -1,0 +1,219 @@
+/* HERO LAYOUT (Landing) */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  padding: 3.5rem clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+}
+
+.hero-text h1 {
+  font-size: clamp(2.2rem, 3.4vw, 3.4rem);
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  max-width: 32rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-metrics {
+  display: flex;
+  gap: 2rem;
+  font-size: 0.9rem;
+}
+
+.hero-metrics strong {
+  display: block;
+  font-size: 1.2rem;
+}
+
+.hero-panel {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-card {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+}
+
+.hero-kpis {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.hero-chart-placeholder {
+  height: 140px;
+  border-radius: 0.75rem;
+  background: radial-gradient(circle at top, #4f7cff33, #020617);
+}
+
+/* FEATURES */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.feature-card {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+}
+
+/* PRICING */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.price-card {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.price-card-featured {
+  border: 1px solid #4f7cff;
+}
+
+.price-card .badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: #4f7cff;
+  color: #fff;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+}
+
+.price {
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
+}
+
+/* MARKETPLACE */
+.market-hero {
+  padding: 3rem clamp(1.5rem, 4vw, 4rem);
+}
+
+.market-search {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.market-search input {
+  flex: 1;
+  padding: 0.7rem 0.9rem;
+  border-radius: 6px;
+  border: 1px solid #4b5563;
+  background: #020617;
+  color: #e5e7eb;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid #4b5563;
+  background: transparent;
+  color: #e5e7eb;
+  font-size: 0.8rem;
+}
+
+.chip-active {
+  background: #4f7cff;
+  border-color: #4f7cff;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+}
+
+.product-image {
+  height: 120px;
+  border-radius: 0.75rem;
+  background: radial-gradient(circle at top, #4f7cff33, #020617);
+  margin-bottom: 0.75rem;
+}
+
+.product-price {
+  margin: 0.5rem 0 1rem 0;
+}
+
+/* CART */
+.cart-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.cart-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* GAMING */
+.game-hero {
+  padding: 3rem clamp(1.5rem, 4vw, 4rem);
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.game-card {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+}
+
+.game-thumb {
+  height: 120px;
+  border-radius: 0.75rem;
+  background: radial-gradient(circle at top, #22c55e33, #020617);
+  margin-bottom: 0.75rem;
+}
+
+/* LEADERBOARD */
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #1f2937;
+  text-align: left;
+}
