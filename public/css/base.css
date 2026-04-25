@@ -1,44 +1,421 @@
+/* ===========================
+   GO TIME SOFTWARE – GLOBAL CSS
+   One stylesheet for all pages
+   =========================== */
+
+/* RESET / BASE */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
 }
 
 body {
-  margin: 0;
-  background: #000;
-  color: #c8ffc8;
-  font-family: 'Segoe UI', sans-serif;
-  overflow: hidden;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #050509;
+  color: #f5f5f5;
+  line-height: 1.5;
 }
 
-.hidden {
-  display: none;
+/* THEME */
+.theme-dark {
+  background: radial-gradient(circle at top, #151520 0, #050509 55%, #000 100%);
+  color: #f5f5f5;
 }
 
-.site-header,
-.site-footer {
-  background: rgba(0, 0, 0, 0.85);
-  padding: 1rem 3rem;
-  border-bottom: 2px solid #0aff0a;
+/* LAYOUT */
+.page-container {
+  max-width: 1100px;
+  margin: 40px auto 60px;
+  padding: 0 20px;
+}
+
+/* HEADER */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: #050509;
+  border-bottom: 1px solid #181820;
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
 .logo {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #0aff0a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #f5f5f5;
 }
 
-.logo span {
-  color: #4f7cff;
+.logo-img {
+  height: 40px;
+  width: auto;
+  border-radius: 6px;
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.4);
 }
 
 .main-nav a {
-  margin-left: 1.5rem;
-  color: #4f7cff;
-  font-weight: 600;
+  margin-left: 22px;
+  color: #9aa4ff;
+  text-decoration: none;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
-.page-section {
-  padding: 3rem;
+.main-nav a:hover {
+  color: #ff4b4b;
+}
+
+/* FOOTER */
+.site-footer {
+  padding: 20px 40px;
+  border-top: 1px solid #181820;
+  font-size: 13px;
+  color: #888;
+  text-align: center;
+  background: #050509;
+}
+
+/* HERO */
+.hero {
+  max-width: 1100px;
+  margin: 40px auto 30px;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 17px;
+  color: #c0c4ff;
+  margin-bottom: 20px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* BUTTONS */
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #ff3131, #ff7a3c);
+  color: #fff;
+  box-shadow: 0 0 18px rgba(255, 80, 80, 0.5);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: #444;
+  color: #c0c4ff;
+}
+
+.btn-secondary:hover {
+  border-color: #ff4b4b;
+  color: #ff4b4b;
+}
+
+/* FEATURE ROW (HOME) */
+.feature-row {
+  max-width: 1100px;
+  margin: 10px auto 50px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.feature-card {
+  border-radius: 12px;
+  padding: 16px;
+  background: radial-gradient(circle at top left, #2a1a1a, #0a0a10);
+  border: 1px solid #262636;
+  font-size: 14px;
+}
+
+/* HEADINGS / TEXT */
+h1 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-size: 22px;
+  margin: 26px 0 10px;
+}
+
+p {
+  margin-bottom: 10px;
+  color: #d0d0e0;
+}
+
+ul {
+  margin-left: 18px;
+  margin-bottom: 10px;
+}
+
+ul li {
+  margin-bottom: 6px;
+}
+
+/* FORMS */
+.contact-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 520px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: #0b0b12;
+  border: 1px solid #262636;
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: #f5f5f5;
+  font-size: 14px;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #ff4b4b;
+}
+
+/* REAL APPS GRID (apps.html) */
+.real-apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin: 10px 0 24px;
+}
+
+.real-app-card {
+  display: block;
+  padding: 14px;
+  border-radius: 10px;
+  background: #0b0b12;
+  border: 1px solid #262636;
+  color: #c0c4ff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.real-app-card:hover {
+  border-color: #ff4b4b;
+  color: #ff4b4b;
+}
+
+/* PRICING LIST */
+.pricing-list {
+  margin-left: 18px;
+  margin-bottom: 10px;
+}
+
+.pricing-list li {
+  margin-bottom: 6px;
+}
+
+/* SITE TEMPLATES ROW (sites.html) */
+.template-row {
+  margin-top: 20px;
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.template-row::-webkit-scrollbar {
+  height: 6px;
+}
+
+.template-row::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 999px;
+}
+
+.template-card {
+  min-width: 220px;
+  border-radius: 12px;
+  padding: 14px;
+  background: #0b0b12;
+  border: 1px solid #262636;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.template-card:hover {
+  border-color: #ff4b4b;
+}
+
+/* APPS COMBOS ROW (apps.html) */
+.apps-combos-row {
+  margin-top: 16px;
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.apps-combos-row::-webkit-scrollbar {
+  height: 6px;
+}
+
+.apps-combo-card {
+  min-width: 260px;
+  border-radius: 12px;
+  padding: 14px;
+  background: #0b0b12;
+  border: 1px solid #262636;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.apps-combo-card:hover {
+  border-color: #ff4b4b;
+}
+
+.apps-combo-title {
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.apps-combo-meta {
+  font-size: 12px;
+  color: #9a9ab5;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+/* APP LAYOUTS (for app engine) */
+.app-layout {
+  background: #050509;
+  color: #f5f5f5;
+}
+
+.app-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #181820;
+}
+
+.app-main {
+  padding: 16px 20px;
+}
+
+.app-footer {
+  padding: 12px 20px;
+  border-top: 1px solid #181820;
+  font-size: 12px;
+  color: #888;
+}
+
+/* Card stack layout */
+.card-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Chat / feed layout */
+.app-feed {
+  padding: 16px 20px;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+}
+
+.app-input-bar {
+  display: flex;
+  gap: 8px;
+  padding: 10px 14px;
+  border-top: 1px solid #181820;
+}
+
+.app-input-bar input {
+  flex: 1;
+  background: #0b0b12;
+  border: 1px solid #262636;
+  border-radius: 999px;
+  padding: 8px 12px;
+  color: #f5f5f5;
+}
+
+/* Chat bubbles */
+.chat-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chat-message {
+  max-width: 80%;
+}
+
+.chat-bubble {
+  padding: 8px 12px;
+  border-radius: 14px;
+  font-size: 14px;
+}
+
+.chat-user .chat-bubble {
+  background: #ff4b4b;
+  color: #fff;
+  margin-left: auto;
+}
+
+.chat-system .chat-bubble {
+  background: #262636;
+  color: #f5f5f5;
+}
+
+.chat-meta {
+  font-size: 11px;
+  color: #888;
+}
+
+/* Simple utility */
+.hidden {
+  display: none;
 }
