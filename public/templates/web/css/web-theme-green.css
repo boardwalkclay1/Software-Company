@@ -1,0 +1,61 @@
+/* ================================
+   GO TIME SOFTWARE — GREEN THEME
+   ================================ */
+
+body.theme-green {
+  background: radial-gradient(circle at top, #001900, #000);
+  color: #0aff0a;
+}
+
+/* Headers */
+h1, h2, h3 {
+  color: #0aff0a;
+}
+
+/* Buttons */
+.btn-primary {
+  background: #0aff0a;
+  color: #000;
+  border: 1px solid #0aff0a;
+}
+
+.btn-secondary {
+  background: #003300;
+  color: #0aff0a;
+  border: 1px solid #0aff0a55;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #0aff0a;
+  border: 1px solid #0aff0a55;
+}
+
+/* Cards */
+.feature-card,
+.price-card,
+.testimonial,
+.product-card,
+.game-card {
+  background: rgba(0, 40, 0, 0.7);
+  border: 1px solid #0aff0a33;
+}
+
+/* Inputs */
+input, textarea {
+  background: #001900;
+  color: #0aff0a;
+  border: 1px solid #0aff0a55;
+}
+
+/* Navigation */
+.nav a {
+  color: #0aff0a;
+}
+
+.nav-cta {
+  background: #0aff0a;
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
