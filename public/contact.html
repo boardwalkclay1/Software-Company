@@ -4,9 +4,35 @@
   <meta charset="UTF-8" />
   <title>Contact – Go Time Software</title>
 
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="./assets/img/go-time-logo.png" />
+  <link rel="shortcut icon" href="./favicon.ico" />
+
+  <!-- Social Preview -->
+  <meta property="og:title" content="Contact – Go Time Software" />
+  <meta property="og:description" content="Reach out to Go Time Software for websites, apps, dashboards, and IoT systems." />
+  <meta property="og:image" content="./assets/img/social-preview.jpg" />
+  <meta property="og:type" content="website" />
+
+  <!-- CSS -->
   <link rel="stylesheet" href="./css/base.css" />
-  <link rel="stylesheet" href="./css/theme.css" />
+
+  <!-- BACKGROUND -->
+  <style>
+    body.theme-dark {
+      background: url("./assets/img/go-time-back-logo.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    body.theme-dark::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(2px);
+      z-index: -1;
+    }
+  </style>
 </head>
 
 <body class="theme-dark">
@@ -17,6 +43,7 @@
       <img src="./assets/img/go-time-logo.png" class="logo-img" />
       <span>Go Time Software</span>
     </div>
+
     <nav class="main-nav">
       <a href="./index.html">Home</a>
       <a href="./sites.html">Sites</a>
@@ -26,10 +53,16 @@
     </nav>
   </header>
 
+  <!-- MAIN CONTENT -->
   <main class="page-container">
-    <h1>Contact Us</h1>
-    <p>Tell us about your project. We respond fast.</p>
 
+    <h1>Contact Us</h1>
+    <p>
+      Tell us about your project — websites, apps, dashboards, or IoT systems.  
+      We respond fast and deliver even faster.
+    </p>
+
+    <!-- CONTACT FORM -->
     <form class="contact-form">
       <input type="text" placeholder="Your Name" required />
       <input type="email" placeholder="Your Email" required />
@@ -37,10 +70,33 @@
       <textarea placeholder="Tell us about your project…" required></textarea>
       <button class="btn-primary">Send Message</button>
     </form>
+
+    <!-- CONTACT INFO -->
+    <section style="margin-top: 40px;">
+      <h2>Business Contact Info</h2>
+      <ul>
+        <li>Email: <strong>boardwalkclay1@gmail.com</strong></li>
+        <li>Phone: <strong>313‑588‑9807</strong></li>
+        <li>Location: Rochester Hills, MI</li>
+      </ul>
+    </section>
+
+    <!-- CTA -->
+    <section style="margin-top: 40px;">
+      <h2>Ready to Start?</h2>
+      <p>
+        Whether you need a website, app, dashboard, or microcontroller system —  
+        Go Time Software builds it fast, clean, and scalable.
+      </p>
+      <a class="btn-secondary" href="./apps.html">View App Templates</a>
+      <a class="btn-secondary" href="./sites.html" style="margin-left: 10px;">View Website Templates</a>
+    </section>
+
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <span>© Go Time Software</span>
+    <span>© Go Time Software — Dashboards, Apps, IoT Systems</span>
   </footer>
 
 </body>
