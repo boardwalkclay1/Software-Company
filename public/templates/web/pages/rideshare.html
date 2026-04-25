@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rideshare Template – Go Time Software</title>
+  <script src="../js/rideshare.js" defer></script>
+</head>
+
+<body>
+  <div id="template-info">
+    <h1>Rideshare Template</h1>
+    <p>
+      This template shows a rideshare‑style layout with a ride request, driver status, and trip
+      timeline. Useful for transport, delivery, or logistics apps.
+    </p>
+  </div>
+
+  <header class="header">
+    <div class="logo">Go Time <span>Ride</span></div>
+    <nav class="nav">
+      <a href="#request">Request</a>
+      <a href="#status">Status</a>
+      <a href="#history">History</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="request" class="section ride-hero">
+      <h1>Get a Ride Fast.</h1>
+      <p>Use this layout as a base for ride or delivery requests.</p>
+      <button class="btn-primary" id="request-ride-btn">Request Ride</button>
+    </section>
+
+    <section id="status" class="section ride-status">
+      <h2>Driver Status</h2>
+      <div class="driver-card">
+        <div class="driver-photo">DR</div>
+        <div class="driver-info">
+          <h3 id="driver-name">Driver Name</h3>
+          <p id="driver-car">Car Model • Plate</p>
+          <p id="driver-eta">ETA: —</p>
+        </div>
+      </div>
+      <div class="ride-timeline">
+        <div class="timeline-step" data-step="requested">Requested</div>
+        <div class="timeline-step" data-step="accepted">Accepted</div>
+        <div class="timeline-step" data-step="arriving">Arriving</div>
+        <div class="timeline-step" data-step="in-progress">In Progress</div>
+        <div class="timeline-step" data-step="completed">Completed</div>
+      </div>
+    </section>
+
+    <section id="history" class="section ride-history">
+      <h2>Recent Trips</h2>
+      <ul id="trip-list" class="trip-list">
+        <li>No trips yet. Request a ride to see how history would look.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
