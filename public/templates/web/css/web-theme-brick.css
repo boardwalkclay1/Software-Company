@@ -1,0 +1,61 @@
+/* ================================
+   GO TIME SOFTWARE — BRICK THEME
+   ================================ */
+
+body.theme-brick {
+  background: #0a0a0a url('../assets/brick-cracks.png') center/cover no-repeat fixed;
+  color: #4f7cff;
+}
+
+/* Headers */
+h1, h2, h3 {
+  color: #4f7cff;
+}
+
+/* Buttons */
+.btn-primary {
+  background: #4f7cff;
+  color: #fff;
+  border: 1px solid #4f7cff;
+}
+
+.btn-secondary {
+  background: #111;
+  color: #4f7cff;
+  border: 1px solid #4f7cff55;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #4f7cff;
+  border: 1px solid #4f7cff55;
+}
+
+/* Cards */
+.feature-card,
+.price-card,
+.testimonial,
+.product-card,
+.game-card {
+  background: rgba(10, 10, 10, 0.7);
+  border: 1px solid #4f7cff33;
+}
+
+/* Inputs */
+input, textarea {
+  background: #0a0a0a;
+  color: #4f7cff;
+  border: 1px solid #4f7cff55;
+}
+
+/* Navigation */
+.nav a {
+  color: #4f7cff;
+}
+
+.nav-cta {
+  background: #4f7cff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
