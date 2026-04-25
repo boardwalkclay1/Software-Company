@@ -3,62 +3,150 @@
 <head>
   <meta charset="UTF-8" />
   <title>Landing Template – Go Time Software</title>
-
-  <!-- JS will load the 3 CSS files -->
   <script src="../js/landing.js" defer></script>
 </head>
 
 <body>
-
-  <!-- Info panel -->
   <div id="template-info">
     <h1>Landing Page Template</h1>
-    <p>Click elements to see how this template works. This is a real interactive demo.</p>
+    <p>
+      This is a fully interactive landing page template. Click elements to see how they would behave
+      in a real SaaS product.
+    </p>
   </div>
 
-  <!-- Header -->
   <header class="header">
     <div class="logo">Go Time <span>Software</span></div>
     <nav class="nav">
-      <a>Features</a>
-      <a>Pricing</a>
-      <a>Testimonials</a>
-      <a>FAQ</a>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#faq">FAQ</a>
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-left">
-      <h1 class="hero-title">Launch Your Product Fast.</h1>
-      <p class="hero-sub">This is a real landing page template with full interactions.</p>
-      <button class="btn-primary">Start Free Trial</button>
-      <button class="btn-secondary">Learn More</button>
-    </div>
-
-    <div class="hero-right">
-      <div class="dashboard-preview">
-        <h3>Dashboard Preview</h3>
-        <div class="kpi-row">
-          <div class="kpi">Users: <strong>1,284</strong></div>
-          <div class="kpi">MRR: <strong>$42,910</strong></div>
-          <div class="kpi">Growth: <strong>7.4%</strong></div>
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-left">
+        <h1 class="hero-title">Launch Your Product Fast.</h1>
+        <p class="hero-sub">
+          This template shows a real SaaS landing layout with hero, metrics, and dashboard preview.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-primary">Start Free Trial</button>
+          <button class="btn-secondary">View Live Demo</button>
         </div>
-        <div class="chart-area">[Chart Placeholder]</div>
+        <div class="hero-metrics">
+          <div>
+            <strong>120+</strong>
+            <span>Teams launched</span>
+          </div>
+          <div>
+            <strong>3x</strong>
+            <span>Faster delivery</span>
+          </div>
+          <div>
+            <strong>99.9%</strong>
+            <span>Uptime</span>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Features -->
-  <section class="features">
-    <h2>Features</h2>
-    <div class="feature-grid">
-      <div class="feature-card">Modular Layout</div>
-      <div class="feature-card">Responsive Design</div>
-      <div class="feature-card">Clean Code</div>
-      <div class="feature-card">Theme Ready</div>
-    </div>
-  </section>
+      <div class="hero-right">
+        <div class="dashboard-preview">
+          <h3>Dashboard Preview</h3>
+          <div class="kpi-row">
+            <div class="kpi">Users: <strong>1,284</strong></div>
+            <div class="kpi">MRR: <strong>$42,910</strong></div>
+            <div class="kpi">Growth: <strong>7.4%</strong></div>
+          </div>
+          <div class="chart-area">[Chart Placeholder]</div>
+          <p class="dashboard-note">
+            This area represents a live dashboard. In a real build, charts and KPIs would update from
+            your backend.
+          </p>
+        </div>
+      </div>
+    </section>
 
+    <section class="features" id="features">
+      <h2>Features</h2>
+      <p class="section-lead">
+        Each card below represents a real feature block you can customize for your product.
+      </p>
+      <div class="feature-grid">
+        <div class="feature-card">Modular Layout</div>
+        <div class="feature-card">Responsive Design</div>
+        <div class="feature-card">Clean Code</div>
+        <div class="feature-card">Theme Ready</div>
+      </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+      <h2>Pricing</h2>
+      <p class="section-lead">Use this pricing layout as a base for your own plans.</p>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Starter</h3>
+          <p class="price">$9<span>/mo</span></p>
+          <ul>
+            <li>1 project</li>
+            <li>Email support</li>
+            <li>Basic analytics</li>
+          </ul>
+          <button class="btn-primary">Choose Starter</button>
+        </div>
+        <div class="price-card price-card-featured">
+          <div class="badge">Most Popular</div>
+          <h3>Pro</h3>
+          <p class="price">$29<span>/mo</span></p>
+          <ul>
+            <li>Unlimited projects</li>
+            <li>Priority support</li>
+            <li>Team access</li>
+          </ul>
+          <button class="btn-primary">Choose Pro</button>
+        </div>
+        <div class="price-card">
+          <h3>Enterprise</h3>
+          <p class="price">Let’s talk</p>
+          <ul>
+            <li>Custom integrations</li>
+            <li>Dedicated engineer</li>
+            <li>SLAs & compliance</li>
+          </ul>
+          <button class="btn-secondary">Contact Sales</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+      <h2>Testimonials</h2>
+      <div class="testimonial-grid">
+        <article class="testimonial">
+          <p>“We shipped our internal tools in a weekend using this template.”</p>
+          <span>— Ops Lead</span>
+        </article>
+        <article class="testimonial">
+          <p>“The structure is clean and easy to extend.”</p>
+          <span>— Senior Engineer</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <h2>FAQ</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>Can I use this commercially?</h3>
+          <p>Yes. This template is designed as a real starting point for production sites.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Can I customize the layout?</h3>
+          <p>All sections are modular. You can remove, reorder, or restyle them.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
