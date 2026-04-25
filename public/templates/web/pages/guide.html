@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Guide / Knowledge Base Template – Go Time Software</title>
+  <script src="../js/guide.js" defer></script>
+</head>
+
+<body>
+  <div id="template-info">
+    <h1>Guide / Knowledge Base Template</h1>
+    <p>
+      This template shows a documentation or guide layout with a sidebar, chapters, and content
+      area. Perfect for docs, onboarding, or tutorials.
+    </p>
+  </div>
+
+  <main class="guide-layout">
+    <aside class="guide-sidebar">
+      <h3>Chapters</h3>
+      <ul id="chapter-list">
+        <li data-chapter="intro" class="active">Introduction</li>
+        <li data-chapter="setup">Setup</li>
+        <li data-chapter="usage">Usage</li>
+        <li data-chapter="advanced">Advanced</li>
+      </ul>
+    </aside>
+
+    <section class="guide-content">
+      <article id="chapter-intro" class="chapter active">
+        <h1>Introduction</h1>
+        <p>
+          This section explains what the guide is about. In a real build, this would be your
+          high‑level overview.
+        </p>
+      </article>
+
+      <article id="chapter-setup" class="chapter">
+        <h1>Setup</h1>
+        <p>
+          This section walks through initial setup steps. You can break it into numbered steps or
+          checklists.
+        </p>
+      </article>
+
+      <article id="chapter-usage" class="chapter">
+        <h1>Usage</h1>
+        <p>
+          This section explains how to use the product day‑to‑day. Screenshots and code snippets
+          would go here.
+        </p>
+      </article>
+
+      <article id="chapter-advanced" class="chapter">
+        <h1>Advanced</h1>
+        <p>
+          This section covers advanced topics, integrations, or power‑user workflows.
+        </p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
