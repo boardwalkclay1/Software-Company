@@ -1,0 +1,23 @@
+/* Floating bubble system */
+.bubble {
+  position: fixed;
+  border-radius: 50%;
+  background: radial-gradient(circle at top, #4f7cff, #001);
+  box-shadow: 0 0 20px #4f7cffaa;
+  animation: floatBubble linear infinite;
+  cursor: pointer;
+  z-index: 999;
+  transition: transform 0.2s ease;
+}
+
+.bubble:hover {
+  transform: scale(1.2);
+}
+
+@keyframes floatBubble {
+  0% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-40px) translateX(20px); }
+  50% { transform: translateY(-80px) translateX(-20px); }
+  75% { transform: translateY(-40px) translateX(20px); }
+  100% { transform: translateY(0) translateX(0); }
+}
