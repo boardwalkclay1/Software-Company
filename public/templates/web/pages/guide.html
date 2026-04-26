@@ -2,20 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Guide / Knowledge Base Template – Go Time Software</title>
+  <title>Guide / Knowledge Base – Go Time Software</title>
+
+  <!-- ONE CSS FILE -->
+  <link rel="stylesheet" href="../css/guide.css">
+
+  <!-- ONE JS FILE -->
   <script src="../js/guide.js" defer></script>
 </head>
 
 <body>
-  <div id="template-info">
-    <h1>Guide / Knowledge Base Template</h1>
-    <p>
-      This template shows a documentation or guide layout with a sidebar, chapters, and content
-      area. Perfect for docs, onboarding, or tutorials.
-    </p>
-  </div>
+
+  <header class="guide-header">
+    <div class="logo">Go Time <span>Guide</span></div>
+  </header>
 
   <main class="guide-layout">
+
+    <!-- SIDEBAR -->
     <aside class="guide-sidebar">
       <h3>Chapters</h3>
       <ul id="chapter-list">
@@ -26,38 +30,42 @@
       </ul>
     </aside>
 
+    <!-- CONTENT AREA -->
     <section class="guide-content">
+
       <article id="chapter-intro" class="chapter active">
         <h1>Introduction</h1>
         <p>
-          This section explains what the guide is about. In a real build, this would be your
-          high‑level overview.
+          This is a clean, modern guide layout.  
+          Perfect for documentation, onboarding, tutorials, or knowledge bases.
         </p>
       </article>
 
       <article id="chapter-setup" class="chapter">
         <h1>Setup</h1>
         <p>
-          This section walks through initial setup steps. You can break it into numbered steps or
-          checklists.
+          Use this section to walk users through installation, configuration, or first‑time setup.
         </p>
       </article>
 
       <article id="chapter-usage" class="chapter">
         <h1>Usage</h1>
         <p>
-          This section explains how to use the product day‑to‑day. Screenshots and code snippets
-          would go here.
+          Explain how to use your product day‑to‑day.  
+          Add screenshots, examples, or step‑by‑step instructions.
         </p>
       </article>
 
       <article id="chapter-advanced" class="chapter">
         <h1>Advanced</h1>
         <p>
-          This section covers advanced topics, integrations, or power‑user workflows.
+          Cover integrations, automation, power‑user workflows, or expert‑level features.
         </p>
       </article>
+
     </section>
+
   </main>
+
 </body>
 </html>
