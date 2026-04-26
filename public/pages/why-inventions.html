@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Why Inventions Matter – Go Time Software</title>
+
+  <link rel="icon" type="image/png" href="../assets/img/go-time-logo.png" />
+  <link rel="stylesheet" href="../css/base.css" />
+
+  <style>
+    body.theme-dark {
+      background: url("../assets/img/go-time-background.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
+    body.theme-dark::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(2px);
+      z-index: -1;
+    }
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .burger div {
+      width: 26px;
+      height: 3px;
+      background: #ff3b3b;
+      border-radius: 4px;
+    }
+    @media (max-width: 800px) {
+      .main-nav {
+        display: none;
+        flex-direction: column;
+        background: rgba(0,0,0,0.8);
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 10px;
+      }
+      .main-nav.show {
+        display: flex;
+      }
+      .burger {
+        display: flex;
+      }
+    }
+  </style>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector(".main-nav").classList.toggle("show");
+    }
+  </script>
+</head>
+
+<body class="theme-dark">
+
+<header class="site-header">
+  <div class="logo">
+    <img src="../assets/img/go-time-logo.png" class="logo-img" />
+    <span>Go Time Software</span>
+  </div>
+
+  <div class="burger" onclick="toggleMenu()">
+    <div></div><div></div><div></div>
+  </div>
+
+  <nav class="main-nav">
+    <a href="../index.html">Home</a>
+    <a href="../sites.html">Sites</a>
+    <a href="../apps.html">Apps</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="./why-apps.html">Why Apps Matter</a>
+    <a href="./why-websites.html">Why Websites Matter</a>
+    <a href="./why-automation.html">Why Automation Matters</a>
+    <a href="./why-inventions.html">Why Inventions Matter</a>
+    <a href="./invent.html">Invent Something</a>
+  </nav>
+</header>
+
+<main class="page-container">
+
+  <h1>Why Inventions Matter</h1>
+  <p>
+    Every product, every app, every tool started as a sentence in someone’s head:
+    “What if there was a way to…”
+  </p>
+
+  <h2>Inventions Solve Real Problems</h2>
+  <p>
+    The best inventions don’t start with technology — they start with frustration.
+    Something is slow, broken, annoying, or missing. That’s where invention lives.
+  </p>
+
+  <h2>Inventions Create New Income</h2>
+  <p>
+    A good invention can become a product, a subscription, a licensing deal, or a full company.
+  </p>
+
+  <h2>Inventions Need Builders</h2>
+  <p>
+    Most people have ideas. Very few have someone who can actually build them.
+    That’s where I come in.
+  </p>
+
+  <h2>How I Work With Inventions</h2>
+  <ul>
+    <li>We define the core problem and the simplest version of the solution</li>
+    <li>I design the system: app, site, hardware, or a mix</li>
+    <li>We decide: paid build, equity, or a hybrid</li>
+    <li>We ship a real working version — not just a mockup</li>
+  </ul>
+
+  <h2>Bring Me Your Wild Idea</h2>
+  <p>
+    I challenge you to bring me something you think can’t be built.
+    If it can exist, I’ll find a way to build it.
+  </p>
+
+  <a class="btn-primary" href="../contact.html">Talk About an Invention</a>
+
+</main>
+
+<footer class="site-footer">
+  <span>© Go Time Software — Inventions & Systems</span>
+</footer>
+
+</body>
+</html>
