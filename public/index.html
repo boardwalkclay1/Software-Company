@@ -7,6 +7,21 @@
   <link rel="icon" type="image/png" href="./assets/img/go-time-logo.png" />
   <link rel="stylesheet" href="./css/base.css" />
   <script src="./js/index.js" defer></script>
+
+  <style>
+    body.theme-dark {
+      background: url("./assets/img/go-time-background.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
+    body.theme-dark::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(2px);
+      z-index: -1;
+    }
+  </style>
 </head>
 
 <body class="theme-dark">
@@ -46,38 +61,28 @@
 
     <!-- WEBSITES -->
     <div class="category-column">
-      <h2>Website Templates</h2>
-      <p>Production‑ready website templates you can launch instantly.</p>
+      <h2>Real Websites</h2>
+      <p>These are real websites built by Go Time Software.</p>
 
-      <div class="preview-card" onclick="openTemplate('landing')">
-        <img src="./assets/previews/landing.png">
-        <h3>Landing Page</h3>
+      <div class="preview-card" onclick="window.location.href='./sites.html'">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" />
+        <h3>View Real Websites</h3>
       </div>
 
-      <div class="preview-card" onclick="openTemplate('portfolio')">
-        <img src="./assets/previews/portfolio.png">
-        <h3>Portfolio / Agency</h3>
-      </div>
-
-      <button class="btn-primary" onclick="goTo('sites')">View All Websites</button>
+      <button class="btn-primary" onclick="window.location.href='./sites.html'">Browse Websites</button>
     </div>
 
     <!-- APPS -->
     <div class="category-column">
-      <h2>App Templates</h2>
+      <h2>Real Apps</h2>
       <p>Installable PWAs with dashboards, automation, and real features.</p>
 
-      <div class="preview-card" onclick="goToApp('tasker')">
-        <img src="./assets/previews/app-preview.png">
-        <h3>Task Manager App</h3>
+      <div class="preview-card" onclick="window.location.href='./apps.html'">
+        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3" />
+        <h3>View Real Apps</h3>
       </div>
 
-      <div class="preview-card" onclick="goToApp('finance')">
-        <img src="./assets/previews/app-preview2.png">
-        <h3>Finance Tracker</h3>
-      </div>
-
-      <button class="btn-primary" onclick="goTo('apps')">View All Apps</button>
+      <button class="btn-primary" onclick="window.location.href='./apps.html'">Browse Apps</button>
     </div>
 
   </section>
@@ -96,14 +101,14 @@
       <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Relay_Module.jpg">
     </div>
 
-    <button class="btn-secondary" onclick="goTo('iot')">Explore IoT Systems</button>
+    <button class="btn-secondary" onclick="window.location.href='./iot.html'">Explore IoT Systems</button>
   </section>
 
   <!-- PRICING CTA -->
   <section class="pricing-cta">
     <h2>Pricing</h2>
     <p>Transparent pricing for websites, apps, dashboards, and IoT systems.</p>
-    <button class="btn-primary" onclick="goTo('pricing')">View Pricing</button>
+    <button class="btn-primary" onclick="window.location.href='./pricing.html'">View Pricing</button>
   </section>
 
 </body>
