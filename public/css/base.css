@@ -1,6 +1,6 @@
 /* ===========================
    GO TIME SOFTWARE – GLOBAL CSS
-   Black Stone + Red Lava Theme
+   Black Stone + Grey Brick Text + Red Ember Accents
    =========================== */
 
 /* RESET */
@@ -19,45 +19,46 @@ html, body {
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: #050505;
-  color: #f5f5f5;
+  color: #e5e5e5;
   line-height: 1.5;
   overflow-x: hidden;
 }
 
 /* ===========================
-   LAVA TEXT EFFECT (HEADINGS)
+   BRICK / STONE TEXT EFFECT
    =========================== */
 
 h1, h2, h3, .logo, .template-card h3, .service-card, .price-card h3 {
   font-weight: 900;
-  letter-spacing: 0.06em;
-  color: #ff3b3b;
-  background: linear-gradient(180deg, #ff4b4b, #ff0000, #550000);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  /* Grey stone brick color */
+  color: #c9c9c9;
+
+  /* Stone texture */
+  background: url("../assets/textures/stone-brick.jpg");
+  background-size: cover;
   -webkit-background-clip: text;
   color: transparent;
 
+  /* Subtle ember glow */
   text-shadow:
-    0 0 8px #ff0000,
-    0 0 14px #ff2a2a,
-    0 0 22px #ff0000aa;
+    0 0 4px #330000,
+    0 0 8px #550000;
 
-  animation: lavaGlow 3s infinite ease-in-out;
+  position: relative;
 }
 
-@keyframes lavaGlow {
-  0% { text-shadow: 0 0 8px #ff0000; }
-  50% { text-shadow: 0 0 18px #ff4b4b; }
-  100% { text-shadow: 0 0 8px #ff0000; }
-}
-
-/* CRACKED TEXTURE OVERLAY */
+/* Cracked overlay */
 h1::after, h2::after, h3::after, .logo::after {
   content: "";
   position: absolute;
   inset: 0;
   background: url("../assets/textures/cracks.png");
-  mix-blend-mode: overlay;
+  background-size: cover;
   opacity: 0.25;
+  mix-blend-mode: overlay;
   pointer-events: none;
 }
 
@@ -66,8 +67,8 @@ h1::after, h2::after, h3::after, .logo::after {
    =========================== */
 
 p, li, a, span {
-  color: #e8dada;
-  text-shadow: 0 0 4px #300000;
+  color: #d6d6d6;
+  text-shadow: 0 0 3px #1a1a1a;
 }
 
 /* ===========================
@@ -79,8 +80,8 @@ p, li, a, span {
   justify-content: space-between;
   align-items: center;
   padding: 18px 40px;
-  background: rgba(0, 0, 0, 0.7);
-  border-bottom: 1px solid #330000;
+  background: rgba(0, 0, 0, 0.75);
+  border-bottom: 1px solid #2a0000;
   backdrop-filter: blur(6px);
   position: sticky;
   top: 0;
@@ -98,7 +99,7 @@ p, li, a, span {
 .logo-img {
   height: 40px;
   width: auto;
-  filter: drop-shadow(0 0 12px #ff0000aa);
+  filter: drop-shadow(0 0 10px #550000);
 }
 
 /* ===========================
@@ -107,7 +108,7 @@ p, li, a, span {
 
 .main-nav a {
   margin-left: 22px;
-  color: #ff8080;
+  color: #bbbbbb;
   text-decoration: none;
   font-size: 15px;
   text-transform: uppercase;
@@ -116,8 +117,8 @@ p, li, a, span {
 }
 
 .main-nav a:hover {
-  color: #ff2a2a;
-  text-shadow: 0 0 12px #ff0000;
+  color: #ff3b3b;
+  text-shadow: 0 0 10px #550000;
 }
 
 /* ===========================
@@ -128,7 +129,7 @@ p, li, a, span {
 .btn-secondary {
   padding: 10px 18px;
   border-radius: 999px;
-  border: 1px solid #ff0000;
+  border: 1px solid #550000;
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -136,49 +137,50 @@ p, li, a, span {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #ff0000, #ff4b4b);
+  background: linear-gradient(135deg, #550000, #aa0000);
   color: #fff;
-  box-shadow: 0 0 18px #ff0000aa;
+  box-shadow: 0 0 12px #550000aa;
 }
 
 .btn-primary:hover {
-  box-shadow: 0 0 28px #ff0000ff;
+  box-shadow: 0 0 20px #aa0000ff;
 }
 
 .btn-secondary {
   background: transparent;
-  color: #ffb3b3;
+  color: #d0d0d0;
 }
 
 .btn-secondary:hover {
-  color: #ff4b4b;
-  text-shadow: 0 0 12px #ff0000;
+  color: #ff3b3b;
+  text-shadow: 0 0 10px #550000;
 }
 
 /* ===========================
-   TEMPLATE CARDS (NO BLOCKS)
+   TEMPLATE CARDS
    =========================== */
 
 .template-card,
 .apps-combo-card,
 .real-app-card {
-  background: transparent;
-  border: 1px solid #550000;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid #3a0000;
   border-radius: 12px;
   padding: 14px;
   cursor: pointer;
   transition: 0.2s ease;
+  backdrop-filter: blur(4px);
 }
 
 .template-card:hover,
 .apps-combo-card:hover,
 .real-app-card:hover {
-  border-color: #ff2a2a;
-  box-shadow: 0 0 18px #ff000055;
+  border-color: #ff3b3b;
+  box-shadow: 0 0 14px #550000aa;
 }
 
 /* ===========================
-   SCROLLBARS (GO TIME STYLE)
+   SCROLLBARS
    =========================== */
 
 ::-webkit-scrollbar {
@@ -192,14 +194,14 @@ p, li, a, span {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #ff0000, #ff4b4b);
+  background: linear-gradient(135deg, #550000, #aa0000);
   border-radius: 999px;
-  box-shadow: 0 0 12px #ff0000aa;
+  box-shadow: 0 0 12px #550000aa;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff2a2a;
-  box-shadow: 0 0 18px #ff0000ff;
+  background: #aa0000;
+  box-shadow: 0 0 18px #aa0000ff;
 }
 
 /* ===========================
@@ -208,17 +210,57 @@ p, li, a, span {
 
 .contact-form input,
 .contact-form textarea {
-  background: transparent;
-  border: 1px solid #550000;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid #3a0000;
   color: #fff;
   border-radius: 8px;
   padding: 10px 12px;
+  backdrop-filter: blur(4px);
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #ff2a2a;
-  box-shadow: 0 0 12px #ff000055;
+  border-color: #ff3b3b;
+  box-shadow: 0 0 12px #550000aa;
+}
+
+/* ===========================
+   MODAL (REAL APPS)
+   =========================== */
+
+.app-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.app-modal.hidden {
+  display: none;
+}
+
+.app-modal-content {
+  background: rgba(0,0,0,0.6);
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 700px;
+  width: 90%;
+  border: 1px solid #3a0000;
+  backdrop-filter: blur(6px);
+}
+
+.modal-screenshots {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.modal-shot {
+  width: 32%;
+  border-radius: 8px;
 }
 
 /* ===========================
