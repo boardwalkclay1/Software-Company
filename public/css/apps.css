@@ -1,0 +1,116 @@
+body.theme-dark {
+  background: url("/assets/img/go-time-town.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.theme-dark::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(3px);
+  z-index: -1;
+}
+
+/* PAGE HEADER */
+.page-header {
+  text-align: center;
+  margin-top: 70px;
+  margin-bottom: 40px;
+}
+
+.page-header h1 {
+  font-size: 46px;
+  margin-bottom: 10px;
+}
+
+.page-header p {
+  font-size: 20px;
+  opacity: 0.9;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* APPS GRID */
+.apps-grid {
+  max-width: 1300px;
+  margin: 50px auto 80px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.app-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.3fr);
+  gap: 24px;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid #550000;
+  border-radius: 16px;
+  box-shadow: 0 0 18px #55000055;
+  backdrop-filter: blur(2px);
+  padding: 20px;
+}
+
+@media (max-width: 900px) {
+  .app-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* IFRAME WRAP */
+.app-frame-wrap {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 14px #000000aa;
+}
+
+.app-frame-wrap iframe {
+  width: 100%;
+  height: 420px;
+  border: none;
+}
+
+/* CONTENT */
+.app-content h2 {
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+
+.app-tagline {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-bottom: 14px;
+}
+
+.app-content p {
+  font-size: 15px;
+  line-height: 1.7;
+  opacity: 0.95;
+  margin-bottom: 10px;
+}
+
+/* INSTALL BLOCK */
+.install-block {
+  margin-top: 18px;
+  padding: 14px 14px 10px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.45);
+  border: 1px solid #550000;
+}
+
+.install-block h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.install-block ul {
+  margin-left: 18px;
+}
+
+.install-block li {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
