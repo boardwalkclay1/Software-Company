@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="./css/base.css" />
 
   <style>
+    /* BACKGROUND */
     body.theme-dark {
       background: url("./assets/img/go-time-back-logo.jpg") no-repeat center center fixed;
       background-size: cover;
@@ -23,9 +24,92 @@
       content: "";
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(2px);
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(3px);
       z-index: -1;
+    }
+
+    /* PAGE SPACING */
+    .contact-page {
+      max-width: 900px;
+      margin: 80px auto;
+      padding: 20px;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .contact-sub {
+      font-size: 20px;
+      margin-bottom: 40px;
+      opacity: 0.9;
+    }
+
+    /* CINEMATIC GLASS BLOCKS */
+    .glass-block {
+      background: rgba(0,0,0,0.35);
+      border: 1px solid #550000;
+      padding: 30px;
+      border-radius: 14px;
+      margin: 40px 0;
+      box-shadow: 0 0 18px #55000055;
+    }
+
+    /* FORM */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 40px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background: rgba(0,0,0,0.35);
+      border: 1px solid #550000;
+      color: #fff;
+      padding: 14px 16px;
+      border-radius: 10px;
+      font-size: 16px;
+      box-shadow: 0 0 10px #33000055 inset;
+      transition: 0.2s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #ff3b3b;
+      box-shadow: 0 0 14px #aa0000aa;
+      outline: none;
+    }
+
+    .contact-form textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    /* CONTACT INFO */
+    .contact-info ul {
+      margin-left: 20px;
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    /* CTA BUTTONS */
+    .contact-cta {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .contact-cta p {
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .contact-cta a {
+      margin: 10px;
     }
   </style>
 </head>
@@ -59,33 +143,35 @@
     </p>
 
     <!-- CONTACT FORM -->
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <input type="text" placeholder="Business Name (optional)" />
-      <textarea placeholder="Tell us about your project…" required></textarea>
-      <button class="btn-primary">Send Message</button>
-    </form>
+    <div class="glass-block">
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <input type="text" placeholder="Business Name (optional)" />
+        <textarea placeholder="Tell us about your project…" required></textarea>
+        <button class="btn-primary">Send Message</button>
+      </form>
+    </div>
 
     <!-- CONTACT INFO -->
-    <section class="contact-info">
+    <div class="glass-block">
       <h2>Business Contact Info</h2>
       <ul>
         <li>Email: <strong>boardwalkclay1@gmail.com</strong></li>
         <li>Location: Rochester Hills, MI</li>
       </ul>
-    </section>
+    </div>
 
     <!-- CTA -->
-    <section class="contact-cta">
+    <div class="glass-block contact-cta">
       <h2>Ready to Start?</h2>
       <p>
         Whether you need a website, app, dashboard, or microcontroller system —  
         Go Time Software builds it fast, clean, and scalable.
       </p>
       <a class="btn-secondary" href="./apps.html">View Apps</a>
-      <a class="btn-secondary" href="./sites.html" style="margin-left: 10px;">View Websites</a>
-    </section>
+      <a class="btn-secondary" href="./sites.html">View Websites</a>
+    </div>
 
   </main>
 
