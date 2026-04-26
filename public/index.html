@@ -4,140 +4,139 @@
   <meta charset="UTF-8" />
   <title>Go Time Software</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./assets/img/go-time-logo.png" />
-  <link rel="shortcut icon" href="./favicon.ico" />
-
-  <!-- Social Preview -->
-  <meta property="og:title" content="Go Time Software" />
-  <meta property="og:description" content="Websites, Apps, Dashboards, IoT Systems — Built Fast. Built Right." />
-  <meta property="og:image" content="./assets/img/social-preview.jpg" />
-  <meta property="og:type" content="website" />
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="./css/base.css" />
-
-  <!-- JS -->
-  <script src="/js/master.js" defer></script>
-
-  <!-- BACKGROUND -->
-  <style>
-    body.theme-dark {
-      background: url("./assets/img/go-time-new-york.jpg") no-repeat center center fixed;
-      background-size: cover;
-    }
-    body.theme-dark::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.55);
-      backdrop-filter: blur(2px);
-      z-index: -1;
-    }
-  </style>
+  <!-- JS loads all CSS dynamically -->
+  <script src="./js/index.js" defer></script>
 </head>
 
-<body class="theme-dark">
+<body>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="logo">
-      <img src="./assets/img/go-time-logo.png" class="logo-img" />
-      <span>Go Time Software</span>
-    </div>
+  <!-- Cinematic Intro -->
+  <div id="intro-screen">
+    <img id="intro-image" src="./assets/company-logo.png" alt="Go Time Software Logo">
+    <div id="intro-lightning"></div>
+    <div id="intro-cracks"></div>
+  </div>
 
-    <nav class="main-nav">
-      <a href="./index.html">Home</a>
-      <a href="./sites.html">Sites</a>
-      <a href="./apps.html">Apps</a>
-      <a href="./about.html">About</a>
-      <a href="./contact.html">Contact</a>
+  <!-- Main Site -->
+  <header class="header">
+    <div class="logo">Go Time <span>Software</span></div>
+    <nav class="nav">
+      <a href="#templates">Templates</a>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#order">Order</a>
     </nav>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Websites. Apps. Dashboards. IoT.</h1>
-    <p>We build fast, modular, scalable systems for real businesses.</p>
+  <main>
 
-    <div class="hero-actions">
-      <a class="btn-primary" href="./sites.html">Browse Website Templates</a>
-      <a class="btn-secondary" href="./apps.html">Browse App Templates</a>
-    </div>
-  </section>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <h1 class="hero-title">Websites. Apps. Dashboards. IoT.  
+          <span class="highlight">Built Fast. Built Right.</span>
+        </h1>
+        <p class="hero-sub">Explore real templates. Click them. Use them.  
+          Every template is interactive and production‑ready.</p>
 
-  <!-- WHAT WE DO -->
-  <section class="page-container">
-    <h2>What We Build</h2>
-    <p>
-      Go Time Software is a full-stack development company specializing in modular, reusable systems.
-      Every template, every app, every dashboard is built to be swapped, upgraded, and extended.
-    </p>
+        <button class="btn-primary" onclick="scrollToTemplates()">Browse Templates</button>
+        <button class="btn-secondary" onclick="scrollToOrder()">Order a Build</button>
+      </div>
 
-    <div class="feature-row">
-      <div class="feature-card">Website Templates</div>
-      <div class="feature-card">App Templates</div>
-      <div class="feature-card">Dashboard Systems</div>
-      <div class="feature-card">Microcontrollers & IoT</div>
-    </div>
-  </section>
+      <div class="hero-right">
+        <div class="hero-preview">
+          <h3>Live Dashboard Preview</h3>
+          <div class="kpi-row">
+            <div class="kpi">Users: <strong>1,284</strong></div>
+            <div class="kpi">MRR: <strong>$42,910</strong></div>
+            <div class="kpi">Growth: <strong>7.4%</strong></div>
+          </div>
+          <div class="chart-area">[Chart Placeholder]</div>
+        </div>
+      </div>
+    </section>
 
-  <!-- WEBSITE TEMPLATES PREVIEW -->
-  <section class="page-container">
-    <h2>Website Templates</h2>
-    <p>Scroll through and click any template to open the full interactive demo.</p>
+    <!-- TEMPLATE SCROLLER -->
+    <section id="templates" class="template-section">
+      <h2>Website & App Templates</h2>
+      <p class="section-sub">Scroll right → left. Click any template to open the full interactive demo.</p>
 
-    <div id="site-templates-row" class="template-row"></div>
-  </section>
+      <div class="template-scroller" id="templateScroller">
+        <div class="template-card" onclick="openTemplate('landing')">
+          <img src="./assets/previews/landing.png">
+          <h3>Landing Page</h3>
+        </div>
 
-  <!-- APP TEMPLATES PREVIEW -->
-  <section class="page-container">
-    <h2>App Templates</h2>
-    <p>These are powered by our modular App Engine. Click any combination to open the demo.</p>
+        <div class="template-card" onclick="openTemplate('marketplace')">
+          <img src="./assets/previews/marketplace.png">
+          <h3>Marketplace</h3>
+        </div>
 
-    <div id="apps-combos-row" class="apps-combos-row"></div>
-  </section>
+        <div class="template-card" onclick="openTemplate('gaming')">
+          <img src="./assets/previews/gaming.png">
+          <h3>Gaming Hub</h3>
+        </div>
 
-  <!-- REAL APPS -->
-  <section class="page-container">
-    <h2>Real Apps We Built</h2>
-    <div class="real-apps-grid">
-      <a class="real-app-card" href="#">Real App #1</a>
-      <a class="real-app-card" href="#">Real App #2</a>
-      <a class="real-app-card" href="#">Real App #3</a>
-    </div>
-  </section>
+        <div class="template-card" onclick="openTemplate('rideshare')">
+          <img src="./assets/previews/rideshare.png">
+          <h3>Rideshare</h3>
+        </div>
 
-  <!-- PRICING -->
-  <section class="page-container">
-    <h2>Pricing</h2>
-    <ul class="pricing-list">
-      <li>Simple Website — <strong>$200</strong></li>
-      <li>Advanced Website — <strong>$500</strong></li>
-      <li>Simple App — <strong>$300</strong></li>
-      <li>Advanced App — <strong>$600</strong></li>
-      <li>Full Custom App — <strong>$1,000+</strong></li>
-    </ul>
-  </section>
+        <div class="template-card" onclick="openTemplate('guide')">
+          <img src="./assets/previews/guide.png">
+          <h3>Guide / Knowledge Base</h3>
+        </div>
 
-  <!-- HOW TO GET STARTED -->
-  <section class="page-container">
-    <h2>How to Get Started</h2>
-    <ul>
-      <li>Choose a website or app template</li>
-      <li>Upload your logo</li>
-      <li>Tell us your business name</li>
-      <li>Describe the features you need</li>
-      <li>Submit your contact info</li>
-    </ul>
+        <div class="template-card" onclick="openTemplate('portfolio')">
+          <img src="./assets/previews/portfolio.png">
+          <h3>Portfolio / Agency</h3>
+        </div>
+      </div>
+    </section>
 
-    <a class="btn-primary" href="./contact.html">Start Your Project</a>
-  </section>
+    <!-- SERVICES -->
+    <section id="services" class="services">
+      <h2>What We Build</h2>
+      <div class="service-grid">
+        <div class="service-card">Websites</div>
+        <div class="service-card">Mobile Apps</div>
+        <div class="service-card">Dashboards</div>
+        <div class="service-card">IoT Systems</div>
+      </div>
+    </section>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <span>© Go Time Software — Dashboards, Apps, IoT Systems</span>
-  </footer>
+    <!-- PRICING -->
+    <section id="pricing" class="pricing">
+      <h2>Pricing</h2>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Simple Website</h3>
+          <p class="price">$200</p>
+          <p>1–3 pages, clean layout, fast delivery.</p>
+        </div>
+
+        <div class="price-card price-featured">
+          <h3>Advanced Website</h3>
+          <p class="price">$500</p>
+          <p>Animations, dashboards, forms, integrations.</p>
+        </div>
+
+        <div class="price-card">
+          <h3>Custom App</h3>
+          <p class="price">$800+</p>
+          <p>Full apps, dashboards, automation, IoT.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORDER CTA -->
+    <section id="order" class="order">
+      <h2>Order a Website or App</h2>
+      <p>Fill out the form and upload your logo. Pricing updates automatically.</p>
+      <button class="btn-primary" onclick="window.location.href='./order.html'">Start Order</button>
+    </section>
+
+  </main>
 
 </body>
 </html>
