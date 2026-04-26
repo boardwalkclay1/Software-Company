@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #fff;
+}
+
+.header {
+  padding: 20px;
+  background: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #ff4444;
+}
+
+.nav a {
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.hero {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.games-section {
+  padding: 20px;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.game-card {
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.btn-play {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #ff4444;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.game-area {
+  margin-top: 30px;
+  background: #000;
+  padding: 20px;
+  border-radius: 10px;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
