@@ -4,11 +4,18 @@
   <meta charset="UTF-8" />
   <title>Go Time Software</title>
 
-  <!-- JS loads all CSS dynamically -->
+  <!-- Favicon (optional, keep if you want) -->
+  <link rel="icon" type="image/png" href="./assets/img/go-time-logo.png" />
+  <link rel="shortcut icon" href="./favicon.ico" />
+
+  <!-- Base Styles -->
+  <link rel="stylesheet" href="./css/base.css" />
+
+  <!-- JS loads any extra logic / dynamic CSS if you want -->
   <script src="./js/index.js" defer></script>
 </head>
 
-<body>
+<body class="theme-dark">
 
   <!-- Cinematic Intro -->
   <div id="intro-screen">
@@ -33,11 +40,14 @@
     <!-- HERO -->
     <section class="hero">
       <div class="hero-left">
-        <h1 class="hero-title">Websites. Apps. Dashboards. IoT.  
+        <h1 class="hero-title">
+          Websites. Apps. Dashboards. IoT.
           <span class="highlight">Built Fast. Built Right.</span>
         </h1>
-        <p class="hero-sub">Explore real templates. Click them. Use them.  
-          Every template is interactive and production‑ready.</p>
+        <p class="hero-sub">
+          Explore real templates. Click them. Use them.
+          Every template is interactive and production‑ready.
+        </p>
 
         <button class="btn-primary" onclick="scrollToTemplates()">Browse Templates</button>
         <button class="btn-secondary" onclick="scrollToOrder()">Order a Build</button>
@@ -63,32 +73,32 @@
 
       <div class="template-scroller" id="templateScroller">
         <div class="template-card" onclick="openTemplate('landing')">
-          <img src="./assets/previews/landing.png">
+          <img src="./assets/previews/landing.png" alt="Landing Page Template">
           <h3>Landing Page</h3>
         </div>
 
         <div class="template-card" onclick="openTemplate('marketplace')">
-          <img src="./assets/previews/marketplace.png">
+          <img src="./assets/previews/marketplace.png" alt="Marketplace Template">
           <h3>Marketplace</h3>
         </div>
 
         <div class="template-card" onclick="openTemplate('gaming')">
-          <img src="./assets/previews/gaming.png">
+          <img src="./assets/previews/gaming.png" alt="Gaming Hub Template">
           <h3>Gaming Hub</h3>
         </div>
 
         <div class="template-card" onclick="openTemplate('rideshare')">
-          <img src="./assets/previews/rideshare.png">
+          <img src="./assets/previews/rideshare.png" alt="Rideshare Template">
           <h3>Rideshare</h3>
         </div>
 
         <div class="template-card" onclick="openTemplate('guide')">
-          <img src="./assets/previews/guide.png">
+          <img src="./assets/previews/guide.png" alt="Guide Template">
           <h3>Guide / Knowledge Base</h3>
         </div>
 
         <div class="template-card" onclick="openTemplate('portfolio')">
-          <img src="./assets/previews/portfolio.png">
+          <img src="./assets/previews/portfolio.png" alt="Portfolio Template">
           <h3>Portfolio / Agency</h3>
         </div>
       </div>
