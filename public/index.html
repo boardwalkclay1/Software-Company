@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <title>Go Time Software</title>
 
-  <!-- Favicon (optional, keep if you want) -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="./assets/img/go-time-logo.png" />
   <link rel="shortcut icon" href="./favicon.ico" />
 
-  <!-- Base Styles -->
+  <!-- Base Styles Only -->
   <link rel="stylesheet" href="./css/base.css" />
 
-  <!-- JS loads any extra logic / dynamic CSS if you want -->
+  <!-- JS -->
   <script src="./js/index.js" defer></script>
 </head>
 
@@ -19,134 +19,136 @@
 
   <!-- Cinematic Intro -->
   <div id="intro-screen">
-    <img id="intro-image" src="./assets/company-logo.png" alt="Go Time Software Logo">
+    <img id="intro-image" src="./assets/img/go-time-logo.png" alt="Go Time Software Logo">
     <div id="intro-lightning"></div>
     <div id="intro-cracks"></div>
   </div>
 
-  <!-- Main Site -->
-  <header class="header">
-    <div class="logo">Go Time <span>Software</span></div>
-    <nav class="nav">
-      <a href="#templates">Templates</a>
-      <a href="#services">Services</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#order">Order</a>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="logo">
+      <img src="./assets/img/go-time-logo.png" class="logo-img" />
+      <span>Go Time Software</span>
+    </div>
+
+    <nav class="main-nav">
+      <a href="./index.html">Home</a>
+      <a href="./sites.html">Sites</a>
+      <a href="./apps.html">Apps</a>
+      <a href="./about.html">About</a>
+      <a href="./contact.html">Contact</a>
     </nav>
   </header>
 
-  <main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <h1 class="hero-title">
+        Websites. Apps. Dashboards. IoT.
+        <span class="highlight">Built Fast. Built Right.</span>
+      </h1>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-left">
-        <h1 class="hero-title">
-          Websites. Apps. Dashboards. IoT.
-          <span class="highlight">Built Fast. Built Right.</span>
-        </h1>
-        <p class="hero-sub">
-          Explore real templates. Click them. Use them.
-          Every template is interactive and production‑ready.
-        </p>
+      <p class="hero-sub">
+        Explore real templates. Click them. Use them.
+        Every template is interactive and production‑ready.
+      </p>
 
-        <button class="btn-primary" onclick="scrollToTemplates()">Browse Templates</button>
-        <button class="btn-secondary" onclick="scrollToOrder()">Order a Build</button>
+      <button class="btn-primary" onclick="scrollToTemplates()">Browse Templates</button>
+      <button class="btn-secondary" onclick="scrollToOrder()">Order a Build</button>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-preview">
+        <h3>Live Dashboard Preview</h3>
+        <div class="kpi-row">
+          <div class="kpi">Users: <strong>1,284</strong></div>
+          <div class="kpi">MRR: <strong>$42,910</strong></div>
+          <div class="kpi">Growth: <strong>7.4%</strong></div>
+        </div>
+        <div class="chart-area">[Chart Placeholder]</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEMPLATE SCROLLER -->
+  <section id="templates" class="template-section">
+    <h2>Website & App Templates</h2>
+    <p class="section-sub">Scroll right → left. Click any template to open the full interactive demo.</p>
+
+    <div class="template-scroller" id="templateScroller">
+      <div class="template-card" onclick="openTemplate('landing')">
+        <img src="./assets/previews/landing.png" alt="Landing Page Template">
+        <h3>Landing Page</h3>
       </div>
 
-      <div class="hero-right">
-        <div class="hero-preview">
-          <h3>Live Dashboard Preview</h3>
-          <div class="kpi-row">
-            <div class="kpi">Users: <strong>1,284</strong></div>
-            <div class="kpi">MRR: <strong>$42,910</strong></div>
-            <div class="kpi">Growth: <strong>7.4%</strong></div>
-          </div>
-          <div class="chart-area">[Chart Placeholder]</div>
-        </div>
+      <div class="template-card" onclick="openTemplate('marketplace')">
+        <img src="./assets/previews/marketplace.png" alt="Marketplace Template">
+        <h3>Marketplace</h3>
       </div>
-    </section>
 
-    <!-- TEMPLATE SCROLLER -->
-    <section id="templates" class="template-section">
-      <h2>Website & App Templates</h2>
-      <p class="section-sub">Scroll right → left. Click any template to open the full interactive demo.</p>
-
-      <div class="template-scroller" id="templateScroller">
-        <div class="template-card" onclick="openTemplate('landing')">
-          <img src="./assets/previews/landing.png" alt="Landing Page Template">
-          <h3>Landing Page</h3>
-        </div>
-
-        <div class="template-card" onclick="openTemplate('marketplace')">
-          <img src="./assets/previews/marketplace.png" alt="Marketplace Template">
-          <h3>Marketplace</h3>
-        </div>
-
-        <div class="template-card" onclick="openTemplate('gaming')">
-          <img src="./assets/previews/gaming.png" alt="Gaming Hub Template">
-          <h3>Gaming Hub</h3>
-        </div>
-
-        <div class="template-card" onclick="openTemplate('rideshare')">
-          <img src="./assets/previews/rideshare.png" alt="Rideshare Template">
-          <h3>Rideshare</h3>
-        </div>
-
-        <div class="template-card" onclick="openTemplate('guide')">
-          <img src="./assets/previews/guide.png" alt="Guide Template">
-          <h3>Guide / Knowledge Base</h3>
-        </div>
-
-        <div class="template-card" onclick="openTemplate('portfolio')">
-          <img src="./assets/previews/portfolio.png" alt="Portfolio Template">
-          <h3>Portfolio / Agency</h3>
-        </div>
+      <div class="template-card" onclick="openTemplate('gaming')">
+        <img src="./assets/previews/gaming.png" alt="Gaming Hub Template">
+        <h3>Gaming Hub</h3>
       </div>
-    </section>
 
-    <!-- SERVICES -->
-    <section id="services" class="services">
-      <h2>What We Build</h2>
-      <div class="service-grid">
-        <div class="service-card">Websites</div>
-        <div class="service-card">Mobile Apps</div>
-        <div class="service-card">Dashboards</div>
-        <div class="service-card">IoT Systems</div>
+      <div class="template-card" onclick="openTemplate('rideshare')">
+        <img src="./assets/previews/rideshare.png" alt="Rideshare Template">
+        <h3>Rideshare</h3>
       </div>
-    </section>
 
-    <!-- PRICING -->
-    <section id="pricing" class="pricing">
-      <h2>Pricing</h2>
-      <div class="pricing-grid">
-        <div class="price-card">
-          <h3>Simple Website</h3>
-          <p class="price">$200</p>
-          <p>1–3 pages, clean layout, fast delivery.</p>
-        </div>
-
-        <div class="price-card price-featured">
-          <h3>Advanced Website</h3>
-          <p class="price">$500</p>
-          <p>Animations, dashboards, forms, integrations.</p>
-        </div>
-
-        <div class="price-card">
-          <h3>Custom App</h3>
-          <p class="price">$800+</p>
-          <p>Full apps, dashboards, automation, IoT.</p>
-        </div>
+      <div class="template-card" onclick="openTemplate('guide')">
+        <img src="./assets/previews/guide.png" alt="Guide Template">
+        <h3>Guide / Knowledge Base</h3>
       </div>
-    </section>
 
-    <!-- ORDER CTA -->
-    <section id="order" class="order">
-      <h2>Order a Website or App</h2>
-      <p>Fill out the form and upload your logo. Pricing updates automatically.</p>
-      <button class="btn-primary" onclick="window.location.href='./order.html'">Start Order</button>
-    </section>
+      <div class="template-card" onclick="openTemplate('portfolio')">
+        <img src="./assets/previews/portfolio.png" alt="Portfolio Template">
+        <h3>Portfolio / Agency</h3>
+      </div>
+    </div>
+  </section>
 
-  </main>
+  <!-- SERVICES -->
+  <section id="services" class="services">
+    <h2>What We Build</h2>
+    <div class="service-grid">
+      <div class="service-card">Websites</div>
+      <div class="service-card">Mobile Apps</div>
+      <div class="service-card">Dashboards</div>
+      <div class="service-card">IoT Systems</div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="pricing">
+    <h2>Pricing</h2>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Simple Website</h3>
+        <p class="price">$200</p>
+        <p>1–3 pages, clean layout, fast delivery.</p>
+      </div>
+
+      <div class="price-card price-featured">
+        <h3>Advanced Website</h3>
+        <p class="price">$500</p>
+        <p>Animations, dashboards, forms, integrations.</p>
+      </div>
+
+      <div class="price-card">
+        <h3>Custom App</h3>
+        <p class="price">$800+</p>
+        <p>Full apps, dashboards, automation, IoT.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER CTA -->
+  <section id="order" class="order">
+    <h2>Order a Website or App</h2>
+    <p>Fill out the form and upload your logo. Pricing updates automatically.</p>
+    <button class="btn-primary" onclick="window.location.href='./contact.html'">Start Order</button>
+  </section>
 
 </body>
 </html>
