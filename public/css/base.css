@@ -1,6 +1,7 @@
 /* ===========================
    GO TIME SOFTWARE – GLOBAL CSS
    Black Stone + Grey Brick Text + Red Ember Accents
+   CLEAN VERSION — NO BLOCKS, NO PAGE GROWTH
    =========================== */
 
 /* RESET */
@@ -18,10 +19,11 @@ html, body {
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #050505;
+  background: #050505; /* Each page overrides this */
   color: #e5e5e5;
   line-height: 1.5;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* ===========================
@@ -34,19 +36,15 @@ h1, h2, h3, .logo, .template-card h3, .service-card, .price-card h3 {
   text-transform: uppercase;
 
   /* Grey stone brick color */
-  color: #c9c9c9;
-
-  /* Stone texture */
   background: url("../assets/textures/stone-brick.jpg");
   background-size: cover;
   -webkit-background-clip: text;
   color: transparent;
 
-  /* Subtle ember glow */
+  /* Ember glow */
   text-shadow:
     0 0 4px #330000,
     0 0 8px #550000;
-
   position: relative;
 }
 
@@ -80,9 +78,8 @@ p, li, a, span {
   justify-content: space-between;
   align-items: center;
   padding: 18px 40px;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.6);
   border-bottom: 1px solid #2a0000;
-  backdrop-filter: blur(6px);
   position: sticky;
   top: 0;
   z-index: 50;
@@ -157,19 +154,18 @@ p, li, a, span {
 }
 
 /* ===========================
-   TEMPLATE CARDS
+   TEMPLATE CARDS — NO BLOCKS
    =========================== */
 
 .template-card,
 .apps-combo-card,
 .real-app-card {
-  background: rgba(0, 0, 0, 0.4);
+  background: transparent;
   border: 1px solid #3a0000;
   border-radius: 12px;
   padding: 14px;
   cursor: pointer;
   transition: 0.2s ease;
-  backdrop-filter: blur(4px);
 }
 
 .template-card:hover,
@@ -180,7 +176,7 @@ p, li, a, span {
 }
 
 /* ===========================
-   SCROLLBARS
+   SCROLLBARS — GO TIME STYLE
    =========================== */
 
 ::-webkit-scrollbar {
@@ -205,17 +201,16 @@ p, li, a, span {
 }
 
 /* ===========================
-   FORMS
+   FORMS — NO BLOCKS
    =========================== */
 
 .contact-form input,
 .contact-form textarea {
-  background: rgba(0, 0, 0, 0.4);
+  background: transparent;
   border: 1px solid #3a0000;
   color: #fff;
   border-radius: 8px;
   padding: 10px 12px;
-  backdrop-filter: blur(4px);
 }
 
 .contact-form input:focus,
@@ -225,13 +220,13 @@ p, li, a, span {
 }
 
 /* ===========================
-   MODAL (REAL APPS)
+   MODAL — NO BACKGROUND BLOCKS
    =========================== */
 
 .app-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.75);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -243,13 +238,12 @@ p, li, a, span {
 }
 
 .app-modal-content {
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.4);
   padding: 20px;
   border-radius: 12px;
   max-width: 700px;
   width: 90%;
   border: 1px solid #3a0000;
-  backdrop-filter: blur(6px);
 }
 
 .modal-screenshots {
