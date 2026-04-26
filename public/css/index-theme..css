@@ -1,0 +1,55 @@
+body {
+  background: #000;
+  color: #fff;
+}
+
+.logo span {
+  color: #4f7cff;
+}
+
+.btn-primary {
+  background: #4f7cff;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background: #222;
+  color: #4f7cff;
+  border: 1px solid #4f7cff;
+  padding: 12px 20px;
+  cursor: pointer;
+}
+
+.hero-preview {
+  background: #111;
+  border: 1px solid #4f7cff;
+}
+
+.chart-area {
+  background: #222;
+}
+
+.template-card {
+  background: #111;
+  border: 1px solid #4f7cff;
+}
+
+.service-card {
+  background: #111;
+  border: 1px solid #4f7cff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.price-card {
+  background: #111;
+  border: 1px solid #4f7cff;
+}
+
+.price-featured {
+  border-color: #0aff0a;
+}
