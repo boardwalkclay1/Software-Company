@@ -2,33 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Real Apps – Go Time Software</title>
+  <title>Apps – Go Time Software</title>
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="/assets/img/go-time-logo.png" />
-  <link rel="shortcut icon" href="/favicon.ico" />
-
-  <!-- ONE CSS ONLY -->
   <link rel="stylesheet" href="/css/base.css" />
-
-  <!-- Background -->
-  <style>
-    body.theme-dark {
-      background: url("/assets/img/go-time-background.jpg") no-repeat center center fixed;
-      background-size: cover;
-    }
-    body.theme-dark::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(2px);
-      z-index: -1;
-    }
-  </style>
-
-  <!-- REAL APPS JS -->
-  <script src="/apps/js/real-apps.js" defer></script>
+  <link rel="stylesheet" href="/css/apps.css" />
 </head>
 
 <body class="theme-dark">
@@ -43,42 +21,215 @@
     <nav class="main-nav">
       <a href="/index.html">Home</a>
       <a href="/pages/sites.html">Sites</a>
-      <a href="/pages/apps.html">Apps</a>
-      <a href="/pages/about.html">About</a>
+      <a href="/pages/apps.html" class="active">Apps</a>
+      <a href="/pages/iot.html">IoT</a>
+      <a href="/pages/pricing.html">Pricing</a>
       <a href="/pages/contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- MAIN -->
-  <main class="page-container">
-
+  <!-- PAGE HEADER -->
+  <section class="page-header">
     <h1>Real Apps</h1>
     <p>
-      These are real Progressive Web Apps (PWAs) built by Go Time Software.  
-      You can install them directly to your home screen.
+      These are <strong>real, production apps</strong> you can use right now.  
+      Each one runs in the browser and can be installed to your home screen like a native app.
     </p>
+  </section>
 
-    <!-- REAL APPS GRID -->
-    <div id="realAppsGrid" class="real-apps-grid"></div>
+  <!-- APPS GRID -->
+  <section class="apps-grid">
 
-  </main>
+    <!-- THE GUILD -->
+    <article class="app-card">
+      <div class="app-frame-wrap">
+        <iframe src="https://the-guild-855.pages.dev/"></iframe>
+      </div>
+      <div class="app-content">
+        <h2>The Guild</h2>
+        <p class="app-tagline">
+          A cinematic family-based knowledge system with trading information right on the home screen.
+        </p>
+        <p>
+          The Guild is built around the idea of a <strong>family-led knowledge house</strong>, where the Head of the Guild
+          teaches the laws, rituals, and wisdom of the Dragon Arena. When you open the app, you land directly on
+          <strong>live trading information and guidance</strong> — not buried in menus, but right on the home screen.
+        </p>
+        <p>
+          It’s designed for people who want a <strong>structured, story-driven way</strong> to learn about markets, discipline,
+          and long-term thinking, wrapped in a cinematic guild experience.
+        </p>
 
-  <!-- MODAL VIEWER -->
-  <div id="appModal" class="app-modal hidden">
-    <div class="app-modal-content">
-      <span class="app-modal-close" onclick="closeAppModal()">×</span>
+        <div class="install-block">
+          <h3>How to Add The Guild to Your Home Screen</h3>
+          <ul>
+            <li>Open: <strong>the-guild-855.pages.dev</strong> in your mobile browser.</li>
+            <li>Tap the <strong>Share</strong> icon (iOS Safari) or the <strong>⋮ menu</strong> (Android Chrome).</li>
+            <li>Choose <strong>“Add to Home Screen”</strong>.</li>
+            <li>The Guild installs as a full-screen app with trading info on the home screen.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
 
-      <h2 id="modalTitle"></h2>
-      <p id="modalDescription"></p>
+    <!-- KEEP A MAN COOKBOOK -->
+    <article class="app-card">
+      <div class="app-frame-wrap">
+        <iframe src="https://keep-a-man-cookbook.pages.dev/"></iframe>
+      </div>
+      <div class="app-content">
+        <h2>Keep A Man Cookbook</h2>
+        <p class="app-tagline">
+          A quick, no-excuse guide for making simple, satisfying meals that change how you date forever.
+        </p>
+        <p>
+          Keep A Man Cookbook is for anyone who wants a <strong>fast, simple way</strong> to make real food without overthinking it.
+          It’s written from the perspective of a man explaining to women that <strong>satisfying your man’s hunger is easy,
+          important, and powerful</strong>.
+        </p>
+        <p>
+          The app gives you <strong>quick and easy meals</strong>, straight to the point — no fluff, no endless scrolling.
+          It’s built for real life: busy schedules, real relationships, and the idea that a good meal can
+          <strong>change the entire energy of your dating life</strong>.
+        </p>
 
-      <h3>Install as an App (PWA)</h3>
-      <p id="modalPwa"></p>
+        <div class="install-block">
+          <h3>How to Add Keep A Man Cookbook to Your Home Screen</h3>
+          <ul>
+            <li>Open: <strong>keep-a-man-cookbook.pages.dev</strong> in your mobile browser.</li>
+            <li>Tap the <strong>Share</strong> icon or <strong>⋮ menu</strong>.</li>
+            <li>Select <strong>“Add to Home Screen”</strong>.</li>
+            <li>It installs like a real cooking app you can open anytime.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
 
-      <div id="modalScreenshots" class="modal-screenshots"></div>
+    <!-- SPICE DX5 -->
+    <article class="app-card">
+      <div class="app-frame-wrap">
+        <iframe src="https://spice-dx5.pages.dev/"></iframe>
+      </div>
+      <div class="app-content">
+        <h2>Spice DX5</h2>
+        <p class="app-tagline">
+          A free spice and sauce creation guide that teaches you how to build flavor from scratch.
+        </p>
+        <p>
+          Spice DX5 is a <strong>completely free app</strong> that walks you through making spices, rubs, marinades,
+          and sauces from scratch. No paywall, no subscription — just real guidance on how to build flavor.
+        </p>
+        <p>
+          It’s built for people who want to <strong>upgrade their cooking</strong> without memorizing recipes:
+          you learn how to think about flavor, balance, and combinations, so you can create your own blends
+          and never be stuck with bland food again.
+        </p>
 
-      <a id="modalLaunchBtn" class="btn-primary" target="_blank">Open Full App</a>
-    </div>
-  </div>
+        <div class="install-block">
+          <h3>How to Add Spice DX5 to Your Home Screen</h3>
+          <ul>
+            <li>Open: <strong>spice-dx5.pages.dev</strong> in your mobile browser.</li>
+            <li>Tap the <strong>Share</strong> icon or <strong>⋮ menu</strong>.</li>
+            <li>Choose <strong>“Add to Home Screen”</strong>.</li>
+            <li>Spice DX5 installs as a free, always-available flavor guide.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- ITA -->
+    <article class="app-card">
+      <div class="app-frame-wrap">
+        <iframe src="https://ita-3wf.pages.dev/"></iframe>
+      </div>
+      <div class="app-content">
+        <h2>ITA</h2>
+        <p class="app-tagline">
+          A clean personal assistant app for notes, tasks, reminders, and a focused dashboard.
+        </p>
+        <p>
+          ITA is a <strong>personal assistant in your pocket</strong> — notes, tasks, reminders, and a clean dashboard
+          that keeps everything in one place. It’s built for people who want structure without bloat.
+        </p>
+        <p>
+          The layout is simple, fast, and distraction-free, so you can actually use it every day instead of
+          abandoning it after a week.
+        </p>
+
+        <div class="install-block">
+          <h3>How to Add ITA to Your Home Screen</h3>
+          <ul>
+            <li>Open: <strong>ita-3wf.pages.dev</strong> in your mobile browser.</li>
+            <li>Tap the <strong>Share</strong> icon or <strong>⋮ menu</strong>.</li>
+            <li>Select <strong>“Add to Home Screen”</strong>.</li>
+            <li>ITA installs as a fast, offline-ready personal assistant.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- ROLL SHOW -->
+    <article class="app-card">
+      <div class="app-frame-wrap">
+        <iframe src="https://roll-show.pages.dev/"></iframe>
+      </div>
+      <div class="app-content">
+        <h2>Roll Show</h2>
+        <p class="app-tagline">
+          A platform for skaters to host shows, sell tickets, and build their skating brand.
+        </p>
+        <p>
+          Roll Show is built as a <strong>skating performance platform</strong> — not just a dice toy.
+          Skaters can host shows, promote events, sell tickets, and build a real brand around their movement.
+        </p>
+        <p>
+          The layout is tuned for <strong>mobile-first performance</strong>, with clean flows for viewers and performers.
+        </p>
+
+        <div class="install-block">
+          <h3>How to Add Roll Show to Your Home Screen</h3>
+          <ul>
+            <li>Open: <strong>roll-show.pages.dev</strong> in your mobile browser.</li>
+            <li>Tap the <strong>Share</strong> icon or <strong>⋮ menu</strong>.</li>
+            <li>Choose <strong>“Add to Home Screen”</strong>.</li>
+            <li>Roll Show installs as a full-screen skating platform.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- REAL TREE GUY -->
+    <article class="app-card">
+      <div class="app-frame-wrap">
+        <iframe src="https://realtreeguy.pages.dev/"></iframe>
+      </div>
+      <div class="app-content">
+        <h2>Real Tree Guy</h2>
+        <p class="app-tagline">
+          A business app for a tree service company with services, gallery, and booking.
+        </p>
+        <p>
+          Real Tree Guy is a <strong>real business app</strong> for a tree service company — services, gallery,
+          contact, and booking all in one place. It’s built to be fast, clear, and trustworthy for local customers.
+        </p>
+        <p>
+          This app shows how a <strong>service business</strong> can look and feel when it’s treated like a real product,
+          not just a basic brochure site.
+        </p>
+
+        <div class="install-block">
+          <h3>How to Add Real Tree Guy to Your Home Screen</h3>
+          <ul>
+            <li>Open: <strong>realtreeguy.pages.dev</strong> in your mobile browser.</li>
+            <li>Tap the <strong>Share</strong> icon or <strong>⋮ menu</strong>.</li>
+            <li>Select <strong>“Add to Home Screen”</strong>.</li>
+            <li>It installs as a business app your clients can open instantly.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+  </section>
 
   <!-- FOOTER -->
   <footer class="site-footer">
