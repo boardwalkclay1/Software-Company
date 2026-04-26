@@ -3,21 +3,21 @@
     {
       "id": "esp32-devkit",
       "name": "ESP32 DevKitC",
-      "photo": "https://m.media-amazon.com/images/I/61vYyQfFZ-L._AC_SL1500_.jpg",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Esp32.jpg",
       "description": "WiFi + Bluetooth dual-core microcontroller for dashboards, automation, and sensor hubs.",
       "integration": "Connect sensors via GPIO, I2C, SPI, or UART."
     },
     {
       "id": "esp8266-nodemcu",
       "name": "ESP8266 NodeMCU",
-      "photo": "https://m.media-amazon.com/images/I/61N1sC6yHCL._AC_SL1500_.jpg",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/3/3d/NodeMCU_DEVKIT_1.0.jpg",
       "description": "Affordable WiFi microcontroller for lightweight IoT tasks.",
       "integration": "Use for WiFi reporting, automation triggers, and low-power nodes."
     },
     {
       "id": "arduino-uno",
       "name": "Arduino Uno R3",
-      "photo": "https://m.media-amazon.com/images/I/71kqQyqHRlL._AC_SL1500_.jpg",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/3/38/Arduino_Uno_-_R3.jpg",
       "description": "Classic prototyping microcontroller for sensors and actuators.",
       "integration": "Use with relays, motors, LEDs, and analog sensors."
     }
@@ -27,49 +27,49 @@
     {
       "id": "pir-motion",
       "name": "PIR Motion Sensor (HC-SR501)",
-      "photo": "https://m.media-amazon.com/images/I/61N8JrjZ8oL._AC_SL1500_.jpg",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/7/7d/PIR_motion_sensor.jpg",
       "description": "Detects human movement using infrared heat signatures.",
       "integration": "Connect to ESP32 GPIO for security and automation."
     },
     {
       "id": "microwave-radar",
       "name": "Microwave Radar Sensor (RCWL-0516)",
-      "photo": "https://m.media-amazon.com/images/I/61p8uWb1xDL._AC_SL1500_.jpg",
+      "photo": "https://raw.githubusercontent.com/adafruit/RCWL-0516/master/assets/rcwl0516.jpg",
       "description": "Doppler radar sensor that detects motion through walls.",
       "integration": "Use for high-sensitivity motion detection where PIR fails."
     },
     {
       "id": "laser-distance",
       "name": "Laser Distance Sensor (VL53L0X)",
-      "photo": "https://m.media-amazon.com/images/I/61xqXWiwxCL._AC_SL1500_.jpg",
+      "photo": "https://cdn.sparkfun.com/assets/parts/1/1/9/0/3/14722-VL53L0X_Laser_Range_Finder-01.jpg",
       "description": "Laser sensor for millimeter-accurate distance measurement.",
       "integration": "Use I2C for robotics, counters, and automation."
     },
     {
       "id": "ultrasonic-hcsr04",
       "name": "Ultrasonic Sensor (HC-SR04)",
-      "photo": "https://m.media-amazon.com/images/I/61Qe0l8pYCL._AC_SL1500_.jpg",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/3/3f/HC-SR04_Ultrasonic_Sensor.jpg",
       "description": "Measures distance using ultrasonic waves.",
       "integration": "Use trigger/echo pins with ESP32."
     },
     {
       "id": "gps-neo6m",
       "name": "GPS Module (NEO-6M)",
-      "photo": "https://m.media-amazon.com/images/I/61p4gYtLZDL._AC_SL1500_.jpg",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/7/7b/NEO-6M_GPS_Module.jpg",
       "description": "Provides real-time GPS coordinates, speed, and time.",
       "integration": "Connect via UART for tracking dashboards."
     },
     {
       "id": "dht22",
       "name": "DHT22 Temperature & Humidity Sensor",
-      "photo": "https://m.media-amazon.com/images/I/61xq8t7t7JL._AC_SL1500_.jpg",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/3/3c/DHT22.jpg",
       "description": "Reads temperature and humidity with good accuracy.",
       "integration": "Use single-wire protocol with ESP32."
     },
     {
       "id": "mq135",
       "name": "MQ-135 Air Quality Sensor",
-      "photo": "https://m.media-amazon.com/images/I/61iQ0N6D2oL._AC_SL1500_.jpg",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/7/7b/MQ135.jpg",
       "description": "Detects CO2, smoke, and air pollutants.",
       "integration": "Use analog input for air quality dashboards."
     }
@@ -79,28 +79,28 @@
     {
       "id": "relay-module",
       "name": "5V Relay Module",
-      "photo": "https://m.media-amazon.com/images/I/61tX6wO5YBL._AC_SL1500_.jpg",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Relay_Module_5V.jpg",
       "description": "Controls high-power devices like lights, motors, and pumps.",
       "integration": "Use ESP32 GPIO to toggle relays."
     },
     {
       "id": "oled-display",
       "name": "OLED Display 0.96\" (I2C)",
-      "photo": "https://m.media-amazon.com/images/I/61tq3NbUs-L._AC_SL1500_.jpg",
+      "photo": "https://cdn.sparkfun.com/assets/parts/1/2/0/0/3/14532-01.jpg",
       "description": "Small OLED screen for displaying text and sensor data.",
       "integration": "Use I2C for dashboards and device status screens."
     },
     {
       "id": "rfid-rc522",
       "name": "RFID Reader (RC522)",
-      "photo": "https://m.media-amazon.com/images/I/61p8m1g8uPL._AC_SL1500_.jpg",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/0/0c/MFRC522_RFID_Module.jpg",
       "description": "Reads RFID tags for access control and identification.",
       "integration": "Use SPI for smart locks and attendance systems."
     },
     {
       "id": "sd-card-module",
       "name": "MicroSD Card Module",
-      "photo": "https://m.media-amazon.com/images/I/51p5f5f5f5L._AC_SL1000_.jpg",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/3/3f/MicroSD_Module.jpg",
       "description": "Allows microcontrollers to read/write files on SD cards.",
       "integration": "Use SPI for data logging."
     }
