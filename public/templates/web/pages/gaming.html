@@ -2,90 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Gaming Hub Template – Go Time Software</title>
+  <title>Gaming Hub – Go Time Software</title>
+
+  <!-- ONE CSS FILE -->
+  <link rel="stylesheet" href="../css/gaming.css">
+
+  <!-- ONE JS FILE -->
   <script src="../js/gaming.js" defer></script>
 </head>
 
 <body>
-  <div id="template-info">
-    <h1>Gaming Hub Template</h1>
-    <p>
-      This template is a hub for HTML5 games. Game cards can launch embedded games or external
-      iframes. Leaderboard shows how scores could be displayed.
-    </p>
-  </div>
 
   <header class="header">
     <div class="logo">Go Time <span>Arcade</span></div>
     <nav class="nav">
       <a href="#games">Games</a>
-      <a href="#leaderboard">Leaderboard</a>
       <a href="#about">About</a>
     </nav>
   </header>
 
   <main>
-    <section class="game-hero">
-      <div class="game-hero-content">
-        <h1>Instant Browser Games.</h1>
-        <p>Use this layout as a base for a gaming portal or mini‑game hub.</p>
-        <button class="btn-primary" id="random-game-btn">Play Random Game</button>
-      </div>
+
+    <section class="hero">
+      <h1>Play Classic Browser Games</h1>
+      <p>Snake, Pong, Tetris — simple, fast, and fun.</p>
     </section>
 
-    <section id="games" class="section">
+    <section id="games" class="games-section">
       <h2>Games</h2>
-      <div id="game-grid" class="game-grid">
-        <article class="game-card" data-game="space-runner">
-          <div class="game-thumb">Space Runner</div>
-          <button class="btn-secondary">Play</button>
-        </article>
-        <article class="game-card" data-game="brick-breaker">
-          <div class="game-thumb">Brick Breaker</div>
-          <button class="btn-secondary">Play</button>
-        </article>
-        <article class="game-card" data-game="pixel-racer">
-          <div class="game-thumb">Pixel Racer</div>
-          <button class="btn-secondary">Play</button>
-        </article>
+
+      <div class="game-grid">
+
+        <div class="game-card" data-game="snake">
+          <h3>Snake</h3>
+          <button class="btn-play">Play</button>
+        </div>
+
+        <div class="game-card" data-game="pong">
+          <h3>Pong</h3>
+          <button class="btn-play">Play</button>
+        </div>
+
+        <div class="game-card" data-game="tetris">
+          <h3>Tetris</h3>
+          <button class="btn-play">Play</button>
+        </div>
+
       </div>
-      <div id="game-play-area" class="game-play-area">
-        <p>Select a game to see how an embedded game area would look.</p>
+
+      <div id="game-area" class="game-area">
+        <p>Select a game to start playing.</p>
       </div>
     </section>
 
-    <section id="leaderboard" class="section leaderboard-section">
-      <h2>Leaderboard</h2>
-      <table class="leaderboard-table">
-        <thead>
-          <tr>
-            <th>Player</th>
-            <th>Game</th>
-            <th>Score</th>
-          </tr>
-        </thead>
-        <tbody id="leaderboard-body">
-          <tr>
-            <td>PlayerOne</td>
-            <td>Space Runner</td>
-            <td>12,430</td>
-          </tr>
-          <tr>
-            <td>SpeedDemon</td>
-            <td>Pixel Racer</td>
-            <td>9,870</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section id="about" class="section">
+    <section id="about" class="about-section">
       <h2>About This Template</h2>
       <p>
-        This template demonstrates how to structure a gaming hub with game cards, a play area, and a
-        leaderboard. In a real build, scores would be stored in a backend.
+        This is a minimal, clean gaming hub template.  
+        All games run directly in the browser with no downloads.
       </p>
     </section>
+
   </main>
+
 </body>
 </html>
