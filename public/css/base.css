@@ -1,16 +1,16 @@
-/* ===========================
-   GO TIME SOFTWARE – GLOBAL CSS
-   Black Stone + Grey Brick Text + Red Ember Accents
-   CLEAN VERSION — NO BLOCKS, NO PAGE GROWTH
-   =========================== */
+/* ============================================================
+   GO TIME SOFTWARE — GLOBAL STYLE
+   Brick Text • Cracked Overlay • Ember Glow • No Blocks
+   CLEAN + STABLE + BACKGROUNDS WORK
+   ============================================================ */
 
 /* RESET */
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html, body {
@@ -19,23 +19,23 @@ html, body {
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #050505; /* Each page overrides this */
+  background: #000; /* Each page overrides with its own image */
   color: #e5e5e5;
-  line-height: 1.5;
   overflow-x: hidden;
   overflow-y: auto;
+  line-height: 1.5;
 }
 
-/* ===========================
+/* ============================================================
    BRICK / STONE TEXT EFFECT
-   =========================== */
+   ============================================================ */
 
-h1, h2, h3, .logo, .template-card h3, .service-card, .price-card h3 {
+h1, h2, h3, .logo, .preview-card h3, .category-column h2 {
   font-weight: 900;
-  letter-spacing: 0.05em;
   text-transform: uppercase;
+  letter-spacing: 0.06em;
 
-  /* Grey stone brick color */
+  /* Brick texture */
   background: url("../assets/textures/stone-brick.jpg");
   background-size: cover;
   -webkit-background-clip: text;
@@ -43,8 +43,8 @@ h1, h2, h3, .logo, .template-card h3, .service-card, .price-card h3 {
 
   /* Ember glow */
   text-shadow:
-    0 0 4px #330000,
-    0 0 8px #550000;
+    0 0 6px #330000,
+    0 0 12px #550000;
   position: relative;
 }
 
@@ -60,48 +60,46 @@ h1::after, h2::after, h3::after, .logo::after {
   pointer-events: none;
 }
 
-/* ===========================
+/* ============================================================
    BODY TEXT
-   =========================== */
+   ============================================================ */
 
 p, li, a, span {
   color: #d6d6d6;
-  text-shadow: 0 0 3px #1a1a1a;
+  text-shadow: 0 0 3px #000;
 }
 
-/* ===========================
+/* ============================================================
    HEADER
-   =========================== */
+   ============================================================ */
 
 .site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 18px 40px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0,0,0,0.65);
   border-bottom: 1px solid #2a0000;
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 100;
 }
 
 .logo {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 24px;
-  position: relative;
+  font-size: 26px;
 }
 
 .logo-img {
-  height: 40px;
-  width: auto;
+  height: 42px;
   filter: drop-shadow(0 0 10px #550000);
 }
 
-/* ===========================
+/* ============================================================
    NAVIGATION
-   =========================== */
+   ============================================================ */
 
 .main-nav a {
   margin-left: 22px;
@@ -115,12 +113,12 @@ p, li, a, span {
 
 .main-nav a:hover {
   color: #ff3b3b;
-  text-shadow: 0 0 10px #550000;
+  text-shadow: 0 0 12px #550000;
 }
 
-/* ===========================
+/* ============================================================
    BUTTONS
-   =========================== */
+   ============================================================ */
 
 .btn-primary,
 .btn-secondary {
@@ -136,11 +134,11 @@ p, li, a, span {
 .btn-primary {
   background: linear-gradient(135deg, #550000, #aa0000);
   color: #fff;
-  box-shadow: 0 0 12px #550000aa;
+  box-shadow: 0 0 14px #550000aa;
 }
 
 .btn-primary:hover {
-  box-shadow: 0 0 20px #aa0000ff;
+  box-shadow: 0 0 22px #aa0000ff;
 }
 
 .btn-secondary {
@@ -150,78 +148,70 @@ p, li, a, span {
 
 .btn-secondary:hover {
   color: #ff3b3b;
-  text-shadow: 0 0 10px #550000;
+  text-shadow: 0 0 12px #550000;
 }
 
-/* ===========================
-   TEMPLATE CARDS — NO BLOCKS
-   =========================== */
+/* ============================================================
+   CATEGORY GRID (INDEX PAGE)
+   ============================================================ */
 
-.template-card,
-.apps-combo-card,
-.real-app-card {
-  background: transparent;
+.category-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 40px;
+}
+
+.category-column {
+  width: 50%;
+}
+
+.preview-card {
+  margin: 20px 0;
+  padding: 12px;
   border: 1px solid #3a0000;
   border-radius: 12px;
-  padding: 14px;
   cursor: pointer;
   transition: 0.2s ease;
+  background: rgba(0,0,0,0.25);
 }
 
-.template-card:hover,
-.apps-combo-card:hover,
-.real-app-card:hover {
+.preview-card:hover {
   border-color: #ff3b3b;
   box-shadow: 0 0 14px #550000aa;
 }
 
-/* ===========================
-   SCROLLBARS — GO TIME STYLE
-   =========================== */
-
-::-webkit-scrollbar {
-  height: 12px;
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: #1a0000;
-  border-radius: 999px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #550000, #aa0000);
-  border-radius: 999px;
-  box-shadow: 0 0 12px #550000aa;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #aa0000;
-  box-shadow: 0 0 18px #aa0000ff;
-}
-
-/* ===========================
-   FORMS — NO BLOCKS
-   =========================== */
-
-.contact-form input,
-.contact-form textarea {
-  background: transparent;
-  border: 1px solid #3a0000;
-  color: #fff;
+.preview-card img {
+  width: 100%;
   border-radius: 8px;
-  padding: 10px 12px;
+  margin-bottom: 10px;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #ff3b3b;
-  box-shadow: 0 0 12px #550000aa;
+/* ============================================================
+   IOT STRIP
+   ============================================================ */
+
+.iot-strip {
+  padding: 40px;
+  text-align: center;
 }
 
-/* ===========================
-   MODAL — NO BACKGROUND BLOCKS
-   =========================== */
+.iot-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px 0;
+}
+
+.iot-scroll img {
+  height: 120px;
+  border-radius: 8px;
+  border: 1px solid #3a0000;
+}
+
+/* ============================================================
+   MODAL
+   ============================================================ */
 
 .app-modal {
   position: fixed;
@@ -246,20 +236,9 @@ p, li, a, span {
   border: 1px solid #3a0000;
 }
 
-.modal-screenshots {
-  display: flex;
-  gap: 10px;
-  margin: 20px 0;
-}
-
-.modal-shot {
-  width: 32%;
-  border-radius: 8px;
-}
-
-/* ===========================
+/* ============================================================
    UTIL
-   =========================== */
+   ============================================================ */
 
 .hidden {
   display: none;
