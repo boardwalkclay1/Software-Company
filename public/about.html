@@ -6,7 +6,58 @@
 
   <link rel="icon" type="image/png" href="./assets/img/go-time-logo.png" />
   <link rel="stylesheet" href="./css/base.css" />
-  <link rel="stylesheet" href="./css/theme.css" />
+
+  <!-- BACKGROUND -->
+  <style>
+    body.theme-dark {
+      background: url("./assets/img/go-time-background.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
+    body.theme-dark::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(2px);
+      z-index: -1;
+    }
+
+    /* BURGER MENU */
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .burger div {
+      width: 26px;
+      height: 3px;
+      background: #ff3b3b;
+      border-radius: 4px;
+    }
+    @media (max-width: 800px) {
+      .main-nav {
+        display: none;
+        flex-direction: column;
+        background: rgba(0,0,0,0.8);
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 10px;
+      }
+      .main-nav.show {
+        display: flex;
+      }
+      .burger {
+        display: flex;
+      }
+    }
+  </style>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector(".main-nav").classList.toggle("show");
+    }
+  </script>
 </head>
 
 <body class="theme-dark">
@@ -17,6 +68,11 @@
       <img src="./assets/img/go-time-logo.png" class="logo-img" />
       <span>Go Time Software</span>
     </div>
+
+    <div class="burger" onclick="toggleMenu()">
+      <div></div><div></div><div></div>
+    </div>
+
     <nav class="main-nav">
       <a href="./index.html">Home</a>
       <a href="./sites.html">Sites</a>
@@ -27,24 +83,58 @@
   </header>
 
   <main class="page-container">
+
     <h1>About Go Time Software</h1>
     <p>
-      We build modular, scalable, fast software systems. Websites, apps, dashboards, and IoT
-      microcontroller systems — all built with precision and speed.
+      Go Time Software builds <strong>custom websites, apps, dashboards, automations, and IoT systems</strong>.
+      Everything we create is modular, scalable, and built fast — without sacrificing quality.
+    </p>
+
+    <h2>Who We Are</h2>
+    <p>
+      Go Time Software is powered by <strong>Boardwalk Clay</strong>, a developer, architect, and system designer
+      who builds full-stack solutions from scratch.  
+      Every project is engineered with precision, speed, and long-term scalability.
     </p>
 
     <h2>What We Build</h2>
     <ul>
-      <li>Custom Websites</li>
-      <li>App Templates & Full Apps</li>
-      <li>Dashboard Systems</li>
-      <li>Automation & Integrations</li>
-      <li>IoT Microcontroller Projects</li>
+      <li>Custom Websites (business, e‑commerce, landing pages, portfolios)</li>
+      <li>Full Apps & App Templates (PWA, mobile-first, installable)</li>
+      <li>Dashboard Systems (analytics, admin panels, control centers)</li>
+      <li>Automation & Integrations (APIs, workflows, backend logic)</li>
+      <li>IoT Microcontroller Projects (sensors, automation, hardware logic)</li>
     </ul>
+
+    <h2>Custom Integrations & Inventions</h2>
+    <p>
+      We help clients build <strong>new inventions, prototypes, and custom systems</strong>.
+      If you have an idea, we can turn it into a working product — software, hardware, or both.
+    </p>
+
+    <p>
+      We also offer <strong>equity-based partnerships</strong> for high‑potential ideas.
+      If you have something big, we can build it for reduced cost in exchange for a percentage.
+    </p>
+
+    <h2>Challenge Us</h2>
+    <p>
+      We challenge every visitor:  
+      <strong>Give us something we can’t build.</strong>  
+      Websites, apps, dashboards, automations, hardware integrations — we build it all.
+    </p>
+
+    <h2>Sponsored By</h2>
+    <p>
+      <strong>Boardwalk Clay</strong> — Founder, Developer, Architect.  
+      Building systems that last.  
+      Turning ideas into real products.
+    </p>
+
   </main>
 
   <footer class="site-footer">
-    <span>© Go Time Software</span>
+    <span>© Go Time Software — Powered by Boardwalk Clay</span>
   </footer>
 
 </body>
