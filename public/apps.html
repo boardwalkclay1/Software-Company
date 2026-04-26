@@ -1,148 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Apps – Go Time Software</title>
+<section id="real-apps" class="real-apps-section">
+  <h2>Real Apps</h2>
+  <p>These are real Progressive Web Apps (PWAs) built by Go Time Software. You can install them directly to your home screen.</p>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./assets/img/go-time-logo.png" />
-  <link rel="shortcut icon" href="./favicon.ico" />
+  <div id="realAppsGrid" class="real-apps-grid"></div>
+</section>
 
-  <!-- Social Preview -->
-  <meta property="og:title" content="Go Time Software – Apps" />
-  <meta property="og:description" content="Explore real apps, app templates, pricing, and how to start your project." />
-  <meta property="og:image" content="./assets/img/social-preview.jpg" />
-  <meta property="og:type" content="website" />
+<!-- Modal Viewer -->
+<div id="appModal" class="app-modal hidden">
+  <div class="app-modal-content">
+    <span class="app-modal-close" onclick="closeAppModal()">×</span>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="./css/base.css" />
+    <h2 id="modalTitle"></h2>
+    <p id="modalDescription"></p>
 
-  <!-- JS -->
-  <script src="./apps/js/apps-viewer.js" defer></script>
+    <h3>Install as an App (PWA)</h3>
+    <p id="modalPwa"></p>
 
-  <!-- PAGE BACKGROUND -->
-  <style>
-    body.theme-dark {
-      background: url("./assets/img/go-time-background.jpg") no-repeat center center fixed;
-      background-size: cover;
-    }
-    body.theme-dark::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.55);
-      backdrop-filter: blur(2px);
-      z-index: -1;
-    }
-  </style>
-</head>
+    <div id="modalScreenshots" class="modal-screenshots"></div>
 
-<body class="theme-dark">
-
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="logo">
-      <img src="./assets/img/go-time-logo.png" class="logo-img" />
-      <span>Go Time Software</span>
-    </div>
-
-    <nav class="main-nav">
-      <a href="./index.html">Home</a>
-      <a href="./sites.html">Sites</a>
-      <a href="./apps.html">Apps</a>
-      <a href="./about.html">About</a>
-      <a href="./contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <main class="page-container">
-
-    <!-- TITLE -->
-    <h1>Apps & App Templates</h1>
-    <p>
-      Explore real apps, app templates, and our modular App Engine.  
-      Every app we build is fast, scalable, and interchangeable with any layout.
-    </p>
-
-    <!-- LOGIC EXPLANATION -->
-    <section>
-      <h2>How Our App Engine Works</h2>
-      <p>
-        Go Time Software uses a modular App Engine that separates <strong>layout</strong> from <strong>logic</strong>.
-        This means:
-      </p>
-
-      <ul>
-        <li>We have 5 interchangeable app layouts (UI shells)</li>
-        <li>We have 10 app logic modules (functionality brains)</li>
-        <li>Any logic can run inside any layout</li>
-        <li>You get 50+ combinations instantly</li>
-        <li>Every demo is interactive — click one and explore it</li>
-      </ul>
-
-      <p>
-        This lets us build apps faster, update them easier, and deliver more value for your business.
-      </p>
-    </section>
-
-    <!-- REAL APPS -->
-    <section>
-      <h2>Real Apps We Built</h2>
-      <p>These are real applications built by Go Time Software.</p>
-
-      <div class="real-apps-grid">
-        <a class="real-app-card" href="#">Real App #1</a>
-        <a class="real-app-card" href="#">Real App #2</a>
-        <a class="real-app-card" href="#">Real App #3</a>
-      </div>
-    </section>
-
-    <!-- APP TEMPLATE ENGINE -->
-    <section>
-      <h2>App Template Engine</h2>
-      <p>
-        These are the app templates we are building now.  
-        Scroll through the combinations and click any one to open the full interactive demo.
-      </p>
-
-      <div id="apps-combos-row" class="apps-combos-row"></div>
-    </section>
-
-    <!-- PRICING -->
-    <section>
-      <h2>App Pricing</h2>
-      <p>Transparent, simple pricing for every business.</p>
-
-      <ul class="pricing-list">
-        <li>Simple App — <strong>$300</strong></li>
-        <li>Advanced App — <strong>$600</strong></li>
-        <li>Full Custom App — <strong>$1,000+</strong></li>
-      </ul>
-    </section>
-
-    <!-- REQUIREMENTS -->
-    <section>
-      <h2>What You Need to Submit</h2>
-      <p>To start your app project, we need the following:</p>
-
-      <ul>
-        <li>Business Name</li>
-        <li>Logo Upload</li>
-        <li>Description of the App</li>
-        <li>Features Needed</li>
-        <li>Pages / Screens</li>
-        <li>Dashboard Requirements (if any)</li>
-      </ul>
-
-      <a class="btn-primary" href="./contact.html">Start Your Project</a>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <span>© Go Time Software — Dashboards, Apps, IoT Systems</span>
-  </footer>
-
-</body>
-</html>
+    <a id="modalLaunchBtn" class="btn-primary" target="_blank">Open Full App</a>
+  </div>
+</div>
