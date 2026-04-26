@@ -11,7 +11,7 @@ window.addEventListener("load", () => {
   }, 2500);
 });
 
-// BUBBLE GENERATOR
+// BUBBLE GENERATOR (SAFE – NO PAGE GROWTH)
 function spawnBubble() {
   const b = document.createElement("div");
   b.className = "bubble";
@@ -20,8 +20,9 @@ function spawnBubble() {
   b.style.width = size + "px";
   b.style.height = size + "px";
 
-  b.style.left = Math.random() * 100 + "vw";
-  b.style.top = Math.random() * 100 + "vh";
+  // ONLY spawn inside the visible screen
+  b.style.left = Math.random() * window.innerWidth + "px";
+  b.style.top = Math.random() * window.innerHeight + "px";
 
   b.style.animationDuration = (Math.random() * 8 + 6) + "s";
 
