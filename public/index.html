@@ -30,75 +30,80 @@
       <a href="./sites.html">Sites</a>
       <a href="./apps.html">Apps</a>
       <a href="./iot.html">IoT</a>
-      <a href="./about.html">About</a>
+      <a href="./pricing.html">Pricing</a>
       <a href="./contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- HERO -->
-  <section class="hero cinematic-hero">
-    <h1 class="hero-title">
-      Build Anything.  
-      <span class="highlight">Websites • Apps • Dashboards • IoT</span>
-    </h1>
-
-    <p class="hero-sub">
-      Explore real, interactive previews of the systems we build.  
-      Every project is fast, scalable, and production‑ready.
-    </p>
-
-    <!-- BIG BUBBLE LINKS -->
-    <div class="bubble-link-row">
-
-      <div class="bubble-link" onclick="goTo('sites')">
-        <h2>Websites</h2>
-        <p>Landing pages, business sites, portfolios, marketplaces.</p>
-      </div>
-
-      <div class="bubble-link" onclick="goTo('apps')">
-        <h2>Apps</h2>
-        <p>PWAs, tools, utilities, dashboards, automation.</p>
-      </div>
-
-      <div class="bubble-link" onclick="goTo('iot')">
-        <h2>IoT Systems</h2>
-        <p>Device dashboards, sensors, real‑time monitoring.</p>
-      </div>
-
-    </div>
+  <!-- TITLE -->
+  <section class="hero-title-block">
+    <h1 class="hero-title">Go Time Software</h1>
+    <p class="hero-sub">Websites • Apps • Dashboards • IoT Systems</p>
   </section>
 
-  <!-- PREVIEW SECTIONS -->
-  <section class="preview-section">
+  <!-- MAIN CATEGORY GRID -->
+  <section class="category-grid">
 
-    <h2>Live Previews</h2>
-    <p class="section-sub">Click any preview to open the full interactive demo.</p>
+    <!-- WEBSITES -->
+    <div class="category-column">
+      <h2>Website Templates</h2>
+      <p>Production‑ready website templates you can launch instantly.</p>
 
-    <div class="preview-grid">
-
-      <!-- WEBSITE PREVIEW -->
-      <div class="preview-card" onclick="goTo('sites')">
-        <h3>Website Templates</h3>
-        <img src="./assets/previews/landing.png" class="preview-img">
-        <p>Modern, fast, responsive website templates ready to customize.</p>
+      <div class="preview-card" onclick="openTemplate('landing')">
+        <img src="./assets/previews/landing.png">
+        <h3>Landing Page</h3>
       </div>
 
-      <!-- APPS PREVIEW -->
-      <div class="preview-card" onclick="goTo('apps')">
-        <h3>Real Apps</h3>
-        <img src="./assets/previews/app-preview.png" class="preview-img">
-        <p>Installable PWAs with real features, dashboards, and automation.</p>
+      <div class="preview-card" onclick="openTemplate('portfolio')">
+        <img src="./assets/previews/portfolio.png">
+        <h3>Portfolio / Agency</h3>
       </div>
 
-      <!-- IOT PREVIEW -->
-      <div class="preview-card" onclick="goTo('iot')">
-        <h3>IoT Systems</h3>
-        <img src="./assets/previews/iot-preview.png" class="preview-img">
-        <p>Live device monitoring, sensors, controls, and real‑time data.</p>
-      </div>
-
+      <button class="btn-primary" onclick="goTo('sites')">View All Websites</button>
     </div>
 
+    <!-- APPS -->
+    <div class="category-column">
+      <h2>App Templates</h2>
+      <p>Installable PWAs with dashboards, automation, and real features.</p>
+
+      <div class="preview-card" onclick="goToApp('tasker')">
+        <img src="./assets/previews/app-preview.png">
+        <h3>Task Manager App</h3>
+      </div>
+
+      <div class="preview-card" onclick="goToApp('finance')">
+        <img src="./assets/previews/app-preview2.png">
+        <h3>Finance Tracker</h3>
+      </div>
+
+      <button class="btn-primary" onclick="goTo('apps')">View All Apps</button>
+    </div>
+
+  </section>
+
+  <!-- IOT HARDWARE STRIP -->
+  <section class="iot-strip">
+    <h2>IoT Hardware & Sensors</h2>
+    <p>Microcontrollers, sensors, relays, and automation hardware we integrate.</p>
+
+    <div class="iot-scroll">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Arduino_Uno_-_R3.jpg">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/ESP32_DevKitC.jpg">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Raspberry_Pi_4_Model_B_-_Side.jpg">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/DHT11.JPG">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/HC-SR04_Ultrasonic_Sensor.jpg">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Relay_Module.jpg">
+    </div>
+
+    <button class="btn-secondary" onclick="goTo('iot')">Explore IoT Systems</button>
+  </section>
+
+  <!-- PRICING CTA -->
+  <section class="pricing-cta">
+    <h2>Pricing</h2>
+    <p>Transparent pricing for websites, apps, dashboards, and IoT systems.</p>
+    <button class="btn-primary" onclick="goTo('pricing')">View Pricing</button>
   </section>
 
 </body>
