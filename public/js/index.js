@@ -1,6 +1,6 @@
 /* ============================
    GO TIME SOFTWARE – NEW INDEX JS
-   Cinematic + Clean + No Bubbles
+   Clean, Cinematic, No Bubbles
    ============================ */
 
 // INTRO REMOVAL
@@ -11,20 +11,15 @@ window.addEventListener("load", () => {
   }, 2500);
 });
 
-// PAGE NAVIGATION
+// NAVIGATION
 function goTo(page) {
-  if (page === "sites") window.location.href = "./sites.html";
-  if (page === "apps") window.location.href = "./apps.html";
-  if (page === "iot") window.location.href = "./iot.html";
+  window.location.href = `./${page}.html`;
 }
 
-// SMOOTH SCROLL HELPERS (if needed)
-function scrollToTemplates() {
-  const el = document.getElementById("templates");
-  if (el) el.scrollIntoView({ behavior: "smooth" });
+function goToApp(name) {
+  window.location.href = `./apps.html#${name}`;
 }
 
-function scrollToOrder() {
-  const el = document.getElementById("order");
-  if (el) el.scrollIntoView({ behavior: "smooth" });
+function openTemplate(name) {
+  window.location.href = `./templates/web/pages/${name}.html`;
 }
