@@ -1,47 +1,65 @@
-// Load CSS files
-function loadCSS(file) {
-  const link = document.createElement("link");
-  link.rel = "stylesheet";
-  link.href = file;
-  document.head.appendChild(link);
-}
+/* ============================
+   GO TIME SOFTWARE – INDEX LOGIC
+   Clean version, no extra CSS files
+   ============================ */
 
-loadCSS("./css/index-layout.css");
-loadCSS("./css/index-theme.css");
-loadCSS("./css/index-effects.css");
-
-// Intro removal
+// INTRO REMOVAL
 window.addEventListener("load", () => {
   setTimeout(() => {
-    document.getElementById("intro-screen").remove();
+    const intro = document.getElementById("intro-screen");
+    if (intro) intro.remove();
   }, 2500);
 });
 
-// Bubble generator
+// BUBBLE GENERATOR
 function spawnBubble() {
   const b = document.createElement("div");
   b.className = "bubble";
+
   const size = Math.floor(Math.random() * 70) + 40;
   b.style.width = size + "px";
   b.style.height = size + "px";
+
   b.style.left = Math.random() * 100 + "vw";
   b.style.top = Math.random() * 100 + "vh";
+
   b.style.animationDuration = (Math.random() * 8 + 6) + "s";
+
   document.body.appendChild(b);
+
   setTimeout(() => b.remove(), 15000);
 }
+
 setInterval(spawnBubble, 1200);
 
-// Scroll helpers
+// SCROLL HELPERS
 function scrollToTemplates() {
-  document.getElementById("templates").scrollIntoView({ behavior: "smooth" });
+  const el = document.getElementById("templates");
+  if (el) el.scrollIntoView({ behavior: "smooth" });
 }
 
 function scrollToOrder() {
-  document.getElementById("order").scrollIntoView({ behavior: "smooth" });
+  const el = document.getElementById("order");
+  if (el) el.scrollIntoView({ behavior: "smooth" });
 }
 
-// Open template
+// OPEN TEMPLATE (WEB TEMPLATES)
 function openTemplate(name) {
   window.location.href = `./templates/web/pages/${name}.html`;
 }
+
+// OPEN APP TEMPLATE (FOR APPS PAGE)
+function openAppTemplate(name) {
+  window.location.href = `./templates/apps/pages/${name}.html`;
+}
+
+// ENABLE HORIZONTAL SCROLLING FOR TEMPLATE SCROLLER
+document.addEventListener("DOMContentLoaded", () => {
+  const scroller = document.getElementById("templateScroller");
+  if (!scroller) return;
+
+  scroller.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    scroller.scrollLeft += e.deltaY;
+  });
+});
