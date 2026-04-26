@@ -14,13 +14,21 @@
   <!-- Background -->
   <style>
     body.theme-dark {
-      background: url("./assets/img/go-time-town.jpg") no-repeat center center fixed;
+      background: url("./assets/img/go-time-background.jpg") no-repeat center center fixed;
       background-size: cover;
+    }
+    body.theme-dark::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(2px);
+      z-index: -1;
     }
   </style>
 
-  <!-- JS -->
-  <script src="./js/apps-viewer.js" defer></script>
+  <!-- REAL APPS JS (THE NEW SYSTEM) -->
+  <script src="./js/real-apps.js" defer></script>
 </head>
 
 <body class="theme-dark">
@@ -45,7 +53,10 @@
   <main class="page-container">
 
     <h1>Real Apps</h1>
-    <p>These are real Progressive Web Apps (PWAs) built by Go Time Software. You can install them directly to your home screen.</p>
+    <p>
+      These are real Progressive Web Apps (PWAs) built by Go Time Software.  
+      You can install them directly to your home screen.
+    </p>
 
     <!-- REAL APPS GRID -->
     <div id="realAppsGrid" class="real-apps-grid"></div>
