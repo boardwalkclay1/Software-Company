@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0a0a0a;
+  color: #fff;
+}
+
+/* HEADER */
+.guide-header {
+  background: #000;
+  padding: 20px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #ff4444;
+}
+
+/* LAYOUT */
+.guide-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  height: calc(100vh - 80px);
+}
+
+/* SIDEBAR */
+.guide-sidebar {
+  background: #111;
+  padding: 20px;
+  border-right: 1px solid #222;
+  overflow-y: auto;
+}
+
+.guide-sidebar h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+#chapter-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#chapter-list li {
+  padding: 12px;
+  margin-bottom: 6px;
+  background: #1a1a1a;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#chapter-list li:hover {
+  background: #222;
+}
+
+#chapter-list li.active {
+  background: #ff4444;
+}
+
+/* CONTENT */
+.guide-content {
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.chapter {
+  display: none;
+}
+
+.chapter.active {
+  display: block;
+}
+
+/* CINEMATIC SCROLLBAR */
+.guide-content::-webkit-scrollbar,
+.guide-sidebar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.guide-content::-webkit-scrollbar-thumb,
+.guide-sidebar::-webkit-scrollbar-thumb {
+  background: #ff4444;
+  border-radius: 10px;
+}
+
+.guide-content::-webkit-scrollbar-track,
+.guide-sidebar::-webkit-scrollbar-track {
+  background: #111;
+}
