@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Why Apps Matter – Go Time Software</title>
+
+  <link rel="icon" type="image/png" href="../assets/img/go-time-logo.png" />
+  <link rel="stylesheet" href="../css/base.css" />
+
+  <style>
+    body.theme-dark {
+      background: url("../assets/img/go-time-background.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
+    body.theme-dark::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(2px);
+      z-index: -1;
+    }
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .burger div {
+      width: 26px;
+      height: 3px;
+      background: #ff3b3b;
+      border-radius: 4px;
+    }
+    @media (max-width: 800px) {
+      .main-nav {
+        display: none;
+        flex-direction: column;
+        background: rgba(0,0,0,0.8);
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 10px;
+      }
+      .main-nav.show {
+        display: flex;
+      }
+      .burger {
+        display: flex;
+      }
+    }
+  </style>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector(".main-nav").classList.toggle("show");
+    }
+  </script>
+</head>
+
+<body class="theme-dark">
+
+<header class="site-header">
+  <div class="logo">
+    <img src="../assets/img/go-time-logo.png" class="logo-img" />
+    <span>Go Time Software</span>
+  </div>
+
+  <div class="burger" onclick="toggleMenu()">
+    <div></div><div></div><div></div>
+  </div>
+
+  <nav class="main-nav">
+    <a href="../index.html">Home</a>
+    <a href="../sites.html">Sites</a>
+    <a href="../apps.html">Apps</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="./why-apps.html">Why Apps Matter</a>
+    <a href="./why-websites.html">Why Websites Matter</a>
+    <a href="./why-automation.html">Why Automation Matters</a>
+    <a href="./why-inventions.html">Why Inventions Matter</a>
+    <a href="./invent.html">Invent Something</a>
+  </nav>
+</header>
+
+<main class="page-container">
+
+  <h1>Why Apps Matter</h1>
+  <p>
+    Apps are where attention lives now. Not in the browser tab, not in the inbox — on the home screen.
+    When your product or business becomes an app, you move from “something they visit” to “something they carry.”
+  </p>
+
+  <h2>Apps Live Where Your Customers Live</h2>
+  <p>
+    People unlock their phones hundreds of times a day.  
+    An app icon on that screen is a permanent reminder that you exist.
+  </p>
+
+  <h2>Apps Automate the Boring Work</h2>
+  <p>
+    Scheduling, payments, notifications, dashboards, messaging — all of it can be automated inside an app.
+    That means less manual work, fewer missed opportunities, and more time spent on the real business.
+  </p>
+
+  <h2>Apps Scale Without You</h2>
+  <p>
+    A well-built app can serve 10 users or 10,000 with the same codebase.
+    Once the system is built, it keeps working while you sleep.
+  </p>
+
+  <h2>What I Build</h2>
+  <ul>
+    <li>Installable PWAs (Add to Home Screen, full-screen, app-like)</li>
+    <li>Customer portals and dashboards</li>
+    <li>Internal tools for teams and operations</li>
+    <li>Subscription and membership apps</li>
+  </ul>
+
+  <h2>Bring Your App Idea to Life</h2>
+  <p>
+    If you have an idea — even if it’s half-formed — I can turn it into a working app.
+    You don’t need the technical language. Just tell me what you want it to do.
+  </p>
+
+  <a class="btn-primary" href="../contact.html">Start Your App</a>
+
+</main>
+
+<footer class="site-footer">
+  <span>© Go Time Software — Apps, Dashboards, Systems</span>
+</footer>
+
+</body>
+</html>
