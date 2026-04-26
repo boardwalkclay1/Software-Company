@@ -1,9 +1,9 @@
 /* ===========================
    GO TIME SOFTWARE – GLOBAL CSS
-   Black + Red Neon Electric Theme
+   Black Stone + Red Lava Theme
    =========================== */
 
-/* RESET / BASE */
+/* RESET */
 *,
 *::before,
 *::after {
@@ -12,112 +12,99 @@
   padding: 0;
 }
 
-html,
-body {
+html, body {
   height: 100%;
 }
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: url("../assets/img/go-time-new-york.jpg") no-repeat center center fixed;
-  background-size: cover;
+  background: #050505;
   color: #f5f5f5;
   line-height: 1.5;
   overflow-x: hidden;
 }
 
-/* GLOBAL ELECTRIC TEXT EFFECT */
-.electric-text,
-h1, h2, h3, .logo, .nav a, .template-card h3, .service-card, .price-card h3 {
-  position: relative;
-  color: #ff2a2a;
+/* ===========================
+   LAVA TEXT EFFECT (HEADINGS)
+   =========================== */
+
+h1, h2, h3, .logo, .template-card h3, .service-card, .price-card h3 {
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: #ff3b3b;
+  background: linear-gradient(180deg, #ff4b4b, #ff0000, #550000);
+  -webkit-background-clip: text;
+  color: transparent;
+
   text-shadow:
-    0 0 6px #ff0000,
-    0 0 12px #ff2a2a,
-    0 0 20px #ff0000aa;
-  animation: electricPulse 2.4s infinite ease-in-out;
+    0 0 8px #ff0000,
+    0 0 14px #ff2a2a,
+    0 0 22px #ff0000aa;
+
+  animation: lavaGlow 3s infinite ease-in-out;
 }
 
-@keyframes electricPulse {
-  0% { text-shadow: 0 0 6px #ff0000, 0 0 12px #ff2a2a; }
-  50% { text-shadow: 0 0 14px #ff4b4b, 0 0 28px #ff0000; }
-  100% { text-shadow: 0 0 6px #ff0000, 0 0 12px #ff2a2a; }
+@keyframes lavaGlow {
+  0% { text-shadow: 0 0 8px #ff0000; }
+  50% { text-shadow: 0 0 18px #ff4b4b; }
+  100% { text-shadow: 0 0 8px #ff0000; }
 }
 
-/* ELECTRIC CIRCUIT SWEEP OVER TEXT */
-.electric-text::after,
-h1::after,
-h2::after,
-h3::after,
-.logo::after,
-.nav a::after {
+/* CRACKED TEXTURE OVERLAY */
+h1::after, h2::after, h3::after, .logo::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: -120%;
-  width: 120%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 0, 0, 0.4) 50%,
-    transparent 100%
-  );
-  animation: circuitSweep 3.5s infinite;
+  inset: 0;
+  background: url("../assets/textures/cracks.png");
+  mix-blend-mode: overlay;
+  opacity: 0.25;
+  pointer-events: none;
 }
 
-@keyframes circuitSweep {
-  0% { left: -120%; }
-  100% { left: 120%; }
+/* ===========================
+   BODY TEXT
+   =========================== */
+
+p, li, a, span {
+  color: #e8dada;
+  text-shadow: 0 0 4px #300000;
 }
 
-/* THEME */
-.theme-dark {
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(3px);
-  color: #f5f5f5;
-}
+/* ===========================
+   HEADER
+   =========================== */
 
-/* LAYOUT */
-.page-container {
-  max-width: 1100px;
-  margin: 40px auto 60px;
-  padding: 0 20px;
-}
-
-/* HEADER */
 .site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 18px 40px;
-  background: rgba(5, 5, 9, 0.85);
-  border-bottom: 1px solid #181820;
+  background: rgba(0, 0, 0, 0.7);
+  border-bottom: 1px solid #330000;
+  backdrop-filter: blur(6px);
   position: sticky;
   top: 0;
   z-index: 50;
-  backdrop-filter: blur(6px);
 }
 
 .logo {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #ff2a2a;
+  font-size: 24px;
+  position: relative;
 }
 
 .logo-img {
   height: 40px;
   width: auto;
-  border-radius: 6px;
-  box-shadow: 0 0 18px rgba(255, 0, 0, 0.6);
+  filter: drop-shadow(0 0 12px #ff0000aa);
 }
 
-/* NAV */
+/* ===========================
+   NAVIGATION
+   =========================== */
+
 .main-nav a {
   margin-left: 22px;
   color: #ff8080;
@@ -133,52 +120,16 @@ h3::after,
   text-shadow: 0 0 12px #ff0000;
 }
 
-/* FOOTER */
-.site-footer {
-  padding: 20px 40px;
-  border-top: 1px solid #181820;
-  font-size: 13px;
-  color: #888;
-  text-align: center;
-  background: rgba(5, 5, 9, 0.85);
-  backdrop-filter: blur(6px);
-}
+/* ===========================
+   BUTTONS
+   =========================== */
 
-/* HERO */
-.hero {
-  max-width: 1100px;
-  margin: 40px auto 30px;
-  padding: 0 20px;
-}
-
-.hero h1 {
-  font-size: 40px;
-  margin-bottom: 12px;
-}
-
-.hero p {
-  font-size: 17px;
-  color: #ffb3b3;
-  margin-bottom: 20px;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 12px;
-}
-
-/* BUTTONS */
 .btn-primary,
 .btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   padding: 10px 18px;
   border-radius: 999px;
-  border: 1px solid transparent;
-  font-size: 14px;
+  border: 1px solid #ff0000;
   cursor: pointer;
-  text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   transition: 0.2s ease;
@@ -187,173 +138,93 @@ h3::after,
 .btn-primary {
   background: linear-gradient(135deg, #ff0000, #ff4b4b);
   color: #fff;
-  box-shadow: 0 0 18px rgba(255, 0, 0, 0.6);
+  box-shadow: 0 0 18px #ff0000aa;
 }
 
 .btn-primary:hover {
-  filter: brightness(1.2);
-  box-shadow: 0 0 28px rgba(255, 0, 0, 0.9);
+  box-shadow: 0 0 28px #ff0000ff;
 }
 
 .btn-secondary {
   background: transparent;
-  border-color: #ff2a2a;
   color: #ffb3b3;
 }
 
 .btn-secondary:hover {
-  border-color: #ff4b4b;
   color: #ff4b4b;
   text-shadow: 0 0 12px #ff0000;
 }
 
-/* FEATURE ROW */
-.feature-row {
-  max-width: 1100px;
-  margin: 10px auto 50px;
-  padding: 0 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 16px;
-}
+/* ===========================
+   TEMPLATE CARDS (NO BLOCKS)
+   =========================== */
 
-.feature-card {
+.template-card,
+.apps-combo-card,
+.real-app-card {
+  background: transparent;
+  border: 1px solid #550000;
   border-radius: 12px;
-  padding: 16px;
-  background: rgba(10, 10, 16, 0.85);
-  border: 1px solid #ff1a1a33;
-  font-size: 14px;
-  box-shadow: 0 0 12px #ff000022;
+  padding: 14px;
+  cursor: pointer;
   transition: 0.2s ease;
 }
 
-.feature-card:hover {
+.template-card:hover,
+.apps-combo-card:hover,
+.real-app-card:hover {
   border-color: #ff2a2a;
   box-shadow: 0 0 18px #ff000055;
 }
 
-/* HEADINGS / TEXT */
-h1 {
-  font-size: 32px;
-  margin-bottom: 12px;
+/* ===========================
+   SCROLLBARS (GO TIME STYLE)
+   =========================== */
+
+::-webkit-scrollbar {
+  height: 12px;
+  width: 12px;
 }
 
-h2 {
-  font-size: 26px;
-  margin: 26px 0 10px;
+::-webkit-scrollbar-track {
+  background: #1a0000;
+  border-radius: 999px;
 }
 
-p {
-  margin-bottom: 10px;
-  color: #ffcccc;
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #ff0000, #ff4b4b);
+  border-radius: 999px;
+  box-shadow: 0 0 12px #ff0000aa;
 }
 
-ul {
-  margin-left: 18px;
-  margin-bottom: 10px;
+::-webkit-scrollbar-thumb:hover {
+  background: #ff2a2a;
+  box-shadow: 0 0 18px #ff0000ff;
 }
 
-ul li {
-  margin-bottom: 6px;
-}
-
-/* FORMS */
-.contact-form {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 520px;
-}
+/* ===========================
+   FORMS
+   =========================== */
 
 .contact-form input,
 .contact-form textarea {
-  background: #0b0b12;
-  border: 1px solid #ff1a1a33;
+  background: transparent;
+  border: 1px solid #550000;
+  color: #fff;
   border-radius: 8px;
   padding: 10px 12px;
-  color: #f5f5f5;
-  font-size: 14px;
-  transition: 0.2s ease;
-}
-
-.contact-form textarea {
-  min-height: 120px;
-  resize: vertical;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  outline: none;
   border-color: #ff2a2a;
   box-shadow: 0 0 12px #ff000055;
 }
 
-/* TEMPLATE SCROLLER */
-.template-row,
-.template-scroller {
-  margin-top: 20px;
-  display: flex;
-  gap: 14px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-}
+/* ===========================
+   UTIL
+   =========================== */
 
-.template-card {
-  min-width: 220px;
-  border-radius: 12px;
-  padding: 14px;
-  background: rgba(11, 11, 18, 0.85);
-  border: 1px solid #ff1a1a33;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: 0.2s ease;
-  box-shadow: 0 0 12px #ff000022;
-}
-
-.template-card:hover {
-  border-color: #ff2a2a;
-  box-shadow: 0 0 18px #ff000055;
-}
-
-/* APPS COMBOS */
-.apps-combos-row {
-  margin-top: 16px;
-  display: flex;
-  gap: 14px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-}
-
-.apps-combo-card {
-  min-width: 260px;
-  border-radius: 12px;
-  padding: 14px;
-  background: rgba(11, 11, 18, 0.85);
-  border: 1px solid #ff1a1a33;
-  flex-shrink: 0;
-  cursor: pointer;
-  transition: 0.2s ease;
-  box-shadow: 0 0 12px #ff000022;
-}
-
-.apps-combo-card:hover {
-  border-color: #ff2a2a;
-  box-shadow: 0 0 18px #ff000055;
-}
-
-/* CHAT / APP ENGINE */
-.chat-user .chat-bubble {
-  background: #ff2a2a;
-  color: #fff;
-}
-
-.chat-system .chat-bubble {
-  background: #262636;
-  color: #f5f5f5;
-}
-
-/* UTIL */
 .hidden {
   display: none;
 }
