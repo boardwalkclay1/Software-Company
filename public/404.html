@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>404 – Page Not Found</title>
+
+  <link rel="icon" type="image/png" href="/assets/img/go-time-logo.png" />
+  <link rel="stylesheet" href="/css/base.css" />
+
+  <style>
+    body.theme-dark {
+      background: url("/assets/img/go-time-town.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
+    body.theme-dark::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(3px);
+      z-index: -1;
+    }
+
+    .error-container {
+      max-width: 700px;
+      margin: 120px auto;
+      text-align: center;
+      padding: 40px;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid #550000;
+      border-radius: 14px;
+      box-shadow: 0 0 18px #55000055;
+    }
+
+    h1 {
+      font-size: 70px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 20px;
+      opacity: 0.9;
+      margin-bottom: 30px;
+    }
+
+    .btn-secondary {
+      padding: 12px 22px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body class="theme-dark">
+
+  <div class="error-container">
+    <h1>404</h1>
+    <p>The page you're looking for doesn't exist.</p>
+    <a href="/index.html" class="btn-secondary">Return Home</a>
+  </div>
+
+</body>
+</html>
