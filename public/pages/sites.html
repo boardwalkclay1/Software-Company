@@ -7,6 +7,67 @@
   <link rel="icon" type="image/png" href="/assets/img/go-time-logo.png" />
   <link rel="stylesheet" href="/css/base.css" />
   <link rel="stylesheet" href="/css/sites.css" />
+
+  <style>
+    /* BURGER MENU */
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .burger div {
+      width: 28px;
+      height: 3px;
+      background: #fff;
+    }
+    @media(max-width: 900px) {
+      .main-nav {
+        display: none;
+        flex-direction: column;
+        background: rgba(0,0,0,0.85);
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .main-nav a {
+        margin: 10px 0;
+      }
+      .burger {
+        display: flex;
+      }
+    }
+
+    /* ENTER SITE BUTTON */
+    .enter-site-btn {
+      margin-top: 12px;
+      display: inline-block;
+      padding: 10px 18px;
+      background: #ff4444;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+    .enter-site-btn:hover {
+      background: #ff2222;
+    }
+  </style>
+
+  <script>
+    // Burger Menu Toggle
+    document.addEventListener("DOMContentLoaded", () => {
+      const burger = document.querySelector(".burger");
+      const nav = document.querySelector(".main-nav");
+
+      burger.addEventListener("click", () => {
+        nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+      });
+    });
+  </script>
 </head>
 
 <body class="theme-dark">
@@ -16,6 +77,10 @@
     <div class="logo">
       <img src="/assets/img/go-time-logo.png" class="logo-img" />
       <span>Go Time Software</span>
+    </div>
+
+    <div class="burger">
+      <div></div><div></div><div></div>
     </div>
 
     <nav class="main-nav">
@@ -33,8 +98,9 @@
     <h1>Website Templates</h1>
     <p>
       These are <strong>real, fully interactive templates</strong> — not screenshots.  
-      Scroll them. Click them. Explore them.  
-      Every template is a real working website.
+      Every template below is a working website you can scroll, click, and explore.  
+      These represent <strong>what I can build for your business</strong> — and any feature you see here  
+      can be combined, layered, or customized into your own site.
     </p>
   </section>
 
@@ -44,65 +110,85 @@
     <div class="template-live-card">
       <iframe src="/templates/web/pages/gaming.html"></iframe>
       <h3>Gaming Template</h3>
-      <p>A cinematic gaming layout with bold UI and interactive sections.</p>
+      <p>A cinematic gaming layout with bold UI, interactive sections, and a dynamic feel.  
+      This is an example of how your site can look if you want energy, motion, and engagement.</p>
       <div class="price">$350</div>
+      <a class="enter-site-btn" href="/templates/web/pages/gaming.html" target="_blank">ENTER SITE</a>
     </div>
 
     <div class="template-live-card">
       <iframe src="/templates/web/pages/guide.html"></iframe>
       <h3>Guide Template</h3>
-      <p>A structured knowledge/guide layout with chapters and clean flow.</p>
+      <p>A structured knowledge/guide layout with chapters and clean flow.  
+      Perfect for documentation, onboarding, or any business that needs organized information.</p>
       <div class="price">$300</div>
+      <a class="enter-site-btn" href="/templates/web/pages/guide.html" target="_blank">ENTER SITE</a>
     </div>
 
     <div class="template-live-card">
       <iframe src="/templates/web/pages/landing.html"></iframe>
       <h3>Landing Page Template</h3>
-      <p>A high‑impact landing page built for conversions and clarity.</p>
+      <p>A high‑impact landing page built for conversions, clarity, and product launches.  
+      Any section here can be reused or remixed into your own brand.</p>
       <div class="price">$250</div>
+      <a class="enter-site-btn" href="/templates/web/pages/landing.html" target="_blank">ENTER SITE</a>
     </div>
 
     <div class="template-live-card">
       <iframe src="/templates/web/pages/marketplace.html"></iframe>
       <h3>Marketplace Template</h3>
-      <p>A full marketplace layout with product cards and category flows.</p>
+      <p>A full marketplace layout with product cards, categories, and flows.  
+      Great for shops, catalogs, or service listings.</p>
       <div class="price">$450</div>
+      <a class="enter-site-btn" href="/templates/web/pages/marketplace.html" target="_blank">ENTER SITE</a>
     </div>
 
     <div class="template-live-card">
       <iframe src="/templates/web/pages/portfolio.html"></iframe>
       <h3>Portfolio Template</h3>
-      <p>A cinematic portfolio layout for creators, artists, and developers.</p>
+      <p>A cinematic portfolio layout for creators, artists, developers, or businesses  
+      that want to showcase work in a clean, bold way.</p>
       <div class="price">$300</div>
+      <a class="enter-site-btn" href="/templates/web/pages/portfolio.html" target="_blank">ENTER SITE</a>
     </div>
 
     <div class="template-live-card">
       <iframe src="/templates/web/pages/rideshare.html"></iframe>
       <h3>Rideshare Template</h3>
-      <p>A modern rideshare/transport concept with clean UI flows.</p>
+      <p>A modern rideshare/transport concept with clean UI flows.  
+      This shows how I can build app‑style websites with smooth UX.</p>
       <div class="price">$400</div>
+      <a class="enter-site-btn" href="/templates/web/pages/rideshare.html" target="_blank">ENTER SITE</a>
     </div>
 
   </section>
 
   <!-- EXPLANATION SECTION -->
   <section class="section-block">
-    <h2>What Is a Website Template?</h2>
+    <h2>What These Templates Represent</h2>
     <p>
-      A website template is a <strong>fully built, working layout</strong> that shows how your site can look and behave.
-      These are not theme‑store templates — these are <strong>custom cinematic layouts</strong> built by Go Time Software.
+      These templates are <strong>examples</strong> of what I can build for your website.  
+      Every layout, animation, section, and feature you see here can be:
     </p>
+    <ul>
+      <li>Combined with other templates</li>
+      <li>Layered into a custom design</li>
+      <li>Recolored to match your brand</li>
+      <li>Expanded with dashboards, apps, or IoT integrations</li>
+      <li>Turned into a full business website</li>
+    </ul>
     <p>
-      You pick a template, and we customize it to your brand, your content, and your business goals.
+      If you see something you like — a feature, a layout, a section, a style —  
+      it can be added to <strong>your site</strong> in a clean, professional way.
     </p>
   </section>
 
   <section class="section-block">
     <h2>How Your Custom Site Is Built</h2>
     <ul>
-      <li>Pick a template that matches your vision.</li>
-      <li>We customize every section, color, layout, and feature.</li>
-      <li>We integrate dashboards, automations, payments, or IoT if needed.</li>
+      <li>You pick a template or mix of templates.</li>
+      <li>I customize every section, color, layout, and feature.</li>
+      <li>I integrate dashboards, automations, payments, or IoT if needed.</li>
       <li>You get a <strong>real, production‑ready website</strong> built fast and clean.</li>
     </ul>
   </section>
