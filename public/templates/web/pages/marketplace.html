@@ -2,73 +2,146 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Marketplace Template – Go Time Software</title>
+  <title>Marketplace – Go Time Software</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="../css/marketplace.css" />
   <script src="../js/marketplace.js" defer></script>
 </head>
 
 <body>
-  <div id="template-info">
-    <h1>Marketplace Template</h1>
-    <p>
-      This template shows a product marketplace with filters, a cart, and dynamic pricing behavior.
-      Click products to add them to the cart.
-    </p>
-  </div>
+  <div class="gtm-page">
+    <!-- Top meta strip -->
+    <div class="meta-bar">
+      <span class="meta-pill">Go Time Software</span>
+      <span class="meta-pill meta-pill-accent">Marketplace Simulation</span>
+      <button id="theme-toggle" class="meta-pill meta-toggle">Dark / Light</button>
+    </div>
 
-  <header class="header">
-    <div class="logo">Go Time <span>Market</span></div>
-    <nav class="nav">
-      <a href="#products">Products</a>
-      <a href="#categories">Categories</a>
-      <a href="#cart">Cart</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="market-hero">
-      <div class="market-hero-content">
-        <h1>Find the Tools You Need.</h1>
-        <p>
-          Use this layout for digital products, templates, or services. The search and filters are
-          wired to real JS logic.
-        </p>
-        <div class="market-search">
-          <input type="text" id="search-input" placeholder="Search products..." />
-          <button class="btn-primary" id="search-btn">Search</button>
-        </div>
-      </div>
-    </section>
-
-    <section id="categories" class="section">
-      <h2>Categories</h2>
-      <div class="chip-row">
-        <button class="chip chip-active" data-filter="all">All</button>
-        <button class="chip" data-filter="dashboard">Dashboards</button>
-        <button class="chip" data-filter="template">Templates</button>
-        <button class="chip" data-filter="service">Services</button>
-      </div>
-    </section>
-
-    <section id="products" class="section">
-      <h2>Products</h2>
-      <div id="product-grid" class="product-grid">
-        <!-- JS populates product cards -->
-      </div>
-    </section>
-
-    <section id="cart" class="section cart-section">
-      <h2>Cart</h2>
-      <div id="cart-empty">Your cart is empty.</div>
-      <ul id="cart-list" class="cart-list"></ul>
-      <div id="cart-summary" class="cart-summary hidden">
-        <span id="cart-count"></span>
-        <span id="cart-total"></span>
-        <button class="btn-primary">Checkout</button>
-      </div>
-      <p class="cart-note">
-        In a real build, this cart would connect to Stripe or another payment provider.
+    <!-- Template info -->
+    <section id="template-info" class="template-info">
+      <h1>Marketplace Template</h1>
+      <p>
+        A live marketplace simulation with filters, search, cart, and dynamic pricing.
+        Click products to add them to the cart and watch totals update in real time.
       </p>
     </section>
-  </main>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        Go Time <span>Market</span>
+      </div>
+      <nav class="nav">
+        <a href="#products">Products</a>
+        <a href="#categories">Categories</a>
+        <a href="#cart">Cart</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="market-hero">
+        <div class="market-hero-content">
+          <h1>Find the Tools You Need.</h1>
+          <p>
+            Use this layout for digital products, templates, or services. Search, filter, and simulate
+            a real checkout flow — all wired to JavaScript.
+          </p>
+          <div class="market-search">
+            <input type="text" id="search-input" placeholder="Search products..." />
+            <button class="btn-primary" id="search-btn">Search</button>
+          </div>
+          <div class="market-tags">
+            <span class="tag">Live cart math</span>
+            <span class="tag">Filter logic</span>
+            <span class="tag">LocalStorage</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Categories -->
+      <section id="categories" class="section">
+        <div class="section-header">
+          <h2>Categories</h2>
+          <p>Tap a category to filter the grid. Combine with search for precision.</p>
+        </div>
+        <div class="chip-row">
+          <button class="chip chip-active" data-filter="all">All</button>
+          <button class="chip" data-filter="dashboard">Dashboards</button>
+          <button class="chip" data-filter="template">Templates</button>
+          <button class="chip" data-filter="service">Services</button>
+          <button class="chip" data-filter="bundle">Bundles</button>
+        </div>
+      </section>
+
+      <!-- Products -->
+      <section id="products" class="section">
+        <div class="section-header">
+          <h2>Products</h2>
+          <p>Click a card to add it to the cart. Click again in the cart to remove.</p>
+        </div>
+        <div id="product-grid" class="product-grid">
+          <!-- JS populates product cards -->
+        </div>
+      </section>
+
+      <!-- Cart -->
+      <section id="cart" class="section cart-section">
+        <div class="section-header">
+          <h2>Cart</h2>
+          <p>Simulated cart with quantity, subtotal, fees, and total.</p>
+        </div>
+
+        <div class="cart-layout">
+          <div class="cart-main">
+            <div id="cart-empty" class="cart-empty">Your cart is empty.</div>
+            <ul id="cart-list" class="cart-list"></ul>
+          </div>
+
+          <aside class="cart-summary-panel">
+            <h3>Order Summary</h3>
+            <div class="summary-row">
+              <span>Items</span>
+              <span id="cart-count">0</span>
+            </div>
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span id="cart-subtotal">$0.00</span>
+            </div>
+            <div class="summary-row">
+              <span>Platform Fee (5%)</span>
+              <span id="cart-fee">$0.00</span>
+            </div>
+            <div class="summary-row summary-row-total">
+              <span>Total</span>
+              <span id="cart-total">$0.00</span>
+            </div>
+            <button class="btn-primary btn-full" id="checkout-btn">Simulate Checkout</button>
+            <p class="cart-note">
+              In a real build, this would connect to Stripe or another payment provider.
+            </p>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <!-- Product modal -->
+    <div id="product-modal" class="modal hidden">
+      <div class="modal-backdrop"></div>
+      <div class="modal-content">
+        <button class="modal-close" id="modal-close">&times;</button>
+        <div class="modal-body">
+          <h3 id="modal-title"></h3>
+          <p id="modal-description"></p>
+          <div class="modal-meta">
+            <span id="modal-category" class="modal-chip"></span>
+            <span id="modal-price" class="modal-price"></span>
+          </div>
+          <button class="btn-primary" id="modal-add">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
