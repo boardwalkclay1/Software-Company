@@ -8,13 +8,17 @@ document.querySelectorAll(".game-card").forEach(card => {
 });
 
 function loadGame(game) {
-  if (game === "snake") {
-    gameArea.innerHTML = `<iframe src="../games/snake/index.html" class="game-frame"></iframe>`;
-  }
-  if (game === "pong") {
-    gameArea.innerHTML = `<iframe src="../games/pong/index.html" class="game-frame"></iframe>`;
-  }
-  if (game === "tetris") {
-    gameArea.innerHTML = `<iframe src="../games/tetris/index.html" class="game-frame"></iframe>`;
-  }
+  const base = "../games/";
+
+  const paths = {
+    snake: `${base}snake/index.html`,
+    pong: `${base}pong/index.html`,
+    tetris: `${base}tetris/index.html`
+  };
+
+  if (!paths[game]) return;
+
+  gameArea.innerHTML = `
+    <iframe src="${paths[game]}" class="game-frame"></iframe>
+  `;
 }
