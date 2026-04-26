@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="./assets/img/go-time-logo.png" />
   <link rel="shortcut icon" href="./favicon.ico" />
 
-  <!-- ONLY ONE CSS FILE -->
+  <!-- ONE CSS FILE ONLY -->
   <link rel="stylesheet" href="./css/base.css" />
 
   <!-- JS -->
@@ -17,7 +17,7 @@
 
 <body class="theme-dark">
 
-  <!-- Cinematic Intro -->
+  <!-- INTRO ANIMATION -->
   <div id="intro-screen">
     <img id="intro-image" src="./assets/img/go-time-logo.png" alt="Go Time Software Logo">
     <div id="intro-lightning"></div>
@@ -40,31 +40,39 @@
     </nav>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO SECTION -->
   <section class="hero">
     <div class="hero-left">
+
       <h1 class="hero-title">
         Websites. Apps. Dashboards. IoT.
         <span class="highlight">Built Fast. Built Right.</span>
       </h1>
 
       <p class="hero-sub">
-        Explore real templates. Click them. Use them.
-        Every template is interactive and production‑ready.
+        Go Time Software builds high‑performance digital products for businesses, creators, and entrepreneurs.
+        Every template, app, and dashboard is fully interactive, customizable, and production‑ready.
       </p>
 
       <button class="btn-primary" onclick="scrollToTemplates()">Browse Templates</button>
       <button class="btn-secondary" onclick="scrollToOrder()">Order a Build</button>
+
     </div>
 
     <div class="hero-right">
       <div class="hero-preview">
         <h3>Live Dashboard Preview</h3>
+
+        <p class="hero-sub">
+          A sample of the real‑time dashboards we build for businesses — analytics, KPIs, automation, and more.
+        </p>
+
         <div class="kpi-row">
           <div class="kpi">Users: <strong>1,284</strong></div>
           <div class="kpi">MRR: <strong>$42,910</strong></div>
           <div class="kpi">Growth: <strong>7.4%</strong></div>
         </div>
+
         <div class="chart-area">[Chart Placeholder]</div>
       </div>
     </div>
@@ -72,57 +80,84 @@
 
   <!-- TEMPLATE SCROLLER -->
   <section id="templates" class="template-section">
+
     <h2>Website & App Templates</h2>
-    <p class="section-sub">Scroll right → left. Click any template to open the full interactive demo.</p>
+
+    <p class="section-sub">
+      These are real, working templates built by Go Time Software.  
+      Scroll horizontally and click any template to open the full interactive demo.
+    </p>
 
     <div class="template-scroller" id="templateScroller">
+
       <div class="template-card" onclick="openTemplate('landing')">
         <img src="./assets/previews/landing.png" alt="Landing Page Template">
         <h3>Landing Page</h3>
+        <p>A clean, modern landing page for businesses, creators, and startups.</p>
       </div>
 
       <div class="template-card" onclick="openTemplate('marketplace')">
         <img src="./assets/previews/marketplace.png" alt="Marketplace Template">
         <h3>Marketplace</h3>
+        <p>A full marketplace layout with product cards, filters, and categories.</p>
       </div>
 
       <div class="template-card" onclick="openTemplate('gaming')">
         <img src="./assets/previews/gaming.png" alt="Gaming Hub Template">
         <h3>Gaming Hub</h3>
+        <p>Perfect for gaming communities, esports teams, or content creators.</p>
       </div>
 
       <div class="template-card" onclick="openTemplate('rideshare')">
         <img src="./assets/previews/rideshare.png" alt="Rideshare Template">
         <h3>Rideshare</h3>
+        <p>A rideshare‑style interface with driver, rider, and map UI elements.</p>
       </div>
 
       <div class="template-card" onclick="openTemplate('guide')">
         <img src="./assets/previews/guide.png" alt="Guide Template">
         <h3>Guide / Knowledge Base</h3>
+        <p>Documentation, tutorials, FAQs, and searchable knowledge systems.</p>
       </div>
 
       <div class="template-card" onclick="openTemplate('portfolio')">
         <img src="./assets/previews/portfolio.png" alt="Portfolio Template">
         <h3>Portfolio / Agency</h3>
+        <p>Showcase your work, services, and brand with a clean portfolio layout.</p>
       </div>
+
     </div>
   </section>
 
   <!-- SERVICES -->
   <section id="services" class="services">
+
     <h2>What We Build</h2>
+
+    <p class="section-sub">
+      Go Time Software specializes in fast, scalable, modern digital products.
+    </p>
+
     <div class="service-grid">
-      <div class="service-card">Websites</div>
-      <div class="service-card">Mobile Apps</div>
-      <div class="service-card">Dashboards</div>
-      <div class="service-card">IoT Systems</div>
+      <div class="service-card">Websites<br><span>Business, personal, landing pages, portfolios</span></div>
+      <div class="service-card">Mobile Apps<br><span>PWAs, tools, utilities, business apps</span></div>
+      <div class="service-card">Dashboards<br><span>Analytics, automation, admin panels</span></div>
+      <div class="service-card">IoT Systems<br><span>Device dashboards, sensors, automation</span></div>
     </div>
+
   </section>
 
   <!-- PRICING -->
   <section id="pricing" class="pricing">
+
     <h2>Pricing</h2>
+
+    <p class="section-sub">
+      Transparent pricing. No hidden fees. Every build includes revisions, optimization, and deployment.
+    </p>
+
     <div class="pricing-grid">
+
       <div class="price-card">
         <h3>Simple Website</h3>
         <p class="price">$200</p>
@@ -140,14 +175,22 @@
         <p class="price">$800+</p>
         <p>Full apps, dashboards, automation, IoT.</p>
       </div>
+
     </div>
   </section>
 
   <!-- ORDER CTA -->
   <section id="order" class="order">
+
     <h2>Order a Website or App</h2>
-    <p>Fill out the form and upload your logo. Pricing updates automatically.</p>
+
+    <p>
+      Ready to start? Click below to send your project details.  
+      You can upload your logo, describe your idea, and choose your template.
+    </p>
+
     <button class="btn-primary" onclick="window.location.href='./contact.html'">Start Order</button>
+
   </section>
 
 </body>
