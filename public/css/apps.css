@@ -1,3 +1,6 @@
+/* ============================================
+   GLOBAL BACKGROUND
+============================================ */
 body.theme-dark {
   background: url("/assets/img/go-time-town.jpg") no-repeat center center fixed;
   background-size: cover;
@@ -12,7 +15,9 @@ body.theme-dark::before {
   z-index: -1;
 }
 
-/* PAGE HEADER */
+/* ============================================
+   PAGE HEADER
+============================================ */
 .page-header {
   text-align: center;
   margin-top: 70px;
@@ -31,7 +36,9 @@ body.theme-dark::before {
   margin: 0 auto;
 }
 
-/* APPS GRID */
+/* ============================================
+   APPS GRID
+============================================ */
 .apps-grid {
   max-width: 1300px;
   margin: 50px auto 80px;
@@ -59,7 +66,9 @@ body.theme-dark::before {
   }
 }
 
-/* IFRAME WRAP */
+/* ============================================
+   IFRAME WRAP
+============================================ */
 .app-frame-wrap {
   border-radius: 12px;
   overflow: hidden;
@@ -72,7 +81,9 @@ body.theme-dark::before {
   border: none;
 }
 
-/* CONTENT */
+/* ============================================
+   CONTENT
+============================================ */
 .app-content h2 {
   font-size: 26px;
   margin-bottom: 6px;
@@ -91,7 +102,9 @@ body.theme-dark::before {
   margin-bottom: 10px;
 }
 
-/* INSTALL BLOCK */
+/* ============================================
+   INSTALL BLOCK
+============================================ */
 .install-block {
   margin-top: 18px;
   padding: 14px 14px 10px;
@@ -113,4 +126,62 @@ body.theme-dark::before {
   font-size: 14px;
   line-height: 1.6;
   opacity: 0.95;
+}
+
+/* ============================================
+   THEMED APP COLORS
+============================================ */
+
+/* --- THE GUILD (Gold Medieval) --- */
+.app-card:nth-child(1) {
+  border-color: #b38b2a;
+  box-shadow: 0 0 18px #b38b2a55;
+}
+.app-card:nth-child(1) .app-content {
+  color: #e6c15a;
+}
+
+/* --- KEEP A MAN COOKBOOK (Warm Kitchen) --- */
+.app-card:nth-child(2) {
+  border-color: #ffb38a;
+  box-shadow: 0 0 18px #ffb38a55;
+}
+.app-card:nth-child(2) .app-content {
+  color: #ffddc2;
+}
+
+/* --- SPICE DX5 (Flavor Lab Yellow/Orange) --- */
+.app-card:nth-child(3) {
+  border-color: #ffcc66;
+  box-shadow: 0 0 18px #ffcc6655;
+}
+.app-card:nth-child(3) .app-content {
+  color: #ffd27f;
+}
+
+/* --- ITA (Nature Green) --- */
+.app-card:nth-child(4) {
+  border-color: #66ff99;
+  box-shadow: 0 0 18px #66ff9955;
+}
+.app-card:nth-child(4) .app-content {
+  color: #b4ffb4;
+}
+
+/* --- ROLL SHOW (White Cursive Spotlight) --- */
+.app-card:nth-child(5) {
+  border-color: #ffffffaa;
+  box-shadow: 0 0 18px #ffffff55;
+}
+.app-card:nth-child(5) .app-content {
+  color: #ffffff;
+}
+
+/* --- REAL TREE GUY (Earth Green) --- */
+.app-card:nth-child(6) {
+  border-color: #88cc88;
+  box-shadow: 0 0 18px #88cc8855;
+}
+.app-card:nth-child(6) .app-content {
+  color: #c8ffcf;
 }
