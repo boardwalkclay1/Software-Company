@@ -1,6 +1,6 @@
 /* ============================================================
-   GO TIME SOFTWARE — GLOBAL GLOWING STONE BRICK STYLE
-   Heavy stone texture • Ember glow • Cinematic dark UI
+   GO TIME SOFTWARE — GLOBAL GLOWING STONE BRICK UI
+   Cinematic • Heavy Stone • Ember Glow • Full Override
    ============================================================ */
 
 /* RESET */
@@ -17,54 +17,72 @@ html, body {
 }
 
 /* ============================================================
+   GLOBAL VARIABLES — STONE BRICK PALETTE
+============================================================ */
+:root {
+  --stone-light: #f4efe6;
+  --stone-mid: #c9c3b8;
+  --stone-dark: #6b6458;
+  --stone-deep: #2e2a26;
+  --stone-glow: rgba(255, 120, 80, 0.45);
+
+  --panel-bg: rgba(0,0,0,0.45);
+  --panel-border: #4a3a32;
+}
+
+/* ============================================================
    GLOBAL BODY — DARK STONE WORLD
 ============================================================ */
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: #000;
-  color: #dcd7ce; /* Stone base */
   overflow-x: hidden;
   overflow-y: auto;
   line-height: 1.55;
-
-  /* Stone grain + ember glow */
-  text-shadow:
-    0 0 2px #000,
-    0 0 6px rgba(0,0,0,0.8),
-    1px 1px 0 rgba(255,255,255,0.05),
-    -1px -1px 0 rgba(0,0,0,0.55),
-    0 0 8px rgba(255,80,60,0.08);
 }
 
 /* ============================================================
-   HEADINGS — CARVED GLOWING STONE
+   GLOBAL TEXT — REAL GLOWING STONE BRICK (FULL OVERRIDE)
 ============================================================ */
-h1, h2, h3, .logo {
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #f0ece4; /* Light glowing stone */
+body, p, li, a, span, h1, h2, h3, h4, h5, h6, button, .logo, .cta-btn {
+  background: linear-gradient(
+    180deg,
+    var(--stone-light) 0%,
+    var(--stone-mid) 40%,
+    var(--stone-dark) 100%
+  );
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
 
-  /* Deep carved stone + ember glow */
   text-shadow:
     0 0 4px #000,
-    0 0 10px #000,
-    2px 2px 0 rgba(255,255,255,0.06),
-    -2px -2px 0 rgba(0,0,0,0.7),
-    0 0 18px rgba(255,80,60,0.15),
-    0 0 28px rgba(255,80,60,0.10);
+    0 0 8px #000,
+    1px 1px 0 var(--stone-dark),
+    -1px -1px 0 var(--stone-deep),
+    0 0 14px var(--stone-glow),
+    0 0 24px rgba(255, 120, 80, 0.25) !important;
 }
 
-/* ============================================================
-   BODY TEXT — SMOOTH GLOWING STONE
-============================================================ */
-p, li, a, span {
-  color: #d6d2c8;
+/* Headings — deeper carving */
+h1, h2, h3 {
+  letter-spacing: 0.08em;
+  font-weight: 900;
   text-shadow:
-    0 0 2px #000,
-    1px 1px 0 rgba(255,255,255,0.04),
-    -1px -1px 0 rgba(0,0,0,0.55),
-    0 0 6px rgba(255,80,60,0.06);
+    0 0 6px #000,
+    0 0 12px #000,
+    2px 2px 0 var(--stone-dark),
+    -2px -2px 0 var(--stone-deep),
+    0 0 22px var(--stone-glow),
+    0 0 34px rgba(255, 120, 80, 0.35) !important;
+}
+
+/* Links glow brighter */
+a:hover {
+  text-shadow:
+    0 0 12px rgba(255, 120, 80, 0.7),
+    0 0 22px rgba(255, 120, 80, 0.5),
+    0 0 32px rgba(255, 120, 80, 0.4) !important;
 }
 
 /* ============================================================
@@ -76,7 +94,7 @@ p, li, a, span {
   align-items: center;
   padding: 18px 40px;
   background: rgba(0,0,0,0.65);
-  border-bottom: 1px solid #4a3a32;
+  border-bottom: 1px solid var(--panel-border);
   box-shadow: 0 0 18px #000;
   position: sticky;
   top: 0;
@@ -96,11 +114,10 @@ p, li, a, span {
 }
 
 /* ============================================================
-   NAVIGATION — STONE LINKS
+   NAVIGATION
 ============================================================ */
 .main-nav a {
   margin-left: 22px;
-  color: #d0ccc0;
   text-decoration: none;
   font-size: 15px;
   text-transform: uppercase;
@@ -109,7 +126,6 @@ p, li, a, span {
 }
 
 .main-nav a:hover {
-  color: #ff5a4a;
   text-shadow:
     0 0 10px rgba(255,80,60,0.5),
     0 0 18px rgba(255,80,60,0.35);
@@ -122,7 +138,7 @@ p, li, a, span {
 .btn-secondary {
   padding: 10px 18px;
   border-radius: 999px;
-  border: 1px solid #4a3a32;
+  border: 1px solid var(--panel-border);
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -131,7 +147,6 @@ p, li, a, span {
 
 .btn-primary {
   background: linear-gradient(135deg, #4a3a32, #7a6458);
-  color: #fff;
   box-shadow:
     0 0 14px rgba(255,80,60,0.25),
     inset 0 0 8px rgba(255,80,60,0.15);
@@ -145,31 +160,30 @@ p, li, a, span {
 
 .btn-secondary {
   background: transparent;
-  color: #d0ccc0;
 }
 
 .btn-secondary:hover {
-  color: #ff5a4a;
   text-shadow:
     0 0 10px rgba(255,80,60,0.5),
     0 0 18px rgba(255,80,60,0.35);
 }
 
 /* ============================================================
-   PREVIEW CARDS — STONE PANELS
+   PANELS / SECTIONS
 ============================================================ */
+.section,
 .preview-card {
-  margin: 20px 0;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
   padding: 20px;
-  border: 1px solid #4a3a32;
-  border-radius: 12px;
-  background: rgba(0,0,0,0.35);
   box-shadow:
     0 0 14px #000,
     inset 0 0 12px rgba(255,80,60,0.08);
   transition: 0.2s ease;
 }
 
+.section:hover,
 .preview-card:hover {
   border-color: #ff5a4a;
   box-shadow:
@@ -178,21 +192,21 @@ p, li, a, span {
 }
 
 /* ============================================================
-   IOT STRIP — STONE FRAME
+   IOT STRIP
 ============================================================ */
 .iot-strip-gallery {
   width: 100%;
   overflow: hidden;
   margin-top: 30px;
-  border-top: 1px solid #4a3a32;
-  border-bottom: 1px solid #4a3a32;
+  border-top: 1px solid var(--panel-border);
+  border-bottom: 1px solid var(--panel-border);
   padding: 14px 0;
   background: rgba(0,0,0,0.35);
   box-shadow: inset 0 0 20px #000;
 }
 
 .iot-strip-track img {
-  border: 1px solid #4a3a32;
+  border: 1px solid var(--panel-border);
   box-shadow:
     0 0 12px #000,
     0 0 10px rgba(255,80,60,0.15);
