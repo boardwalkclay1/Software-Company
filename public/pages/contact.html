@@ -4,20 +4,9 @@
   <meta charset="UTF-8" />
   <title>Contact – Go Time Software</title>
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="/assets/img/go-time-logo.png" />
-  <link rel="shortcut icon" href="/favicon.ico" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Contact – Go Time Software" />
-  <meta property="og:description" content="Reach out to Go Time Software for websites, apps, dashboards, and IoT systems." />
-  <meta property="og:image" content="/assets/img/social-preview.jpg" />
-  <meta property="og:type" content="website" />
-
-  <!-- Base Styles -->
   <link rel="stylesheet" href="/css/base.css" />
 
-  <!-- Background + Cinematic Layer -->
   <style>
     body.theme-dark {
       background: url("/assets/img/go-time-back-logo.jpg") no-repeat center center fixed;
@@ -44,12 +33,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .contact-sub {
-      font-size: 20px;
-      margin-bottom: 40px;
-      opacity: 0.9;
-    }
-
     .glass-block {
       background: rgba(0,0,0,0.35);
       border: 1px solid #550000;
@@ -63,11 +46,11 @@
       display: flex;
       flex-direction: column;
       gap: 18px;
-      margin-bottom: 40px;
     }
 
     .contact-form input,
-    .contact-form textarea {
+    .contact-form textarea,
+    .contact-form select {
       background: rgba(0,0,0,0.35);
       border: 1px solid #550000;
       color: #fff;
@@ -79,7 +62,8 @@
     }
 
     .contact-form input:focus,
-    .contact-form textarea:focus {
+    .contact-form textarea:focus,
+    .contact-form select:focus {
       border-color: #ff3b3b;
       box-shadow: 0 0 14px #aa0000aa;
       outline: none;
@@ -90,24 +74,29 @@
       resize: vertical;
     }
 
-    .contact-info ul {
-      margin-left: 20px;
-      line-height: 1.8;
+    .btn-primary {
+      background: #ff3b3b;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      color: #fff;
       font-size: 18px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-primary:hover {
+      background: #cc2a2a;
     }
 
-    .contact-cta {
-      margin-top: 50px;
-      text-align: center;
-    }
-
-    .contact-cta p {
-      margin-bottom: 20px;
+    .success-box {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: rgba(0,255,0,0.15);
+      border: 1px solid #00aa00;
+      border-radius: 10px;
+      color: #b6ffb6;
       font-size: 18px;
-    }
-
-    .contact-cta a {
-      margin: 10px;
     }
   </style>
 </head>
@@ -127,7 +116,7 @@
       <a href="/pages/apps.html">Apps</a>
       <a href="/pages/iot.html">IoT</a>
       <a href="/pages/pricing.html">Pricing</a>
-      <a href="/pages/contact.html">Contact</a>
+      <a href="/pages/contact.html" class="active">Contact</a>
     </nav>
   </header>
 
@@ -136,19 +125,36 @@
 
     <h1>Contact Us</h1>
     <p class="contact-sub">
-      Tell us about your project — websites, apps, dashboards, or IoT systems.  
-      We respond fast and deliver even faster.
+      Tell us what you need — websites, apps, IoT systems, dashboards, repairs, or custom builds.
     </p>
 
     <!-- CONTACT FORM -->
     <div class="glass-block">
-      <form class="contact-form">
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <input type="text" placeholder="Business Name (optional)" />
-        <textarea placeholder="Tell us about your project…" required></textarea>
-        <button class="btn-primary">Send Message</button>
+      <form id="contactForm" class="contact-form">
+
+        <select id="category" required>
+          <option value="">Select Project Type</option>
+          <option value="Website">Website</option>
+          <option value="App">App</option>
+          <option value="IoT System">IoT System</option>
+          <option value="Dashboard">Dashboard</option>
+          <option value="Repair">Electronics Repair</option>
+          <option value="Drone">Custom Drone Build</option>
+          <option value="RC Vehicle">RC Vehicle Build</option>
+          <option value="Guide App">Personalized Guide App</option>
+        </select>
+
+        <input id="name" type="text" placeholder="Your Name" required />
+        <input id="email" type="email" placeholder="Your Email" required />
+        <input id="business" type="text" placeholder="Business Name (optional)" />
+        <textarea id="message" placeholder="Tell us about your project…" required></textarea>
+
+        <button class="btn-primary" type="submit">Send Message</button>
       </form>
+
+      <div id="successBox" class="success-box">
+        Message sent! We’ll reach out shortly.
+      </div>
     </div>
 
     <!-- CONTACT INFO -->
@@ -162,10 +168,10 @@
 
     <!-- CTA -->
     <div class="glass-block contact-cta">
-      <h2>Ready to Start?</h2>
+      <h2>Need Something Custom?</h2>
       <p>
-        Whether you need a website, app, dashboard, or microcontroller system —  
-        Go Time Software builds it fast, clean, and scalable.
+        Websites, apps, dashboards, IoT systems, drones, repairs —  
+        Go Time Software builds it clean, fast, and cinematic.
       </p>
       <a class="btn-secondary" href="/pages/apps.html">View Apps</a>
       <a class="btn-secondary" href="/pages/sites.html">View Websites</a>
@@ -178,5 +184,6 @@
     <span>© Go Time Software — Dashboards, Apps, IoT Systems</span>
   </footer>
 
+  <script src="/js/contact.js"></script>
 </body>
 </html>
