@@ -21,32 +21,6 @@
       z-index: -1;
     }
 
-    .burger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-    }
-    .burger div {
-      width: 28px;
-      height: 3px;
-      background: #fff;
-    }
-    @media(max-width: 900px) {
-      .main-nav {
-        display: none;
-        flex-direction: column;
-        background: rgba(0,0,0,0.85);
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        padding: 20px;
-        border-radius: 10px;
-      }
-      .main-nav a { margin: 10px 0; }
-      .burger { display: flex; }
-    }
-
     .section {
       margin-top: 50px;
       background: rgba(0,0,0,0.55);
@@ -76,30 +50,50 @@
     }
     .cta-btn:hover { background: #ff2222; }
 
-    .preview-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
-      margin-top: 30px;
-    }
-
     .preview-card {
       background: rgba(0,0,0,0.45);
       border: 1px solid #333;
       border-radius: 14px;
       padding: 20px;
       box-shadow: 0 0 20px #000;
+      margin-top: 25px;
     }
 
     .preview-card iframe {
       width: 100%;
-      height: 350px;
+      height: 420px;
       border-radius: 12px;
       border: none;
       background: #000;
     }
 
     .repair-list li { margin-bottom: 6px; }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .burger div {
+      width: 28px;
+      height: 3px;
+      background: #fff;
+    }
+    @media(max-width: 900px) {
+      .main-nav {
+        display: none;
+        flex-direction: column;
+        background: rgba(0,0,0,0.85);
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .main-nav a { margin: 10px 0; }
+      .burger { display: flex; }
+    }
   </style>
 </head>
 
@@ -126,9 +120,9 @@
     </nav>
   </header>
 
-  <!-- HERO -->
   <main class="page-container">
 
+    <!-- HERO -->
     <section class="section">
       <h1>Go Time Software</h1>
       <p>
@@ -138,51 +132,84 @@
       <a class="cta-btn" href="/pages/contact.html">Start Your Project</a>
     </section>
 
-    <!-- LIVE PREVIEWS -->
+    <!-- WEBSITE PREVIEW -->
     <section class="section">
-      <h2>Live Previews</h2>
-      <p>These are real, working examples of what I build — scroll them, click them, explore them.</p>
+      <h2>Websites</h2>
+      <p>
+        Your website is your storefront, your brand, your first impression.  
+        I build cinematic, modern, mobile‑ready websites that feel alive and convert visitors into customers.
+      </p>
 
-      <div class="preview-grid">
-
-        <div class="preview-card">
-          <iframe src="https://comic-lct.pages.dev/"></iframe>
-          <h3>Comic Website</h3>
-        </div>
-
-        <div class="preview-card">
-          <iframe src="https://the-code.pages.dev/"></iframe>
-          <h3>The Code</h3>
-        </div>
-
-        <div class="preview-card">
-          <iframe src="/games/cooking/index.html"></iframe>
-          <h3>Cooking Game</h3>
-        </div>
-
-        <div class="preview-card">
-          <iframe src="/templates/web/pages/marketplace.html"></iframe>
-          <h3>Marketplace Template</h3>
-        </div>
-
-        <div class="preview-card">
-          <iframe src="/templates/web/pages/landing.html"></iframe>
-          <h3>Landing Page Template</h3>
-        </div>
-
+      <div class="preview-card">
+        <iframe src="https://comic-lct.pages.dev/"></iframe>
+        <h3>Example Website – Comic Universe</h3>
       </div>
+
+      <p style="margin-top:20px;">
+        Websites can be anything — business pages, portfolios, product launches, guides, or full interactive experiences.
+      </p>
+
+      <a class="cta-btn" href="/pages/sites.html">Explore Website Templates</a>
     </section>
 
-    <!-- SERVICES -->
+    <!-- APP PREVIEW -->
     <section class="section">
-      <h2>What We Build</h2>
-      <ul>
-        <li><strong>Websites</strong> — cinematic, responsive, and built for conversions.</li>
-        <li><strong>Apps</strong> — installable, mobile‑ready, and built like real software.</li>
-        <li><strong>IoT Systems</strong> — sensors, dashboards, automation, and security.</li>
-        <li><strong>Custom Electronics</strong> — drones, RC vehicles, controllers, and more.</li>
-        <li><strong>Repairs</strong> — screens, wires, boards, ports, sensors, and devices.</li>
-      </ul>
+      <h2>Apps</h2>
+      <p>
+        Apps are different from websites — they run your business.  
+        They automate work, track data, handle customers, and can even become full businesses on their own.
+      </p>
+
+      <div class="preview-card">
+        <iframe src="https://the-guild-855.pages.dev/"></iframe>
+        <h3>Example App – The Guild</h3>
+      </div>
+
+      <p style="margin-top:20px;">
+        A good app idea can turn into money.  
+        I even work with clients through <strong>equity deals</strong> if the idea has real potential.
+      </p>
+
+      <a class="cta-btn" href="/pages/apps.html">Explore Apps</a>
+    </section>
+
+    <!-- WHY GO TIME SOFTWARE -->
+    <section class="section">
+      <h2>Why Go Time Software?</h2>
+      <p>
+        Creativity. Speed. Precision.  
+        I build everything modular, cinematic, and clean — no clutter, no confusion, no broken paths.
+      </p>
+      <p>
+        I work with clients financially, offering flexible pricing, payment plans, and equity options for strong ideas.
+      </p>
+    </section>
+
+    <!-- YOUR STORY -->
+    <section class="section">
+      <h2>My Story</h2>
+      <p>
+        I didn’t grow up with a big support system.  
+        No family behind me. No friends pushing me. No one showing me the way.  
+        What I did have was my mind — and I used it.
+      </p>
+      <p>
+        I taught myself how to code, build, design, automate, and create.  
+        Go Time Software was built from nothing but determination and skill.  
+        And now I use that to build for others.
+      </p>
+
+      <a class="cta-btn" href="/pages/about.html">Read More About Me</a>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section">
+      <h2>Pricing</h2>
+      <p>
+        Pricing is simple, transparent, and built around your needs.  
+        Websites, apps, IoT systems — everything has clear ranges and no hidden fees.
+      </p>
+
       <a class="cta-btn" href="/pages/pricing.html">View Pricing</a>
     </section>
 
@@ -191,22 +218,10 @@
       <h2>IoT Systems & Automation</h2>
       <p>
         IoT lets you control and monitor your world — your home, your car, your business, your equipment.  
-        Sensors can detect motion, presence, vibration, heat, sound, or even laser trip lines.
+        From GRP sensors to motion detection, laser trip lines, vibration sensors, and automation triggers.
       </p>
 
-      <ul>
-        <li>Laser trip alarms</li>
-        <li>Human presence sensors</li>
-        <li>Motion sensors</li>
-        <li>Vibration sensors</li>
-        <li>Sound sensors</li>
-        <li>Relay control for motors, pumps, fans, or lighting</li>
-      </ul>
-
-      <p>
-        Every system is custom‑built for your environment.  
-        <a href="/pages/iot.html" style="color:#ff4444;font-weight:bold;">Explore IoT Systems</a>
-      </p>
+      <a class="cta-btn" href="/pages/iot.html">Learn More About IoT</a>
     </section>
 
     <!-- REPAIRS -->
@@ -230,7 +245,7 @@
       <a class="cta-btn" href="/pages/contact.html">Request a Repair</a>
     </section>
 
-    <!-- CTA -->
+    <!-- CONTACT -->
     <section class="section">
       <h2>Ready to Build?</h2>
       <p>
@@ -238,6 +253,16 @@
         Go Time Software builds it clean, fast, and exactly how you need it.
       </p>
       <a class="cta-btn" href="/pages/contact.html">Contact Go Time</a>
+    </section>
+
+    <!-- PRIVACY -->
+    <section class="section">
+      <h2>Privacy Agreement</h2>
+      <p>
+        Your data, your ideas, and your projects stay yours.  
+        I don’t sell, share, or misuse your information — ever.
+      </p>
+      <a class="cta-btn" href="/pages/privacy.html">View Privacy Agreement</a>
     </section>
 
   </main>
