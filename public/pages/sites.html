@@ -9,67 +9,7 @@
   <link rel="stylesheet" href="/css/sites.css" />
 
   <style>
-    /* Bigger iframe windows */
-    .template-live-card iframe {
-      width: 100%;
-      height: 520px;
-      border: none;
-      border-radius: 14px;
-      background: #000;
-    }
-
-    @media(max-width: 600px) {
-      .template-live-card iframe {
-        height: 360px;
-      }
-    }
-
-    /* 2×2 grid on desktop, stacked on mobile */
-    .template-live-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 26px;
-      margin-bottom: 40px;
-    }
-
-    @media(max-width: 800px) {
-      .template-live-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Guild iframe */
-    .guild-iframe {
-      width: 100%;
-      height: 520px;
-      border-radius: 16px;
-      border: none;
-      background: #000;
-      margin-top: 12px;
-    }
-
-    @media(max-width: 600px) {
-      .guild-iframe {
-        height: 380px;
-      }
-    }
-
-    .enter-site-btn {
-      margin-top: 12px;
-      display: inline-block;
-      padding: 10px 18px;
-      background: #ff4444;
-      color: #fff;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.2s;
-    }
-    .enter-site-btn:hover {
-      background: #ff2222;
-    }
-
-    /* Burger menu */
+    /* BURGER MENU */
     .burger {
       display: none;
       flex-direction: column;
@@ -99,12 +39,30 @@
         display: flex;
       }
     }
+
+    /* ENTER SITE BUTTON */
+    .enter-site-btn {
+      margin-top: 12px;
+      display: inline-block;
+      padding: 10px 18px;
+      background: #ff4444;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+    .enter-site-btn:hover {
+      background: #ff2222;
+    }
   </style>
 
   <script>
+    // Burger Menu Toggle
     document.addEventListener("DOMContentLoaded", () => {
       const burger = document.querySelector(".burger");
       const nav = document.querySelector(".main-nav");
+
       burger.addEventListener("click", () => {
         nav.style.display = nav.style.display === "flex" ? "none" : "flex";
       });
@@ -114,137 +72,153 @@
 
 <body class="theme-dark">
 
-  <div class="page-shell">
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="logo">
+      <img src="/assets/img/go-time-logo.png" class="logo-img" />
+      <span>Go Time Software</span>
+    </div>
 
-    <!-- HEADER -->
-    <header class="site-header">
-      <div class="logo">
-        <img src="/assets/img/go-time-logo.png" class="logo-img" />
-        <span>Go Time Software</span>
+    <div class="burger">
+      <div></div><div></div><div></div>
+    </div>
+
+    <nav class="main-nav">
+      <a href="/index.html">Home</a>
+      <a href="/pages/sites.html" class="active">Sites</a>
+      <a href="/pages/apps.html">Apps</a>
+      <a href="/pages/iot.html">IoT</a>
+      <a href="/pages/pricing.html">Pricing</a>
+      <a href="/pages/contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <h1>Website Templates</h1>
+    <p>
+      These are <strong>real, fully interactive templates</strong> — not screenshots.  
+      Every template below is a working website you can scroll, click, and explore.  
+      These represent <strong>what I can build for your business</strong> — and any feature you see here  
+      can be combined, layered, or customized into your own site.
+    </p>
+  </section>
+
+  <!-- LIVE TEMPLATE GRID -->
+  <section class="template-live-grid">
+
+    <div class="template-live-card">
+      <iframe src="/templates/web/pages/gaming.html"></iframe>
+      <h3>Gaming Template</h3>
+      <p>A cinematic gaming layout with bold UI, interactive sections, and a dynamic feel.  
+      This is an example of how your site can look if you want energy, motion, and engagement.</p>
+      <div class="price">$350</div>
+      <a class="enter-site-btn" href="/templates/web/pages/gaming.html" target="_blank">ENTER SITE</a>
+    </div>
+
+    <div class="template-live-card">
+      <iframe src="/templates/web/pages/guide.html"></iframe>
+      <h3>Guide Template</h3>
+      <p>A structured knowledge/guide layout with chapters and clean flow.  
+      Perfect for documentation, onboarding, or any business that needs organized information.</p>
+      <div class="price">$300</div>
+      <a class="enter-site-btn" href="/templates/web/pages/guide.html" target="_blank">ENTER SITE</a>
+    </div>
+
+    <div class="template-live-card">
+      <iframe src="/templates/web/pages/landing.html"></iframe>
+      <h3>Landing Page Template</h3>
+      <p>A high‑impact landing page built for conversions, clarity, and product launches.  
+      Any section here can be reused or remixed into your own brand.</p>
+      <div class="price">$250</div>
+      <a class="enter-site-btn" href="/templates/web/pages/landing.html" target="_blank">ENTER SITE</a>
+    </div>
+
+    <div class="template-live-card">
+      <iframe src="/templates/web/pages/marketplace.html"></iframe>
+      <h3>Marketplace Template</h3>
+      <p>A full marketplace layout with product cards, categories, and flows.  
+      Great for shops, catalogs, or service listings.</p>
+      <div class="price">$450</div>
+      <a class="enter-site-btn" href="/templates/web/pages/marketplace.html" target="_blank">ENTER SITE</a>
+    </div>
+
+    <div class="template-live-card">
+      <iframe src="/templates/web/pages/portfolio.html"></iframe>
+      <h3>Portfolio Template</h3>
+      <p>A cinematic portfolio layout for creators, artists, developers, or businesses  
+      that want to showcase work in a clean, bold way.</p>
+      <div class="price">$300</div>
+      <a class="enter-site-btn" href="/templates/web/pages/portfolio.html" target="_blank">ENTER SITE</a>
+    </div>
+
+    <div class="template-live-card">
+      <iframe src="/templates/web/pages/rideshare.html"></iframe>
+      <h3>Rideshare Template</h3>
+      <p>A modern rideshare/transport concept with clean UI flows.  
+      This shows how I can build app‑style websites with smooth UX.</p>
+      <div class="price">$400</div>
+      <a class="enter-site-btn" href="/templates/web/pages/rideshare.html" target="_blank">ENTER SITE</a>
+    </div>
+
+  </section>
+
+  <!-- EXPLANATION SECTION -->
+  <section class="section-block">
+    <h2>What These Templates Represent</h2>
+    <p>
+      These templates are <strong>examples</strong> of what I can build for your website.  
+      Every layout, animation, section, and feature you see here can be:
+    </p>
+    <ul>
+      <li>Combined with other templates</li>
+      <li>Layered into a custom design</li>
+      <li>Recolored to match your brand</li>
+      <li>Expanded with dashboards, apps, or IoT integrations</li>
+      <li>Turned into a full business website</li>
+    </ul>
+    <p>
+      If you see something you like — a feature, a layout, a section, a style —  
+      it can be added to <strong>your site</strong> in a clean, professional way.
+    </p>
+  </section>
+
+  <section class="section-block">
+    <h2>How Your Custom Site Is Built</h2>
+    <ul>
+      <li>You pick a template or mix of templates.</li>
+      <li>I customize every section, color, layout, and feature.</li>
+      <li>I integrate dashboards, automations, payments, or IoT if needed.</li>
+      <li>You get a <strong>real, production‑ready website</strong> built fast and clean.</li>
+    </ul>
+  </section>
+
+  <!-- REAL SITES SECTION -->
+  <section class="real-sites-section">
+    <h2>Real Websites Built by Go Time Software</h2>
+    <p>These are real sites built for real use — not templates.</p>
+
+    <div class="real-sites-list">
+
+      <div class="real-site-card">
+        <h3>Spice DX5</h3>
+        <p>A cinematic spice and sauce creation guide with categories and product flows.</p>
       </div>
 
-      <div class="burger">
-        <div></div><div></div><div></div>
+      <div class="real-site-card">
+        <h3>Real Tree Guy</h3>
+        <p>A service business site built for trust, clarity, and fast contact.</p>
       </div>
 
-      <nav class="main-nav">
-        <a href="/index.html">Home</a>
-        <a href="/pages/sites.html" class="active">Sites</a>
-        <a href="/pages/apps.html">Apps</a>
-        <a href="/pages/iot.html">IoT</a>
-        <a href="/pages/pricing.html">Pricing</a>
-        <a href="/pages/contact.html">Contact</a>
-      </nav>
-    </header>
-
-    <!-- PAGE HEADER -->
-    <section class="page-header">
-      <h1>Website Templates</h1>
-      <p>
-        These are <strong>real, fully interactive websites</strong> built by Go Time Software.  
-        Scroll them. Click them. Explore them.  
-        These are not mockups — these are **real systems**.
-      </p>
-    </section>
-
-    <!-- LIVE TEMPLATE GRID -->
-    <section class="template-live-grid">
-
-      <!-- 1. COMIC UNIVERSE -->
-      <div class="template-live-card">
-        <iframe src="https://comic-lct.pages.dev/"></iframe>
-        <h3>Boardwalk Clay’s Comic Universe</h3>
-        <p>
-          A one‑of‑a‑kind comic universe created by Boardwalk Clay and built by Go Time Software.  
-          A full reading experience with chapters, lore, and cinematic flow.  
-          This shows how far custom storytelling sites can go.
-        </p>
-        <div class="price">$300</div>
-        <a class="enter-site-btn" href="https://comic-lct.pages.dev/" target="_blank">ENTER SITE</a>
+      <div class="real-site-card">
+        <h3>Go Time Software Studio</h3>
+        <p>The software studio layout that powers this entire experience.</p>
       </div>
 
-      <!-- 2. THE CODE -->
-      <div class="template-live-card">
-        <iframe src="https://the-code.pages.dev/"></iframe>
-        <h3>THE CODE – 6‑Part Course</h3>
-        <p>
-          A full course built by Go Time Software teaching coding, automation, microcontrollers,  
-          and how to build real systems from scratch.  
-          This is how we teach people to build like us — clean, modular, and powerful.
-        </p>
-        <div class="price">$400</div>
-        <a class="enter-site-btn" href="https://the-code.pages.dev/" target="_blank">ENTER SITE</a>
-      </div>
+    </div>
+  </section>
 
-      <!-- 3. ROLL N CONNECT -->
-      <div class="template-live-card">
-        <iframe src="https://rollnconnect.pages.dev/"></iframe>
-        <h3>Roll N Connect</h3>
-        <p>
-          A full social platform with profiles, events, maps, and live features.  
-          This shows how Go Time builds multi‑page, app‑style websites with real functionality.
-        </p>
-        <div class="price">$650</div>
-        <a class="enter-site-btn" href="https://rollnconnect.pages.dev/" target="_blank">ENTER SITE</a>
-      </div>
-
-      <!-- 4. LANDING PAGE TEMPLATE -->
-      <div class="template-live-card">
-        <iframe src="/templates/web/pages/landing.html"></iframe>
-        <h3>Landing Page Template</h3>
-        <p>
-          A high‑impact landing page built for conversions, clarity, and product launches.  
-          Clean, modern, and built to turn visitors into customers.
-        </p>
-        <div class="price">$250</div>
-        <a class="enter-site-btn" href="/templates/web/pages/landing.html" target="_blank">ENTER SITE</a>
-      </div>
-
-    </section>
-
-    <!-- CUSTOM SITES -->
-    <section class="section-block">
-      <h2>Custom Sites Built for Your Business</h2>
-      <p>
-        Every business is different — so every site we build is custom.  
-        Whether you need a brand site, a product launch, a portfolio, or a full system,  
-        Go Time Software builds it clean, fast, and modular.
-      </p>
-      <p>
-        Want something like the comic site?  
-        Something like THE CODE?  
-        Something like Roll N Connect?  
-        Or something completely new?  
-        We build it from scratch.
-      </p>
-      <a class="enter-site-btn" href="/pages/contact.html">Start a Custom Build</a>
-    </section>
-
-    <!-- APPS SECTION -->
-    <section class="section-block">
-      <h2>Why Apps Matter</h2>
-      <p>
-        Websites show your business.  
-        <strong>Apps run your business.</strong>
-      </p>
-      <p>
-        Apps automate work, track data, handle customers, and make you money while you sleep.  
-        A good app idea can turn into a real business — and yes, we do equity deals  
-        if your idea has potential.
-      </p>
-      <p>
-        Want to see what apps look like?  
-        Here’s the Go Time Guild — a full app‑style system:
-      </p>
-
-      <iframe class="guild-iframe" src="/guild/guild.html"></iframe>
-
-      <a class="enter-site-btn" href="/pages/apps.html">Explore All Apps</a>
-      <a class="enter-site-btn" href="/pages/contact.html" style="margin-left:10px;">Pitch an App Idea</a>
-    </section>
-
-  </div>
-
+  <!-- FOOTER -->
   <footer class="site-footer">
     <span>© Go Time Software</span>
   </footer>
