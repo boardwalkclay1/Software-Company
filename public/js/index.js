@@ -1,104 +1,251 @@
-/* ============================================================
-   GO TIME SOFTWARE – INDEX JS
-   Cinematic • Modular • Real Systems
-   ============================================================ */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Go Time Software – Websites, Apps, IoT & Repairs</title>
 
-/* ============================================================
-   INTRO ANIMATION + BACKGROUND SLAM
-   ============================================================ */
+  <link rel="icon" type="image/png" href="/assets/img/go-time-logo.png" />
+  <link rel="stylesheet" href="/css/base.css" />
 
-window.addEventListener("load", () => {
-  const body = document.body;
-  const intro = document.getElementById("intro-screen");
-
-  // 1. Background slam + fade-in main content
-  setTimeout(() => {
-    body.classList.add("ready");
-  }, 600); // matches slam animation timing
-
-  // 2. Remove intro screen after animation
-  setTimeout(() => {
-    if (intro) {
-      intro.style.opacity = "0";
-      intro.style.transition = "opacity 0.4s ease-out";
-      setTimeout(() => intro.remove(), 400);
+  <style>
+    body.theme-dark {
+      background: url("/assets/img/go-time-background.jpg") no-repeat center center fixed;
+      background-size: cover;
     }
-  }, 1200);
-});
-
-/* ============================================================
-   BASIC NAVIGATION HELPERS
-   ============================================================ */
-
-function goTo(page) {
-  window.location.href = `/pages/${page}.html`;
-}
-
-function goToApp(name) {
-  window.location.href = `/pages/apps.html#${name}`;
-}
-
-function openTemplate(name) {
-  window.location.href = `/templates/web/pages/${name}.html`;
-}
-
-/* ============================================================
-   BUILD IoT STRIP (LOCAL IMAGES ONLY)
-   ============================================================ */
-
-document.addEventListener("DOMContentLoaded", () => {
-  buildLocalIotStrip();
-});
-
-function buildLocalIotStrip() {
-  const strip = document.querySelector(".iot-scroll");
-  if (!strip) return;
-
-  // Only two real images exist in repo:
-  const img1 = "/assets/img/go-time-logo.png";
-  const img2 = "/assets/img/go-time-background.jpg";
-
-  const items = [
-    {
-      name: "Sensor Hubs",
-      description: "WiFi-enabled boards that collect data from motion, distance, and environment sensors.",
-      photo: img1
-    },
-    {
-      name: "Control Relays",
-      description: "Modules that switch lights, pumps, motors, and devices based on your rules.",
-      photo: img2
-    },
-    {
-      name: "Live Dashboards",
-      description: "Real-time dashboards that show sensor data, alerts, and system status.",
-      photo: img1
+    body.theme-dark::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(2px);
+      z-index: -1;
     }
-  ];
 
-  items.forEach(item => {
-    const div = document.createElement("div");
-    div.className = "iot-item";
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .burger div {
+      width: 28px;
+      height: 3px;
+      background: #fff;
+    }
+    @media(max-width: 900px) {
+      .main-nav {
+        display: none;
+        flex-direction: column;
+        background: rgba(0,0,0,0.85);
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .main-nav a { margin: 10px 0; }
+      .burger { display: flex; }
+    }
 
-    div.innerHTML = `
-      <img src="${item.photo}" alt="${item.name}">
-      <h3>${item.name}</h3>
-      <p>${item.description}</p>
-    `;
+    .section {
+      margin-top: 50px;
+      background: rgba(0,0,0,0.55);
+      padding: 40px;
+      border-radius: 16px;
+      border: 1px solid #333;
+      box-shadow: 0 0 20px #000;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 0.6s ease;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-    strip.appendChild(div);
-  });
-}
+    .cta-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 20px;
+      background: #ff4444;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+    .cta-btn:hover { background: #ff2222; }
 
-/* ============================================================
-   OPTIONAL: SMOOTH SCROLL (if needed later)
-   ============================================================ */
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
 
-function smoothScrollTo(selector) {
-  const el = document.querySelector(selector);
-  if (!el) return;
-  window.scrollTo({
-    top: el.offsetTop - 40,
-    behavior: "smooth"
-  });
-}
+    .preview-card {
+      background: rgba(0,0,0,0.45);
+      border: 1px solid #333;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 0 20px #000;
+    }
+
+    .preview-card iframe {
+      width: 100%;
+      height: 350px;
+      border-radius: 12px;
+      border: none;
+      background: #000;
+    }
+
+    .repair-list li { margin-bottom: 6px; }
+  </style>
+</head>
+
+<body class="theme-dark">
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="logo">
+      <img src="/assets/img/go-time-logo.png" class="logo-img" />
+      <span>Go Time Software</span>
+    </div>
+
+    <div class="burger">
+      <div></div><div></div><div></div>
+    </div>
+
+    <nav class="main-nav">
+      <a href="/index.html" class="active">Home</a>
+      <a href="/pages/sites.html">Sites</a>
+      <a href="/pages/apps.html">Apps</a>
+      <a href="/pages/iot.html">IoT</a>
+      <a href="/pages/pricing.html">Pricing</a>
+      <a href="/pages/contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <main class="page-container">
+
+    <section class="section">
+      <h1>Go Time Software</h1>
+      <p>
+        Websites. Apps. IoT Systems. Repairs.  
+        Everything you need to run your business, your home, or your ideas — built clean, fast, and cinematic.
+      </p>
+      <a class="cta-btn" href="/pages/contact.html">Start Your Project</a>
+    </section>
+
+    <!-- LIVE PREVIEWS -->
+    <section class="section">
+      <h2>Live Previews</h2>
+      <p>These are real, working examples of what I build — scroll them, click them, explore them.</p>
+
+      <div class="preview-grid">
+
+        <div class="preview-card">
+          <iframe src="https://comic-lct.pages.dev/"></iframe>
+          <h3>Comic Website</h3>
+        </div>
+
+        <div class="preview-card">
+          <iframe src="https://the-code.pages.dev/"></iframe>
+          <h3>The Code</h3>
+        </div>
+
+        <div class="preview-card">
+          <iframe src="/games/cooking/index.html"></iframe>
+          <h3>Cooking Game</h3>
+        </div>
+
+        <div class="preview-card">
+          <iframe src="/templates/web/pages/marketplace.html"></iframe>
+          <h3>Marketplace Template</h3>
+        </div>
+
+        <div class="preview-card">
+          <iframe src="/templates/web/pages/landing.html"></iframe>
+          <h3>Landing Page Template</h3>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section">
+      <h2>What We Build</h2>
+      <ul>
+        <li><strong>Websites</strong> — cinematic, responsive, and built for conversions.</li>
+        <li><strong>Apps</strong> — installable, mobile‑ready, and built like real software.</li>
+        <li><strong>IoT Systems</strong> — sensors, dashboards, automation, and security.</li>
+        <li><strong>Custom Electronics</strong> — drones, RC vehicles, controllers, and more.</li>
+        <li><strong>Repairs</strong> — screens, wires, boards, ports, sensors, and devices.</li>
+      </ul>
+      <a class="cta-btn" href="/pages/pricing.html">View Pricing</a>
+    </section>
+
+    <!-- IOT -->
+    <section class="section">
+      <h2>IoT Systems & Automation</h2>
+      <p>
+        IoT lets you control and monitor your world — your home, your car, your business, your equipment.  
+        Sensors can detect motion, presence, vibration, heat, sound, or even laser trip lines.
+      </p>
+
+      <ul>
+        <li>Laser trip alarms</li>
+        <li>Human presence sensors</li>
+        <li>Motion sensors</li>
+        <li>Vibration sensors</li>
+        <li>Sound sensors</li>
+        <li>Relay control for motors, pumps, fans, or lighting</li>
+      </ul>
+
+      <p>
+        Every system is custom‑built for your environment.  
+        <a href="/pages/iot.html" style="color:#ff4444;font-weight:bold;">Explore IoT Systems</a>
+      </p>
+    </section>
+
+    <!-- REPAIRS -->
+    <section class="section">
+      <h2>We Fix Broken Electronics</h2>
+      <p>If it has wires, a board, a chip, a port, or a screen — we can fix it.</p>
+
+      <ul class="repair-list">
+        <li>Broken wires</li>
+        <li>Cracked screens</li>
+        <li>Damaged circuit boards</li>
+        <li>Loose connectors</li>
+        <li>Faulty sensors</li>
+        <li>Burnt components</li>
+        <li>Charging ports</li>
+        <li>Buttons & switches</li>
+        <li>Microcontrollers</li>
+        <li>Custom repairs</li>
+      </ul>
+
+      <a class="cta-btn" href="/pages/contact.html">Request a Repair</a>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <h2>Ready to Build?</h2>
+      <p>
+        Whether you need a website, an app, an IoT system, or a repair —  
+        Go Time Software builds it clean, fast, and exactly how you need it.
+      </p>
+      <a class="cta-btn" href="/pages/contact.html">Contact Go Time</a>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>© Go Time Software</span>
+  </footer>
+
+  <script src="/js/index.js"></script>
+</body>
+</html>
