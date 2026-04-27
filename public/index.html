@@ -2,11 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Go Time Software – Websites, Apps, IoT & Repairs</title>
+  <title>Go Time Software – Custom Websites, Apps, IoT & Repairs</title>
 
   <link rel="icon" type="image/png" href="/assets/img/go-time-logo.png" />
   <link rel="stylesheet" href="/css/base.css" />
 
+  <!-- Slam Intro -->
+  <style>
+    #slam-intro {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: slamFade 2.4s ease forwards;
+    }
+    #slam-intro img {
+      width: 420px;
+      filter: drop-shadow(0 0 40px #ff0000aa);
+      animation: slamDrop 1.4s cubic-bezier(.2,1.4,.4,1) forwards;
+    }
+    @keyframes slamDrop {
+      0% { transform: translateY(-200px) scale(2.4); opacity: 0; }
+      40% { transform: translateY(40px) scale(1.4); opacity: 1; }
+      70% { transform: translateY(-10px) scale(1.1); }
+      100% { transform: translateY(0) scale(1); }
+    }
+    @keyframes slamFade {
+      0% { opacity: 1; }
+      70% { opacity: 1; }
+      100% { opacity: 0; pointer-events: none; }
+    }
+    .logo-img {
+      opacity: 0;
+      animation: logoSnap 0.8s ease 1.6s forwards;
+    }
+    @keyframes logoSnap {
+      from { transform: translateY(40px) scale(1.4); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+  </style>
+
+  <!-- Page-Specific Styling -->
   <style>
     body.theme-dark {
       background: url("/assets/img/go-time-background.jpg") no-repeat center center fixed;
@@ -26,7 +65,7 @@
       background: rgba(0,0,0,0.55);
       padding: 40px;
       border-radius: 16px;
-      border: 1px solid #333;
+      border: 1px solid #3a2f2a;
       box-shadow: 0 0 20px #000;
       opacity: 0;
       transform: translateY(40px);
@@ -37,28 +76,14 @@
       transform: translateY(0);
     }
 
-    .cta-btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 20px;
-      background: #ff4444;
-      color: #fff;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.2s;
-    }
-    .cta-btn:hover { background: #ff2222; }
-
     .preview-card {
       background: rgba(0,0,0,0.45);
-      border: 1px solid #333;
+      border: 1px solid #3a2f2a;
       border-radius: 14px;
       padding: 20px;
       box-shadow: 0 0 20px #000;
       margin-top: 25px;
     }
-
     .preview-card iframe {
       width: 100%;
       height: 420px;
@@ -67,37 +92,54 @@
       background: #000;
     }
 
-    .repair-list li { margin-bottom: 6px; }
-
-    .burger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
+    /* SCROLLING STRIP */
+    .iot-strip-gallery {
+      width: 100%;
+      overflow: hidden;
+      margin-top: 30px;
+      border-top: 1px solid #3a2f2a;
+      border-bottom: 1px solid #3a2f2a;
+      padding: 14px 0;
+      background: rgba(0,0,0,0.35);
+      box-shadow: inset 0 0 20px #000;
     }
-    .burger div {
-      width: 28px;
-      height: 3px;
-      background: #fff;
+    .iot-strip-track {
+      display: flex;
+      gap: 40px;
+      animation: scrollStrip 28s linear infinite;
     }
-    @media(max-width: 900px) {
-      .main-nav {
-        display: none;
-        flex-direction: column;
-        background: rgba(0,0,0,0.85);
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        padding: 20px;
-        border-radius: 10px;
-      }
-      .main-nav a { margin: 10px 0; }
-      .burger { display: flex; }
+    .iot-strip-track img {
+      height: 130px;
+      width: auto;
+      border-radius: 10px;
+      object-fit: cover;
+      filter: brightness(0.85) contrast(1.1);
+      box-shadow: 0 0 12px #000;
+      border: 1px solid #3a2f2a;
+    }
+    @keyframes scrollStrip {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .iot-strip-note {
+      margin-top: 16px;
+      font-size: 15px;
+      opacity: 0.9;
+      text-align: center;
+    }
+    .iot-strip-note a {
+      color: #ff4444;
+      font-weight: bold;
     }
   </style>
 </head>
 
 <body class="theme-dark">
+
+  <!-- SLAM INTRO -->
+  <div id="slam-intro">
+    <img src="/assets/img/go-time-logo.png" alt="Go Time Software Logo" />
+  </div>
 
   <!-- HEADER -->
   <header class="site-header">
@@ -126,18 +168,33 @@
     <section class="section">
       <h1>Go Time Software</h1>
       <p>
-        Websites. Apps. IoT Systems. Repairs.  
-        Everything you need to run your business, your home, or your ideas — built clean, fast, and cinematic.
+        Custom‑built websites, apps, IoT systems, and repairs — crafted with precision,  
+        engineered with intention, and styled in glowing stone.  
+        This is software that feels carved, not copied.
       </p>
-      <a class="cta-btn" href="/pages/contact.html">Start Your Project</a>
     </section>
 
-    <!-- WEBSITE PREVIEW -->
+    <!-- WHAT WE BUILD -->
+    <section class="section">
+      <h2>What We Build</h2>
+      <p>
+        Go Time Software creates digital systems that feel physical —  
+        stone‑etched interfaces, cinematic layouts, and modular architecture  
+        built to last, scale, and impress.
+      </p>
+      <p>
+        Every project is custom. No templates. No shortcuts.  
+        Your idea becomes a product — crafted like a monument.
+      </p>
+    </section>
+
+    <!-- WEBSITES -->
     <section class="section">
       <h2>Websites</h2>
       <p>
-        Your website is your storefront, your brand, your first impression.  
-        I build cinematic, modern, mobile‑ready websites that feel alive and convert visitors into customers.
+        Your website is your presence, your identity, your first impression.  
+        We build websites that feel carved from stone — bold, cinematic,  
+        mobile‑ready, and unforgettable.
       </p>
 
       <div class="preview-card">
@@ -146,18 +203,20 @@
       </div>
 
       <p style="margin-top:20px;">
-        Websites can be anything — business pages, portfolios, product launches, guides, or full interactive experiences.
+        Business sites, portfolios, product launches, interactive experiences —  
+        all built with glowing stone precision.
       </p>
 
-      <a class="cta-btn" href="/pages/sites.html">Explore Website Templates</a>
+      <a class="cta-btn" href="/pages/sites.html">Explore Websites</a>
     </section>
 
-    <!-- APP PREVIEW -->
+    <!-- APPS -->
     <section class="section">
       <h2>Apps</h2>
       <p>
-        Apps are different from websites — they run your business.  
-        They automate work, track data, handle customers, and can even become full businesses on their own.
+        Apps are the engines of modern business.  
+        They automate, track, manage, and scale.  
+        Our apps feel like carved stone tools — solid, reliable, and built for real use.
       </p>
 
       <div class="preview-card">
@@ -166,68 +225,54 @@
       </div>
 
       <p style="margin-top:20px;">
-        A good app idea can turn into money.  
-        I even work with clients through <strong>equity deals</strong> if the idea has real potential.
+        From personal tools to full companies —  
+        custom apps turn ideas into income.
       </p>
 
       <a class="cta-btn" href="/pages/apps.html">Explore Apps</a>
-    </section>
-
-    <!-- WHY GO TIME SOFTWARE -->
-    <section class="section">
-      <h2>Why Go Time Software?</h2>
-      <p>
-        Creativity. Speed. Precision.  
-        I build everything modular, cinematic, and clean — no clutter, no confusion, no broken paths.
-      </p>
-      <p>
-        I work with clients financially, offering flexible pricing, payment plans, and equity options for strong ideas.
-      </p>
-    </section>
-
-    <!-- YOUR STORY -->
-    <section class="section">
-      <h2>My Story</h2>
-      <p>
-        I didn’t grow up with a big support system.  
-        No family behind me. No friends pushing me. No one showing me the way.  
-        What I did have was my mind — and I used it.
-      </p>
-      <p>
-        I taught myself how to code, build, design, automate, and create.  
-        Go Time Software was built from nothing but determination and skill.  
-        And now I use that to build for others.
-      </p>
-
-      <a class="cta-btn" href="/pages/about.html">Read More About Me</a>
-    </section>
-
-    <!-- PRICING -->
-    <section class="section">
-      <h2>Pricing</h2>
-      <p>
-        Pricing is simple, transparent, and built around your needs.  
-        Websites, apps, IoT systems — everything has clear ranges and no hidden fees.
-      </p>
-
-      <a class="cta-btn" href="/pages/pricing.html">View Pricing</a>
     </section>
 
     <!-- IOT -->
     <section class="section">
       <h2>IoT Systems & Automation</h2>
       <p>
-        IoT lets you control and monitor your world — your home, your car, your business, your equipment.  
-        From GRP sensors to motion detection, laser trip lines, vibration sensors, and automation triggers.
+        IoT connects your world — sensors, triggers, automation, monitoring.  
+        We build systems that feel industrial and elemental,  
+        like glowing stone machinery powering your environment.
       </p>
 
-      <a class="cta-btn" href="/pages/iot.html">Learn More About IoT</a>
+      <div class="iot-strip-gallery">
+        <div class="iot-strip-track">
+          <img src="/assets/img/broke-top.jpg" />
+          <img src="/assets/img/broken-electronics.png" />
+          <img src="/assets/img/red-chip.png" />
+          <img src="/assets/img/solder.png" />
+          <img src="/assets/img/white-chip.png" />
+          <img src="/assets/img/woodchip.png" />
+
+          <img src="/assets/img/broke-top.jpg" />
+          <img src="/assets/img/broken-electronics.png" />
+          <img src="/assets/img/red-chip.png" />
+          <img src="/assets/img/solder.png" />
+          <img src="/assets/img/white-chip.png" />
+          <img src="/assets/img/woodchip.png" />
+        </div>
+      </div>
+
+      <p class="iot-strip-note">
+        Real components. Real hardware. Real engineering.  
+        Learn more about <a href="/pages/iot.html">IoT Systems</a> or  
+        <a href="/pages/contact.html">Request a Repair</a>.
+      </p>
     </section>
 
     <!-- REPAIRS -->
     <section class="section">
-      <h2>We Fix Broken Electronics</h2>
-      <p>If it has wires, a board, a chip, a port, or a screen — we can fix it.</p>
+      <h2>Repairs</h2>
+      <p>
+        If it has wires, chips, sensors, or circuits —  
+        we repair it with precision and stone‑solid reliability.
+      </p>
 
       <ul class="repair-list">
         <li>Broken wires</li>
@@ -245,12 +290,23 @@
       <a class="cta-btn" href="/pages/contact.html">Request a Repair</a>
     </section>
 
+    <!-- PRICING -->
+    <section class="section">
+      <h2>Pricing</h2>
+      <p>
+        Transparent, simple, and flexible.  
+        Every project is custom — but pricing is always clear.
+      </p>
+
+      <a class="cta-btn" href="/pages/pricing.html">View Pricing</a>
+    </section>
+
     <!-- CONTACT -->
     <section class="section">
       <h2>Ready to Build?</h2>
       <p>
-        Whether you need a website, an app, an IoT system, or a repair —  
-        Go Time Software builds it clean, fast, and exactly how you need it.
+        Websites, apps, IoT systems, repairs —  
+        Go Time Software builds everything with glowing stone precision.
       </p>
       <a class="cta-btn" href="/pages/contact.html">Contact Go Time</a>
     </section>
@@ -259,8 +315,9 @@
     <section class="section">
       <h2>Privacy Agreement</h2>
       <p>
-        Your data, your ideas, and your projects stay yours.  
-        I don’t sell, share, or misuse your information — ever.
+        Your ideas stay yours.  
+        Your data stays yours.  
+        Your projects stay yours.
       </p>
       <a class="cta-btn" href="/pages/privacy.html">View Privacy Agreement</a>
     </section>
