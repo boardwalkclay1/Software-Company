@@ -13,12 +13,41 @@
   <!-- JS -->
   <script src="/js/index.js" defer></script>
 
-  <!-- Background -->
+  <!-- Background + Intro Animation -->
   <style>
     body.theme-dark {
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    body.theme-dark .main-shell {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    body.theme-dark.ready .main-shell {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    body.theme-dark .bg-layer {
+      position: fixed;
+      inset: 0;
       background: url("/assets/img/go-time-background.jpg") no-repeat center center fixed;
       background-size: cover;
+      transform: scale(1.3);
+      opacity: 0;
+      transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s ease-out;
+      z-index: -2;
     }
+
+    body.theme-dark.ready .bg-layer {
+      transform: scale(1);
+      opacity: 1;
+    }
+
     body.theme-dark::before {
       content: "";
       position: fixed;
@@ -27,10 +56,291 @@
       backdrop-filter: blur(2px);
       z-index: -1;
     }
+
+    /* INTRO */
+    #intro-screen {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      z-index: 50;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    #intro-image {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      animation: slamIn 0.6s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+    }
+
+    #intro-lightning,
+    #intro-cracks {
+      width: 160px;
+      height: 2px;
+      background: radial-gradient(circle, #fff 0, transparent 60%);
+      opacity: 0;
+      animation: lightningFlash 0.4s ease-out 0.4s forwards;
+    }
+
+    @keyframes slamIn {
+      0% {
+        transform: scale(2.4);
+        opacity: 0;
+        filter: blur(6px);
+      }
+      60% {
+        transform: scale(0.9);
+        opacity: 1;
+        filter: blur(0);
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes lightningFlash {
+      0% { opacity: 0; }
+      30% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    /* HERO / LAYOUT */
+    .main-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px 16px 40px;
+    }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .hero-title-block {
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-size: 2.4rem;
+      margin: 0 0 6px;
+    }
+
+    .hero-sub {
+      margin: 0;
+      font-size: 1rem;
+      opacity: 0.85;
+    }
+
+    .hero-description {
+      margin-top: 10px;
+      max-width: 640px;
+      font-size: 0.98rem;
+      opacity: 0.9;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .category-column {
+      background: rgba(0,0,0,0.55);
+      border-radius: 16px;
+      padding: 16px 16px 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .category-column h2 {
+      margin: 0 0 6px;
+    }
+
+    .category-column p {
+      margin: 0 0 12px;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .preview-card {
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,0.04);
+      cursor: pointer;
+      margin-bottom: 10px;
+      transition: background 0.2s ease-out, transform 0.2s ease-out;
+    }
+
+    .preview-card:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #ff4444, #ffb347);
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .btn-secondary {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.3);
+      background: transparent;
+      color: #fff;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    /* WHAT WE DO */
+    .what-we-do {
+      margin-bottom: 28px;
+      background: rgba(0,0,0,0.55);
+      border-radius: 16px;
+      padding: 18px 16px 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .what-we-do h2 {
+      margin: 0 0 8px;
+    }
+
+    .what-we-do p {
+      margin: 0 0 10px;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .what-we-do-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .what-item {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    /* LIVE PREVIEWS */
+    .live-previews {
+      margin-bottom: 28px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 18px;
+    }
+
+    .live-card {
+      background: rgba(0,0,0,0.55);
+      border-radius: 16px;
+      padding: 14px 14px 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .live-card h3 {
+      margin: 0 0 6px;
+    }
+
+    .live-card p {
+      margin: 0 0 10px;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .live-card iframe {
+      width: 100%;
+      height: 260px;
+      border-radius: 12px;
+      border: none;
+      background: #000;
+      margin-bottom: 10px;
+    }
+
+    /* IOT STRIP (LOCAL IMAGES ONLY) */
+    .iot-strip {
+      margin-bottom: 28px;
+      background: rgba(0,0,0,0.55);
+      border-radius: 16px;
+      padding: 18px 16px 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .iot-scroll {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
+
+    .iot-item {
+      min-width: 180px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 12px;
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .iot-item img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 6px;
+    }
+
+    .iot-item h3 {
+      margin: 0 0 4px;
+      font-size: 0.9rem;
+    }
+
+    .iot-item p {
+      margin: 0;
+      font-size: 0.8rem;
+      opacity: 0.9;
+    }
+
+    /* PRICING CTA */
+    .pricing-cta {
+      margin-bottom: 24px;
+      background: rgba(0,0,0,0.55);
+      border-radius: 16px;
+      padding: 18px 16px 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .pricing-cta h2 {
+      margin: 0 0 6px;
+    }
+
+    .pricing-cta p {
+      margin: 0 0 10px;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    @media (max-width: 640px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+    }
   </style>
 </head>
 
 <body class="theme-dark">
+
+  <!-- BACKGROUND LAYER -->
+  <div class="bg-layer"></div>
 
   <!-- INTRO -->
   <div id="intro-screen">
@@ -39,112 +349,129 @@
     <div id="intro-cracks"></div>
   </div>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="logo">
-      <img src="/assets/img/go-time-logo.png" class="logo-img" />
-      <span>Go Time Software</span>
-    </div>
-
-    <nav class="main-nav">
-      <a href="/index.html">Home</a>
-      <a href="/pages/sites.html">Sites</a>
-      <a href="/pages/apps.html">Apps</a>
-      <a href="/pages/iot.html">IoT</a>
-      <a href="/pages/pricing.html">Pricing</a>
-      <a href="/pages/contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <!-- TITLE -->
-  <section class="hero-title-block">
-    <h1 class="hero-title">Go Time Software</h1>
-    <p class="hero-sub">Websites • Apps • Dashboards • IoT Systems</p>
-  </section>
-
-  <!-- MAIN CATEGORY GRID -->
-  <section class="category-grid">
-
-    <!-- WEBSITES -->
-    <div class="category-column">
-      <h2>Websites</h2>
-      <p>Real websites built by Go Time Software. Fast, modern, and production‑ready.</p>
-
-      <div class="preview-card" onclick="window.location.href='/pages/sites.html'">
-        <h3>Browse Real Websites</h3>
+  <div class="main-shell">
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="logo">
+        <img src="/assets/img/go-time-logo.png" class="logo-img" />
+        <span>Go Time Software</span>
       </div>
 
-      <button class="btn-primary" onclick="window.location.href='/pages/sites.html'">View All Websites</button>
-    </div>
+      <nav class="main-nav">
+        <a href="/index.html" class="active">Home</a>
+        <a href="/pages/sites.html">Sites</a>
+        <a href="/pages/apps.html">Apps</a>
+        <a href="/pages/iot.html">IoT</a>
+        <a href="/pages/pricing.html">Pricing</a>
+        <a href="/pages/contact.html">Contact</a>
+      </nav>
+    </header>
 
-    <!-- APPS -->
-    <div class="category-column">
-      <h2>Apps</h2>
-      <p>Installable PWAs with dashboards, automation, and real features.</p>
+    <!-- TITLE -->
+    <section class="hero-title-block">
+      <h1 class="hero-title">Go Time Software</h1>
+      <p class="hero-sub">Websites • Apps • Dashboards • IoT Systems</p>
+      <p class="hero-description">
+        I build real, production‑ready systems — not mockups.  
+        Websites, apps, dashboards, and hardware‑connected systems that you can actually use, ship, and grow on.
+      </p>
+    </section>
 
-      <div class="preview-card" onclick="window.location.href='/pages/apps.html'">
-        <h3>Browse Real Apps</h3>
+    <!-- WHAT WE DO -->
+    <section class="what-we-do">
+      <h2>What We Do</h2>
+      <p>
+        Go Time Software is a studio focused on <strong>operational builds</strong> — the things your business actually runs on.
+        Every project is modular, upgradeable, and designed to plug into the rest of your stack.
+      </p>
+      <div class="what-we-do-list">
+        <div class="what-item">
+          <strong>Websites & Landing Systems</strong><br />
+          Cinematic, conversion‑ready sites that feel alive and stay easy to maintain.
+        </div>
+        <div class="what-item">
+          <strong>Apps & Dashboards</strong><br />
+          PWAs, control panels, and internal tools that give you real visibility and control.
+        </div>
+        <div class="what-item">
+          <strong>Automation & IoT</strong><br />
+          Sensor‑driven systems, triggers, and dashboards that connect the physical and digital.
+        </div>
+        <div class="what-item">
+          <strong>Modular Architecture</strong><br />
+          Everything is built in layers so you can add, swap, or upgrade without starting over.
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE PREVIEWS: ONE SITE + ONE APP -->
+    <section class="live-previews">
+      <!-- Site -->
+      <div class="live-card">
+        <h3>Live Website Template</h3>
+        <p>
+          This is a real landing page template — scrollable, clickable, and wired like a production site.
+        </p>
+        <iframe src="/templates/web/pages/landing.html"></iframe>
+        <button class="btn-secondary" onclick="window.location.href='/pages/sites.html'">
+          View All Website Templates
+        </button>
       </div>
 
-      <button class="btn-primary" onclick="window.location.href='/pages/apps.html'">View All Apps</button>
-    </div>
+      <!-- Apps (using apps overview as live app surface) -->
+      <div class="live-card">
+        <h3>Live Apps Overview</h3>
+        <p>
+          This is the live Apps page — a hub for installable tools, dashboards, and control panels.
+        </p>
+        <iframe src="/pages/apps.html"></iframe>
+        <button class="btn-secondary" onclick="window.location.href='/pages/apps.html'">
+          Explore Apps & Dashboards
+        </button>
+      </div>
+    </section>
 
-  </section>
+    <!-- IOT HARDWARE STRIP (LOCAL IMAGES ONLY) -->
+    <section class="iot-strip">
+      <h2>IoT Hardware & Sensors</h2>
+      <p>
+        Real components we integrate into automation systems, dashboards, and smart devices.
+        These are examples of the kind of hardware we wire into your software.
+      </p>
 
-  <!-- IOT HARDWARE STRIP -->
-  <section class="iot-strip">
-    <h2>IoT Hardware & Sensors</h2>
-    <p>Real components we integrate into automation systems, dashboards, and smart devices.</p>
+      <div class="iot-scroll">
+        <div class="iot-item">
+          <img src="/assets/img/go-time-logo.png" alt="Go Time Hardware">
+          <h3>Sensor Hubs</h3>
+          <p>WiFi‑enabled boards that collect data from motion, distance, and environment sensors.</p>
+        </div>
 
-    <div class="iot-scroll">
+        <div class="iot-item">
+          <img src="/assets/img/go-time-background.jpg" alt="Go Time Systems">
+          <h3>Control Relays</h3>
+          <p>Modules that switch lights, pumps, motors, and devices based on your rules.</p>
+        </div>
 
-      <div class="iot-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/ESP32_DevKitC.jpg">
-        <h3>ESP32</h3>
-        <p>WiFi + Bluetooth microcontroller used for dashboards, automation, and sensor hubs.</p>
+        <div class="iot-item">
+          <img src="/assets/img/go-time-logo.png" alt="Go Time Dashboards">
+          <h3>Live Dashboards</h3>
+          <p>Real‑time dashboards that show sensor data, alerts, and system status.</p>
+        </div>
       </div>
 
-      <div class="iot-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/HC-SR501_PIR_Sensor.jpg">
-        <h3>PIR Motion Sensor</h3>
-        <p>Detects human movement using infrared. Used for security and automation.</p>
-      </div>
+      <button class="btn-secondary" onclick="window.location.href='/pages/iot.html'">
+        Explore IoT Systems
+      </button>
+    </section>
 
-      <div class="iot-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/RCWL-0516_Microwave_Radar_Sensor.jpg">
-        <h3>Microwave Radar</h3>
-        <p>Detects motion through walls using microwave Doppler radar.</p>
-      </div>
-
-      <div class="iot-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/TF-Luna_Laser_Distance_Sensor.jpg">
-        <h3>Laser Distance Sensor</h3>
-        <p>Measures distance with laser precision. Used for robotics and counters.</p>
-      </div>
-
-      <div class="iot-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/NEO-6M_GPS_Module.jpg">
-        <h3>GPS Module</h3>
-        <p>Provides real-time location tracking for vehicles, drones, and IoT devices.</p>
-      </div>
-
-      <div class="iot-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Relay_Module.jpg">
-        <h3>Relay Module</h3>
-        <p>Controls high‑power devices like lights, motors, pumps, and appliances.</p>
-      </div>
-
-    </div>
-
-    <button class="btn-secondary" onclick="window.location.href='/pages/iot.html'">Explore IoT Systems</button>
-  </section>
-
-  <!-- PRICING CTA -->
-  <section class="pricing-cta">
-    <h2>Pricing</h2>
-    <p>Transparent pricing for websites, apps, dashboards, and IoT systems.</p>
-    <button class="btn-primary" onclick="window.location.href='/pages/pricing.html'">View Pricing</button>
-  </section>
-
+    <!-- PRICING CTA -->
+    <section class="pricing-cta">
+      <h2>Pricing</h2>
+      <p>Transparent pricing for websites, apps, dashboards, and IoT systems.</p>
+      <button class="btn-primary" onclick="window.location.href='/pages/pricing.html'">
+        View Pricing
+      </button>
+    </section>
+  </div>
 </body>
 </html>
