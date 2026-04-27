@@ -4,13 +4,9 @@
   <meta charset="UTF-8" />
   <title>IoT Systems – Go Time Software</title>
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="/assets/img/go-time-logo.png" />
-
-  <!-- Base Styles -->
   <link rel="stylesheet" href="/css/base.css" />
 
-  <!-- Background -->
   <style>
     body.theme-dark {
       background: url("/assets/img/go-time-background.jpg") no-repeat center center fixed;
@@ -23,6 +19,34 @@
       background: rgba(0,0,0,0.55);
       backdrop-filter: blur(2px);
       z-index: -1;
+    }
+
+    .iot-section {
+      margin-top: 40px;
+      background: rgba(0,0,0,0.55);
+      padding: 30px;
+      border-radius: 16px;
+      border: 1px solid #333;
+      box-shadow: 0 0 20px #000;
+    }
+
+    .iot-section h2 {
+      margin-top: 0;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 20px;
+      background: #ff4444;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+    .cta-btn:hover {
+      background: #ff2222;
     }
   </style>
 </head>
@@ -40,7 +64,7 @@
       <a href="/index.html">Home</a>
       <a href="/pages/sites.html">Sites</a>
       <a href="/pages/apps.html">Apps</a>
-      <a href="/pages/iot.html">IoT</a>
+      <a href="/pages/iot.html" class="active">IoT</a>
       <a href="/pages/about.html">About</a>
       <a href="/pages/contact.html">Contact</a>
     </nav>
@@ -52,9 +76,10 @@
     <h1>IoT Systems</h1>
     <p>
       Real‑time dashboards, device monitoring, automation, and sensor data —  
-      built for smart homes, businesses, and industrial systems.
+      built for smart homes, businesses, vehicles, and industrial systems.
     </p>
 
+    <!-- GRID -->
     <div class="iot-grid">
 
       <div class="iot-card">
@@ -76,6 +101,76 @@
       </div>
 
     </div>
+
+    <!-- SECURITY SECTION -->
+    <section class="iot-section">
+      <h2>Security, Safety & Awareness</h2>
+      <p>
+        IoT sensors can protect your home, your business, and even your vehicle.  
+        With the right setup, you can detect motion, presence, vibration, heat, sound,  
+        or even a laser trip line — all feeding into a real‑time dashboard.
+      </p>
+
+      <h3>Examples of What You Can Do</h3>
+      <ul>
+        <li><strong>Laser Trip Sensors</strong> — invisible beams that trigger alerts when crossed.</li>
+        <li><strong>Human Presence Sensors</strong> — detect body heat or micro‑movement.</li>
+        <li><strong>Motion Sensors</strong> — perfect for lights, alarms, or silent notifications.</li>
+        <li><strong>Vibration Sensors</strong> — detect tampering, break‑ins, or movement.</li>
+        <li><strong>Sound Sensors</strong> — detect glass breaking, loud noises, or engine starts.</li>
+        <li><strong>Door/Window Sensors</strong> — instant alerts when opened.</li>
+        <li><strong>Car Security Sensors</strong> — detect presence around your vehicle.</li>
+        <li><strong>Motor/Relay Control</strong> — activate fans, pumps, motors, or lights remotely.</li>
+      </ul>
+
+      <p>
+        Every system is custom‑built for your environment —  
+        your home, your car, your shop, your warehouse, your office.
+      </p>
+    </section>
+
+    <!-- CUSTOM BUILDS -->
+    <section class="iot-section">
+      <h2>Custom Drone & RC Vehicle Builds</h2>
+      <p>
+        Go Time Software also offers <strong>custom drone builds</strong> and  
+        <strong>remote‑control vehicle builds</strong> with integrated sensors, cameras,  
+        GPS tracking, and automation logic.
+      </p>
+
+      <ul>
+        <li>FPV drones</li>
+        <li>Security drones</li>
+        <li>Delivery drones</li>
+        <li>RC cars with sensors</li>
+        <li>Rovers for inspection</li>
+        <li>Wireless camera vehicles</li>
+      </ul>
+
+      <p>
+        These systems can be controlled from your phone, dashboard, or a custom web app.
+      </p>
+    </section>
+
+    <!-- PRICING PREVIEW -->
+    <section class="iot-section">
+      <h2>Pricing (Before Materials)</h2>
+      <ul>
+        <li>Sensor Setup & Integration — <strong>$150+</strong></li>
+        <li>Custom Automation Logic — <strong>$200+</strong></li>
+        <li>Home/Car Security System — <strong>$250+</strong></li>
+        <li>Drone Build (Custom) — <strong>$300+</strong></li>
+        <li>RC Vehicle Build — <strong>$200+</strong></li>
+        <li>Full Dashboard System — <strong>$350+</strong></li>
+      </ul>
+
+      <p>
+        Material cost depends on the sensors, boards, motors, and hardware you choose.  
+        We will update the Pricing page next so each category has its own form.
+      </p>
+
+      <a class="cta-btn" href="/pages/contact.html">Contact Go Time</a>
+    </section>
 
   </main>
 
