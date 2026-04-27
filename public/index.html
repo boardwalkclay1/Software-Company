@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="/css/base.css" />
 
   <style>
-    /* Background */
     body.theme-dark {
       background: url("/assets/img/go-time-background.jpg") no-repeat center center fixed;
       background-size: cover;
@@ -22,7 +21,6 @@
       z-index: -1;
     }
 
-    /* Burger Menu */
     .burger {
       display: none;
       flex-direction: column;
@@ -45,15 +43,10 @@
         padding: 20px;
         border-radius: 10px;
       }
-      .main-nav a {
-        margin: 10px 0;
-      }
-      .burger {
-        display: flex;
-      }
+      .main-nav a { margin: 10px 0; }
+      .burger { display: flex; }
     }
 
-    /* Sections */
     .section {
       margin-top: 50px;
       background: rgba(0,0,0,0.55);
@@ -61,6 +54,13 @@
       border-radius: 16px;
       border: 1px solid #333;
       box-shadow: 0 0 20px #000;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 0.6s ease;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .cta-btn {
@@ -74,24 +74,33 @@
       font-weight: bold;
       transition: 0.2s;
     }
-    .cta-btn:hover {
-      background: #ff2222;
+    .cta-btn:hover { background: #ff2222; }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
     }
 
-    .repair-list li {
-      margin-bottom: 6px;
+    .preview-card {
+      background: rgba(0,0,0,0.45);
+      border: 1px solid #333;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 0 20px #000;
     }
+
+    .preview-card iframe {
+      width: 100%;
+      height: 350px;
+      border-radius: 12px;
+      border: none;
+      background: #000;
+    }
+
+    .repair-list li { margin-bottom: 6px; }
   </style>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const burger = document.querySelector(".burger");
-      const nav = document.querySelector(".main-nav");
-      burger.addEventListener("click", () => {
-        nav.style.display = nav.style.display === "flex" ? "none" : "flex";
-      });
-    });
-  </script>
 </head>
 
 <body class="theme-dark">
@@ -119,6 +128,7 @@
 
   <!-- HERO -->
   <main class="page-container">
+
     <section class="section">
       <h1>Go Time Software</h1>
       <p>
@@ -126,6 +136,41 @@
         Everything you need to run your business, your home, or your ideas — built clean, fast, and cinematic.
       </p>
       <a class="cta-btn" href="/pages/contact.html">Start Your Project</a>
+    </section>
+
+    <!-- LIVE PREVIEWS -->
+    <section class="section">
+      <h2>Live Previews</h2>
+      <p>These are real, working examples of what I build — scroll them, click them, explore them.</p>
+
+      <div class="preview-grid">
+
+        <div class="preview-card">
+          <iframe src="https://comic-lct.pages.dev/"></iframe>
+          <h3>Comic Website</h3>
+        </div>
+
+        <div class="preview-card">
+          <iframe src="https://the-code.pages.dev/"></iframe>
+          <h3>The Code</h3>
+        </div>
+
+        <div class="preview-card">
+          <iframe src="/games/cooking/index.html"></iframe>
+          <h3>Cooking Game</h3>
+        </div>
+
+        <div class="preview-card">
+          <iframe src="/templates/web/pages/marketplace.html"></iframe>
+          <h3>Marketplace Template</h3>
+        </div>
+
+        <div class="preview-card">
+          <iframe src="/templates/web/pages/landing.html"></iframe>
+          <h3>Landing Page Template</h3>
+        </div>
+
+      </div>
     </section>
 
     <!-- SERVICES -->
@@ -141,7 +186,7 @@
       <a class="cta-btn" href="/pages/pricing.html">View Pricing</a>
     </section>
 
-    <!-- IOT SECTION -->
+    <!-- IOT -->
     <section class="section">
       <h2>IoT Systems & Automation</h2>
       <p>
@@ -149,14 +194,13 @@
         Sensors can detect motion, presence, vibration, heat, sound, or even laser trip lines.
       </p>
 
-      <h3>Examples</h3>
       <ul>
-        <li>Laser trip alarms for doors, garages, or hallways.</li>
-        <li>Human presence sensors for rooms, vehicles, or offices.</li>
-        <li>Motion sensors for lights, alarms, or silent alerts.</li>
-        <li>Vibration sensors for tamper detection or equipment monitoring.</li>
-        <li>Sound sensors for glass break detection or engine start alerts.</li>
-        <li>Relay control for motors, pumps, fans, or lighting.</li>
+        <li>Laser trip alarms</li>
+        <li>Human presence sensors</li>
+        <li>Motion sensors</li>
+        <li>Vibration sensors</li>
+        <li>Sound sensors</li>
+        <li>Relay control for motors, pumps, fans, or lighting</li>
       </ul>
 
       <p>
@@ -168,9 +212,7 @@
     <!-- REPAIRS -->
     <section class="section">
       <h2>We Fix Broken Electronics</h2>
-      <p>
-        If it has wires, a board, a chip, a port, or a screen — we can fix it.
-      </p>
+      <p>If it has wires, a board, a chip, a port, or a screen — we can fix it.</p>
 
       <ul class="repair-list">
         <li>Broken wires</li>
@@ -188,7 +230,7 @@
       <a class="cta-btn" href="/pages/contact.html">Request a Repair</a>
     </section>
 
-    <!-- CONTACT CTA -->
+    <!-- CTA -->
     <section class="section">
       <h2>Ready to Build?</h2>
       <p>
@@ -200,10 +242,10 @@
 
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
     <span>© Go Time Software</span>
   </footer>
 
+  <script src="/js/index.js"></script>
 </body>
 </html>
