@@ -3,240 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <title>Go Time Arcade – Snake · Pong · Tetris</title>
-  <style>
-    :root {
-      --bg: #050510;
-      --card: #101020;
-      --accent: #ff3b6a;
-      --accent-soft: #ff3b6a55;
-      --accent-alt: #3bd9ff;
-      --text: #ffffff;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1a1a3a 0, #050510 55%, #000 100%);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .shell {
-      max-width: 1100px;
-      width: 100%;
-      padding: 20px;
-    }
-
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-
-    .logo {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .logo span {
-      color: var(--accent);
-    }
-
-    .theme-toggle {
-      padding: 6px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--accent-soft);
-      background: transparent;
-      color: var(--text);
-      cursor: pointer;
-      font-size: 12px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .theme-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 10px var(--accent-soft);
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: 280px minmax(0, 1fr);
-      gap: 20px;
-    }
-
-    @media (max-width: 900px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .panel {
-      background: rgba(10,10,25,0.9);
-      border-radius: 16px;
-      border: 1px solid #222;
-      box-shadow: 0 0 24px #000;
-      padding: 16px;
-    }
-
-    .panel h2 {
-      margin: 0 0 8px;
-      font-size: 18px;
-    }
-
-    .panel p {
-      margin: 0 0 12px;
-      font-size: 13px;
-      opacity: 0.9;
-    }
-
-    .section-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      opacity: 0.7;
-      margin-top: 10px;
-      margin-bottom: 4px;
-    }
-
-    .mode-row,
-    .difficulty-row,
-    .character-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 8px;
-    }
-
-    .pill {
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid #333;
-      background: #151528;
-      font-size: 11px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      opacity: 0.85;
-    }
-
-    .pill span.emoji {
-      font-size: 14px;
-    }
-
-    .pill.active {
-      border-color: var(--accent);
-      background: #1c1020;
-      box-shadow: 0 0 12px var(--accent-soft);
-      opacity: 1;
-    }
-
-    .stats {
-      margin-top: 10px;
-      font-size: 12px;
-      opacity: 0.9;
-      line-height: 1.6;
-    }
-
-    .board-panel {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .board-shell {
-      background: radial-gradient(circle at top, #202040 0, #050510 60%);
-      border-radius: 20px;
-      padding: 16px;
-      border: 1px solid #333;
-      box-shadow: 0 0 30px #000;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .board-shell::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background: conic-gradient(from 0deg, #ff3b6a33, #3bd9ff33, #ff3b6a33);
-      opacity: 0.3;
-      filter: blur(40px);
-      z-index: 0;
-    }
-
-    .board-inner {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    canvas {
-      background: #05050a;
-      border-radius: 16px;
-      box-shadow: 0 0 24px #000;
-      border: 1px solid #333;
-    }
-
-    .board-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 12px;
-      opacity: 0.9;
-      margin-top: 4px;
-    }
-
-    .board-footer span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .helper-emoji {
-      font-size: 16px;
-    }
-
-    .hint {
-      font-size: 11px;
-      opacity: 0.7;
-    }
-  </style>
+  <link rel="stylesheet" href="arcade.css">
+  <script src="arcade.js" defer></script>
 </head>
 <body>
   <div class="shell">
     <header class="header">
       <div class="logo">Go Time <span>Arcade</span></div>
-      <button class="theme-toggle" id="themeToggle">
-        <span class="theme-dot"></span>
-        Switch Glow
-      </button>
+      <div class="header-controls">
+        <button class="pill pill-small" data-theme="neon-pink">Neon Pink</button>
+        <button class="pill pill-small" data-theme="neon-blue">Neon Blue</button>
+        <button class="pill pill-small" data-theme="neon-green">Neon Green</button>
+        <button class="pill pill-small" data-theme="neon-purple">Neon Purple</button>
+      </div>
     </header>
 
     <div class="layout">
       <aside class="panel">
-        <h2>Game Control</h2>
-        <p>One board. Three games. Pick your mode, difficulty, and emoji helper.</p>
+        <h2>Control Center</h2>
+        <p>One board. Three games. Pick your mode, difficulty, helper, and theme.</p>
 
         <div class="section-label">Mode</div>
         <div class="mode-row" id="modeRow">
-          <button class="pill active" data-mode="snake">Snake</button>
-          <button class="pill" data-mode="pong">Pong</button>
-          <button class="pill" data-mode="tetris">Tetris</button>
+          <button class="pill active" data-mode="snake">Snake+</button>
+          <button class="pill" data-mode="pong">Pong+</button>
+          <button class="pill" data-mode="tetris">Tetris+</button>
         </div>
 
         <div class="section-label">Difficulty</div>
@@ -248,7 +39,7 @@
           <button class="pill" data-level="5">Level 5</button>
         </div>
 
-        <div class="section-label">Character</div>
+        <div class="section-label">Helper</div>
         <div class="character-row" id="characterRow">
           <button class="pill active" data-char="🐉"><span class="emoji">🐉</span> Dragon</button>
           <button class="pill" data-char="🦾"><span class="emoji">🦾</span> Cyborg</button>
@@ -256,472 +47,52 @@
         </div>
 
         <div class="stats" id="stats">
-          Mode: Snake<br />
+          Mode: Snake+<br />
           Difficulty: Level 1<br />
           Helper: 🐉 Dragon<br />
-          Score: <span id="score">0</span>
+          Theme: Neon Pink<br />
+          Score: <span id="score">0</span><br />
+          Best: <span id="bestScore">0</span>
+        </div>
+
+        <div class="section-label">Controls</div>
+        <ul class="controls-list" id="controlsList">
+          <li>Snake+: Arrow keys</li>
+          <li>Pong+: Move mouse or touch on board</li>
+          <li>Tetris+: ← → move, ↓ drop faster</li>
+        </ul>
+
+        <div class="section-label">Session</div>
+        <div class="session-row">
+          <button class="pill pill-wide" id="btnPause">Pause</button>
+          <button class="pill pill-wide" id="btnReset">Reset</button>
         </div>
       </aside>
 
       <section class="panel board-panel">
         <div class="board-shell">
           <div class="board-inner">
-            <canvas id="board" width="420" height="420"></canvas>
+            <canvas id="board" width="900" height="900"></canvas>
+            <div class="overlay" id="overlay">
+              <div class="overlay-inner">
+                <h1>Go Time Arcade</h1>
+                <p>Snake+, Pong+, and Tetris+ all on one futuristic board.</p>
+                <button id="btnStart" class="pill pill-wide pill-primary">Start Playing</button>
+              </div>
+            </div>
           </div>
         </div>
         <div class="board-footer">
           <span>
             <span class="helper-emoji" id="helperEmoji">🐉</span>
-            <span id="helperText">Snake helper: slows down collisions slightly.</span>
+            <span id="helperText">Dragon: boosts speed and score multipliers.</span>
           </span>
           <span class="hint" id="hintText">
-            Snake: Arrow keys · Pong: Mouse/Touch · Tetris: ← → ↓
+            Snake+: Arrow keys · Pong+: Mouse/Touch · Tetris+: ← → ↓
           </span>
         </div>
       </section>
     </div>
   </div>
-
-  <script>
-    const canvas = document.getElementById("board");
-    const ctx = canvas.getContext("2d");
-
-    const modeRow = document.getElementById("modeRow");
-    const difficultyRow = document.getElementById("difficultyRow");
-    const characterRow = document.getElementById("characterRow");
-    const statsEl = document.getElementById("stats");
-    const scoreEl = document.getElementById("score");
-    const helperEmojiEl = document.getElementById("helperEmoji");
-    const helperTextEl = document.getElementById("helperText");
-    const hintTextEl = document.getElementById("hintText");
-    const themeToggle = document.getElementById("themeToggle");
-
-    let mode = "snake";
-    let difficulty = 1;
-    let helper = "🐉";
-    let score = 0;
-    let lastTime = 0;
-    let accumulator = 0;
-
-    const baseSpeed = {
-      snake: 7,
-      pong: 60,
-      tetris: 1.2
-    };
-
-    const helperEffects = {
-      "🐉": { snake: 0.9, pong: 1.0, tetris: 1.0, text: "Dragon: slightly slows danger." },
-      "🦾": { snake: 1.1, pong: 1.2, tetris: 1.1, text: "Cyborg: faster, more intense." },
-      "🧠": { snake: 1.0, pong: 0.9, tetris: 0.9, text: "Mind: calms the pace a bit." }
-    };
-
-    const gridSize = 21;
-    const cell = canvas.width / gridSize;
-
-    const snake = {
-      body: [{ x: 10, y: 10 }],
-      dir: { x: 1, y: 0 },
-      food: { x: 5, y: 5 }
-    };
-
-    const pong = {
-      ball: { x: canvas.width / 2, y: canvas.height / 2, vx: 3, vy: 3 },
-      paddle: { y: canvas.height / 2 - 40, h: 80, w: 10 },
-      ai: { y: canvas.height / 2 - 40, h: 80, w: 10 }
-    };
-
-    const tetris = {
-      arena: createMatrix(10, 20),
-      player: { pos: { x: 4, y: 0 }, matrix: null },
-      dropCounter: 0,
-      dropInterval: 1000
-    };
-
-    function createMatrix(w, h) {
-      const m = [];
-      while (h--) m.push(new Array(w).fill(0));
-      return m;
-    }
-
-    function createPiece(type) {
-      if (type === "T") return [[0,1,0],[1,1,1],[0,0,0]];
-      if (type === "O") return [[1,1],[1,1]];
-      if (type === "L") return [[0,0,1],[1,1,1],[0,0,0]];
-      if (type === "J") return [[1,0,0],[1,1,1],[0,0,0]];
-      if (type === "I") return [[1,1,1,1]];
-      if (type === "S") return [[0,1,1],[1,1,0],[0,0,0]];
-      if (type === "Z") return [[1,1,0],[0,1,1],[0,0,0]];
-    }
-
-    function resetTetrisPiece() {
-      const pieces = "TJLOSZI";
-      tetris.player.matrix = createPiece(pieces[Math.floor(Math.random() * pieces.length)]);
-      tetris.player.pos.y = 0;
-      tetris.player.pos.x = (tetris.arena[0].length / 2 | 0) - (tetris.player.matrix[0].length / 2 | 0);
-      if (collide(tetris.arena, tetris.player)) {
-        tetris.arena.forEach(row => row.fill(0));
-        score = 0;
-      }
-    }
-
-    function collide(arena, player) {
-      const [m, o] = [player.matrix, player.pos];
-      for (let y = 0; y < m.length; y++) {
-        for (let x = 0; x < m[y].length; x++) {
-          if (m[y][x] !== 0 &&
-              (arena[y + o.y] &&
-               arena[y + o.y][x + o.x]) !== 0) {
-            return true;
-          }
-        }
-      }
-      return false;
-    }
-
-    function merge(arena, player) {
-      player.matrix.forEach((row, y) => {
-        row.forEach((value, x) => {
-          if (value !== 0) arena[y + player.pos.y][x + player.pos.x] = value;
-        });
-      });
-    }
-
-    function sweepArena() {
-      outer: for (let y = tetris.arena.length - 1; y > 0; y--) {
-        for (let x = 0; x < tetris.arena[y].length; x++) {
-          if (tetris.arena[y][x] === 0) continue outer;
-        }
-        tetris.arena.splice(y, 1);
-        tetris.arena.unshift(new Array(10).fill(0));
-        score += 50;
-      }
-    }
-
-    function updateStats() {
-      statsEl.innerHTML = `
-        Mode: ${mode.charAt(0).toUpperCase() + mode.slice(1)}<br />
-        Difficulty: Level ${difficulty}<br />
-        Helper: ${helper} ${helperText(mode)}<br />
-        Score: <span id="score">${score}</span>
-      `;
-      scoreEl.textContent = score;
-      helperEmojiEl.textContent = helper;
-      helperTextEl.textContent = helperEffects[helper].text;
-      hintTextEl.textContent =
-        mode === "snake"
-          ? "Snake: Arrow keys"
-          : mode === "pong"
-          ? "Pong: Move mouse or touch to control paddle"
-          : "Tetris: ← → move, ↓ drop faster";
-    }
-
-    function helperText(m) {
-      if (helper === "🐉") return "(Dragon)";
-      if (helper === "🦾") return "(Cyborg)";
-      if (helper === "🧠") return "(Mind)";
-      return "";
-    }
-
-    function resetSnake() {
-      snake.body = [{ x: 10, y: 10 }];
-      snake.dir = { x: 1, y: 0 };
-      snake.food = { x: 5, y: 5 };
-      score = 0;
-    }
-
-    function resetPong() {
-      pong.ball.x = canvas.width / 2;
-      pong.ball.y = canvas.height / 2;
-      pong.ball.vx = 3 + difficulty;
-      pong.ball.vy = 3 + difficulty;
-      score = 0;
-    }
-
-    function resetTetris() {
-      tetris.arena.forEach(row => row.fill(0));
-      tetris.dropCounter = 0;
-      tetris.dropInterval = 1000 / (difficulty * helperEffects[helper].tetris);
-      resetTetrisPiece();
-      score = 0;
-    }
-
-    function setMode(newMode) {
-      mode = newMode;
-      score = 0;
-      if (mode === "snake") resetSnake();
-      if (mode === "pong") resetPong();
-      if (mode === "tetris") resetTetris();
-      updateStats();
-    }
-
-    function setDifficulty(level) {
-      difficulty = level;
-      if (mode === "snake") resetSnake();
-      if (mode === "pong") resetPong();
-      if (mode === "tetris") resetTetris();
-      updateStats();
-    }
-
-    function setHelper(char) {
-      helper = char;
-      if (mode === "snake") resetSnake();
-      if (mode === "pong") resetPong();
-      if (mode === "tetris") resetTetris();
-      updateStats();
-    }
-
-    modeRow.addEventListener("click", e => {
-      if (!e.target.closest(".pill")) return;
-      modeRow.querySelectorAll(".pill").forEach(p => p.classList.remove("active"));
-      const pill = e.target.closest(".pill");
-      pill.classList.add("active");
-      setMode(pill.dataset.mode);
-    });
-
-    difficultyRow.addEventListener("click", e => {
-      if (!e.target.closest(".pill")) return;
-      difficultyRow.querySelectorAll(".pill").forEach(p => p.classList.remove("active"));
-      const pill = e.target.closest(".pill");
-      pill.classList.add("active");
-      setDifficulty(parseInt(pill.dataset.level, 10));
-    });
-
-    characterRow.addEventListener("click", e => {
-      if (!e.target.closest(".pill")) return;
-      characterRow.querySelectorAll(".pill").forEach(p => p.classList.remove("active"));
-      const pill = e.target.closest(".pill");
-      pill.classList.add("active");
-      setHelper(pill.dataset.char);
-    });
-
-    themeToggle.addEventListener("click", () => {
-      const root = document.documentElement;
-      const current = getComputedStyle(root).getPropertyValue("--accent").trim();
-      if (current === "#ff3b6a") {
-        root.style.setProperty("--accent", "#3bd9ff");
-        root.style.setProperty("--accent-soft", "#3bd9ff55");
-      } else {
-        root.style.setProperty("--accent", "#ff3b6a");
-        root.style.setProperty("--accent-soft", "#ff3b6a55");
-      }
-    });
-
-    document.addEventListener("keydown", e => {
-      if (mode === "snake") {
-        if (e.key === "ArrowUp" && snake.dir.y !== 1) snake.dir = { x: 0, y: -1 };
-        if (e.key === "ArrowDown" && snake.dir.y !== -1) snake.dir = { x: 0, y: 1 };
-        if (e.key === "ArrowLeft" && snake.dir.x !== 1) snake.dir = { x: -1, y: 0 };
-        if (e.key === "ArrowRight" && snake.dir.x !== -1) snake.dir = { x: 1, y: 0 };
-      }
-      if (mode === "tetris") {
-        if (e.key === "ArrowLeft") {
-          tetris.player.pos.x--;
-          if (collide(tetris.arena, tetris.player)) tetris.player.pos.x++;
-        }
-        if (e.key === "ArrowRight") {
-          tetris.player.pos.x++;
-          if (collide(tetris.arena, tetris.player)) tetris.player.pos.x--;
-        }
-        if (e.key === "ArrowDown") {
-          playerDrop();
-        }
-      }
-    });
-
-    canvas.addEventListener("mousemove", e => {
-      if (mode !== "pong") return;
-      const rect = canvas.getBoundingClientRect();
-      const y = e.clientY - rect.top;
-      pong.paddle.y = y - pong.paddle.h / 2;
-    });
-
-    canvas.addEventListener("touchmove", e => {
-      if (mode !== "pong") return;
-      const rect = canvas.getBoundingClientRect();
-      const y = e.touches[0].clientY - rect.top;
-      pong.paddle.y = y - pong.paddle.h / 2;
-    }, { passive: true });
-
-    function playerDrop() {
-      tetris.player.pos.y++;
-      if (collide(tetris.arena, tetris.player)) {
-        tetris.player.pos.y--;
-        merge(tetris.arena, tetris.player);
-        resetTetrisPiece();
-        sweepArena();
-      }
-      tetris.dropCounter = 0;
-    }
-
-    function update(time = 0) {
-      const delta = time - lastTime;
-      lastTime = time;
-      accumulator += delta;
-
-      const speedFactor = difficulty + (helperEffects[helper][mode] - 1) * 2;
-      const target = 1000 / (baseSpeed[mode] * speedFactor);
-
-      while (accumulator >= target) {
-        stepGame(mode, target);
-        accumulator -= target;
-      }
-
-      drawGame(mode);
-      requestAnimationFrame(update);
-    }
-
-    function stepGame(m, dt) {
-      if (m === "snake") stepSnake();
-      if (m === "pong") stepPong();
-      if (m === "tetris") stepTetris(dt);
-    }
-
-    function stepSnake() {
-      const head = { ...snake.body[0] };
-      head.x += snake.dir.x;
-      head.y += snake.dir.y;
-
-      if (head.x < 0 || head.x >= gridSize || head.y < 0 || head.y >= gridSize) {
-        resetSnake();
-        return;
-      }
-
-      if (snake.body.some(seg => seg.x === head.x && seg.y === head.y)) {
-        resetSnake();
-        return;
-      }
-
-      snake.body.unshift(head);
-
-      if (head.x === snake.food.x && head.y === snake.food.y) {
-        score += 10;
-        snake.food = {
-          x: Math.floor(Math.random() * gridSize),
-          y: Math.floor(Math.random() * gridSize)
-        };
-      } else {
-        snake.body.pop();
-      }
-    }
-
-    function stepPong() {
-      const b = pong.ball;
-      const p = pong.paddle;
-      const a = pong.ai;
-
-      b.x += b.vx;
-      b.y += b.vy;
-
-      if (b.y <= 0 || b.y >= canvas.height) b.vy *= -1;
-
-      if (b.x <= 30 &&
-          b.y >= p.y &&
-          b.y <= p.y + p.h) {
-        b.vx *= -1;
-        score += 5;
-      }
-
-      if (b.x >= canvas.width - 30 &&
-          b.y >= a.y &&
-          b.y <= a.y + a.h) {
-        b.vx *= -1;
-      }
-
-      a.y += (b.y - (a.y + a.h / 2)) * 0.05 * (difficulty * helperEffects[helper].pong);
-
-      if (b.x < 0 || b.x > canvas.width) {
-        resetPong();
-      }
-    }
-
-    function stepTetris(dt) {
-      tetris.dropCounter += dt;
-      if (tetris.dropCounter > tetris.dropInterval) {
-        playerDrop();
-      }
-    }
-
-    function drawGame(m) {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      if (m === "snake") drawSnake();
-      if (m === "pong") drawPong();
-      if (m === "tetris") drawTetris();
-      updateStats();
-    }
-
-    function drawSnake() {
-      ctx.fillStyle = "#05050a";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = "#ff3b6a";
-      ctx.shadowColor = "#ff3b6a";
-      ctx.shadowBlur = 12;
-      ctx.fillRect(snake.food.x * cell, snake.food.y * cell, cell, cell);
-
-      ctx.shadowBlur = 0;
-      ctx.fillStyle = "#3bd9ff";
-      snake.body.forEach((seg, i) => {
-        ctx.globalAlpha = i === 0 ? 1 : 0.8;
-        ctx.fillRect(seg.x * cell, seg.y * cell, cell, cell);
-      });
-      ctx.globalAlpha = 1;
-    }
-
-    function drawPong() {
-      ctx.fillStyle = "#05050a";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.strokeStyle = "#222";
-      ctx.setLineDash([5, 10]);
-      ctx.beginPath();
-      ctx.moveTo(canvas.width / 2, 0);
-      ctx.lineTo(canvas.width / 2, canvas.height);
-      ctx.stroke();
-      ctx.setLineDash([]);
-
-      ctx.fillStyle = "#3bd9ff";
-      ctx.fillRect(20, pong.paddle.y, pong.paddle.w, pong.paddle.h);
-
-      ctx.fillStyle = "#ff3b6a";
-      ctx.fillRect(canvas.width - 30, pong.ai.y, pong.ai.w, pong.ai.h);
-
-      ctx.fillStyle = "#ffffff";
-      ctx.beginPath();
-      ctx.arc(pong.ball.x, pong.ball.y, 8, 0, Math.PI * 2);
-      ctx.fill();
-    }
-
-    function drawTetris() {
-      ctx.fillStyle = "#05050a";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      const scaleX = canvas.width / 10;
-      const scaleY = canvas.height / 20;
-
-      function drawMatrix(matrix, offset) {
-        matrix.forEach((row, y) => {
-          row.forEach((value, x) => {
-            if (value !== 0) {
-              ctx.fillStyle = "#ff3b6a";
-              ctx.shadowColor = "#ff3b6a";
-              ctx.shadowBlur = 10;
-              ctx.fillRect((x + offset.x) * scaleX, (y + offset.y) * scaleY, scaleX - 2, scaleY - 2);
-              ctx.shadowBlur = 0;
-            }
-          });
-        });
-      }
-
-      drawMatrix(tetris.arena, { x: 0, y: 0 });
-      drawMatrix(tetris.player.matrix, tetris.player.pos);
-    }
-
-    resetSnake();
-    resetPong();
-    resetTetris();
-    updateStats();
-    resetTetrisPiece();
-    requestAnimationFrame(update);
-  </script>
 </body>
 </html>
