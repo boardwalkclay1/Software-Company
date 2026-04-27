@@ -1,6 +1,6 @@
 /* ============================================================
-   GO TIME SOFTWARE — GLOBAL STONE STYLE
-   Stone color • Stone texture • Dark cinematic base
+   GO TIME SOFTWARE — GLOBAL GLOWING STONE BRICK STYLE
+   Heavy stone texture • Ember glow • Cinematic dark UI
    ============================================================ */
 
 /* RESET */
@@ -17,55 +17,58 @@ html, body {
 }
 
 /* ============================================================
-   GLOBAL BODY
+   GLOBAL BODY — DARK STONE WORLD
 ============================================================ */
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: #000;
-  color: #d8d4c8; /* Stone color */
+  color: #dcd7ce; /* Stone base */
   overflow-x: hidden;
   overflow-y: auto;
   line-height: 1.55;
 
-  /* Subtle stone grain texture */
+  /* Stone grain + ember glow */
   text-shadow:
     0 0 2px #000,
-    0 0 4px rgba(0,0,0,0.6),
-    1px 1px 0 rgba(255,255,255,0.04),
-    -1px -1px 0 rgba(0,0,0,0.4);
+    0 0 6px rgba(0,0,0,0.8),
+    1px 1px 0 rgba(255,255,255,0.05),
+    -1px -1px 0 rgba(0,0,0,0.55),
+    0 0 8px rgba(255,80,60,0.08);
 }
 
 /* ============================================================
-   HEADINGS — CARVED STONE EFFECT
+   HEADINGS — CARVED GLOWING STONE
 ============================================================ */
 h1, h2, h3, .logo {
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #e2dfd6; /* Lighter stone */
+  letter-spacing: 0.08em;
+  color: #f0ece4; /* Light glowing stone */
 
-  /* Carved stone effect */
+  /* Deep carved stone + ember glow */
   text-shadow:
-    0 0 3px #000,
-    0 0 6px #000,
-    2px 2px 0 rgba(255,255,255,0.05),
-    -2px -2px 0 rgba(0,0,0,0.5),
-    0 0 14px rgba(255,255,255,0.08);
+    0 0 4px #000,
+    0 0 10px #000,
+    2px 2px 0 rgba(255,255,255,0.06),
+    -2px -2px 0 rgba(0,0,0,0.7),
+    0 0 18px rgba(255,80,60,0.15),
+    0 0 28px rgba(255,80,60,0.10);
 }
 
 /* ============================================================
-   BODY TEXT — ROUGH STONE
+   BODY TEXT — SMOOTH GLOWING STONE
 ============================================================ */
 p, li, a, span {
-  color: #d0ccc0; /* Stone */
+  color: #d6d2c8;
   text-shadow:
     0 0 2px #000,
-    1px 1px 0 rgba(255,255,255,0.03),
-    -1px -1px 0 rgba(0,0,0,0.4);
+    1px 1px 0 rgba(255,255,255,0.04),
+    -1px -1px 0 rgba(0,0,0,0.55),
+    0 0 6px rgba(255,80,60,0.06);
 }
 
 /* ============================================================
-   HEADER
+   HEADER — STONE + EMBER GLOW
 ============================================================ */
 .site-header {
   display: flex;
@@ -73,7 +76,8 @@ p, li, a, span {
   align-items: center;
   padding: 18px 40px;
   background: rgba(0,0,0,0.65);
-  border-bottom: 1px solid #3a2f2a; /* Stone border */
+  border-bottom: 1px solid #4a3a32;
+  box-shadow: 0 0 18px #000;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -88,15 +92,15 @@ p, li, a, span {
 
 .logo-img {
   height: 42px;
-  filter: drop-shadow(0 0 10px #3a2f2a);
+  filter: drop-shadow(0 0 14px rgba(255,80,60,0.25));
 }
 
 /* ============================================================
-   NAVIGATION
+   NAVIGATION — STONE LINKS
 ============================================================ */
 .main-nav a {
   margin-left: 22px;
-  color: #c8c4b8; /* Stone */
+  color: #d0ccc0;
   text-decoration: none;
   font-size: 15px;
   text-transform: uppercase;
@@ -105,18 +109,20 @@ p, li, a, span {
 }
 
 .main-nav a:hover {
-  color: #ff3b3b;
-  text-shadow: 0 0 12px #550000;
+  color: #ff5a4a;
+  text-shadow:
+    0 0 10px rgba(255,80,60,0.5),
+    0 0 18px rgba(255,80,60,0.35);
 }
 
 /* ============================================================
-   BUTTONS — STONE + RED GLOW
+   BUTTONS — STONE + EMBER CORE
 ============================================================ */
 .btn-primary,
 .btn-secondary {
   padding: 10px 18px;
   border-radius: 999px;
-  border: 1px solid #3a2f2a;
+  border: 1px solid #4a3a32;
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -124,13 +130,17 @@ p, li, a, span {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #3a2f2a, #6b5a52);
+  background: linear-gradient(135deg, #4a3a32, #7a6458);
   color: #fff;
-  box-shadow: 0 0 14px #3a2f2aaa;
+  box-shadow:
+    0 0 14px rgba(255,80,60,0.25),
+    inset 0 0 8px rgba(255,80,60,0.15);
 }
 
 .btn-primary:hover {
-  box-shadow: 0 0 22px #aa0000ff;
+  box-shadow:
+    0 0 22px rgba(255,80,60,0.45),
+    inset 0 0 12px rgba(255,80,60,0.25);
 }
 
 .btn-secondary {
@@ -139,64 +149,53 @@ p, li, a, span {
 }
 
 .btn-secondary:hover {
-  color: #ff3b3b;
-  text-shadow: 0 0 12px #550000;
+  color: #ff5a4a;
+  text-shadow:
+    0 0 10px rgba(255,80,60,0.5),
+    0 0 18px rgba(255,80,60,0.35);
 }
 
 /* ============================================================
-   CATEGORY GRID
+   PREVIEW CARDS — STONE PANELS
 ============================================================ */
-.category-grid {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-  padding: 40px;
-}
-
-.category-column {
-  width: 50%;
-}
-
 .preview-card {
   margin: 20px 0;
   padding: 20px;
-  border: 1px solid #3a2f2a;
+  border: 1px solid #4a3a32;
   border-radius: 12px;
-  cursor: pointer;
+  background: rgba(0,0,0,0.35);
+  box-shadow:
+    0 0 14px #000,
+    inset 0 0 12px rgba(255,80,60,0.08);
   transition: 0.2s ease;
-  background: rgba(0,0,0,0.25);
 }
 
 .preview-card:hover {
-  border-color: #ff3b3b;
-  box-shadow: 0 0 14px #550000aa;
+  border-color: #ff5a4a;
+  box-shadow:
+    0 0 18px rgba(255,80,60,0.35),
+    inset 0 0 14px rgba(255,80,60,0.15);
 }
 
 /* ============================================================
-   IOT STRIP
+   IOT STRIP — STONE FRAME
 ============================================================ */
-.iot-strip {
-  padding: 40px;
-  text-align: center;
+.iot-strip-gallery {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 30px;
+  border-top: 1px solid #4a3a32;
+  border-bottom: 1px solid #4a3a32;
+  padding: 14px 0;
+  background: rgba(0,0,0,0.35);
+  box-shadow: inset 0 0 20px #000;
 }
 
-.iot-scroll {
-  display: flex;
-  gap: 30px;
-  overflow-x: auto;
-  padding: 20px 0;
-}
-
-.iot-item {
-  min-width: 220px;
-  text-align: center;
-}
-
-.iot-item img {
-  height: 120px;
-  border-radius: 8px;
-  border: 1px solid #3a2f2a;
-  margin-bottom: 10px;
+.iot-strip-track img {
+  border: 1px solid #4a3a32;
+  box-shadow:
+    0 0 12px #000,
+    0 0 10px rgba(255,80,60,0.15);
 }
 
 /* ============================================================
