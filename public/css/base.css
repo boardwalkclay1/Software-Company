@@ -1,6 +1,6 @@
 /* ============================================================
-   GO TIME SOFTWARE — GLOWING STONE BRICK UI (UPGRADED)
-   Stone color • Stone glow • Welding-line • PCB chip option
+   GO TIME SOFTWARE — GLOWING STONE BRICK UI (FINAL FIXED)
+   Stone color • Stone glow outline • Constant welding line
    ============================================================ */
 
 /* RESET */
@@ -25,7 +25,7 @@ html, body {
   --stone-dark: #6b6458;
   --stone-deep: #2e2a26;
 
-  --stone-glow: rgba(255, 255, 255, 0.35);
+  --stone-glow: rgba(255,255,255,0.55); /* STRONGER GLOW */
   --panel-bg: rgba(0,0,0,0.45);
   --panel-border: #4a3a32;
 
@@ -33,24 +33,25 @@ html, body {
 }
 
 /* ============================================================
-   GLOBAL BODY — FIXED BACKGROUND ISSUE
+   GLOBAL BODY — FIXED BACKGROUND (NO MOVEMENT)
 ============================================================ */
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: #000;
-  background-attachment: fixed !important; /* FIXES BACKGROUND HIDING */
+  background-attachment: fixed !important;
+  background-position: center center !important;
   overflow-x: hidden;
   overflow-y: auto;
   line-height: 1.55;
 }
 
 /* ============================================================
-   GLOBAL TEXT — STONE BRICK + BIGGER TEXT
+   GLOBAL TEXT — STONE BRICK + OUTER GLOW
 ============================================================ */
 body, p, li, a, span,
 h1, h2, h3, h4, h5, h6,
 button, .logo, .cta-btn {
-  font-size: 1.15rem; /* TEXT BIGGER */
+  font-size: 1.2rem;
   background: linear-gradient(
     180deg,
     var(--stone-light),
@@ -59,20 +60,28 @@ button, .logo, .cta-btn {
   );
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
-  color: transparent !important;
 
-  text-shadow:
-    0 0 4px #000,
-    0 0 8px #000,
-    1px 1px 0 var(--stone-dark),
-    -1px -1px 0 var(--stone-deep),
-    0 0 14px var(--stone-glow);
+  /* OUTER GLOW AROUND THE WORDS */
+  filter: drop-shadow(0 0 6px var(--stone-glow))
+          drop-shadow(0 0 12px var(--stone-glow));
 }
 
-/* Headings — deeper carving + bigger */
-h1 { font-size: 3rem; }
-h2 { font-size: 2.2rem; }
-h3 { font-size: 1.6rem; }
+/* Headings — bigger + deeper glow */
+h1 { font-size: 3.2rem; }
+h2 { font-size: 2.4rem; }
+h3 { font-size: 1.8rem; }
+
+/* ============================================================
+   RESPONSIVE TEXT FOR MOBILE
+============================================================ */
+@media (max-width: 600px) {
+  body, p, li, a, span {
+    font-size: 1.35rem;
+  }
+  h1 { font-size: 2.6rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+}
 
 /* ============================================================
    CONSTANT WELDING LINE — NO FADING
@@ -86,7 +95,6 @@ h3 { font-size: 1.6rem; }
 body, p, li, a, span,
 h1, h2, h3, h4, h5, h6,
 button, .logo, .cta-btn {
-  position: relative;
   animation: weldLineConstant 6s linear infinite;
 
   background-image:
@@ -109,7 +117,7 @@ button, .logo, .cta-btn {
 }
 
 /* ============================================================
-   OPTIONAL: PCB CHIP EFFECT (APPLY ONLY WHERE YOU WANT IT)
+   OPTIONAL PCB CHIP EFFECT (APPLY ONLY WHERE YOU WANT)
 ============================================================ */
 .pcb {
   background-image:
@@ -124,10 +132,6 @@ button, .logo, .cta-btn {
   background-blend-mode: screen;
 }
 
-/* Example usage:
-   <span class="pcb">IoT Systems</span>
-*/
-
 /* ============================================================
    LINKS — MORE CINEMATIC
 ============================================================ */
@@ -135,17 +139,17 @@ a {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-decoration: none;
+  transition: 0.2s ease;
 }
 
 a:hover {
-  text-shadow:
-    0 0 12px rgba(255,255,255,0.6),
-    0 0 22px rgba(255,255,255,0.4);
-  transform: scale(1.04);
+  filter: drop-shadow(0 0 10px var(--stone-glow))
+          drop-shadow(0 0 20px var(--stone-glow));
+  transform: scale(1.05);
 }
 
 /* ============================================================
-   DROPDOWN DESCRIPTIONS (CATEGORY BLOCKS)
+   DROPDOWN DESCRIPTIONS (NON-IFRAME SECTIONS)
 ============================================================ */
 .category {
   margin-top: 40px;
@@ -168,13 +172,12 @@ a:hover {
 }
 
 .category-title:hover {
-  box-shadow: 0 0 18px rgba(255,255,255,0.25);
+  box-shadow: 0 0 18px var(--stone-glow);
 }
 
 .category-content {
   max-height: 0;
   overflow: hidden;
-  opacity: 1; /* NO FADING */
   padding: 0 20px;
   transition: max-height 0.5s ease;
 }
@@ -186,47 +189,49 @@ a:hover {
 }
 
 /* ============================================================
-   PANELS / SECTIONS
+   IFRAMES — ALWAYS VISIBLE + DROPDOWN DESCRIPTION
 ============================================================ */
-.section,
 .preview-card {
   background: var(--panel-bg);
   border: 1px solid var(--panel-border);
   border-radius: 14px;
   padding: 20px;
-  box-shadow:
-    0 0 14px #000,
-    inset 0 0 12px rgba(255,255,255,0.08);
-  transition: 0.2s ease;
+  margin-top: 25px;
+  box-shadow: 0 0 14px #000;
 }
 
-.section:hover,
-.preview-card:hover {
-  border-color: #ffffff;
-  box-shadow:
-    0 0 18px rgba(255,255,255,0.35),
-    inset 0 0 14px rgba(255,255,255,0.15);
-}
-
-/* ============================================================
-   IOT STRIP
-============================================================ */
-.iot-strip-gallery {
+.preview-card iframe {
   width: 100%;
-  overflow: hidden;
-  margin-top: 30px;
-  border-top: 1px solid var(--panel-border);
-  border-bottom: 1px solid var(--panel-border);
-  padding: 14px 0;
-  background: rgba(0,0,0,0.35);
-  box-shadow: inset 0 0 20px #000;
+  height: 420px;
+  border-radius: 12px;
+  border: none;
+  background: #000;
 }
 
-.iot-strip-track img {
+/* Description dropdown under iframe */
+.frame-desc {
+  margin-top: 12px;
+  cursor: pointer;
+  padding: 12px;
   border: 1px solid var(--panel-border);
-  box-shadow:
-    0 0 12px #000,
-    0 0 10px rgba(255,255,255,0.15);
+  border-radius: 10px;
+  background: rgba(0,0,0,0.35);
+  transition: 0.3s ease;
+}
+
+.frame-desc:hover {
+  box-shadow: 0 0 14px var(--stone-glow);
+}
+
+.frame-desc-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.frame-desc.open .frame-desc-content {
+  max-height: 300px;
+  padding-top: 12px;
 }
 
 /* ============================================================
