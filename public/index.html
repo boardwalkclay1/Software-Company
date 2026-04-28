@@ -60,7 +60,6 @@
       z-index: -1;
     }
 
-    /* Center EVERYTHING */
     .section {
       margin-top: 50px;
       background: rgba(0,0,0,0.55);
@@ -98,60 +97,60 @@
       background: #000;
     }
 
-    .repair-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    /* SCROLLING STRIP */
-    .iot-strip-gallery {
-      width: 100%;
-      overflow: hidden;
-      margin-top: 30px;
-      border-top: 1px solid #3a2f2a;
-      border-bottom: 1px solid #3a2f2a;
-      padding: 14px 0;
-      background: rgba(0,0,0,0.35);
-      box-shadow: inset 0 0 20px #000;
-    }
-    .iot-strip-track {
-      display: flex;
-      gap: 40px;
-      animation: scrollStrip 28s linear infinite;
-    }
-    .iot-strip-track img {
-      height: 130px;
-      width: auto;
-      border-radius: 10px;
-      object-fit: cover;
-      filter: brightness(0.85) contrast(1.1);
-      box-shadow: 0 0 12px #000;
+    .frame-desc {
+      margin-top: 12px;
+      cursor: pointer;
+      padding: 12px;
       border: 1px solid #3a2f2a;
+      border-radius: 10px;
+      background: rgba(0,0,0,0.35);
+      transition: 0.3s ease;
     }
-    @keyframes scrollStrip {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+    .frame-desc:hover {
+      box-shadow: 0 0 14px rgba(255,255,255,0.35);
     }
-    .iot-strip-note {
-      margin-top: 16px;
-      font-size: 15px;
-      opacity: 0.9;
-      text-align: center;
+    .frame-desc-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
     }
-    .iot-strip-note a {
-      font-weight: bold;
+    .frame-desc.open .frame-desc-content {
+      max-height: 300px;
+      padding-top: 12px;
     }
 
-    /* Center nav on mobile */
-    @media(max-width: 900px) {
-      .main-nav {
-        text-align: center;
-      }
-      .main-nav a {
-        margin: 10px auto;
-      }
+    /* Dropdown categories */
+    .category {
+      margin-top: 40px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+    .category-title {
+      font-size: 28px;
+      font-weight: 900;
+      cursor: pointer;
+      padding: 18px;
+      border: 1px solid #3a2f2a;
+      border-radius: 12px;
+      background: rgba(0,0,0,0.45);
+      box-shadow: 0 0 14px #000;
+      transition: 0.3s ease;
+    }
+    .category-title:hover {
+      box-shadow: 0 0 18px rgba(255,255,255,0.25);
+    }
+    .category-content {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 20px;
+      transition: max-height 0.5s ease;
+    }
+    .category.open .category-content {
+      max-height: 500px;
+      padding-top: 20px;
+      padding-bottom: 20px;
     }
   </style>
 </head>
@@ -186,6 +185,11 @@
 
   <main class="page-container">
 
+    <!-- DROPDOWN NOTE -->
+    <section class="section visible">
+      <p><strong>Tap categories to reveal descriptions.</strong></p>
+    </section>
+
     <!-- HERO -->
     <section class="section">
       <h1>Go Time Software</h1>
@@ -196,62 +200,70 @@
       </p>
     </section>
 
-    <!-- WHAT WE BUILD -->
-    <section class="section">
-      <h2>What We Build</h2>
-      <p>
-        Go Time Software creates digital systems that feel physical —  
-        stone‑etched interfaces, cinematic layouts, and modular architecture  
-        built to last, scale, and impress.
-      </p>
-      <p>
-        Every project is custom. No templates. No shortcuts.  
-        Your idea becomes a product — crafted like a monument.
-      </p>
-    </section>
+    <!-- WHAT WE BUILD (DROPDOWN) -->
+    <div class="category">
+      <div class="category-title">What We Build</div>
+      <div class="category-content">
+        <p>
+          Go Time Software creates digital systems that feel physical —  
+          stone‑etched interfaces, cinematic layouts, and modular architecture  
+          built to last, scale, and impress.
+        </p>
+        <p>
+          Every project is custom. No templates. No shortcuts.  
+          Your idea becomes a product — crafted like a monument.
+        </p>
+      </div>
+    </div>
 
     <!-- WEBSITES -->
     <section class="section">
       <h2>Websites</h2>
-      <p>
-        Your website is your presence, your identity, your first impression.  
-        We build websites that feel carved from stone — bold, cinematic,  
-        mobile‑ready, and unforgettable.
-      </p>
 
       <div class="preview-card">
         <iframe src="https://comic-lct.pages.dev/"></iframe>
-        <h3>Example Website – Comic Universe</h3>
+        <h3>Comic Universe — Live Website</h3>
+
+        <a class="cta-btn" href="https://comic-lct.pages.dev/" target="_blank">
+          Enter Website
+        </a>
+
+        <div class="frame-desc">
+          More About This Website
+          <div class="frame-desc-content">
+            <p>
+              Comic Universe is a fully functional, live website built with  
+              cinematic UI, dynamic panels, and a modular layout.  
+              You can explore it freely — it’s a real, production‑ready build.
+            </p>
+          </div>
+        </div>
       </div>
-
-      <p style="margin-top:20px;">
-        Business sites, portfolios, product launches, interactive experiences —  
-        all built with glowing stone precision.
-      </p>
-
-      <a class="cta-btn" href="/pages/sites.html">Explore Websites</a>
     </section>
 
     <!-- APPS -->
     <section class="section">
       <h2>Apps</h2>
-      <p>
-        Apps are the engines of modern business.  
-        They automate, track, manage, and scale.  
-        Our apps feel like carved stone tools — solid, reliable, and built for real use.
-      </p>
 
       <div class="preview-card">
         <iframe src="https://the-guild-855.pages.dev/"></iframe>
-        <h3>Example App – The Guild</h3>
+        <h3>The Guild — Live App</h3>
+
+        <a class="cta-btn" href="https://the-guild-855.pages.dev/" target="_blank">
+          Enter App
+        </a>
+
+        <div class="frame-desc">
+          More About This App
+          <div class="frame-desc-content">
+            <p>
+              The Guild is a real, interactive application with  
+              character systems, inventory, progression, and UI logic.  
+              It’s fully explorable — not a demo, not a mockup.
+            </p>
+          </div>
+        </div>
       </div>
-
-      <p style="margin-top:20px;">
-        From personal tools to full companies —  
-        custom apps turn ideas into income.
-      </p>
-
-      <a class="cta-btn" href="/pages/apps.html">Explore Apps</a>
     </section>
 
     <!-- IOT -->
@@ -351,5 +363,21 @@
   </footer>
 
   <script src="/js/index.js"></script>
+
+  <!-- Dropdown Logic -->
+  <script>
+    document.querySelectorAll('.category-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+
+    document.querySelectorAll('.frame-desc').forEach(desc => {
+      desc.addEventListener('click', () => {
+        desc.classList.toggle('open');
+      });
+    });
+  </script>
+
 </body>
 </html>
