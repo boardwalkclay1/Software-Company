@@ -1,6 +1,6 @@
 /* ============================================================
-   GO TIME SOFTWARE — GLOWING STONE BRICK UI (CLEAN VERSION)
-   Stone color • Stone glow • Welding-line animation
+   GO TIME SOFTWARE — GLOWING STONE BRICK UI (NO FADING)
+   Stone color • Stone glow • Constant welding-line animation
    ============================================================ */
 
 /* RESET */
@@ -78,29 +78,13 @@ h1, h2, h3 {
 }
 
 /* ============================================================
-   WELDING-LINE EFFECT — THIN RED LINE ONLY
+   CONSTANT WELDING-LINE EFFECT — NO FADING
 ============================================================ */
 
-/* The welding line texture */
-@keyframes weldLine {
-  0% {
-    background-position: -200% 0;
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  50% {
-    background-position: 200% 0;
-    opacity: 1;
-  }
-  90% {
-    opacity: 0;
-  }
-  100% {
-    background-position: -200% 0;
-    opacity: 0;
-  }
+@keyframes weldLineConstant {
+  0%   { background-position: -200% 100%; }
+  50%  { background-position: 200% 100%; }
+  100% { background-position: -200% 100%; }
 }
 
 /* Apply welding line to ALL text */
@@ -108,7 +92,8 @@ body, p, li, a, span,
 h1, h2, h3, h4, h5, h6,
 button, .logo, .cta-btn {
   position: relative;
-  animation: weldLine 9s ease-in-out infinite;
+  animation: weldLineConstant 6s linear infinite;
+
   background-image:
     linear-gradient(
       180deg,
@@ -119,9 +104,10 @@ button, .logo, .cta-btn {
     linear-gradient(
       90deg,
       transparent 0%,
-      rgba(255,0,0,0.9) 50%,
+      rgba(255,0,0,1) 50%,
       transparent 100%
     );
+
   background-size: 100% 100%, 200% 2px;
   background-repeat: no-repeat;
   background-position: center bottom, -200% 100%;
