@@ -1,6 +1,6 @@
 /* ============================================================
-   GO TIME SOFTWARE — GLOBAL GLOWING STONE BRICK UI
-   Cinematic • Heavy Stone • Ember Glow • Red Circuitry
+   GO TIME SOFTWARE — GLOWING STONE BRICK UI (CLEAN VERSION)
+   Stone color • Stone glow • Welding-line animation
    ============================================================ */
 
 /* RESET */
@@ -17,15 +17,15 @@ html, body {
 }
 
 /* ============================================================
-   GLOBAL VARIABLES — STONE BRICK PALETTE
+   GLOBAL VARIABLES — STONE PALETTE
 ============================================================ */
 :root {
   --stone-light: #f4efe6;
   --stone-mid: #c9c3b8;
   --stone-dark: #6b6458;
   --stone-deep: #2e2a26;
-  --stone-glow: rgba(255, 120, 80, 0.45);
 
+  --stone-glow: rgba(255, 255, 255, 0.35); /* WHITE glow */
   --panel-bg: rgba(0,0,0,0.45);
   --panel-border: #4a3a32;
 }
@@ -42,46 +42,17 @@ body {
 }
 
 /* ============================================================
-   GLOBAL TEXT — REAL GLOWING STONE BRICK + CIRCUITRY
+   GLOBAL TEXT — STONE BRICK (NO RED)
 ============================================================ */
-@keyframes textCircuitFlow {
-  0% {
-    background-position: 0% 50%, 0 0;
-    filter: drop-shadow(0 0 4px rgba(255,0,0,0.25));
-  }
-  25% {
-    background-position: 50% 50%, 40px 0;
-    filter: drop-shadow(0 0 10px rgba(255,0,0,0.45));
-  }
-  50% {
-    background-position: 100% 50%, 80px 0;
-    filter: drop-shadow(0 0 14px rgba(255,0,0,0.6));
-  }
-  75% {
-    background-position: 50% 50%, 40px 0;
-    filter: drop-shadow(0 0 10px rgba(255,0,0,0.45));
-  }
-  100% {
-    background-position: 0% 50%, 0 0;
-    filter: drop-shadow(0 0 4px rgba(255,0,0,0.25));
-  }
-}
-
-body,
-p, li, a, span,
+body, p, li, a, span,
 h1, h2, h3, h4, h5, h6,
 button, .logo, .cta-btn {
-  background-image:
-    linear-gradient(
-      180deg,
-      var(--stone-light) 0%,
-      var(--stone-mid) 40%,
-      var(--stone-dark) 100%
-    ),
-    url("/assets/img/red-chip.png");
-  background-size: 100% 100%, 260px;
-  background-repeat: no-repeat, repeat;
-  background-blend-mode: normal, screen;
+  background: linear-gradient(
+    180deg,
+    var(--stone-light),
+    var(--stone-mid),
+    var(--stone-dark)
+  );
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   color: transparent !important;
@@ -91,10 +62,7 @@ button, .logo, .cta-btn {
     0 0 8px #000,
     1px 1px 0 var(--stone-dark),
     -1px -1px 0 var(--stone-deep),
-    0 0 14px var(--stone-glow),
-    0 0 24px rgba(255, 120, 80, 0.25) !important;
-
-  animation: textCircuitFlow 14s linear infinite;
+    0 0 14px var(--stone-glow);
 }
 
 /* Headings — deeper carving */
@@ -106,47 +74,61 @@ h1, h2, h3 {
     0 0 12px #000,
     2px 2px 0 var(--stone-dark),
     -2px -2px 0 var(--stone-deep),
-    0 0 22px var(--stone-glow),
-    0 0 34px rgba(255, 120, 80, 0.35) !important;
-}
-
-/* Links glow brighter */
-a:hover {
-  text-shadow:
-    0 0 12px rgba(255, 120, 80, 0.7),
-    0 0 22px rgba(255, 120, 80, 0.5),
-    0 0 32px rgba(255, 120, 80, 0.4) !important;
+    0 0 22px var(--stone-glow);
 }
 
 /* ============================================================
-   GLOBAL RED CIRCUITRY OVERLAY — BACKGROUND PULSE
+   WELDING-LINE EFFECT — THIN RED LINE ONLY
 ============================================================ */
-@keyframes circuitryPulse {
-  0%   { opacity: 0;   transform: scale(1); }
-  20%  { opacity: 0.18; transform: scale(1.03); }
-  40%  { opacity: 0.32; transform: scale(1.06); }
-  60%  { opacity: 0.12; transform: scale(1.02); }
-  80%  { opacity: 0.26; transform: scale(1.05); }
-  100% { opacity: 0;   transform: scale(1); }
+
+/* The welding line texture */
+@keyframes weldLine {
+  0% {
+    background-position: -200% 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    background-position: 200% 0;
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    background-position: -200% 0;
+    opacity: 0;
+  }
 }
 
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background: url("/assets/img/red-chip.png");
-  background-size: 520px;
-  background-repeat: repeat;
-  mix-blend-mode: screen;
-  opacity: 0;
-  filter: drop-shadow(0 0 16px rgba(255,0,0,0.45));
-  animation: circuitryPulse 18s ease-in-out infinite;
-  z-index: -1;
+/* Apply welding line to ALL text */
+body, p, li, a, span,
+h1, h2, h3, h4, h5, h6,
+button, .logo, .cta-btn {
+  position: relative;
+  animation: weldLine 9s ease-in-out infinite;
+  background-image:
+    linear-gradient(
+      180deg,
+      var(--stone-light),
+      var(--stone-mid),
+      var(--stone-dark)
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255,0,0,0.9) 50%,
+      transparent 100%
+    );
+  background-size: 100% 100%, 200% 2px;
+  background-repeat: no-repeat;
+  background-position: center bottom, -200% 100%;
 }
 
 /* ============================================================
-   HEADER — STONE + EMBER GLOW
+   HEADER — STONE + WHITE GLOW
 ============================================================ */
 .site-header {
   display: flex;
@@ -170,7 +152,7 @@ body::after {
 
 .logo-img {
   height: 42px;
-  filter: drop-shadow(0 0 14px rgba(255,80,60,0.25));
+  filter: drop-shadow(0 0 14px rgba(255,255,255,0.25));
 }
 
 /* ============================================================
@@ -187,12 +169,12 @@ body::after {
 
 .main-nav a:hover {
   text-shadow:
-    0 0 10px rgba(255,80,60,0.5),
-    0 0 18px rgba(255,80,60,0.35);
+    0 0 10px rgba(255,255,255,0.5),
+    0 0 18px rgba(255,255,255,0.35);
 }
 
 /* ============================================================
-   BUTTONS — STONE + EMBER CORE
+   BUTTONS — STONE + WHITE GLOW
 ============================================================ */
 .btn-primary,
 .btn-secondary {
@@ -208,14 +190,14 @@ body::after {
 .btn-primary {
   background: linear-gradient(135deg, #4a3a32, #7a6458);
   box-shadow:
-    0 0 14px rgba(255,80,60,0.25),
-    inset 0 0 8px rgba(255,80,60,0.15);
+    0 0 14px rgba(255,255,255,0.25),
+    inset 0 0 8px rgba(255,255,255,0.15);
 }
 
 .btn-primary:hover {
   box-shadow:
-    0 0 22px rgba(255,80,60,0.45),
-    inset 0 0 12px rgba(255,80,60,0.25);
+    0 0 22px rgba(255,255,255,0.45),
+    inset 0 0 12px rgba(255,255,255,0.25);
 }
 
 .btn-secondary {
@@ -224,8 +206,8 @@ body::after {
 
 .btn-secondary:hover {
   text-shadow:
-    0 0 10px rgba(255,80,60,0.5),
-    0 0 18px rgba(255,80,60,0.35);
+    0 0 10px rgba(255,255,255,0.5),
+    0 0 18px rgba(255,255,255,0.35);
 }
 
 /* ============================================================
@@ -239,16 +221,16 @@ body::after {
   padding: 20px;
   box-shadow:
     0 0 14px #000,
-    inset 0 0 12px rgba(255,80,60,0.08);
+    inset 0 0 12px rgba(255,255,255,0.08);
   transition: 0.2s ease;
 }
 
 .section:hover,
 .preview-card:hover {
-  border-color: #ff5a4a;
+  border-color: #ffffff;
   box-shadow:
-    0 0 18px rgba(255,80,60,0.35),
-    inset 0 0 14px rgba(255,80,60,0.15);
+    0 0 18px rgba(255,255,255,0.35),
+    inset 0 0 14px rgba(255,255,255,0.15);
 }
 
 /* ============================================================
@@ -269,7 +251,7 @@ body::after {
   border: 1px solid var(--panel-border);
   box-shadow:
     0 0 12px #000,
-    0 0 10px rgba(255,80,60,0.15);
+    0 0 10px rgba(255,255,255,0.15);
 }
 
 /* ============================================================
