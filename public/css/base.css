@@ -1,6 +1,6 @@
 /* ============================================================
    GO TIME SOFTWARE — GLOBAL GLOWING STONE BRICK UI
-   Cinematic • Heavy Stone • Ember Glow • Full Override
+   Cinematic • Heavy Stone • Ember Glow • Red Circuitry
    ============================================================ */
 
 /* RESET */
@@ -42,15 +42,46 @@ body {
 }
 
 /* ============================================================
-   GLOBAL TEXT — REAL GLOWING STONE BRICK (FULL OVERRIDE)
+   GLOBAL TEXT — REAL GLOWING STONE BRICK + CIRCUITRY
 ============================================================ */
-body, p, li, a, span, h1, h2, h3, h4, h5, h6, button, .logo, .cta-btn {
-  background: linear-gradient(
-    180deg,
-    var(--stone-light) 0%,
-    var(--stone-mid) 40%,
-    var(--stone-dark) 100%
-  );
+@keyframes textCircuitFlow {
+  0% {
+    background-position: 0% 50%, 0 0;
+    filter: drop-shadow(0 0 4px rgba(255,0,0,0.25));
+  }
+  25% {
+    background-position: 50% 50%, 40px 0;
+    filter: drop-shadow(0 0 10px rgba(255,0,0,0.45));
+  }
+  50% {
+    background-position: 100% 50%, 80px 0;
+    filter: drop-shadow(0 0 14px rgba(255,0,0,0.6));
+  }
+  75% {
+    background-position: 50% 50%, 40px 0;
+    filter: drop-shadow(0 0 10px rgba(255,0,0,0.45));
+  }
+  100% {
+    background-position: 0% 50%, 0 0;
+    filter: drop-shadow(0 0 4px rgba(255,0,0,0.25));
+  }
+}
+
+body,
+p, li, a, span,
+h1, h2, h3, h4, h5, h6,
+button, .logo, .cta-btn {
+  background-image:
+    linear-gradient(
+      180deg,
+      var(--stone-light) 0%,
+      var(--stone-mid) 40%,
+      var(--stone-dark) 100%
+    ),
+    url("/assets/img/red-chip.png");
+  background-size: 100% 100%, 260px;
+  background-repeat: no-repeat, repeat;
+  background-blend-mode: normal, screen;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   color: transparent !important;
@@ -62,6 +93,8 @@ body, p, li, a, span, h1, h2, h3, h4, h5, h6, button, .logo, .cta-btn {
     -1px -1px 0 var(--stone-deep),
     0 0 14px var(--stone-glow),
     0 0 24px rgba(255, 120, 80, 0.25) !important;
+
+  animation: textCircuitFlow 14s linear infinite;
 }
 
 /* Headings — deeper carving */
@@ -83,6 +116,33 @@ a:hover {
     0 0 12px rgba(255, 120, 80, 0.7),
     0 0 22px rgba(255, 120, 80, 0.5),
     0 0 32px rgba(255, 120, 80, 0.4) !important;
+}
+
+/* ============================================================
+   GLOBAL RED CIRCUITRY OVERLAY — BACKGROUND PULSE
+============================================================ */
+@keyframes circuitryPulse {
+  0%   { opacity: 0;   transform: scale(1); }
+  20%  { opacity: 0.18; transform: scale(1.03); }
+  40%  { opacity: 0.32; transform: scale(1.06); }
+  60%  { opacity: 0.12; transform: scale(1.02); }
+  80%  { opacity: 0.26; transform: scale(1.05); }
+  100% { opacity: 0;   transform: scale(1); }
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: url("/assets/img/red-chip.png");
+  background-size: 520px;
+  background-repeat: repeat;
+  mix-blend-mode: screen;
+  opacity: 0;
+  filter: drop-shadow(0 0 16px rgba(255,0,0,0.45));
+  animation: circuitryPulse 18s ease-in-out infinite;
+  z-index: -1;
 }
 
 /* ============================================================
