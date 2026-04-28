@@ -25,7 +25,9 @@ html, body {
   --stone-dark: #6b6458;
   --stone-deep: #2e2a26;
 
-  --stone-glow: rgba(255,255,255,0.55); /* STRONGER GLOW */
+  /* HALF BRIGHTNESS GLOW */
+  --stone-glow: rgba(255,255,255,0.28);
+
   --panel-bg: rgba(0,0,0,0.45);
   --panel-border: #4a3a32;
 
@@ -46,7 +48,7 @@ body {
 }
 
 /* ============================================================
-   GLOBAL TEXT — STONE BRICK + OUTER GLOW
+   GLOBAL TEXT — STONE BRICK + OUTER GLOW (HALF BRIGHTNESS)
 ============================================================ */
 body, p, li, a, span,
 h1, h2, h3, h4, h5, h6,
@@ -61,9 +63,9 @@ button, .logo, .cta-btn {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 
-  /* OUTER GLOW AROUND THE WORDS */
-  filter: drop-shadow(0 0 6px var(--stone-glow))
-          drop-shadow(0 0 12px var(--stone-glow));
+  /* HALF BRIGHTNESS OUTER GLOW */
+  filter: drop-shadow(0 0 3px var(--stone-glow))
+          drop-shadow(0 0 6px var(--stone-glow));
 }
 
 /* Headings — bigger + deeper glow */
@@ -143,8 +145,8 @@ a {
 }
 
 a:hover {
-  filter: drop-shadow(0 0 10px var(--stone-glow))
-          drop-shadow(0 0 20px var(--stone-glow));
+  filter: drop-shadow(0 0 6px var(--stone-glow))
+          drop-shadow(0 0 12px var(--stone-glow));
   transform: scale(1.05);
 }
 
@@ -172,7 +174,7 @@ a:hover {
 }
 
 .category-title:hover {
-  box-shadow: 0 0 18px var(--stone-glow);
+  box-shadow: 0 0 12px var(--stone-glow);
 }
 
 .category-content {
@@ -220,7 +222,7 @@ a:hover {
 }
 
 .frame-desc:hover {
-  box-shadow: 0 0 14px var(--stone-glow);
+  box-shadow: 0 0 12px var(--stone-glow);
 }
 
 .frame-desc-content {
