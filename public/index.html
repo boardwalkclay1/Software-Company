@@ -20,7 +20,7 @@
       animation: slamFade 2.4s ease forwards;
     }
     #slam-intro img {
-      width: 420px;
+      width: 360px;
       filter: drop-shadow(0 0 40px #ff0000aa);
       animation: slamDrop 1.4s cubic-bezier(.2,1.4,.4,1) forwards;
     }
@@ -35,17 +35,9 @@
       70% { opacity: 1; }
       100% { opacity: 0; pointer-events: none; }
     }
-    .logo-img {
-      opacity: 0;
-      animation: logoSnap 0.8s ease 1.6s forwards;
-    }
-    @keyframes logoSnap {
-      from { transform: translateY(40px) scale(1.4); opacity: 0; }
-      to { transform: translateY(0) scale(1); opacity: 1; }
-    }
   </style>
 
-  <!-- Page-Specific Styling -->
+  <!-- Page Layout Fixes -->
   <style>
     body.theme-dark {
       background: url("/assets/img/go-time-background.jpg") no-repeat center center fixed;
@@ -80,6 +72,31 @@
       transform: translateY(0);
     }
 
+    /* FIX LOGO SIZE PERMANENTLY */
+    .logo-img {
+      height: 38px !important;
+      width: auto !important;
+      background: none !important;
+      -webkit-background-clip: unset !important;
+      -webkit-text-fill-color: unset !important;
+      animation: none !important;
+      filter: drop-shadow(0 0 6px rgba(255,255,255,0.25));
+    }
+
+    /* FIX NAV LINKS ALWAYS VISIBLE */
+    .main-nav a {
+      background: none !important;
+      -webkit-text-fill-color: #f4efe6 !important;
+      color: #f4efe6 !important;
+      filter: drop-shadow(0 0 4px rgba(255,255,255,0.25));
+    }
+    .main-nav a:hover {
+      -webkit-text-fill-color: #ffffff !important;
+      color: #ffffff !important;
+      filter: drop-shadow(0 0 10px rgba(255,255,255,0.45));
+    }
+
+    /* Preview Cards */
     .preview-card {
       background: rgba(0,0,0,0.45);
       border: 1px solid #3a2f2a;
@@ -97,6 +114,7 @@
       background: #000;
     }
 
+    /* Iframe Description Dropdown */
     .frame-desc {
       margin-top: 12px;
       cursor: pointer;
@@ -119,7 +137,7 @@
       padding-top: 12px;
     }
 
-    /* Dropdown categories */
+    /* Dropdown Categories */
     .category {
       margin-top: 40px;
       max-width: 900px;
