@@ -1,12 +1,13 @@
 /* ============================================================
-   GO TIME SOFTWARE — INDEX.JS
+   GO TIME SOFTWARE — INDEX.JS (FINAL CLEAN VERSION)
    Handles:
    - Burger Menu
    - Section Reveal Animations
-   - Smooth Scroll
+   - Dropdown Categories
+   - Dropdown Iframe Descriptions
    - Click Tracking (Dashboard Ready)
    - Iframe Interaction Tracking
-   ============================================================ */
+============================================================ */
 
 /* -----------------------------
    BURGER MENU
@@ -14,10 +15,9 @@
 const burger = document.querySelector(".burger");
 const nav = document.querySelector(".main-nav");
 
-if (burger) {
+if (burger && nav) {
   burger.addEventListener("click", () => {
-    const isOpen = nav.style.display === "flex";
-    nav.style.display = isOpen ? "none" : "flex";
+    nav.classList.toggle("open");
   });
 }
 
@@ -39,12 +39,20 @@ window.addEventListener("scroll", revealSections);
 window.addEventListener("load", revealSections);
 
 /* -----------------------------
-   SMOOTH SCROLL FOR CTA BUTTONS
+   CATEGORY DROPDOWNS
 ----------------------------- */
-document.querySelectorAll('a[href^="/pages"]').forEach(link => {
-  link.addEventListener("click", (e) => {
-    // Let normal navigation happen — this hook is for analytics
-    trackClick("nav_link", link.getAttribute("href"));
+document.querySelectorAll(".category-title").forEach(title => {
+  title.addEventListener("click", () => {
+    title.parentElement.classList.toggle("open");
+  });
+});
+
+/* -----------------------------
+   IFRAME DESCRIPTION DROPDOWNS
+----------------------------- */
+document.querySelectorAll(".frame-desc").forEach(desc => {
+  desc.addEventListener("click", () => {
+    desc.classList.toggle("open");
   });
 });
 
@@ -59,22 +67,26 @@ function trackClick(type, value) {
     timestamp: new Date().toISOString()
   };
 
-  // Replace with your admin endpoint later
   const ENDPOINT = "https://your-admin-endpoint.com/api/track";
 
   fetch(ENDPOINT, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload)
-  }).catch(() => {
-    // Fail silently — user experience first
-  });
+  }).catch(() => {});
 }
 
 /* Track CTA buttons */
 document.querySelectorAll(".cta-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     trackClick("cta_click", btn.textContent.trim());
+  });
+});
+
+/* Track nav link clicks */
+document.querySelectorAll('a[href^="/pages"]').forEach(link => {
+  link.addEventListener("click", () => {
+    trackClick("nav_link", link.getAttribute("href"));
   });
 });
 
@@ -91,12 +103,4 @@ iframes.forEach((frame, index) => {
   frame.addEventListener("mouseenter", () => {
     trackClick("iframe_hover", `iframe_${index}`);
   });
-});
-
-/* -----------------------------
-   OPTIONAL: PARALLAX BACKGROUND
------------------------------ */
-window.addEventListener("scroll", () => {
-  const y = window.scrollY * 0.2;
-  document.body.style.backgroundPosition = `center calc(50% + ${y}px)`;
 });
