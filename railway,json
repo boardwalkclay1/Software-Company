@@ -1,0 +1,14 @@
+{
+  "build": {
+    "builder": "NIXPACKS"
+  },
+  "deploy": {
+    "startCommand": "node server.js"
+  },
+  "services": {
+    "storage": {
+      "type": "volume",
+      "mountPath": "/mnt/data"
+    }
+  }
+}
