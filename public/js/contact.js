@@ -1,38 +1,46 @@
-// -----------------------------
-// CONTACT FORM LOGIC
-// -----------------------------
-const form = document.getElementById("contactForm");
+const selector = document.getElementById("projectType");
+const forms = document.querySelectorAll("#formsContainer form");
 const successBox = document.getElementById("successBox");
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+selector.addEventListener("change", () => {
+  forms.forEach(f => f.classList.add("hidden"));
+  if (!selector.value) return;
 
-  const payload = {
-    category: document.getElementById("category").value,
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    business: document.getElementById("business").value,
-    message: document.getElementById("message").value,
-    timestamp: new Date().toISOString()
-  };
+  const form = document.querySelector(`form[data-type="${selector.value}"]`);
+  if (form) form.classList.remove("hidden");
+});
 
-  // -----------------------------
-  // SEND TO YOUR BACKEND
-  // -----------------------------
-  const ENDPOINT = "/api/form"; // <-- THIS IS CORRECT NOW
+// Handle all form submissions
+forms.forEach(form => {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  try {
-    await fetch(ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
+    const type = form.dataset.type;
+    const inputs = form.querySelectorAll("input, textarea, select");
+
+    const details = {};
+    inputs.forEach(i => {
+      details[i.placeholder] = i.value;
     });
 
-    successBox.style.display = "block";
-    form.reset();
+    const payload = {
+      type,
+      details,
+      timestamp: new Date().toISOString()
+    };
 
-  } catch (err) {
-    alert("There was an issue sending your message.");
-    console.error(err);
-  }
+    try {
+      await fetch("/api/form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      successBox.style.display = "block";
+      form.reset();
+    } catch (err) {
+      alert("Error sending message");
+      console.error(err);
+    }
+  });
 });
