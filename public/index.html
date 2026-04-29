@@ -83,17 +83,48 @@
       filter: drop-shadow(0 0 6px rgba(255,255,255,0.25));
     }
 
-    /* FIX NAV LINKS ALWAYS VISIBLE */
-    .main-nav a {
-      background: none !important;
-      -webkit-text-fill-color: #f4efe6 !important;
-      color: #f4efe6 !important;
-      filter: drop-shadow(0 0 4px rgba(255,255,255,0.25));
+    /* NEW HEADER LAYOUT */
+    .header-top {
+      text-align: center;
+      margin-top: 20px;
     }
-    .main-nav a:hover {
-      -webkit-text-fill-color: #ffffff !important;
-      color: #ffffff !important;
-      filter: drop-shadow(0 0 10px rgba(255,255,255,0.45));
+    .header-tagline {
+      margin-top: 6px;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* MAIN NAV (ONLY 3 LINKS) */
+    .main-nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    /* BURGER MENU HOLDS FULL NAV */
+    .burger-nav {
+      display: none;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .burger-nav.open {
+      display: flex;
+    }
+
+    .burger {
+      width: 32px;
+      cursor: pointer;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+    .burger div {
+      height: 4px;
+      background: #fff;
+      margin: 6px 0;
+      border-radius: 4px;
     }
 
     /* Preview Cards */
@@ -187,6 +218,28 @@
       box-shadow: 0 0 10px #000;
       border: 1px solid #3a2f2a;
     }
+
+    .iot-strip-gallery {
+      width: 100%;
+      overflow: hidden;
+      margin-top: 30px;
+      border-top: 1px solid #3a2f2a;
+      border-bottom: 1px solid #3a2f2a;
+      padding: 14px 0;
+      background: rgba(0,0,0,0.35);
+      box-shadow: inset 0 0 20px #000;
+    }
+
+    .iot-strip-track {
+      display: flex;
+      gap: 40px;
+      animation: scrollStrip 22s linear infinite;
+    }
+
+    @keyframes scrollStrip {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
   </style>
 </head>
 
@@ -198,23 +251,31 @@
   </div>
 
   <!-- HEADER -->
-  <header class="site-header">
-    <div class="logo">
-      <img src="/assets/img/go-time-logo.png" class="logo-img" />
-      <span>Go Time Software</span>
-    </div>
+  <header class="header-top">
+    <img src="/assets/img/go-time-logo.png" class="logo-img" />
+    <div class="header-tagline">Software carved from stone.</div>
 
+    <!-- MAIN NAV (ONLY 3 LINKS) -->
+    <nav class="main-nav">
+      <a href="/pages/sites.html">Sites</a>
+      <a href="/pages/apps.html">Apps</a>
+      <a href="/pages/contact.html">Contact</a>
+    </nav>
+
+    <!-- BURGER MENU -->
     <div class="burger">
       <div></div><div></div><div></div>
     </div>
 
-    <nav class="main-nav">
-      <a href="/index.html" class="active">Home</a>
+    <!-- FULL NAV INSIDE BURGER -->
+    <nav class="burger-nav">
+      <a href="/index.html">Home</a>
       <a href="/pages/sites.html">Sites</a>
       <a href="/pages/apps.html">Apps</a>
       <a href="/pages/iot.html">IoT</a>
       <a href="/pages/pricing.html">Pricing</a>
       <a href="/pages/contact.html">Contact</a>
+      <a href="/pages/privacy.html">Privacy</a>
     </nav>
   </header>
 
@@ -230,8 +291,7 @@
       <h1>Go Time Software</h1>
       <p>
         Custom‑built websites, apps, IoT systems, and repairs — crafted with precision,  
-        engineered with intention, and styled in glowing stone.  
-        This is software that feels carved, not copied.
+        engineered with intention, and styled in glowing stone.
       </p>
     </section>
 
@@ -268,8 +328,7 @@
           <div class="frame-desc-content">
             <p>
               Comic Universe is a fully functional, live website built with  
-              cinematic UI, dynamic panels, and a modular layout.  
-              You can explore it freely — it’s a real, production‑ready build.
+              cinematic UI, dynamic panels, and a modular layout.
             </p>
           </div>
         </div>
@@ -293,8 +352,7 @@
           <div class="frame-desc-content">
             <p>
               The Guild is a real, interactive application with  
-              character systems, inventory, progression, and UI logic.  
-              It’s fully explorable — not a demo, not a mockup.
+              character systems, inventory, progression, and UI logic.
             </p>
           </div>
         </div>
@@ -305,9 +363,7 @@
     <section class="section">
       <h2>IoT Systems & Automation</h2>
       <p>
-        IoT connects your world — sensors, triggers, automation, monitoring.  
-        We build systems that feel industrial and elemental,  
-        like glowing stone machinery powering your environment.
+        IoT connects your world — sensors, triggers, automation, monitoring.
       </p>
 
       <div class="iot-strip-gallery">
@@ -318,20 +374,11 @@
           <img src="/assets/img/solder.png" />
           <img src="/assets/img/white-chip.png" />
           <img src="/assets/img/woodchip.png" />
-
-          <img src="/assets/img/broke-top.jpg" />
-          <img src="/assets/img/broken-electronics.png" />
-          <img src="/assets/img/red-chip.png" />
-          <img src="/assets/img/solder.png" />
-          <img src="/assets/img/white-chip.png" />
-          <img src="/assets/img/woodchip.png" />
         </div>
       </div>
 
       <p class="iot-strip-note">
-        Real components. Real hardware. Real engineering.  
-        Learn more about <a href="/pages/iot.html">IoT Systems</a> or  
-        <a href="/pages/contact.html">Request a Repair</a>.
+        Real components. Real hardware. Real engineering.
       </p>
     </section>
 
@@ -363,8 +410,7 @@
     <section class="section">
       <h2>Pricing</h2>
       <p>
-        Transparent, simple, and flexible.  
-        Every project is custom — but pricing is always clear.
+        Transparent, simple, and flexible.
       </p>
 
       <a class="cta-btn" href="/pages/pricing.html">View Pricing</a>
@@ -378,17 +424,6 @@
         Go Time Software builds everything with glowing stone precision.
       </p>
       <a class="cta-btn" href="/pages/contact.html">Contact Go Time</a>
-    </section>
-
-    <!-- PRIVACY -->
-    <section class="section">
-      <h2>Privacy Agreement</h2>
-      <p>
-        Your ideas stay yours.  
-        Your data stays yours.  
-        Your projects stay yours.
-      </p>
-      <a class="cta-btn" href="/pages/privacy.html">View Privacy Agreement</a>
     </section>
 
   </main>
@@ -411,6 +446,10 @@
       desc.addEventListener('click', () => {
         desc.classList.toggle('open');
       });
+    });
+
+    document.querySelector(".burger").addEventListener("click", () => {
+      document.querySelector(".burger-nav").classList.toggle("open");
     });
   </script>
 
