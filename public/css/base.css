@@ -1,7 +1,7 @@
 /* ============================================================
-   GO TIME SOFTWARE — GLOWING STONE BRICK UI (FINAL FIXED)
+   GO TIME SOFTWARE — GLOWING STONE BRICK UI (FINAL WORKING BUILD)
    Stone color • Stone glow outline • Constant welding line
-   ============================================================ */
+============================================================ */
 
 /* RESET */
 *,
@@ -54,12 +54,14 @@ body, p, li, a, span,
 h1, h2, h3, h4, h5, h6,
 button, .logo, .cta-btn {
   font-size: 1.2rem;
+
   background: linear-gradient(
     180deg,
     var(--stone-light),
     var(--stone-mid),
     var(--stone-dark)
   );
+
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 
@@ -119,7 +121,7 @@ button, .logo, .cta-btn {
 }
 
 /* ============================================================
-   OPTIONAL PCB CHIP EFFECT (APPLY ONLY WHERE YOU WANT)
+   OPTIONAL PCB CHIP EFFECT
 ============================================================ */
 .pcb {
   background-image:
@@ -135,19 +137,42 @@ button, .logo, .cta-btn {
 }
 
 /* ============================================================
-   LINKS — MORE CINEMATIC
+   FIX LOGO SIZE (PERMANENT)
 ============================================================ */
-a {
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-decoration: none;
-  transition: 0.2s ease;
+.logo-img {
+  height: 38px !important;
+  width: auto !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  animation: none !important;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.25));
 }
 
-a:hover {
-  filter: drop-shadow(0 0 6px var(--stone-glow))
-          drop-shadow(0 0 12px var(--stone-glow));
-  transform: scale(1.05);
+/* ============================================================
+   FIX NAV LINKS ALWAYS VISIBLE
+============================================================ */
+.main-nav a {
+  background: none !important;
+  -webkit-text-fill-color: #f4efe6 !important;
+  color: #f4efe6 !important;
+  filter: drop-shadow(0 0 4px rgba(255,255,255,0.25));
+}
+
+.main-nav a:hover {
+  -webkit-text-fill-color: #ffffff !important;
+  color: #ffffff !important;
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.45));
+}
+
+/* ============================================================
+   FIX CATEGORY TITLES (THEY MUST ALWAYS SHOW)
+============================================================ */
+.category-title {
+  -webkit-text-fill-color: #f4efe6 !important;
+  color: #f4efe6 !important;
+  background: none !important;
+  filter: drop-shadow(0 0 4px rgba(255,255,255,0.25));
 }
 
 /* ============================================================
@@ -210,7 +235,6 @@ a:hover {
   background: #000;
 }
 
-/* Description dropdown under iframe */
 .frame-desc {
   margin-top: 12px;
   cursor: pointer;
