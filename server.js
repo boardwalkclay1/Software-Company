@@ -1,71 +1,43 @@
-// server.js
-const express = require("express");
-const path = require("path");
-const fs = require("fs");
-const morgan = require("morgan");
+import express from "express";
+import fs from "fs";
+import path from "path";
+import cors from "cors";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-
-// Middleware
 app.use(express.json());
-app.use(morgan("dev"));
+app.use(cors());
 
-// Serve static files from /public
-app.use(express.static(path.join(__dirname, "public")));
+const DATA_DIR = "/mnt/data/json";
+const FORMS_FILE = path.join(DATA_DIR, "forms.json");
 
-// -----------------------------
-// API: Click Tracking
-// -----------------------------
-const LOG_DIR = path.join(__dirname, "logs");
-if (!fs.existsSync(LOG_DIR)) {
-  fs.mkdirSync(LOG_DIR);
+// Ensure file exists
+function load(file) {
+  if (!fs.existsSync(file)) fs.writeFileSync(file, "[]");
+  return JSON.parse(fs.readFileSync(file, "utf8"));
 }
 
-app.post("/api/track", (req, res) => {
-  const event = req.body || {};
-  const date = new Date().toISOString().slice(0, 10);
-  const logFile = path.join(LOG_DIR, `events-${date}.log`);
+function save(file, data) {
+  fs.writeFileSync(file, JSON.stringify(data, null, 2));
+}
 
-  const line = JSON.stringify({
-    ...event,
-    receivedAt: new Date().toISOString()
-  }) + "\n";
-
-  fs.appendFile(logFile, line, (err) => {
-    if (err) {
-      console.error("Error writing log:", err);
-      return res.status(500).json({ ok: false });
-    }
-    res.json({ ok: true });
+// FORM SUBMISSION → STORE IN JSON
+app.post("/api/form", (req, res) => {
+  const forms = load(FORMS_FILE);
+  forms.push({
+    ...req.body,
+    timestamp: new Date().toISOString()
   });
+  save(FORMS_FILE, forms);
+  res.json({ ok: true });
 });
 
-// -----------------------------
-// API: IoT Modules (from JSON)
-// -----------------------------
-app.get("/api/iot-modules", (req, res) => {
-  const filePath = path.join(__dirname, "public", "data", "iot-modules.json");
-  fs.readFile(filePath, "utf8", (err, data) => {
-    if (err) {
-      console.error("Error reading iot-modules.json:", err);
-      return res.status(500).json({ error: "Failed to load IoT modules" });
-    }
-    try {
-      const json = JSON.parse(data);
-      res.json(json);
-    } catch (parseErr) {
-      console.error("Error parsing iot-modules.json:", parseErr);
-      res.status(500).json({ error: "Invalid IoT modules JSON" });
-    }
-  });
+// DASHBOARD → GET ALL FORM DATA
+app.get("/api/dashboard", (req, res) => {
+  const forms = load(FORMS_FILE);
+  res.json(forms);
 });
 
-// Fallback: send index.html for root
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
+// STATIC FRONTEND
+app.use(express.static("public"));
 
-app.listen(PORT, () => {
-  console.log(`Go Time Software server running on port ${PORT}`);
-});
+app.listen(process.env.PORT || 3000);
