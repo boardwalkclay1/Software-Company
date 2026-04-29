@@ -17,10 +17,9 @@ form.addEventListener("submit", async (e) => {
   };
 
   // -----------------------------
-  // SEND TO YOUR ADMIN DASHBOARD
+  // SEND TO YOUR BACKEND
   // -----------------------------
-  // Replace this with your GitHub backend endpoint
-  const ENDPOINT = "https://your-admin-endpoint-goes-here.com/api/contact";
+  const ENDPOINT = "/api/form"; // <-- THIS IS CORRECT NOW
 
   try {
     await fetch(ENDPOINT, {
