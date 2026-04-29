@@ -42,12 +42,6 @@
       box-shadow: 0 0 18px #55000055;
     }
 
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
     .contact-form input,
     .contact-form textarea,
     .contact-form select {
@@ -57,21 +51,13 @@
       padding: 14px 16px;
       border-radius: 10px;
       font-size: 16px;
+      width: 100%;
       box-shadow: 0 0 10px #33000055 inset;
-      transition: 0.2s ease;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus,
-    .contact-form select:focus {
-      border-color: #ff3b3b;
-      box-shadow: 0 0 14px #aa0000aa;
-      outline: none;
+      margin-bottom: 16px;
     }
 
     .contact-form textarea {
-      min-height: 140px;
-      resize: vertical;
+      min-height: 120px;
     }
 
     .btn-primary {
@@ -82,10 +68,7 @@
       color: #fff;
       font-size: 18px;
       cursor: pointer;
-      transition: 0.2s;
-    }
-    .btn-primary:hover {
-      background: #cc2a2a;
+      width: 100%;
     }
 
     .success-box {
@@ -98,91 +81,130 @@
       color: #b6ffb6;
       font-size: 18px;
     }
+
+    .hidden {
+      display: none;
+    }
   </style>
 </head>
 
 <body class="theme-dark">
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="logo">
-      <img src="/assets/img/go-time-logo.png" class="logo-img" />
-      <span>Go Time Software</span>
-    </div>
-
-    <nav class="main-nav">
-      <a href="/index.html">Home</a>
-      <a href="/pages/sites.html">Sites</a>
-      <a href="/pages/apps.html">Apps</a>
-      <a href="/pages/iot.html">IoT</a>
-      <a href="/pages/pricing.html">Pricing</a>
-      <a href="/pages/contact.html" class="active">Contact</a>
-    </nav>
-  </header>
-
-  <!-- MAIN -->
   <main class="page-container contact-page">
 
     <h1>Contact Us</h1>
-    <p class="contact-sub">
-      Tell us what you need — websites, apps, IoT systems, dashboards, repairs, or custom builds.
-    </p>
+    <p>Select what you want built, then fill out the detailed form.</p>
 
-    <!-- CONTACT FORM -->
     <div class="glass-block">
-      <form id="contactForm" class="contact-form">
+      <select id="projectType">
+        <option value="">Select Project Type</option>
+        <option value="Website">Website</option>
+        <option value="App">App</option>
+        <option value="IoT System">IoT System</option>
+        <option value="Dashboard">Dashboard</option>
+        <option value="Repair">Electronics Repair</option>
+        <option value="Drone">Custom Drone Build</option>
+        <option value="RC Vehicle">RC Vehicle Build</option>
+        <option value="Guide App">Personalized Guide App</option>
+      </select>
+    </div>
 
-        <select id="category" required>
-          <option value="">Select Project Type</option>
-          <option value="Website">Website</option>
-          <option value="App">App</option>
-          <option value="IoT System">IoT System</option>
-          <option value="Dashboard">Dashboard</option>
-          <option value="Repair">Electronics Repair</option>
-          <option value="Drone">Custom Drone Build</option>
-          <option value="RC Vehicle">RC Vehicle Build</option>
-          <option value="Guide App">Personalized Guide App</option>
-        </select>
+    <!-- ALL FORMS -->
+    <div id="formsContainer">
 
-        <input id="name" type="text" placeholder="Your Name" required />
-        <input id="email" type="email" placeholder="Your Email" required />
-        <input id="business" type="text" placeholder="Business Name (optional)" />
-        <textarea id="message" placeholder="Tell us about your project…" required></textarea>
-
-        <button class="btn-primary" type="submit">Send Message</button>
+      <!-- WEBSITE FORM -->
+      <form class="contact-form hidden" data-type="Website">
+        <input placeholder="Your Name" required />
+        <input placeholder="Your Email" required />
+        <input placeholder="Business Name (optional)" />
+        <input placeholder="Preferred Colors" />
+        <input placeholder="Number of Pages" />
+        <textarea placeholder="Describe the website you want"></textarea>
+        <textarea placeholder="Examples of sites you like"></textarea>
+        <button class="btn-primary">Submit Website Request</button>
       </form>
 
-      <div id="successBox" class="success-box">
-        Message sent! We’ll reach out shortly.
-      </div>
+      <!-- APP FORM -->
+      <form class="contact-form hidden" data-type="App">
+        <input placeholder="Your Name" required />
+        <input placeholder="Your Email" required />
+        <input placeholder="Business Name (optional)" />
+        <select>
+          <option value="">Platform</option>
+          <option>iOS</option>
+          <option>Android</option>
+          <option>Both</option>
+          <option>Web App</option>
+        </select>
+        <textarea placeholder="Describe the app idea"></textarea>
+        <textarea placeholder="Key features needed"></textarea>
+        <button class="btn-primary">Submit App Request</button>
+      </form>
+
+      <!-- IOT FORM -->
+      <form class="contact-form hidden" data-type="IoT System">
+        <input placeholder="Your Name" required />
+        <input placeholder="Your Email" required />
+        <input placeholder="Business Name (optional)" />
+        <input placeholder="Device Type" />
+        <textarea placeholder="What should the device do?"></textarea>
+        <textarea placeholder="Sensors or data needed"></textarea>
+        <button class="btn-primary">Submit IoT Request</button>
+      </form>
+
+      <!-- DASHBOARD FORM -->
+      <form class="contact-form hidden" data-type="Dashboard">
+        <input placeholder="Your Name" required />
+        <input placeholder="Your Email" required />
+        <input placeholder="Business Name (optional)" />
+        <textarea placeholder="What data should the dashboard show?"></textarea>
+        <textarea placeholder="What features do you need?"></textarea>
+        <button class="btn-primary">Submit Dashboard Request</button>
+      </form>
+
+      <!-- REPAIR FORM -->
+      <form class="contact-form hidden" data-type="Repair">
+        <input placeholder="Your Name" required />
+        <input placeholder="Your Email" required />
+        <input placeholder="Device Type" />
+        <textarea placeholder="Describe the issue"></textarea>
+        <button class="btn-primary">Submit Repair Request</button>
+      </form>
+
+      <!-- DRONE FORM -->
+      <form class="contact-form hidden" data-type="Drone">
+        <input placeholder="Your Name" required />
+        <input placeholder="Your Email" required />
+        <textarea placeholder="Describe the drone you want built"></textarea>
+        <textarea placeholder="Flight features needed"></textarea>
+        <button class="btn-primary">Submit Drone Request</button>
+      </form>
+
+      <!-- RC VEHICLE FORM -->
+      <form class="contact-form hidden" data-type="RC Vehicle">
+        <input placeholder="Your Name" required />
+        <input placeholder="Your Email" required />
+        <textarea placeholder="Describe the RC vehicle"></textarea>
+        <textarea placeholder="Speed, size, features"></textarea>
+        <button class="btn-primary">Submit RC Vehicle Request</button>
+      </form>
+
+      <!-- GUIDE APP FORM -->
+      <form class="contact-form hidden" data-type="Guide App">
+        <input placeholder="Your Name" required />
+        <input placeholder="Your Email" required />
+        <textarea placeholder="What should the guide app teach or guide?"></textarea>
+        <textarea placeholder="Features needed"></textarea>
+        <button class="btn-primary">Submit Guide App Request</button>
+      </form>
+
     </div>
 
-    <!-- CONTACT INFO -->
-    <div class="glass-block">
-      <h2>Business Contact Info</h2>
-      <ul>
-        <li>Email: <strong>boardwalkclay1@gmail.com</strong></li>
-        <li>Location: Rochester Hills, MI</li>
-      </ul>
-    </div>
-
-    <!-- CTA -->
-    <div class="glass-block contact-cta">
-      <h2>Need Something Custom?</h2>
-      <p>
-        Websites, apps, dashboards, IoT systems, drones, repairs —  
-        Go Time Software builds it clean, fast, and cinematic.
-      </p>
-      <a class="btn-secondary" href="/pages/apps.html">View Apps</a>
-      <a class="btn-secondary" href="/pages/sites.html">View Websites</a>
+    <div id="successBox" class="success-box">
+      Message sent! We’ll reach out shortly.
     </div>
 
   </main>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <span>© Go Time Software — Dashboards, Apps, IoT Systems</span>
-  </footer>
 
   <script src="/js/contact.js"></script>
 </body>
