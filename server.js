@@ -1,43 +1,44 @@
-import express from "express";
-import fs from "fs";
-import path from "path";
-import cors from "cors";
+const express = require("express");
+const fs = require("fs");
+const path = require("path");
 
 const app = express();
 app.use(express.json());
-app.use(cors());
 
-const DATA_DIR = "/mnt/data/json";
-const FORMS_FILE = path.join(DATA_DIR, "forms.json");
+// Path to your JSON "database"
+const DB_PATH = path.join(__dirname, "data.json");
 
-// Ensure file exists
-function load(file) {
-  if (!fs.existsSync(file)) fs.writeFileSync(file, "[]");
-  return JSON.parse(fs.readFileSync(file, "utf8"));
+// Ensure DB exists
+if (!fs.existsSync(DB_PATH)) {
+  fs.writeFileSync(DB_PATH, "[]");
 }
 
-function save(file, data) {
-  fs.writeFileSync(file, JSON.stringify(data, null, 2));
-}
+// Submit route (form sends data here)
+app.post("/submit", (req, res) => {
+  const incoming = req.body;
 
-// FORM SUBMISSION → STORE IN JSON
-app.post("/api/form", (req, res) => {
-  const forms = load(FORMS_FILE);
-  forms.push({
-    ...req.body,
-    timestamp: new Date().toISOString()
+  const existing = JSON.parse(fs.readFileSync(DB_PATH));
+  existing.push({
+    ...incoming,
+    timestamp: Date.now()
   });
-  save(FORMS_FILE, forms);
-  res.json({ ok: true });
+
+  fs.writeFileSync(DB_PATH, JSON.stringify(existing, null, 2));
+
+  res.json({ success: true });
 });
 
-// DASHBOARD → GET ALL FORM DATA
-app.get("/api/dashboard", (req, res) => {
-  const forms = load(FORMS_FILE);
-  res.json(forms);
+// Dashboard route (frontend dashboard fetches this)
+app.get("/dashboard", (req, res) => {
+  const data = JSON.parse(fs.readFileSync(DB_PATH));
+  res.json(data);
 });
 
-// STATIC FRONTEND
-app.use(express.static("public"));
+// Root route (for testing)
+app.get("/", (req, res) => {
+  res.send("Backend is running");
+});
 
-app.listen(process.env.PORT || 3000);
+// REQUIRED for Railway
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => console.log("Server running on port", PORT));
