@@ -6,6 +6,184 @@
 
   <link rel="icon" type="image/png" href="/assets/img/go-time-logo.png" />
   <link rel="stylesheet" href="/css/base.css" />
+
+  <style>
+    body.theme-dark {
+      background: url("/assets/img/go-time-background.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
+    body.theme-dark::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(2px);
+      z-index: -1;
+    }
+
+    .page-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 16px 60px;
+    }
+
+    /* HEADER */
+    .site-header {
+      display: flex;
+      align-items: center;
+      padding: 16px 20px;
+      background: rgba(0,0,0,0.7);
+      border-bottom: 1px solid #333;
+    }
+    .logo-img {
+      width: 42px;
+      height: 42px;
+      margin-right: 10px;
+    }
+    .logo-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .main-nav {
+      margin-left: auto;
+      display: flex;
+      gap: 20px;
+    }
+    .nav-btn {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* SECTIONS */
+    .section {
+      margin-top: 40px;
+      background: rgba(0,0,0,0.55);
+      padding: 28px 24px;
+      border-radius: 16px;
+      border: 1px solid #333;
+      box-shadow: 0 0 20px #000;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: 0.5s ease;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* CATEGORY DROPDOWN */
+    .category {
+      margin-top: 30px;
+      background: rgba(0,0,0,0.55);
+      padding: 20px 18px;
+      border-radius: 14px;
+      border: 1px solid #333;
+      box-shadow: 0 0 18px #000;
+    }
+    .category-title {
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .category-title::after {
+      content: "▾";
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    .category.open .category-title::after {
+      content: "▴";
+    }
+    .category-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      margin-top: 10px;
+    }
+    .category.open .category-content {
+      max-height: 400px;
+    }
+
+    /* PREVIEW CARD + DROPDOWN */
+    .preview-card {
+      background: rgba(0,0,0,0.45);
+      border: 1px solid #333;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 0 20px #000;
+      margin-top: 20px;
+    }
+    .preview-card iframe {
+      width: 100%;
+      height: 420px;
+      border-radius: 12px;
+      border: none;
+      background: #000;
+      margin-bottom: 12px;
+    }
+
+    .frame-desc {
+      margin-top: 10px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .frame-desc::after {
+      content: "▾";
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+    .frame-desc.open::after {
+      content: "▴";
+    }
+    .frame-desc-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      margin-top: 8px;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    .frame-desc.open .frame-desc-content {
+      max-height: 260px;
+    }
+
+    /* IOT STRIP */
+    .iot-strip-gallery {
+      margin-top: 18px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
+    .iot-strip-track {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .iot-strip-track img {
+      height: 110px;
+      width: auto;
+      border-radius: 10px;
+      object-fit: cover;
+      flex-shrink: 0;
+      box-shadow: 0 0 12px #000;
+    }
+
+    @media (max-width: 700px) {
+      .preview-card iframe {
+        height: 320px;
+      }
+      .iot-strip-track img {
+        height: 90px;
+      }
+    }
+  </style>
 </head>
 
 <body class="theme-dark">
@@ -15,7 +193,7 @@
     <img src="/assets/img/go-time-logo.png" class="logo-img" />
     <span class="logo-title">Go Time Software Development</span>
 
-    <nav class="main-nav" style="margin-left:auto; display:flex; gap:20px;">
+    <nav class="main-nav">
       <a class="nav-btn" href="/pages/sites.html">Sites</a>
       <a class="nav-btn" href="/pages/apps.html">Apps</a>
       <a class="nav-btn" href="/pages/contact.html">Contact</a>
@@ -25,17 +203,15 @@
   <main class="page-container">
 
     <!-- WHAT WE BUILD -->
-    <div class="category">
+    <div class="category open">
       <div class="category-title">What We Build</div>
       <div class="category-content">
         <p>
           Go Time Software creates digital systems that feel physical —  
-          stone‑etched interfaces, cinematic layouts, and modular architecture  
-          built to last, scale, and impress.
+          cinematic layouts, modular architecture, and interfaces that feel like they’re carved in stone.
         </p>
         <p>
-          Every project is custom. No templates. No shortcuts.  
-          Your idea becomes a product — crafted like a monument.
+          Every project is custom. Your idea becomes a product — not a template, not a clone.
         </p>
       </div>
     </div>
@@ -59,7 +235,7 @@
               Comic Universe is a fully functional, live website featuring  
               cinematic UI, animated panels, modular architecture,  
               and a polished stone‑etched interface.  
-              It is a real, production‑ready build you can explore freely.
+              It’s a real, production‑ready build you can explore freely.
             </p>
           </div>
         </div>
@@ -95,22 +271,56 @@
     <!-- IOT -->
     <section class="section">
       <h2>IoT Systems & Automation</h2>
+      <p>
+        IoT lets you connect the physical world to your software — motion, vibration, light, sound, and more.  
+        From security to automation to monitoring, we build systems that react to the real world.
+      </p>
 
       <div class="iot-strip-gallery">
         <div class="iot-strip-track">
-          <img src="/assets/img/broke-top.jpg" />
-          <img src="/assets/img/broken-electronics.png" />
-          <img src="/assets/img/red-chip.png" />
-          <img src="/assets/img/solder.png" />
-          <img src="/assets/img/white-chip.png" />
-          <img src="/assets/img/woodchip.png" />
+          <img src="/assets/img/broke-top.jpg" alt="Electronics" />
+          <img src="/assets/img/broken-electronics.png" alt="Broken electronics" />
+          <img src="/assets/img/red-chip.png" alt="Red chip" />
+          <img src="/assets/img/solder.png" alt="Soldering" />
+          <img src="/assets/img/white-chip.png" alt="White chip" />
+          <img src="/assets/img/woodchip.png" alt="Wood chip" />
         </div>
       </div>
     </section>
 
   </main>
 
-  <script src="/js/index.js"></script>
+  <script>
+    // Section reveal
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll(".section");
+      function revealSections() {
+        const trigger = window.innerHeight * 0.85;
+        sections.forEach(sec => {
+          const top = sec.getBoundingClientRect().top;
+          if (top < trigger) sec.classList.add("visible");
+        });
+      }
+      window.addEventListener("scroll", revealSections);
+      window.addEventListener("load", revealSections);
+      revealSections();
+
+      // Category dropdown
+      document.querySelectorAll(".category-title").forEach(title => {
+        title.addEventListener("click", () => {
+          const parent = title.parentElement;
+          if (parent) parent.classList.toggle("open");
+        });
+      });
+
+      // Frame description dropdowns
+      document.querySelectorAll(".frame-desc").forEach(desc => {
+        desc.addEventListener("click", () => {
+          desc.classList.toggle("open");
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
