@@ -23,7 +23,7 @@
 
     .contact-page {
       max-width: 900px;
-      margin: 80px auto;
+      margin: 60px auto;
       padding: 20px;
       animation: fadeIn 1.2s ease forwards;
       color: #fff;
@@ -39,7 +39,7 @@
       border: 1px solid #aa0000;
       padding: 30px;
       border-radius: 14px;
-      margin: 40px 0;
+      margin-bottom: 40px;
       box-shadow: 0 0 18px #55000088;
     }
 
@@ -55,11 +55,6 @@
       width: 100%;
       box-shadow: 0 0 10px #000 inset;
       margin-bottom: 16px;
-    }
-
-    .contact-form input::placeholder,
-    .contact-form textarea::placeholder {
-      color: #cccccc;
     }
 
     .contact-form textarea {
@@ -96,6 +91,21 @@
     .hidden {
       display: none;
     }
+
+    .info-block {
+      background: rgba(0,0,0,0.45);
+      border: 1px solid #333;
+      padding: 25px;
+      border-radius: 14px;
+      margin-top: 40px;
+      box-shadow: 0 0 18px #000;
+    }
+
+    .info-block a {
+      color: #ff3b3b;
+      font-weight: bold;
+      text-decoration: none;
+    }
   </style>
 </head>
 
@@ -103,9 +113,10 @@
 
   <main class="page-container contact-page">
 
-    <h1>Contact Us</h1>
-    <p>Select what you want built, then fill out the detailed form.</p>
+    <h1>Start Your Project</h1>
+    <p>Choose what you want built and fill out the form below.</p>
 
+    <!-- PROJECT TYPE SELECTOR -->
     <div class="glass-block">
       <select id="projectType">
         <option value="">Select Project Type</option>
@@ -120,6 +131,7 @@
       </select>
     </div>
 
+    <!-- FORMS -->
     <div id="formsContainer">
 
       <form class="contact-form hidden" data-type="Website">
@@ -206,8 +218,82 @@
       Message sent! We’ll reach out shortly.
     </div>
 
+    <!-- COMPANY INFO -->
+    <div class="info-block">
+      <h2>About Go Time Software</h2>
+      <p>
+        We build cinematic, custom digital systems — websites, apps, IoT devices, dashboards,  
+        and full invention‑grade prototypes. Everything we create is modular, scalable,  
+        and built to feel physical and alive.
+      </p>
+
+      <p>
+        Want to explore our work?
+      </p>
+
+      <p>
+        • <a href="/pages/sites.html">View Websites</a><br>
+        • <a href="/pages/apps.html">Explore Apps</a><br>
+        • <a href="/pages/iot.html">See IoT Systems</a><br>
+      </p>
+
+      <p>
+        If you're unsure what you need, just fill out any form above —  
+        we’ll guide you from idea to finished product.
+      </p>
+    </div>
+
   </main>
 
-  <script src="/js/contact.js"></script>
+  <!-- FULL WORKING JS -->
+  <script>
+    const selector = document.getElementById("projectType");
+    const forms = document.querySelectorAll("#formsContainer form");
+    const successBox = document.getElementById("successBox");
+
+    selector.addEventListener("change", () => {
+      forms.forEach(f => f.classList.add("hidden"));
+      if (!selector.value) return;
+
+      const form = document.querySelector(\`form[data-type="\${selector.value}"]\`);
+      if (form) form.classList.remove("hidden");
+    });
+
+    forms.forEach(form => {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const type = form.dataset.type;
+        const inputs = form.querySelectorAll("input, textarea, select");
+
+        const details = {};
+        inputs.forEach(i => {
+          const key = i.placeholder || i.name || "Field";
+          details[key] = i.value;
+        });
+
+        const payload = {
+          type,
+          details,
+          timestamp: new Date().toISOString()
+        };
+
+        try {
+          await fetch("/api/form", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+
+          successBox.style.display = "block";
+          form.reset();
+        } catch (err) {
+          console.error(err);
+          alert("Error sending message");
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
