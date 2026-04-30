@@ -35,24 +35,61 @@
       background: rgba(0,0,0,0.7);
       border-bottom: 1px solid #333;
     }
+
     .logo-img {
-      width: 42px;
-      height: 42px;
-      margin-right: 10px;
+      width: 56px;
+      height: 56px;
+      margin-right: 14px;
     }
-    .logo-title {
-      font-weight: 700;
-      font-size: 1.1rem;
+
+    .logo-text-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 1.1;
     }
+
+    .logo-main {
+      font-weight: 900;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      display: flex;
+      gap: 4px;
+      align-items: baseline;
+    }
+
+    .logo-main span.tight {
+      margin-left: -2px;
+    }
+
+    .logo-sub {
+      font-size: 0.95rem;
+      font-weight: 600;
+      opacity: 0.9;
+      margin-top: 2px;
+    }
+
     .main-nav {
       margin-left: auto;
       display: flex;
-      gap: 20px;
+      gap: 14px;
     }
+
     .nav-btn {
       color: #fff;
       text-decoration: none;
       font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(0,0,0,0.4);
+      box-shadow: 0 0 10px #000;
+      font-size: 0.95rem;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 0 14px rgba(255,255,255,0.35);
     }
 
     /* SECTIONS */
@@ -191,7 +228,14 @@
   <!-- HEADER -->
   <header class="site-header">
     <img src="/assets/img/go-time-logo.png" class="logo-img" />
-    <span class="logo-title">Go Time Software Development</span>
+
+    <div class="logo-text-block">
+      <div class="logo-main">
+        <span>GO</span>
+        <span class="tight">TIME!</span>
+      </div>
+      <div class="logo-sub">Software Development</div>
+    </div>
 
     <nav class="main-nav">
       <a class="nav-btn" href="/pages/sites.html">Sites</a>
@@ -220,6 +264,17 @@
     <section class="section">
       <h2>Websites</h2>
 
+      <div class="category open">
+        <div class="category-title">What Our Websites Are</div>
+        <div class="category-content">
+          <p>
+            Our websites are cinematic, fast, and mobile‑ready.  
+            We build everything from scratch — no drag‑and‑drop builders —  
+            with modular architecture so your site can grow as your business grows.
+          </p>
+        </div>
+      </div>
+
       <div class="preview-card">
         <iframe src="https://comic-lct.pages.dev/"></iframe>
         <h3>Comic Universe — Live Website</h3>
@@ -245,6 +300,17 @@
     <!-- APPS -->
     <section class="section">
       <h2>Apps</h2>
+
+      <div class="category open">
+        <div class="category-title">What Our Apps Are</div>
+        <div class="category-content">
+          <p>
+            Our apps feel physical and alive — real systems with UI, logic, data,  
+            and progression. We build fully modular applications that can evolve  
+            into full platforms, not just prototypes.
+          </p>
+        </div>
+      </div>
 
       <div class="preview-card">
         <iframe src="https://the-guild-855.pages.dev/"></iframe>
@@ -291,9 +357,9 @@
   </main>
 
   <script>
-    // Section reveal
     document.addEventListener("DOMContentLoaded", () => {
       const sections = document.querySelectorAll(".section");
+
       function revealSections() {
         const trigger = window.innerHeight * 0.85;
         sections.forEach(sec => {
@@ -301,11 +367,11 @@
           if (top < trigger) sec.classList.add("visible");
         });
       }
+
       window.addEventListener("scroll", revealSections);
       window.addEventListener("load", revealSections);
       revealSections();
 
-      // Category dropdown
       document.querySelectorAll(".category-title").forEach(title => {
         title.addEventListener("click", () => {
           const parent = title.parentElement;
@@ -313,7 +379,6 @@
         });
       });
 
-      // Frame description dropdowns
       document.querySelectorAll(".frame-desc").forEach(desc => {
         desc.addEventListener("click", () => {
           desc.classList.toggle("open");
