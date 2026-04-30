@@ -16,7 +16,7 @@
       content: "";
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.65);
+      background: rgba(0,0,0,0.75); /* DARKER OVERLAY FOR READABILITY */
       backdrop-filter: blur(3px);
       z-index: -1;
     }
@@ -26,6 +26,7 @@
       margin: 80px auto;
       padding: 20px;
       animation: fadeIn 1.2s ease forwards;
+      color: #fff; /* TEXT VISIBLE */
     }
 
     @keyframes fadeIn {
@@ -34,26 +35,36 @@
     }
 
     .glass-block {
-      background: rgba(0,0,0,0.35);
-      border: 1px solid #550000;
+      background: rgba(0,0,0,0.55); /* LIGHTER GLASS */
+      border: 1px solid #aa0000;
       padding: 30px;
       border-radius: 14px;
       margin: 40px 0;
-      box-shadow: 0 0 18px #55000055;
+      box-shadow: 0 0 18px #55000088;
+    }
+
+    .glass-block h2,
+    .glass-block p {
+      color: #fff;
     }
 
     .contact-form input,
     .contact-form textarea,
     .contact-form select {
-      background: rgba(0,0,0,0.35);
-      border: 1px solid #550000;
+      background: rgba(255,255,255,0.08); /* LIGHTER INPUT BACKGROUND */
+      border: 1px solid #ff3b3b;
       color: #fff;
       padding: 14px 16px;
       border-radius: 10px;
       font-size: 16px;
       width: 100%;
-      box-shadow: 0 0 10px #33000055 inset;
+      box-shadow: 0 0 10px #000 inset;
       margin-bottom: 16px;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #cccccc;
     }
 
     .contact-form textarea {
@@ -69,6 +80,11 @@
       font-size: 18px;
       cursor: pointer;
       width: 100%;
+      box-shadow: 0 0 12px #550000aa;
+    }
+
+    .btn-primary:hover {
+      background: #cc2a2a;
     }
 
     .success-box {
