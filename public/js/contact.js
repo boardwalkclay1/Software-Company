@@ -10,7 +10,6 @@ selector.addEventListener("change", () => {
   if (form) form.classList.remove("hidden");
 });
 
-// Handle all form submissions
 forms.forEach(form => {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -20,7 +19,8 @@ forms.forEach(form => {
 
     const details = {};
     inputs.forEach(i => {
-      details[i.placeholder] = i.value;
+      const key = i.placeholder || i.name || "Field";
+      details[key] = i.value;
     });
 
     const payload = {
@@ -39,8 +39,8 @@ forms.forEach(form => {
       successBox.style.display = "block";
       form.reset();
     } catch (err) {
-      alert("Error sending message");
       console.error(err);
+      alert("Error sending message");
     }
   });
 });
