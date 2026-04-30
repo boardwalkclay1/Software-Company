@@ -37,36 +37,33 @@
     }
 
     .logo-img {
-      width: 56px;
-      height: 56px;
+      width: 60px;
+      height: 60px;
       margin-right: 14px;
+      flex-shrink: 0;
     }
 
     .logo-text-block {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      line-height: 1.1;
+      text-align: left;
+      line-height: 1.05;
     }
 
-    .logo-main {
+    .logo-line {
+      font-size: 1.9rem;
       font-weight: 900;
-      font-size: 1.8rem;
       letter-spacing: 1px;
-      display: flex;
-      gap: 4px;
-      align-items: baseline;
-    }
-
-    .logo-main span.tight {
-      margin-left: -2px;
+      margin: 0;
+      padding: 0;
     }
 
     .logo-sub {
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 600;
       opacity: 0.9;
-      margin-top: 2px;
+      margin-top: 4px;
     }
 
     .main-nav {
@@ -230,10 +227,8 @@
     <img src="/assets/img/go-time-logo.png" class="logo-img" />
 
     <div class="logo-text-block">
-      <div class="logo-main">
-        <span>GO</span>
-        <span class="tight">TIME!</span>
-      </div>
+      <div class="logo-line">GO</div>
+      <div class="logo-line">TIME</div>
       <div class="logo-sub">Software Development</div>
     </div>
 
