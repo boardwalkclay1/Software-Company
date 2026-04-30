@@ -16,7 +16,7 @@
       content: "";
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.75); /* DARKER OVERLAY FOR READABILITY */
+      background: rgba(0,0,0,0.75);
       backdrop-filter: blur(3px);
       z-index: -1;
     }
@@ -26,7 +26,7 @@
       margin: 80px auto;
       padding: 20px;
       animation: fadeIn 1.2s ease forwards;
-      color: #fff; /* TEXT VISIBLE */
+      color: #fff;
     }
 
     @keyframes fadeIn {
@@ -35,7 +35,7 @@
     }
 
     .glass-block {
-      background: rgba(0,0,0,0.55); /* LIGHTER GLASS */
+      background: rgba(0,0,0,0.55);
       border: 1px solid #aa0000;
       padding: 30px;
       border-radius: 14px;
@@ -43,15 +43,10 @@
       box-shadow: 0 0 18px #55000088;
     }
 
-    .glass-block h2,
-    .glass-block p {
-      color: #fff;
-    }
-
     .contact-form input,
     .contact-form textarea,
     .contact-form select {
-      background: rgba(255,255,255,0.08); /* LIGHTER INPUT BACKGROUND */
+      background: rgba(255,255,255,0.08);
       border: 1px solid #ff3b3b;
       color: #fff;
       padding: 14px 16px;
@@ -125,10 +120,8 @@
       </select>
     </div>
 
-    <!-- ALL FORMS -->
     <div id="formsContainer">
 
-      <!-- WEBSITE FORM -->
       <form class="contact-form hidden" data-type="Website">
         <input placeholder="Your Name" required />
         <input placeholder="Your Email" required />
@@ -140,7 +133,6 @@
         <button class="btn-primary">Submit Website Request</button>
       </form>
 
-      <!-- APP FORM -->
       <form class="contact-form hidden" data-type="App">
         <input placeholder="Your Name" required />
         <input placeholder="Your Email" required />
@@ -157,7 +149,6 @@
         <button class="btn-primary">Submit App Request</button>
       </form>
 
-      <!-- IOT FORM -->
       <form class="contact-form hidden" data-type="IoT System">
         <input placeholder="Your Name" required />
         <input placeholder="Your Email" required />
@@ -168,7 +159,6 @@
         <button class="btn-primary">Submit IoT Request</button>
       </form>
 
-      <!-- DASHBOARD FORM -->
       <form class="contact-form hidden" data-type="Dashboard">
         <input placeholder="Your Name" required />
         <input placeholder="Your Email" required />
@@ -178,7 +168,6 @@
         <button class="btn-primary">Submit Dashboard Request</button>
       </form>
 
-      <!-- REPAIR FORM -->
       <form class="contact-form hidden" data-type="Repair">
         <input placeholder="Your Name" required />
         <input placeholder="Your Email" required />
@@ -187,7 +176,6 @@
         <button class="btn-primary">Submit Repair Request</button>
       </form>
 
-      <!-- DRONE FORM -->
       <form class="contact-form hidden" data-type="Drone">
         <input placeholder="Your Name" required />
         <input placeholder="Your Email" required />
@@ -196,7 +184,6 @@
         <button class="btn-primary">Submit Drone Request</button>
       </form>
 
-      <!-- RC VEHICLE FORM -->
       <form class="contact-form hidden" data-type="RC Vehicle">
         <input placeholder="Your Name" required />
         <input placeholder="Your Email" required />
@@ -205,7 +192,6 @@
         <button class="btn-primary">Submit RC Vehicle Request</button>
       </form>
 
-      <!-- GUIDE APP FORM -->
       <form class="contact-form hidden" data-type="Guide App">
         <input placeholder="Your Name" required />
         <input placeholder="Your Email" required />
