@@ -227,14 +227,12 @@
         and built to feel physical and alive.
       </p>
 
-      <p>
-        Want to explore our work?
-      </p>
+      <p>Explore our work:</p>
 
       <p>
-        • <a href="/pages/sites.html">View Websites</a><br>
-        • <a href="/pages/apps.html">Explore Apps</a><br>
-        • <a href="/pages/iot.html">See IoT Systems</a><br>
+        • <a href="/pages/sites.html">Websites</a><br>
+        • <a href="/pages/apps.html">Apps</a><br>
+        • <a href="/pages/iot.html">IoT Systems</a><br>
       </p>
 
       <p>
@@ -247,51 +245,55 @@
 
   <!-- FULL WORKING JS -->
   <script>
-    const selector = document.getElementById("projectType");
-    const forms = document.querySelectorAll("#formsContainer form");
-    const successBox = document.getElementById("successBox");
+    document.addEventListener("DOMContentLoaded", () => {
 
-    selector.addEventListener("change", () => {
-      forms.forEach(f => f.classList.add("hidden"));
-      if (!selector.value) return;
+      const selector = document.getElementById("projectType");
+      const forms = document.querySelectorAll("#formsContainer form");
+      const successBox = document.getElementById("successBox");
 
-      const form = document.querySelector(\`form[data-type="\${selector.value}"]\`);
-      if (form) form.classList.remove("hidden");
-    });
+      selector.addEventListener("change", () => {
+        forms.forEach(f => f.classList.add("hidden"));
+        if (!selector.value) return;
 
-    forms.forEach(form => {
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
+        const form = document.querySelector(`form[data-type="${selector.value}"]`);
+        if (form) form.classList.remove("hidden");
+      });
 
-        const type = form.dataset.type;
-        const inputs = form.querySelectorAll("input, textarea, select");
+      forms.forEach(form => {
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
 
-        const details = {};
-        inputs.forEach(i => {
-          const key = i.placeholder || i.name || "Field";
-          details[key] = i.value;
-        });
+          const type = form.dataset.type;
+          const inputs = form.querySelectorAll("input, textarea, select");
 
-        const payload = {
-          type,
-          details,
-          timestamp: new Date().toISOString()
-        };
-
-        try {
-          await fetch("/api/form", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload)
+          const details = {};
+          inputs.forEach(i => {
+            const key = i.placeholder || i.name || "Field";
+            details[key] = i.value;
           });
 
-          successBox.style.display = "block";
-          form.reset();
-        } catch (err) {
-          console.error(err);
-          alert("Error sending message");
-        }
+          const payload = {
+            type,
+            details,
+            timestamp: new Date().toISOString()
+          };
+
+          try {
+            await fetch("/api/form", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload)
+            });
+
+            successBox.style.display = "block";
+            form.reset();
+          } catch (err) {
+            console.error(err);
+            alert("Error sending message");
+          }
+        });
       });
+
     });
   </script>
 
