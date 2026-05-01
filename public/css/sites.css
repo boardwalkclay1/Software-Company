@@ -6,163 +6,132 @@
 
   <link rel="icon" type="image/png" href="/assets/img/go-time-logo.png" />
   <link rel="stylesheet" href="/css/sites.css" />
-
-  <style>
-    /* BURGER MENU */
-    .burger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-    }
-    .burger div {
-      width: 28px;
-      height: 3px;
-      background: #fff;
-    }
-    @media(max-width: 900px) {
-      .main-nav {
-        display: none;
-        flex-direction: column;
-        background: rgba(0,0,0,0.85);
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        padding: 20px;
-        border-radius: 10px;
-      }
-      .main-nav a {
-        margin: 10px 0;
-      }
-      .burger {
-        display: flex;
-      }
-    }
-
-    /* ENTER SITE BUTTON */
-    .enter-site-btn {
-      margin-top: 12px;
-      display: inline-block;
-      padding: 10px 18px;
-      background: #ff4444;
-      color: #fff;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.2s;
-    }
-    .enter-site-btn:hover {
-      background: #ff2222;
-    }
-
-    /* TEMPLATE CARD CLEANUP */
-    .template-live-card iframe {
-      width: 100%;
-      height: 420px;
-      border: none;
-      border-radius: 12px;
-      background: #000;
-    }
-
-    @media(max-width: 600px) {
-      .template-live-card iframe {
-        height: 300px;
-      }
-    }
-  </style>
-
-  <script>
-    // Burger Menu Toggle
-    document.addEventListener("DOMContentLoaded", () => {
-      const burger = document.querySelector(".burger");
-      const nav = document.querySelector(".main-nav");
-
-      burger.addEventListener("click", () => {
-        nav.style.display = nav.style.display === "flex" ? "none" : "flex";
-      });
-    });
-  </script>
 </head>
 
 <body class="theme-dark">
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="logo">
-      <img src="/assets/img/go-time-logo.png" class="logo-img" />
-      <span>Go Time Software</span>
-    </div>
+  <div class="page-shell">
 
-    <div class="burger">
-      <div></div><div></div><div></div>
-    </div>
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="logo">
+        <img src="/assets/img/go-time-logo.png" class="logo-img" />
+        <span>Go Time Software</span>
+      </div>
 
-    <nav class="main-nav">
-      <a href="/index.html">Home</a>
-      <a href="/pages/sites.html" class="active">Sites</a>
-      <a href="/pages/apps.html">Apps</a>
-      <a href="/pages/iot.html">IoT</a>
-      <a href="/pages/pricing.html">Pricing</a>
-      <a href="/pages/contact.html">Contact</a>
-    </nav>
-  </header>
+      <div class="burger">
+        <div></div><div></div><div></div>
+      </div>
 
-  <!-- PAGE HEADER -->
-  <section class="page-header">
-    <h1>Website Templates</h1>
-    <p>
-      These are <strong>real, fully interactive templates</strong> — not screenshots.  
-      Every template below is a working website you can scroll, click, and explore.  
-      These represent <strong>what I can build for your business</strong>.
-    </p>
-  </section>
+      <nav class="main-nav">
+        <a href="/index.html">Home</a>
+        <a href="/pages/sites.html" class="active">Sites</a>
+        <a href="/pages/apps.html">Apps</a>
+        <a href="/pages/iot.html">IoT</a>
+        <a href="/pages/pricing.html">Pricing</a>
+        <a href="/pages/contact.html">Contact</a>
+      </nav>
+    </header>
 
-  <!-- LIVE TEMPLATE GRID -->
-  <section class="template-live-grid">
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+      <h1>Website Templates</h1>
+      <p>
+        These are <strong>real, fully interactive templates</strong> — not screenshots.  
+        Every template below is a working website you can scroll, click, and explore.  
+        These represent <strong>what I can build for your business</strong>.
+      </p>
+    </section>
 
-    <!-- 1. COMIC WEBSITE -->
-    <div class="template-live-card">
-      <iframe src="https://comic-lct.pages.dev/"></iframe>
-      <h3>Comic Website</h3>
-      <p>A full comic reading experience with chapters, navigation, and clean UI.  
-      Shows how I build creative, story‑driven websites with smooth flow.</p>
-      <div class="price">$300</div>
-      <a class="enter-site-btn" href="https://comic-lct.pages.dev/" target="_blank">ENTER SITE</a>
-    </div>
+    <!-- LIVE TEMPLATE GRID -->
+    <section class="template-live-grid">
 
-    <!-- 2. COOKING GAME -->
-    <div class="template-live-card">
-      <iframe src="/games/cooking/index.html"></iframe>
-      <h3>Cooking Game Template</h3>
-      <p>A real interactive cooking simulation built with JavaScript Canvas.  
-      Shows how I build games, simulations, and interactive experiences.</p>
-      <div class="price">$500</div>
-      <a class="enter-site-btn" href="/games/cooking/index.html" target="_blank">ENTER SITE</a>
-    </div>
+      <!-- 1. COMIC WEBSITE -->
+      <div class="template-live-card comic-card">
+        <iframe src="https://comic-lct.pages.dev/"></iframe>
+        <h3 class="comic-title">Comic Website</h3>
+        <div class="template-desc comic-desc">
+          <p>A full comic reading experience with chapters, navigation, and cinematic flow.</p>
+          <p>Built in a blue‑and‑yellow comic style with animated panel‑style transitions.</p>
+          <p>This template shows how far creative storytelling sites can go.</p>
+        </div>
+        <div class="price comic-price">$300</div>
+        <a class="enter-site-btn comic-btn" href="https://comic-lct.pages.dev/" target="_blank">ENTER SITE</a>
+      </div>
 
-    <!-- 3. ROLL N CONNECT -->
-    <div class="template-live-card">
-      <iframe src="https://rollnconnect.pages.dev/"></iframe>
-      <h3>Roll N Connect</h3>
-      <p>A full social platform with profiles, events, maps, and live features.  
-      Demonstrates how I build multi‑page, app‑style websites.</p>
-      <div class="price">$650</div>
-      <a class="enter-site-btn" href="https://rollnconnect.pages.dev/" target="_blank">ENTER SITE</a>
-    </div>
+      <!-- 2. COOKING GAME -->
+      <div class="template-live-card cooking-card">
+        <iframe src="/games/cooking/index.html"></iframe>
+        <h3 class="cooking-title">Cooking Game Template</h3>
+        <div class="template-desc cooking-desc">
+          <p>A real interactive cooking simulation built with JavaScript Canvas.</p>
+          <p>Shows how I build games, simulations, and interactive experiences.</p>
+          <p>Perfect for food brands, education, or entertainment.</p>
+        </div>
+        <div class="price cooking-price">$500</div>
+        <a class="enter-site-btn cooking-btn" href="/games/cooking/index.html" target="_blank">ENTER SITE</a>
+      </div>
 
-    <!-- 4. LANDING PAGE TEMPLATE -->
-    <div class="template-live-card">
-      <iframe src="/templates/web/pages/landing.html"></iframe>
-      <h3>Landing Page Template</h3>
-      <p>A high‑impact landing page built for conversions, clarity, and product launches.  
-      Any section here can be reused or remixed into your own brand.</p>
-      <div class="price">$250</div>
-      <a class="enter-site-btn" href="/templates/web/pages/landing.html" target="_blank">ENTER SITE</a>
-    </div>
+      <!-- 3. ROLL N CONNECT -->
+      <div class="template-live-card roll-card">
+        <iframe src="https://rollnconnect.pages.dev/"></iframe>
+        <h3 class="roll-title">Roll N Connect</h3>
+        <div class="template-desc roll-desc">
+          <p>A full social platform with profiles, events, maps, and live features.</p>
+          <p>Includes a bouncing bubble animation that bursts into glowing white text.</p>
+          <p>Shows how I build multi‑page, app‑style websites with real functionality.</p>
+        </div>
+        <div class="price roll-price">$650</div>
+        <a class="enter-site-btn roll-btn" href="https://rollnconnect.pages.dev/" target="_blank">ENTER SITE</a>
+      </div>
 
-  </section>
+      <!-- 4. LANDING PAGE TEMPLATE -->
+      <div class="template-live-card landing-card">
+        <iframe src="/templates/web/pages/landing.html"></iframe>
+        <h3 class="landing-title">Landing Page Template</h3>
+        <div class="template-desc landing-desc">
+          <p>A high‑impact landing page built for conversions and clarity.</p>
+          <p>Yellow‑and‑black theme with sharp, bold product‑style animations.</p>
+          <p>Perfect for launches, announcements, and high‑impact marketing.</p>
+        </div>
+        <div class="price landing-price">$250</div>
+        <a class="enter-site-btn landing-btn" href="/templates/web/pages/landing.html" target="_blank">ENTER SITE</a>
+      </div>
 
-  <!-- FOOTER -->
+    </section>
+
+    <!-- CUSTOM SITES -->
+    <section class="section-block">
+      <h2>Custom Sites Built for Your Business</h2>
+      <p>
+        Every business is different — so every site we build is custom.  
+        Whether you need a brand site, a product launch, a portfolio, or a full system,  
+        Go Time Software builds it clean, fast, and modular.
+      </p>
+      <a class="enter-site-btn custom-btn" href="/pages/contact.html">Start a Custom Build</a>
+    </section>
+
+    <!-- APPS / GUILD SECTION -->
+    <section class="section-block">
+      <h2>Why Apps Matter</h2>
+      <p>
+        Websites show your business.  
+        <strong>Apps run your business.</strong>
+      </p>
+      <p>
+        Apps automate work, track data, handle customers, and make you money while you sleep.  
+        A good app idea can turn into a real business — and yes, we do equity deals  
+        if your idea has potential.
+      </p>
+
+      <iframe class="guild-iframe" src="https://the-guild-855.pages.dev/"></iframe>
+
+      <a class="enter-site-btn code-btn" href="/pages/apps.html">Explore All Apps</a>
+      <a class="enter-site-btn custom-btn" href="/pages/contact.html" style="margin-left:10px;">Pitch an App Idea</a>
+    </section>
+
+  </div>
+
   <footer class="site-footer">
     <span>© Go Time Software</span>
   </footer>
