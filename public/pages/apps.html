@@ -5,211 +5,14 @@
   <title>Apps – Go Time Software</title>
 
   <link rel="icon" type="image/png" href="/assets/img/go-time-logo.png" />
+  <!-- ONLY APP CSS -->
+  <link rel="stylesheet" href="/css/apps.css" />
 
   <!-- Themed Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Dancing+Script:wght@600&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* ============================================================
-       PAGE RESET (NO BASE.CSS)
-    ============================================================ */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Inter, sans-serif;
-      background: #000;
-      color: #fff;
-      line-height: 1.5;
-    }
-
-    /* ============================================================
-       HEADER
-    ============================================================ */
-    .site-header {
-      display: flex;
-      align-items: center;
-      padding: 18px 24px;
-      background: rgba(0,0,0,0.75);
-      border-bottom: 1px solid #333;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-img {
-      width: 48px;
-      height: 48px;
-    }
-
-    .logo span {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    .main-nav {
-      margin-left: auto;
-      display: flex;
-      gap: 20px;
-    }
-
-    .main-nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      opacity: 0.9;
-    }
-
-    .main-nav a:hover {
-      opacity: 1;
-    }
-
-    /* ============================================================
-       PAGE HEADER
-    ============================================================ */
-    .page-header {
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    .page-header h1 {
-      font-size: 2.6rem;
-      margin-bottom: 12px;
-    }
-
-    /* ============================================================
-       APPS GRID
-    ============================================================ */
-    .apps-grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 50px;
-    }
-
-    .app-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid #333;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 0 20px #000;
-    }
-
-    .app-frame-wrap {
-      width: 100%;
-      height: 420px;
-      border-radius: 14px;
-      overflow: hidden;
-      margin-bottom: 16px;
-      box-shadow: 0 0 14px #000;
-    }
-
-    .app-frame-wrap iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    .app-content h2 {
-      margin-bottom: 8px;
-      font-size: 1.8rem;
-    }
-
-    .app-tagline {
-      font-style: italic;
-      opacity: 0.9;
-      margin-bottom: 12px;
-    }
-
-    /* ============================================================
-       BUTTON
-    ============================================================ */
-    .enter-app-btn {
-      margin-top: 14px;
-      display: inline-block;
-      padding: 10px 18px;
-      background: #ff4444;
-      color: #fff;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.2s;
-    }
-
-    .enter-app-btn:hover {
-      background: #ff2222;
-    }
-
-    /* ============================================================
-       INSTALL BLOCK
-    ============================================================ */
-    .install-block {
-      margin-top: 20px;
-      padding: 16px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 10px;
-      border: 1px solid #333;
-    }
-
-    .install-block h3 {
-      margin-bottom: 10px;
-    }
-
-    .install-block ul {
-      padding-left: 20px;
-      text-align: left;
-    }
-
-    /* ============================================================
-       APP THEMES
-    ============================================================ */
-    .guild-font { font-family: MedievalSharp, cursive; color: #e6c15a; }
-    .cook-font { font-family: Inter, sans-serif; color: #ffddc2; }
-    .spice-font { font-family: Inter, sans-serif; color: #ffd27f; }
-    .ita-font { font-family: Inter, sans-serif; color: #b4ffb4; }
-    .roll-font { font-family: Dancing Script, cursive; color: #ffffff; font-size: 1.3rem; }
-    .tree-font { font-family: Inter, sans-serif; color: #c8ffcf; }
-
-    /* ============================================================
-       CLOSING SECTION
-    ============================================================ */
-    .closing-section {
-      margin-top: 60px;
-      padding: 40px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 14px;
-      border: 1px solid #333;
-      box-shadow: 0 0 20px #000;
-      text-align: center;
-    }
-
-    .closing-section a {
-      color: #ff4444;
-      font-weight: bold;
-    }
-
-    /* ============================================================
-       FOOTER
-    ============================================================ */
-    .site-footer {
-      text-align: center;
-      padding: 30px;
-      opacity: 0.7;
-      font-size: 0.9rem;
-    }
-  </style>
 </head>
 
-<body>
+<body class="theme-dark">
 
   <!-- HEADER -->
   <header class="site-header">
@@ -231,7 +34,10 @@
   <!-- PAGE HEADER -->
   <section class="page-header">
     <h1>Real Apps</h1>
-    <p>These are real, production apps you can use right now.</p>
+    <p>
+      These are <strong>real, production apps</strong> you can use right now.  
+      Each one runs in the browser and can be installed to your home screen like a native app.
+    </p>
   </section>
 
   <!-- APPS GRID -->
@@ -244,17 +50,27 @@
       </div>
       <div class="app-content">
         <h2>The Guild</h2>
-        <p class="app-tagline">A golden medieval knowledge house forged in ancient order.</p>
-        <p>The Guild is a royal archive of wisdom — laws, rituals, discipline, and prophecy‑style guidance.</p>
+        <p class="app-tagline">
+          A golden medieval knowledge house forged in the spirit of ancient orders.
+        </p>
+        <p>
+          The Guild is a <strong>royal archive of wisdom</strong> — laws, rituals, discipline,  
+          and the teachings of the Dragon Arena. Every page feels like a sealed scroll  
+          written for those who walk the path of mastery.
+        </p>
+        <p>
+          Enter and receive <strong>live trading guidance</strong> presented like prophecy —  
+          strategy, honor, and long‑term discipline worthy of a true Guildmaster.
+        </p>
 
         <a class="enter-app-btn" href="https://the-guild-855.pages.dev/" target="_blank">ENTER APP</a>
 
         <div class="install-block">
-          <h3>How to Add The Guild</h3>
+          <h3>How to Add The Guild to Your Home Screen</h3>
           <ul>
-            <li>Open: the-guild-855.pages.dev</li>
+            <li>Open: <strong>the-guild-855.pages.dev</strong></li>
             <li>Tap Share or ⋮</li>
-            <li>Select Add to Home Screen</li>
+            <li>Select <strong>Add to Home Screen</strong></li>
           </ul>
         </div>
       </div>
@@ -267,17 +83,26 @@
       </div>
       <div class="app-content">
         <h2>Keep A Man Cookbook</h2>
-        <p class="app-tagline">A warm, playful kitchen guide.</p>
-        <p>Simple, confident recipes written with real‑life flavor.</p>
+        <p class="app-tagline">
+          A warm, playful kitchen guide that makes cooking feel easy and powerful.
+        </p>
+        <p>
+          This cookbook speaks in a <strong>real, honest, no‑excuses voice</strong>.  
+          It shows you how simple it is to make meals that change the whole energy of your home.
+        </p>
+        <p>
+          Every recipe is written with <strong>confidence, charm, and real‑life flavor</strong> —  
+          quick wins, simple steps, and dishes that make people feel cared for.
+        </p>
 
         <a class="enter-app-btn" href="https://keep-a-man-cookbook.pages.dev/" target="_blank">ENTER APP</a>
 
         <div class="install-block">
-          <h3>How to Add Cookbook</h3>
+          <h3>How to Add Keep A Man Cookbook to Your Home Screen</h3>
           <ul>
-            <li>Open: keep-a-man-cookbook.pages.dev</li>
+            <li>Open: <strong>keep-a-man-cookbook.pages.dev</strong></li>
             <li>Tap Share or ⋮</li>
-            <li>Select Add to Home Screen</li>
+            <li>Select <strong>Add to Home Screen</strong></li>
           </ul>
         </div>
       </div>
@@ -290,17 +115,26 @@
       </div>
       <div class="app-content">
         <h2>Spice DX5</h2>
-        <p class="app-tagline">A scientific flavor‑lab.</p>
-        <p>Learn acids, heat, aromatics, blends, ratios — real flavor engineering.</p>
+        <p class="app-tagline">
+          A clean, scientific flavor‑lab that teaches you how to build taste from the ground up.
+        </p>
+        <p>
+          Spice DX5 breaks cooking down into <strong>pure logic and balance</strong> —  
+          acids, heat, aromatics, blends, and ratios that unlock real creativity.
+        </p>
+        <p>
+          It’s a <strong>free culinary toolkit</strong> that teaches you how to think like a flavor engineer,  
+          not just follow recipes.
+        </p>
 
         <a class="enter-app-btn" href="https://spice-dx5.pages.dev/" target="_blank">ENTER APP</a>
 
         <div class="install-block">
-          <h3>How to Add Spice DX5</h3>
+          <h3>How to Add Spice DX5 to Your Home Screen</h3>
           <ul>
-            <li>Open: spice-dx5.pages.dev</li>
+            <li>Open: <strong>spice-dx5.pages.dev</strong></li>
             <li>Tap Share or ⋮</li>
-            <li>Select Add to Home Screen</li>
+            <li>Select <strong>Add to Home Screen</strong></li>
           </ul>
         </div>
       </div>
@@ -313,17 +147,25 @@
       </div>
       <div class="app-content">
         <h2>ITA</h2>
-        <p class="app-tagline">A calm, garden‑inspired personal assistant.</p>
-        <p>Soft, green, distraction‑free organization.</p>
+        <p class="app-tagline">
+          A calm, garden‑inspired personal assistant designed for clarity and peace.
+        </p>
+        <p>
+          ITA feels like a quiet space — <strong>simple, green, and distraction‑free</strong>.  
+          Notes, tasks, reminders, and focus tools arranged like stepping stones in a garden.
+        </p>
+        <p>
+          Everything is clean, soft, and intentional, helping you stay organized without noise or clutter.
+        </p>
 
         <a class="enter-app-btn" href="https://ita-3wf.pages.dev/" target="_blank">ENTER APP</a>
 
         <div class="install-block">
-          <h3>How to Add ITA</h3>
+          <h3>How to Add ITA to Your Home Screen</h3>
           <ul>
-            <li>Open: ita-3wf.pages.dev</li>
+            <li>Open: <strong>ita-3wf.pages.dev</strong></li>
             <li>Tap Share or ⋮</li>
-            <li>Select Add to Home Screen</li>
+            <li>Select <strong>Add to Home Screen</strong></li>
           </ul>
         </div>
       </div>
@@ -336,17 +178,25 @@
       </div>
       <div class="app-content">
         <h2>Roll Show</h2>
-        <p class="app-tagline">A smooth, elegant skating showcase.</p>
-        <p>Clean whites, flowing lines, spotlight‑style UI.</p>
+        <p class="app-tagline">
+          A smooth, elegant skating showcase built for performers and creators.
+        </p>
+        <p>
+          Roll Show feels like a <strong>spotlight on a dark stage</strong> — clean whites, flowing lines,  
+          and a graceful layout that highlights movement and performance.
+        </p>
+        <p>
+          It’s built for skaters who want to host shows, sell tickets, and build a brand with style and flow.
+        </p>
 
         <a class="enter-app-btn" href="https://roll-show.pages.dev/" target="_blank">ENTER APP</a>
 
         <div class="install-block">
-          <h3>How to Add Roll Show</h3>
+          <h3>How to Add Roll Show to Your Home Screen</h3>
           <ul>
-            <li>Open: roll-show.pages.dev</li>
+            <li>Open: <strong>roll-show.pages.dev</strong></li>
             <li>Tap Share or ⋮</li>
-            <li>Select Add to Home Screen</li>
+            <li>Select <strong>Add to Home Screen</strong></li>
           </ul>
         </div>
       </div>
@@ -359,17 +209,25 @@
       </div>
       <div class="app-content">
         <h2>Real Tree Guy</h2>
-        <p class="app-tagline">A rugged, trustworthy service app.</p>
-        <p>Fresh‑cut wood energy, clean layout, real business tools.</p>
+        <p class="app-tagline">
+          A rugged, trustworthy service app built with real outdoor energy.
+        </p>
+        <p>
+          Real Tree Guy feels like <strong>fresh cut wood, steel tools, and clean work</strong>.  
+          Straightforward sections, strong visuals, and a layout built for customers who want clarity fast.
+        </p>
+        <p>
+          It’s a real business app — reliable, honest, and built to help clients book services with confidence.
+        </p>
 
         <a class="enter-app-btn" href="https://realtreeguy.pages.dev/" target="_blank">ENTER APP</a>
 
         <div class="install-block">
-          <h3>How to Add Real Tree Guy</h3>
+          <h3>How to Add Real Tree Guy to Your Home Screen</h3>
           <ul>
-            <li>Open: realtreeguy.pages.dev</li>
+            <li>Open: <strong>realtreeguy.pages.dev</strong></li>
             <li>Tap Share or ⋮</li>
-            <li>Select Add to Home Screen</li>
+            <li>Select <strong>Add to Home Screen</strong></li>
           </ul>
         </div>
       </div>
@@ -380,9 +238,20 @@
   <!-- CLOSING SECTION -->
   <section class="closing-section">
     <h2>You Won’t Find Custom Work Like This Anywhere Else</h2>
-    <p>Every app here is hand‑built, cinematic, and one‑of‑a‑kind.</p>
-    <p style="margin-top: 20px;">Explore websites: <a href="/pages/sites.html">Go Time Sites</a></p>
-    <p>Start your project: <a href="/pages/contact.html">Contact Go Time</a></p>
+    <p>
+      Every app you see here is <strong>hand‑built, cinematic, and one‑of‑a‑kind</strong>.  
+      No templates. No shortcuts. No generic builders.
+    </p>
+
+    <p style="margin-top: 20px;">
+      Explore websites:  
+      <a href="/pages/sites.html">Go Time Sites</a>
+    </p>
+
+    <p>
+      Start your project:  
+      <a href="/pages/contact.html">Contact Go Time</a>
+    </p>
   </section>
 
   <!-- FOOTER -->
