@@ -1,1 +1,124 @@
+/* ============================================================
+   APPS PAGE — INDIVIDUAL APP BRANDING
+   Each app has its own theme + text style
+============================================================ */
 
+/* Base card layout */
+.app-card {
+  padding: 22px;
+  border-radius: 14px;
+  margin-bottom: 26px;
+  box-shadow: 0 0 14px #000;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(0,0,0,0.45);
+}
+
+/* App title */
+.app-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+/* App description */
+.app-desc {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 14px;
+}
+
+/* Bubble link */
+.app-link {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  box-shadow: 0 0 10px #000;
+}
+.app-link:hover {
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 0 14px rgba(255,255,255,0.4);
+}
+
+/* ============================================================
+   THE GUILD — GOLD MEDIEVAL STYLE
+============================================================ */
+.guild-card {
+  background: rgba(20, 15, 5, 0.55);
+  border: 1px solid #8a6a2a;
+  box-shadow: 0 0 18px #000;
+}
+
+.guild-title {
+  font-family: "Uncial Antiqua", serif;
+  color: #d4b45a;
+  text-shadow: 0 0 8px rgba(212,180,90,0.6);
+}
+
+.guild-desc {
+  color: #e8d9a8;
+}
+
+/* ============================================================
+   REAL TREE GUY — ORANGE TEXT + GREEN BACKGROUND
+============================================================ */
+.tree-card {
+  background: #0f2e0f;
+  border: 1px solid #1f4d1f;
+  box-shadow: 0 0 14px #000;
+}
+
+.tree-title {
+  color: #ff8c2a;
+  font-weight: 900;
+  text-shadow: 0 0 6px rgba(255,140,42,0.5);
+}
+
+.tree-desc {
+  color: #ffb97a;
+}
+
+/* ============================================================
+   ROLL SHOW — GLOWING WHITE CURSIVE
+============================================================ */
+.roll-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 0 20px rgba(255,255,255,0.25);
+}
+
+.roll-title {
+  font-family: "Great Vibes", cursive;
+  color: #ffffff;
+  font-size: 2.2rem;
+  text-shadow: 0 0 12px rgba(255,255,255,0.8);
+}
+
+.roll-desc {
+  color: #eaeaea;
+}
+
+/* ============================================================
+   KEEP A MAN COOKBOOK — WARM KITCHEN THEME
+   Peach, brown, soft glow
+============================================================ */
+.cook-card {
+  background: #3b1f14;
+  border: 1px solid #d89b6a;
+  box-shadow: 0 0 16px rgba(216,155,106,0.4);
+}
+
+.cook-title {
+  color: #ffcf9c;
+  font-weight: 900;
+  text-shadow: 0 0 8px rgba(255,207,156,0.6);
+}
+
+.cook-desc {
+  color: #ffd9b8;
+}
