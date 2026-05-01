@@ -3,6 +3,7 @@
    Handles:
    - Burger Menu
    - Section Reveal Animations
+   - Dropdown Descriptions
 ============================================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -36,4 +37,16 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", revealSections);
   window.addEventListener("load", revealSections);
   revealSections();
+
+  /* -----------------------------
+     DROPDOWN DESCRIPTIONS
+  ----------------------------- */
+  const dropdowns = document.querySelectorAll(".frame-desc");
+
+  dropdowns.forEach(drop => {
+    drop.addEventListener("click", () => {
+      drop.classList.toggle("open");
+    });
+  });
+
 });
