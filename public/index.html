@@ -6,198 +6,6 @@
 
   <link rel="icon" type="image/png" href="/assets/img/go-time-logo.png" />
   <link rel="stylesheet" href="/css/base.css" />
-
-  <style>
-    body.theme-dark {
-      background: url("/assets/img/go-time-background.jpg") no-repeat center center fixed;
-      background-size: cover;
-    }
-    body.theme-dark::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(2px);
-      z-index: -1;
-    }
-
-    .page-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 30px 16px 60px;
-      text-align: center;
-    }
-
-    /* HEADER */
-    .site-header {
-      display: flex;
-      align-items: center;
-      padding: 16px 20px;
-      background: rgba(0,0,0,0.7);
-      border-bottom: 1px solid #333;
-    }
-
-    .logo-block {
-      display: flex;
-      align-items: center;
-    }
-
-    .logo-img {
-      width: 50px;
-      height: 50px;
-      margin-right: 10px;
-    }
-
-    .logo-text-block {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.05;
-      text-align: left;
-    }
-
-    .logo-line-top,
-    .logo-line-mid {
-      font-weight: 900;
-      font-size: 1.4rem;
-    }
-
-    .logo-sub {
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin-top: 2px;
-    }
-
-    .main-nav {
-      margin-left: auto;
-      display: flex;
-      gap: 20px;
-    }
-    .nav-btn {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    /* SECTIONS */
-    .section {
-      margin-top: 40px;
-      background: rgba(0,0,0,0.55);
-      padding: 28px 24px;
-      border-radius: 16px;
-      border: 1px solid #333;
-      box-shadow: 0 0 20px #000;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: 0.5s ease;
-    }
-    .section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* BUBBLE LINKS */
-    .bubble-links {
-      margin-top: 12px;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-    }
-    .bubble-link {
-      display: inline-block;
-      padding: 8px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.35);
-      background: rgba(0,0,0,0.5);
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.9rem;
-      box-shadow: 0 0 10px #000;
-    }
-
-    /* PREVIEW CARD */
-    .preview-card {
-      background: rgba(0,0,0,0.45);
-      border: 1px solid #333;
-      border-radius: 14px;
-      padding: 20px;
-      box-shadow: 0 0 20px #000;
-      margin-top: 20px;
-      text-align: center;
-    }
-
-    .preview-card iframe {
-      width: 100%;
-      height: 420px;
-      border-radius: 12px;
-      border: none;
-      background: #000;
-      margin-bottom: 12px;
-    }
-
-    /* CLEAN DROPDOWN — NO ARROWS, NO OVERRIDES */
-    .frame-desc {
-      margin-top: 10px;
-      padding: 12px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 1rem;
-      border: 1px solid #333;
-      text-align: center;
-    }
-
-    .frame-desc-label {
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      margin-bottom: 6px;
-      display: block;
-    }
-
-    /* NO ::after, NO ICONS, NO AUTO ARROWS */
-    .frame-desc::after,
-    .frame-desc-label::after {
-      content: none !important;
-    }
-
-    .frame-desc-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease;
-      font-size: 0.95rem;
-      opacity: 0.9;
-    }
-
-    .frame-desc.open .frame-desc-content {
-      max-height: 300px;
-      margin-top: 10px;
-    }
-
-    /* IOT STRIP */
-    .iot-strip-gallery {
-      margin-top: 18px;
-      overflow: hidden;
-      padding-bottom: 6px;
-    }
-    .iot-strip-track {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      animation: iotScroll 30s linear infinite;
-    }
-    .iot-strip-track img {
-      height: 110px;
-      width: auto;
-      border-radius: 10px;
-      object-fit: cover;
-      flex-shrink: 0;
-      box-shadow: 0 0 12px #000;
-    }
-
-    @keyframes iotScroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-  </style>
 </head>
 
 <body class="theme-dark">
@@ -225,7 +33,7 @@
     <!-- WHAT WE BUILD -->
     <section class="section visible">
       <h2>What We Build</h2>
-      <p>Go Time Software builds real systems — not mockups, not throwaway demos.</p>
+      <p>Go Time Software builds real systems — not mockups, not demos.</p>
       <p>Everything is cinematic, modular, and built like a real product.</p>
     </section>
 
@@ -244,11 +52,31 @@
 
         <a class="bubble-link" href="https://comic-lct.pages.dev/" target="_blank">Open Live Website</a>
 
+        <!-- DROPDOWN -->
         <div class="frame-desc">
           <div class="frame-desc-label">DESCRIPTION</div>
           <div class="frame-desc-content">
-            <p>Comic Universe is a fully functional, live website with animated panels and modular architecture.</p>
-            <p>It’s a real production‑style build you can explore.</p>
+            <p>
+              Comic Universe is the world’s first **fully interactive comic platform** —  
+              built from scratch by Boardwalk Clay and Go Time Software.
+            </p>
+            <p>
+              This isn’t a normal comic site.  
+              It’s a **complete universe** with:
+            </p>
+            <p>• Cinematic comics  
+               • Short films  
+               • Interactive comics  
+               • Audio books  
+               • A connected storyline across multiple mediums  
+            </p>
+            <p>
+              As a comic book writer, you built a platform that **no one else has ever done** —  
+              a living universe where every story, character, and world connects.
+            </p>
+            <p>
+              This site is the foundation of the entire Comic Universe ecosystem.
+            </p>
           </div>
         </div>
       </div>
@@ -269,11 +97,34 @@
 
         <a class="bubble-link" href="https://the-guild-855.pages.dev/" target="_blank">Open Live App</a>
 
+        <!-- DROPDOWN -->
         <div class="frame-desc">
           <div class="frame-desc-label">DESCRIPTION</div>
           <div class="frame-desc-content">
-            <p>The Guild is a live, interactive app with character systems, inventory, and progression.</p>
-            <p>It’s a real app — not a static concept.</p>
+            <p>
+              The Guild is a **trading education app** built inside a creative medieval storyline.
+            </p>
+            <p>
+              It teaches **options trading, discipline, strategy, and long‑term thinking**  
+              through a world of guilds, ranks, scrolls, and ancient knowledge.
+            </p>
+            <p>
+              The Guild is also connected to the **Comic Universe** —  
+              characters, lore, and events overlap between the app and the comics.
+            </p>
+            <p>
+              Inside the app, users can:
+            </p>
+            <p>
+              • Learn options trading  
+              • Follow structured lessons  
+              • Unlock ranks and achievements  
+              • Explore lore tied to the Comic Universe  
+              • Access the Comic Universe repo  
+            </p>
+            <p>
+              It’s a **real educational system** wrapped in a cinematic world.
+            </p>
           </div>
         </div>
       </div>
@@ -306,8 +157,9 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const sections = document.querySelectorAll(".section");
 
+      /* SECTION REVEAL */
+      const sections = document.querySelectorAll(".section");
       function revealSections() {
         const trigger = window.innerHeight * 0.85;
         sections.forEach(sec => {
@@ -315,12 +167,11 @@
           if (top < trigger) sec.classList.add("visible");
         });
       }
-
       window.addEventListener("scroll", revealSections);
       window.addEventListener("load", revealSections);
       revealSections();
 
-      // CLEAN DROPDOWN — NO TITLE OVERRIDES
+      /* DROPDOWNS */
       document.querySelectorAll(".frame-desc").forEach(desc => {
         desc.addEventListener("click", () => {
           desc.classList.toggle("open");
