@@ -12,6 +12,74 @@
   <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Dancing+Script:wght@600&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
+    /* FIX HEADER ALIGNMENT */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo span {
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    /* FIX APP GRID */
+    .apps-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      margin-top: 40px;
+    }
+
+    /* FIX IFRAME WRAPPER */
+    .app-frame-wrap {
+      width: 100%;
+      height: 420px;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      box-shadow: 0 0 14px #000;
+    }
+    .app-frame-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* FIX APP CARD SPACING */
+    .app-card {
+      background: rgba(0,0,0,0.45);
+      border: 1px solid #333;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 0 20px #000;
+    }
+
+    .app-content h2 {
+      margin-bottom: 8px;
+    }
+    .app-tagline {
+      font-style: italic;
+      opacity: 0.9;
+      margin-bottom: 12px;
+    }
+
+    /* INSTALL BLOCK FIX */
+    .install-block {
+      margin-top: 20px;
+      padding: 16px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      border: 1px solid #333;
+    }
+    .install-block h3 {
+      margin-bottom: 10px;
+    }
+    .install-block ul {
+      padding-left: 20px;
+    }
+
+    /* FIX ENTER BUTTON */
     .enter-app-btn {
       margin-top: 14px;
       display: inline-block;
@@ -27,7 +95,7 @@
       background: #ff2222;
     }
 
-    /* Themed text styles */
+    /* FONT THEMES (WORKING NOW) */
     .guild-font { font-family: 'MedievalSharp', cursive; color: #e6c15a; }
     .cook-font { font-family: 'Inter', sans-serif; color: #ffddc2; }
     .spice-font { font-family: 'Inter', sans-serif; color: #ffd27f; }
@@ -35,6 +103,7 @@
     .roll-font { font-family: 'Dancing Script', cursive; color: #ffffff; font-size: 1.3rem; }
     .tree-font { font-family: 'Inter', sans-serif; color: #c8ffcf; }
 
+    /* CLOSING SECTION FIX */
     .closing-section {
       margin-top: 60px;
       padding: 40px;
@@ -83,24 +152,15 @@
   <section class="apps-grid">
 
     <!-- THE GUILD -->
-    <article class="app-card">
+    <article class="app-card guild-font">
       <div class="app-frame-wrap">
         <iframe src="https://the-guild-855.pages.dev/"></iframe>
       </div>
-      <div class="app-content guild-font">
+      <div class="app-content">
         <h2>The Guild</h2>
-        <p class="app-tagline">
-          A golden medieval knowledge house forged in the spirit of ancient orders.
-        </p>
-        <p>
-          The Guild is a <strong>royal archive of wisdom</strong> — laws, rituals, discipline,  
-          and the teachings of the Dragon Arena. Every page feels like a sealed scroll  
-          written for those who walk the path of mastery.
-        </p>
-        <p>
-          Enter and receive <strong>live trading guidance</strong> presented like prophecy —  
-          strategy, honor, and long‑term discipline worthy of a true Guildmaster.
-        </p>
+        <p class="app-tagline">A golden medieval knowledge house forged in the spirit of ancient orders.</p>
+        <p>The Guild is a <strong>royal archive of wisdom</strong> — laws, rituals, discipline, and the teachings of the Dragon Arena.</p>
+        <p>Enter and receive <strong>live trading guidance</strong> presented like prophecy.</p>
 
         <a class="enter-app-btn" href="https://the-guild-855.pages.dev/" target="_blank">ENTER APP</a>
 
@@ -116,23 +176,15 @@
     </article>
 
     <!-- KEEP A MAN COOKBOOK -->
-    <article class="app-card">
+    <article class="app-card cook-font">
       <div class="app-frame-wrap">
         <iframe src="https://keep-a-man-cookbook.pages.dev/"></iframe>
       </div>
-      <div class="app-content cook-font">
+      <div class="app-content">
         <h2>Keep A Man Cookbook</h2>
-        <p class="app-tagline">
-          A warm, playful kitchen guide that makes cooking feel easy and powerful.
-        </p>
-        <p>
-          This cookbook speaks in a <strong>real, honest, no‑excuses voice</strong>.  
-          It shows you how simple it is to make meals that change the whole energy of your home.
-        </p>
-        <p>
-          Every recipe is written with <strong>confidence, charm, and real‑life flavor</strong> —  
-          quick wins, simple steps, and dishes that make people feel cared for.
-        </p>
+        <p class="app-tagline">A warm, playful kitchen guide that makes cooking feel easy and powerful.</p>
+        <p>This cookbook speaks in a <strong>real, honest, no‑excuses voice</strong>.</p>
+        <p>Every recipe is written with <strong>confidence, charm, and real‑life flavor</strong>.</p>
 
         <a class="enter-app-btn" href="https://keep-a-man-cookbook.pages.dev/" target="_blank">ENTER APP</a>
 
@@ -148,23 +200,15 @@
     </article>
 
     <!-- SPICE DX5 -->
-    <article class="app-card">
+    <article class="app-card spice-font">
       <div class="app-frame-wrap">
         <iframe src="https://spice-dx5.pages.dev/"></iframe>
       </div>
-      <div class="app-content spice-font">
+      <div class="app-content">
         <h2>Spice DX5</h2>
-        <p class="app-tagline">
-          A clean, scientific flavor‑lab that teaches you how to build taste from the ground up.
-        </p>
-        <p>
-          Spice DX5 breaks cooking down into <strong>pure logic and balance</strong> —  
-          acids, heat, aromatics, blends, and ratios that unlock real creativity.
-        </p>
-        <p>
-          It’s a <strong>free culinary toolkit</strong> that teaches you how to think like a flavor engineer,  
-          not just follow recipes.
-        </p>
+        <p class="app-tagline">A clean, scientific flavor‑lab that teaches you how to build taste from the ground up.</p>
+        <p>Spice DX5 breaks cooking down into <strong>pure logic and balance</strong>.</p>
+        <p>It’s a <strong>free culinary toolkit</strong> that teaches you how to think like a flavor engineer.</p>
 
         <a class="enter-app-btn" href="https://spice-dx5.pages.dev/" target="_blank">ENTER APP</a>
 
@@ -180,22 +224,15 @@
     </article>
 
     <!-- ITA -->
-    <article class="app-card">
+    <article class="app-card ita-font">
       <div class="app-frame-wrap">
         <iframe src="https://ita-3wf.pages.dev/"></iframe>
       </div>
-      <div class="app-content ita-font">
+      <div class="app-content">
         <h2>ITA</h2>
-        <p class="app-tagline">
-          A calm, garden‑inspired personal assistant designed for clarity and peace.
-        </p>
-        <p>
-          ITA feels like a quiet space — <strong>simple, green, and distraction‑free</strong>.  
-          Notes, tasks, reminders, and focus tools arranged like stepping stones in a garden.
-        </p>
-        <p>
-          Everything is clean, soft, and intentional, helping you stay organized without noise or clutter.
-        </p>
+        <p class="app-tagline">A calm, garden‑inspired personal assistant designed for clarity and peace.</p>
+        <p>ITA feels like a quiet space — <strong>simple, green, and distraction‑free</strong>.</p>
+        <p>Everything is clean, soft, and intentional.</p>
 
         <a class="enter-app-btn" href="https://ita-3wf.pages.dev/" target="_blank">ENTER APP</a>
 
@@ -211,22 +248,15 @@
     </article>
 
     <!-- ROLL SHOW -->
-    <article class="app-card">
+    <article class="app-card roll-font">
       <div class="app-frame-wrap">
         <iframe src="https://roll-show.pages.dev/"></iframe>
       </div>
-      <div class="app-content roll-font">
+      <div class="app-content">
         <h2>Roll Show</h2>
-        <p class="app-tagline">
-          A smooth, elegant skating showcase built for performers and creators.
-        </p>
-        <p>
-          Roll Show feels like a <strong>spotlight on a dark stage</strong> — clean whites, flowing lines,  
-          and a graceful layout that highlights movement and performance.
-        </p>
-        <p>
-          It’s built for skaters who want to host shows, sell tickets, and build a brand with style and flow.
-        </p>
+        <p class="app-tagline">A smooth, elegant skating showcase built for performers and creators.</p>
+        <p>Roll Show feels like a <strong>spotlight on a dark stage</strong>.</p>
+        <p>It’s built for skaters who want to host shows, sell tickets, and build a brand.</p>
 
         <a class="enter-app-btn" href="https://roll-show.pages.dev/" target="_blank">ENTER APP</a>
 
@@ -242,22 +272,15 @@
     </article>
 
     <!-- REAL TREE GUY -->
-    <article class="app-card">
+    <article class="app-card tree-font">
       <div class="app-frame-wrap">
         <iframe src="https://realtreeguy.pages.dev/"></iframe>
       </div>
-      <div class="app-content tree-font">
+      <div class="app-content">
         <h2>Real Tree Guy</h2>
-        <p class="app-tagline">
-          A rugged, trustworthy service app built with real outdoor energy.
-        </p>
-        <p>
-          Real Tree Guy feels like <strong>fresh cut wood, steel tools, and clean work</strong>.  
-          Straightforward sections, strong visuals, and a layout built for customers who want clarity fast.
-        </p>
-        <p>
-          It’s a real business app — reliable, honest, and built to help clients book services with confidence.
-        </p>
+        <p class="app-tagline">A rugged, trustworthy service app built with real outdoor energy.</p>
+        <p>Real Tree Guy feels like <strong>fresh cut wood, steel tools, and clean work</strong>.</p>
+        <p>It’s a real business app — reliable, honest, and built for customers.</p>
 
         <a class="enter-app-btn" href="https://realtreeguy.pages.dev/" target="_blank">ENTER APP</a>
 
@@ -278,31 +301,13 @@
   <section class="closing-section">
     <h2>You Won’t Find Custom Work Like This Anywhere Else</h2>
     <p>
-      Every app you see here is <strong>hand‑built, cinematic, and one‑of‑a‑kind</strong>.  
-      No templates. No shortcuts. No generic builders.  
-      This is <strong>real custom software</strong> — the kind you simply won’t find anywhere else in the world.
+      Every app you see here is <strong>hand‑built, cinematic, and one‑of‑a‑kind</strong>.
     </p>
-
     <p style="margin-top: 20px;">
-      If you want your business to stand out, you need a <strong>real website</strong> and a  
-      <strong>real app</strong> — something people remember, something that works fast,  
-      something that feels like a product, not a page.
+      Explore websites: <a href="/pages/sites.html">Go Time Sites</a>
     </p>
-
-    <p style="margin-top: 20px;">
-      Go Time Software makes that attainable.  
-      Clean pricing. Fast delivery. Real ownership.  
-      Your idea becomes a product — not a dream.
-    </p>
-
-    <p style="margin-top: 30px;">
-      Explore websites:  
-      <a href="/pages/sites.html">Go Time Sites</a>
-    </p>
-
     <p>
-      Start your project:  
-      <a href="/pages/contact.html">Contact Go Time</a>
+      Start your project: <a href="/pages/contact.html">Contact Go Time</a>
     </p>
   </section>
 
