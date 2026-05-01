@@ -25,7 +25,7 @@
       max-width: 1100px;
       margin: 0 auto;
       padding: 30px 16px 60px;
-      text-align: center; /* CENTER EVERYTHING */
+      text-align: center;
     }
 
     /* HEADER */
@@ -134,7 +134,7 @@
       margin-bottom: 12px;
     }
 
-    /* DROPDOWN (RESTORED) */
+    /* CLEAN DROPDOWN — NO ARROWS, NO OVERRIDES */
     .frame-desc {
       margin-top: 10px;
       padding: 12px;
@@ -143,12 +143,20 @@
       cursor: pointer;
       font-size: 1rem;
       border: 1px solid #333;
+      text-align: center;
     }
 
     .frame-desc-label {
       font-weight: 700;
       letter-spacing: 0.05em;
       margin-bottom: 6px;
+      display: block;
+    }
+
+    /* NO ::after, NO ICONS, NO AUTO ARROWS */
+    .frame-desc::after,
+    .frame-desc-label::after {
+      content: none !important;
     }
 
     .frame-desc-content {
@@ -164,7 +172,7 @@
       margin-top: 10px;
     }
 
-    /* IOT STRIP — AUTO SCROLLING */
+    /* IOT STRIP */
     .iot-strip-gallery {
       margin-top: 18px;
       overflow: hidden;
@@ -297,7 +305,6 @@
   </main>
 
   <script>
-    // Section reveal
     document.addEventListener("DOMContentLoaded", () => {
       const sections = document.querySelectorAll(".section");
 
@@ -313,7 +320,7 @@
       window.addEventListener("load", revealSections);
       revealSections();
 
-      // DROPDOWN LOGIC RESTORED
+      // CLEAN DROPDOWN — NO TITLE OVERRIDES
       document.querySelectorAll(".frame-desc").forEach(desc => {
         desc.addEventListener("click", () => {
           desc.classList.toggle("open");
