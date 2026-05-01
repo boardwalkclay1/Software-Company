@@ -72,41 +72,38 @@
       transform: translateY(0);
     }
 
-    /* CATEGORY DROPDOWN */
-    .category {
-      margin-top: 30px;
-      background: rgba(0,0,0,0.55);
-      padding: 20px 18px;
-      border-radius: 14px;
-      border: 1px solid #333;
-      box-shadow: 0 0 18px #000;
-    }
-    .category-title {
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .category-title::after {
-      content: "▾";
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
-    .category.open .category-title::after {
-      content: "▴";
-    }
-    .category-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-      margin-top: 10px;
-    }
-    .category.open .category-content {
-      max-height: 400px;
+    .section h2 {
+      margin-bottom: 10px;
     }
 
-    /* PREVIEW CARD + DROPDOWN */
+    .section p {
+      margin-bottom: 10px;
+    }
+
+    /* BUBBLE LINKS */
+    .bubble-links {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .bubble-link {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.35);
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      box-shadow: 0 0 10px #000;
+    }
+    .bubble-link:hover {
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 0 14px rgba(255,255,255,0.4);
+    }
+
+    /* PREVIEW CARD + DESCRIPTION DROPDOWN SHELL */
     .preview-card {
       background: rgba(0,0,0,0.45);
       border: 1px solid #333;
@@ -132,39 +129,35 @@
       cursor: pointer;
       font-size: 0.95rem;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .frame-desc::after {
-      content: "▾";
-      font-size: 0.85rem;
-      opacity: 0.8;
-    }
-    .frame-desc.open::after {
-      content: "▴";
-    }
-    .frame-desc-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-      margin-top: 8px;
-      font-size: 0.9rem;
-      opacity: 0.9;
-    }
-    .frame-desc.open .frame-desc-content {
-      max-height: 260px;
+      flex-direction: column;
+      gap: 6px;
     }
 
-    /* IOT STRIP */
+    .frame-desc-label {
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+    }
+
+    .frame-desc-content {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      /* dropdown behavior will be wired in external JS later */
+      max-height: 260px;
+      overflow: hidden;
+    }
+
+    /* IOT STRIP — AUTO SCROLLING */
     .iot-strip-gallery {
       margin-top: 18px;
-      overflow-x: auto;
+      overflow: hidden;
       padding-bottom: 6px;
     }
     .iot-strip-track {
       display: flex;
       gap: 12px;
       align-items: center;
+      animation: iotScroll 30s linear infinite;
     }
     .iot-strip-track img {
       height: 110px;
@@ -173,6 +166,19 @@
       object-fit: cover;
       flex-shrink: 0;
       box-shadow: 0 0 12px #000;
+    }
+
+    .iot-strip-gallery:hover .iot-strip-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes iotScroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
     }
 
     @media (max-width: 700px) {
@@ -203,39 +209,44 @@
   <main class="page-container">
 
     <!-- WHAT WE BUILD -->
-    <div class="category open">
-      <div class="category-title">What We Build</div>
-      <div class="category-content">
-        <p>
-          Go Time Software creates digital systems that feel physical —  
-          cinematic layouts, modular architecture, and interfaces that feel like they’re carved in stone.
-        </p>
-        <p>
-          Every project is custom. Your idea becomes a product — not a template, not a clone.
-        </p>
-      </div>
-    </div>
+    <section class="section visible">
+      <h2>What We Build</h2>
+      <p>
+        Go Time Software builds real systems — not mockups, not throwaway demos.  
+        Every site, app, and IoT build is wired like a product you can actually use.
+      </p>
+      <p>
+        We focus on cinematic layouts, modular architecture, and interfaces that feel physical and carved in stone.
+      </p>
+    </section>
 
     <!-- WEBSITES -->
     <section class="section">
       <h2>Websites</h2>
+      <p>
+        We build custom websites that are fast, cinematic, and ready for real traffic.  
+        No drag‑and‑drop builders — everything is structured so it can grow with your business.
+      </p>
+
+      <div class="bubble-links">
+        <a class="bubble-link" href="/pages/sites.html">More Websites</a>
+      </div>
 
       <div class="preview-card">
         <iframe src="https://comic-lct.pages.dev/"></iframe>
         <h3>Comic Universe — Live Website</h3>
 
-        <a class="nav-btn" href="https://comic-lct.pages.dev/" target="_blank">
-          Enter Website
+        <a class="bubble-link" href="https://comic-lct.pages.dev/" target="_blank">
+          Open Live Website
         </a>
 
         <div class="frame-desc">
-          Full Description
+          <div class="frame-desc-label">DESCRIPTION</div>
           <div class="frame-desc-content">
             <p>
-              Comic Universe is a fully functional, live website featuring  
-              cinematic UI, animated panels, modular architecture,  
-              and a polished stone‑etched interface.  
-              It’s a real, production‑ready build you can explore freely.
+              Comic Universe is a fully functional, live website with animated panels,  
+              modular sections, and a stone‑etched cinematic UI.  
+              This is a real production‑style build you can click through and explore.
             </p>
           </div>
         </div>
@@ -245,23 +256,30 @@
     <!-- APPS -->
     <section class="section">
       <h2>Apps</h2>
+      <p>
+        Our apps are built like systems, not prototypes — real logic, real state, real flows.  
+        You can open them, use them, and feel how the UI and data actually behave.
+      </p>
+
+      <div class="bubble-links">
+        <a class="bubble-link" href="/pages/apps.html">More Apps</a>
+      </div>
 
       <div class="preview-card">
         <iframe src="https://the-guild-855.pages.dev/"></iframe>
         <h3>The Guild — Live App</h3>
 
-        <a class="nav-btn" href="https://the-guild-855.pages.dev/" target="_blank">
-          Enter App
+        <a class="bubble-link" href="https://the-guild-855.pages.dev/" target="_blank">
+          Open Live App
         </a>
 
         <div class="frame-desc">
-          Full Description
+          <div class="frame-desc-label">DESCRIPTION</div>
           <div class="frame-desc-content">
             <p>
-              The Guild is a real, interactive application with  
-              character systems, inventory, progression, UI logic,  
-              and a fully modular backend.  
-              This is not a demo — it is a complete, explorable app.
+              The Guild is a live, interactive app with character systems, inventory,  
+              progression, and modular UI logic.  
+              It’s a real app you can explore — not a static concept screen.
             </p>
           </div>
         </div>
@@ -272,12 +290,19 @@
     <section class="section">
       <h2>IoT Systems & Automation</h2>
       <p>
-        IoT lets you connect the physical world to your software — motion, vibration, light, sound, and more.  
-        From security to automation to monitoring, we build systems that react to the real world.
+        IoT connects your software to the physical world — motion, vibration, light, sound, and more.  
+        We design systems that can monitor, react, and automate based on real‑world signals.
       </p>
 
       <div class="iot-strip-gallery">
         <div class="iot-strip-track">
+          <img src="/assets/img/broke-top.jpg" alt="Electronics" />
+          <img src="/assets/img/broken-electronics.png" alt="Broken electronics" />
+          <img src="/assets/img/red-chip.png" alt="Red chip" />
+          <img src="/assets/img/solder.png" alt="Soldering" />
+          <img src="/assets/img/white-chip.png" alt="White chip" />
+          <img src="/assets/img/woodchip.png" alt="Wood chip" />
+          <!-- duplicate set for seamless scroll -->
           <img src="/assets/img/broke-top.jpg" alt="Electronics" />
           <img src="/assets/img/broken-electronics.png" alt="Broken electronics" />
           <img src="/assets/img/red-chip.png" alt="Red chip" />
@@ -291,9 +316,10 @@
   </main>
 
   <script>
-    // Section reveal
+    // Only keep section reveal — dropdown logic will live in external JS later
     document.addEventListener("DOMContentLoaded", () => {
       const sections = document.querySelectorAll(".section");
+
       function revealSections() {
         const trigger = window.innerHeight * 0.85;
         sections.forEach(sec => {
@@ -301,24 +327,10 @@
           if (top < trigger) sec.classList.add("visible");
         });
       }
+
       window.addEventListener("scroll", revealSections);
       window.addEventListener("load", revealSections);
       revealSections();
-
-      // Category dropdown
-      document.querySelectorAll(".category-title").forEach(title => {
-        title.addEventListener("click", () => {
-          const parent = title.parentElement;
-          if (parent) parent.classList.toggle("open");
-        });
-      });
-
-      // Frame description dropdowns
-      document.querySelectorAll(".frame-desc").forEach(desc => {
-        desc.addEventListener("click", () => {
-          desc.classList.toggle("open");
-        });
-      });
     });
   </script>
 
