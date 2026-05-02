@@ -4,6 +4,9 @@
 body.theme-dark {
   background: url("/assets/img/go-time-town.jpg") no-repeat center center fixed;
   background-size: cover;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #e3e3e3;
+  text-shadow: 0 0 4px rgba(0,0,0,0.9);
 }
 
 body.theme-dark::before {
@@ -41,7 +44,8 @@ body.theme-dark::before {
 .logo-text {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #fff;
+  color: #f2f2f2;
+  text-shadow: 0 0 6px rgba(0,0,0,0.9);
 }
 
 .main-nav {
@@ -50,10 +54,11 @@ body.theme-dark::before {
 }
 
 .main-nav a {
-  color: #fff;
+  color: #e6e6e6;
   text-decoration: none;
   font-weight: 600;
   opacity: 0.9;
+  text-shadow: 0 0 4px rgba(0,0,0,0.9);
 }
 
 .main-nav a:hover {
@@ -72,15 +77,17 @@ body.theme-dark::before {
 .page-header h1 {
   font-size: 46px;
   margin-bottom: 10px;
-  color: #fff;
+  color: #f5f5f5;
+  text-shadow: 0 0 8px rgba(0,0,0,1);
 }
 
 .page-header p {
   font-size: 20px;
-  opacity: 0.9;
+  opacity: 0.95;
   max-width: 800px;
   margin: 0 auto;
-  color: #fff;
+  color: #dedede;
+  text-shadow: 0 0 5px rgba(0,0,0,0.9);
 }
 
 /* ============================================================
@@ -143,22 +150,25 @@ body.theme-dark::before {
 .app-content h2 {
   font-size: 30px;
   margin-bottom: 6px;
-  color: #fff;
+  color: #f0f0f0;
+  text-shadow: 0 0 7px rgba(0,0,0,1);
 }
 
 .app-tagline {
   font-size: 18px;
-  opacity: 0.9;
+  opacity: 0.95;
   margin-bottom: 14px;
-  color: #fff;
+  color: #e5e5e5;
+  text-shadow: 0 0 5px rgba(0,0,0,0.9);
 }
 
 .app-content p {
   font-size: 16px;
   line-height: 1.7;
-  opacity: 0.95;
+  opacity: 0.96;
   margin-bottom: 12px;
-  color: #fff;
+  color: #dcdcdc;
+  text-shadow: 0 0 4px rgba(0,0,0,0.9);
 }
 
 /* ============================================================
@@ -181,12 +191,14 @@ body.theme-dark::before {
 .guild-title {
   font-family: "MedievalSharp", cursive;
   color: #e6c15a;
+  text-shadow: 0 0 8px rgba(0,0,0,1);
 }
 
 .guild-btn {
   background: #b38b2a;
-  color: #000;
+  color: #111;
   border: 2px solid #e6c15a;
+  text-shadow: 0 0 4px rgba(0,0,0,0.9);
 }
 
 .guild-btn:hover {
@@ -198,19 +210,22 @@ body.theme-dark::before {
 ============================================================ */
 .roll-title {
   font-size: 42px;
-  color: #fff;
+  color: #fdfdfd;
+  text-shadow: 0 0 10px rgba(0,0,0,1);
 }
 
 .roll-cursive {
   font-family: "Pacifico", cursive;
   color: #ffffff;
+  text-shadow: 0 0 8px rgba(0,0,0,1);
 }
 
 .rollshow-btn {
   background: #ffffff;
   color: #000;
   border: 2px solid #fff;
-  box-shadow: 0 0 14px #ffffff;
+  box-shadow: 0 0 14px #ffffffaa;
+  text-shadow: none;
 }
 
 .rollshow-btn:hover {
@@ -222,17 +237,20 @@ body.theme-dark::before {
 ============================================================ */
 .rtg-title {
   color: #ffbb66;
+  text-shadow: 0 0 7px rgba(0,0,0,1);
 }
 
 .rtg-orange {
   color: #ffbb66;
   font-weight: 700;
+  text-shadow: 0 0 6px rgba(0,0,0,1);
 }
 
 .rtg-btn {
   background: #2ecc71;
   color: #ffbb66;
   border: 2px solid #ffbb66;
+  text-shadow: 0 0 4px rgba(0,0,0,0.9);
 }
 
 .rtg-btn:hover {
@@ -254,10 +272,11 @@ body.theme-dark::before {
   background: #ffffff22;
   border: 1px solid #ffffff55;
   border-radius: 10px;
-  color: #fff;
+  color: #f0f0f0;
   text-decoration: none;
   font-weight: 600;
   transition: 0.2s;
+  text-shadow: 0 0 5px rgba(0,0,0,1);
 }
 
 .extra-btn:hover {
@@ -270,7 +289,8 @@ body.theme-dark::before {
 .site-footer {
   text-align: center;
   padding: 20px;
-  opacity: 0.8;
+  opacity: 0.85;
   margin-top: 40px;
-  color: #fff;
+  color: #e5e5e5;
+  text-shadow: 0 0 5px rgba(0,0,0,1);
 }
