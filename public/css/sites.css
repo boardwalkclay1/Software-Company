@@ -20,7 +20,7 @@ body.theme-dark::before {
 }
 
 /* ============================================================
-   STONE GLOW TEXT (APPLIED TO ALL TEXT)
+   LIGHT STONE GLOW (GLOBAL TEXT STYLE)
 ============================================================ */
 .stone-text,
 .page-header h1,
@@ -32,8 +32,8 @@ body.theme-dark::before {
 .site-footer span,
 .main-nav a,
 .logo span {
-  color: #e8e8e8 !important;
-  text-shadow: 0 0 6px rgba(255,255,255,0.25), 0 0 10px rgba(0,0,0,0.9);
+  color: #e8e8e8;
+  text-shadow: 0 0 4px rgba(255,255,255,0.18), 0 0 8px rgba(0,0,0,0.9);
   letter-spacing: 0.3px;
 }
 
@@ -241,6 +241,11 @@ body.theme-dark::before {
 
 .cooking-btn:hover {
   filter: brightness(1.1);
+}
+
+@keyframes codeReveal {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 /* ============================================================
