@@ -58,7 +58,6 @@ body.theme-dark::before {
   text-decoration: none;
   font-weight: 600;
   opacity: 0.9;
-  text-shadow: 0 0 4px rgba(0,0,0,0.9);
 }
 
 .main-nav a:hover {
@@ -78,7 +77,6 @@ body.theme-dark::before {
   font-size: 46px;
   margin-bottom: 10px;
   color: #f5f5f5;
-  text-shadow: 0 0 8px rgba(0,0,0,1);
 }
 
 .page-header p {
@@ -86,12 +84,10 @@ body.theme-dark::before {
   opacity: 0.95;
   max-width: 800px;
   margin: 0 auto;
-  color: #dedede;
-  text-shadow: 0 0 5px rgba(0,0,0,0.9);
 }
 
 /* ============================================================
-   APPS GRID (FULL WIDTH CARDS)
+   APPS GRID
 ============================================================ */
 .apps-grid {
   max-width: 900px;
@@ -151,15 +147,12 @@ body.theme-dark::before {
   font-size: 30px;
   margin-bottom: 6px;
   color: #f0f0f0;
-  text-shadow: 0 0 7px rgba(0,0,0,1);
 }
 
 .app-tagline {
   font-size: 18px;
   opacity: 0.95;
   margin-bottom: 14px;
-  color: #e5e5e5;
-  text-shadow: 0 0 5px rgba(0,0,0,0.9);
 }
 
 .app-content p {
@@ -167,8 +160,6 @@ body.theme-dark::before {
   line-height: 1.7;
   opacity: 0.96;
   margin-bottom: 12px;
-  color: #dcdcdc;
-  text-shadow: 0 0 4px rgba(0,0,0,0.9);
 }
 
 /* ============================================================
@@ -186,9 +177,11 @@ body.theme-dark::before {
 }
 
 /* ============================================================
-   GUILD THEME
+   GUILD THEME — GOLD MEDIEVAL
 ============================================================ */
-.guild-title {
+.guild h2,
+.guild .app-tagline,
+.guild p {
   font-family: "MedievalSharp", cursive;
   color: #e6c15a;
   text-shadow: 0 0 8px rgba(0,0,0,1);
@@ -198,7 +191,6 @@ body.theme-dark::before {
   background: #b38b2a;
   color: #111;
   border: 2px solid #e6c15a;
-  text-shadow: 0 0 4px rgba(0,0,0,0.9);
 }
 
 .guild-btn:hover {
@@ -206,18 +198,18 @@ body.theme-dark::before {
 }
 
 /* ============================================================
-   ROLL SHOW THEME
+   ROLL SHOW THEME — GLOWING WHITE + BLACK SKATE
 ============================================================ */
 .roll-title {
   font-size: 42px;
-  color: #fdfdfd;
-  text-shadow: 0 0 10px rgba(0,0,0,1);
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(255,255,255,0.9);
 }
 
 .roll-cursive {
   font-family: "Pacifico", cursive;
   color: #ffffff;
-  text-shadow: 0 0 8px rgba(0,0,0,1);
+  text-shadow: 0 0 10px rgba(255,255,255,1);
 }
 
 .rollshow-btn {
@@ -225,7 +217,6 @@ body.theme-dark::before {
   color: #000;
   border: 2px solid #fff;
   box-shadow: 0 0 14px #ffffffaa;
-  text-shadow: none;
 }
 
 .rollshow-btn:hover {
@@ -233,54 +224,24 @@ body.theme-dark::before {
 }
 
 /* ============================================================
-   REAL TREE GUY THEME
+   REAL TREE GUY — DARK ORANGE TEXT + DARK GREEN BUTTON
 ============================================================ */
-.rtg-title {
-  color: #ffbb66;
-  text-shadow: 0 0 7px rgba(0,0,0,1);
-}
-
-.rtg-orange {
-  color: #ffbb66;
+.rtg-title,
+.rtg .app-tagline,
+.rtg p {
+  color: #d97a1c; /* dark orange */
   font-weight: 700;
   text-shadow: 0 0 6px rgba(0,0,0,1);
 }
 
 .rtg-btn {
-  background: #2ecc71;
-  color: #ffbb66;
-  border: 2px solid #ffbb66;
-  text-shadow: 0 0 4px rgba(0,0,0,0.9);
+  background: #1f6b32; /* dark green */
+  color: #d97a1c;       /* dark orange text */
+  border: 2px solid #d97a1c;
 }
 
 .rtg-btn:hover {
   filter: brightness(1.15);
-}
-
-/* ============================================================
-   EXTRA LINKS (TOOLS + WIDGETS)
-============================================================ */
-.extra-links {
-  text-align: center;
-  margin-top: 60px;
-}
-
-.extra-btn {
-  display: inline-block;
-  margin: 10px;
-  padding: 12px 20px;
-  background: #ffffff22;
-  border: 1px solid #ffffff55;
-  border-radius: 10px;
-  color: #f0f0f0;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.2s;
-  text-shadow: 0 0 5px rgba(0,0,0,1);
-}
-
-.extra-btn:hover {
-  background: #ffffff44;
 }
 
 /* ============================================================
@@ -292,5 +253,4 @@ body.theme-dark::before {
   opacity: 0.85;
   margin-top: 40px;
   color: #e5e5e5;
-  text-shadow: 0 0 5px rgba(0,0,0,1);
 }
