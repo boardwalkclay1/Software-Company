@@ -12,6 +12,8 @@
 
   <!-- HEADER -->
   <header class="site-header">
+
+    <!-- LEFT: LOGO + TEXT -->
     <div class="logo-block">
       <img src="/assets/img/go-time-logo.png" class="logo-img" />
       <div class="logo-text-block">
@@ -21,11 +23,18 @@
       </div>
     </div>
 
+    <!-- BURGER MENU -->
+    <div class="burger">
+      <div></div><div></div><div></div>
+    </div>
+
+    <!-- CENTERED NAV -->
     <nav class="main-nav">
       <a class="nav-btn" href="/pages/sites.html">Sites</a>
       <a class="nav-btn" href="/pages/apps.html">Apps</a>
       <a class="nav-btn" href="/pages/contact.html">Contact</a>
     </nav>
+
   </header>
 
   <main class="page-container">
@@ -52,26 +61,27 @@
 
         <a class="bubble-link" href="https://comic-lct.pages.dev/" target="_blank">Open Live Website</a>
 
-        <!-- DROPDOWN -->
+        <!-- BIG DROPDOWN -->
         <div class="frame-desc">
           <div class="frame-desc-label">DESCRIPTION</div>
           <div class="frame-desc-content">
             <p>
-              Comic Universe is the world’s first **fully interactive comic platform** —  
+              Comic Universe is the world’s first <strong>fully interactive comic platform</strong> —  
               built from scratch by Boardwalk Clay and Go Time Software.
             </p>
             <p>
               This isn’t a normal comic site.  
-              It’s a **complete universe** with:
-            </p>
-            <p>• Cinematic comics  
-               • Short films  
-               • Interactive comics  
-               • Audio books  
-               • A connected storyline across multiple mediums  
+              It’s a <strong>complete universe</strong> with:
             </p>
             <p>
-              As a comic book writer, you built a platform that **no one else has ever done** —  
+              • Cinematic comics<br>
+              • Short films<br>
+              • Interactive comics<br>
+              • Audio books<br>
+              • A connected storyline across multiple mediums
+            </p>
+            <p>
+              As a comic book writer, you built a platform that <strong>no one else has ever done</strong> —  
               a living universe where every story, character, and world connects.
             </p>
             <p>
@@ -97,33 +107,33 @@
 
         <a class="bubble-link" href="https://the-guild-855.pages.dev/" target="_blank">Open Live App</a>
 
-        <!-- DROPDOWN -->
+        <!-- BIG DROPDOWN -->
         <div class="frame-desc">
           <div class="frame-desc-label">DESCRIPTION</div>
           <div class="frame-desc-content">
             <p>
-              The Guild is a **trading education app** built inside a creative medieval storyline.
+              The Guild is a <strong>trading education app</strong> built inside a creative medieval storyline.
             </p>
             <p>
-              It teaches **options trading, discipline, strategy, and long‑term thinking**  
+              It teaches <strong>options trading, discipline, strategy, and long‑term thinking</strong>  
               through a world of guilds, ranks, scrolls, and ancient knowledge.
             </p>
             <p>
-              The Guild is also connected to the **Comic Universe** —  
+              The Guild is also connected to the <strong>Comic Universe</strong> —  
               characters, lore, and events overlap between the app and the comics.
             </p>
             <p>
               Inside the app, users can:
             </p>
             <p>
-              • Learn options trading  
-              • Follow structured lessons  
-              • Unlock ranks and achievements  
-              • Explore lore tied to the Comic Universe  
-              • Access the Comic Universe repo  
+              • Learn options trading<br>
+              • Follow structured lessons<br>
+              • Unlock ranks and achievements<br>
+              • Explore lore tied to the Comic Universe<br>
+              • Access the Comic Universe repo
             </p>
             <p>
-              It’s a **real educational system** wrapped in a cinematic world.
+              It’s a <strong>real educational system</strong> wrapped in a cinematic world.
             </p>
           </div>
         </div>
@@ -155,6 +165,7 @@
 
   </main>
 
+  <!-- SCRIPTS -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
 
@@ -177,6 +188,16 @@
           desc.classList.toggle("open");
         });
       });
+
+      /* BURGER MENU */
+      const burger = document.querySelector(".burger");
+      const nav = document.querySelector(".main-nav");
+
+      burger.addEventListener("click", () => {
+        nav.classList.toggle("nav-open");
+        burger.classList.toggle("open");
+      });
+
     });
   </script>
 
