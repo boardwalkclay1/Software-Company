@@ -1,11 +1,13 @@
 /* ============================================================
-   GLOBAL BACKGROUND
+   GLOBAL BACKGROUND + BASE TYPOGRAPHY
 ============================================================ */
 body.theme-dark {
   background: url("/assets/img/go-time-new-york.jpg") no-repeat center center fixed;
   background-size: cover;
-  color: #fff;
-  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #e3e3e3;
 }
 
 body.theme-dark::before {
@@ -18,9 +20,25 @@ body.theme-dark::before {
 }
 
 /* ============================================================
+   PAGE SHELL
+============================================================ */
+.page-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 16px 60px;
+}
+
+/* ============================================================
    STONE GLOW TEXT
 ============================================================ */
-.stone-text {
+.stone-text,
+.page-header h1,
+.page-header p,
+.template-live-card h3,
+.template-live-card .template-desc p,
+.section-block h2,
+.section-block p,
+.site-footer span {
   color: #e8e8e8;
   text-shadow: 0 0 6px rgba(255,255,255,0.25);
 }
@@ -32,16 +50,38 @@ body.theme-dark::before {
   display: flex;
   align-items: center;
   padding: 16px 0;
+  margin-bottom: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .logo-img {
   width: 55px;
   height: 55px;
+  object-fit: contain;
+}
+
+.burger {
+  margin-left: auto;
   margin-right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.burger div {
+  width: 20px;
+  height: 2px;
+  background: #f5f5f5;
+  border-radius: 2px;
 }
 
 .main-nav {
-  margin-left: auto;
   display: flex;
   gap: 20px;
 }
@@ -52,6 +92,7 @@ body.theme-dark::before {
   font-weight: 600;
   padding: 6px 10px;
   border-radius: 6px;
+  transition: 0.2s;
 }
 
 .main-nav a:hover,
@@ -59,23 +100,56 @@ body.theme-dark::before {
   background: rgba(255,255,255,0.15);
 }
 
+/* Mobile nav (optional, non-breaking) */
+@media (max-width: 800px) {
+  .main-nav {
+    display: none;
+  }
+}
+
+/* ============================================================
+   PAGE HEADER
+============================================================ */
+.page-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.page-header h1 {
+  margin: 0 0 10px;
+  font-size: 2.2rem;
+}
+
+.page-header p {
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
 /* ============================================================
    GRID
 ============================================================ */
 .template-live-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 26px;
+  width: 100%;
 }
 
-@media(max-width: 850px) {
+@media (max-width: 1050px) {
+  .template-live-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 750px) {
   .template-live-grid {
     grid-template-columns: 1fr;
   }
 }
 
 /* ============================================================
-   TEMPLATE CARD
+   TEMPLATE CARD BASE
 ============================================================ */
 .template-live-card {
   background: rgba(0,0,0,0.55);
@@ -83,6 +157,7 @@ body.theme-dark::before {
   padding: 18px;
   border: 1px solid rgba(255,255,255,0.1);
   box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  overflow: hidden;
 }
 
 .template-live-card iframe {
@@ -91,40 +166,186 @@ body.theme-dark::before {
   border-radius: 12px;
   border: none;
   background: #000;
+  margin-bottom: 12px;
+}
+
+.template-live-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.3rem;
+}
+
+.template-desc p {
+  margin: 4px 0;
+  font-size: 0.95rem;
 }
 
 /* ============================================================
-   BUTTON
+   BUTTON BASE
 ============================================================ */
 .enter-site-btn {
   display: inline-block;
   margin-top: 12px;
   padding: 10px 16px;
-  font-weight: bold;
-  text-decoration: none;
   border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: 0.2s;
 }
 
 /* ============================================================
-   COMIC THEME
+   PRICE BASE
 ============================================================ */
-.comic-title { color: #4aa8ff; text-shadow: 0 0 10px #0044ff; }
-.comic-price { color: #ffdd33; }
-.comic-btn { background: #ffdd33; color: #000; }
+.price {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
 
 /* ============================================================
-   COOKING GAME THEME
+   COMIC WEBSITE THEME (CARD 1)
 ============================================================ */
-.cooking-title { color: #ff9966; text-shadow: 0 0 10px #ff5500; }
-.cooking-price { color: #ff9966; }
-.cooking-btn { background: #ff9966; color: #000; }
+.comic-card .comic-title {
+  color: #4aa8ff;
+  text-shadow: 0 0 10px #0044ff;
+  animation: comicPop 0.6s ease-out;
+}
+
+.comic-card .comic-desc p strong {
+  color: #ffdd33;
+}
+
+.comic-price {
+  color: #ffdd33;
+}
+
+.comic-btn {
+  background: #ffdd33;
+  color: #000;
+  box-shadow: 0 0 10px #ffdd33aa;
+}
+
+.comic-btn:hover {
+  filter: brightness(1.1);
+}
+
+/* Comic pop animation */
+@keyframes comicPop {
+  0% {
+    transform: scale(0.7) rotate(-4deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05) rotate(1deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
 
 /* ============================================================
-   ROLL N CONNECT THEME
+   THE CODE THEME (CARD 2 – USING COOKING CLASSES)
 ============================================================ */
-.roll-title { color: #ffffff; text-shadow: 0 0 14px #ffffff; }
-.roll-price { color: #ffffff; }
-.roll-btn { background: #ffffff; color: #000; box-shadow: 0 0 14px #ffffffaa; }
+/* Treat cooking-card as THE CODE visually */
+.cooking-card .cooking-title {
+  color: #00ff88;
+  text-shadow: 0 0 12px #00ff88;
+  letter-spacing: 0.04em;
+  animation: codeReveal 1s ease-out;
+}
+
+/* Matrix-style description animation */
+.cooking-card .cooking-desc {
+  position: relative;
+  overflow: hidden;
+}
+
+.cooking-card .cooking-desc p {
+  position: relative;
+  animation: codeLines 1.1s ease-out forwards;
+  opacity: 0;
+}
+
+.cooking-card .cooking-desc p:nth-child(1) { animation-delay: 0.1s; }
+.cooking-card .cooking-desc p:nth-child(2) { animation-delay: 0.25s; }
+.cooking-card .cooking-desc p:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes codeLines {
+  0% {
+    opacity: 0;
+    transform: translateY(-12px);
+    text-shadow: 0 0 0 rgba(0,255,136,0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    text-shadow: 0 0 10px rgba(0,255,136,0.7);
+  }
+}
+
+@keyframes codeReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cooking-price {
+  color: #00ff88;
+}
+
+.cooking-btn {
+  background: #00ff88;
+  color: #000;
+  box-shadow: 0 0 12px #00ff88aa;
+}
+
+.cooking-btn:hover {
+  filter: brightness(1.1);
+}
+
+/* ============================================================
+   ROLL N CONNECT THEME (CARD 3)
+============================================================ */
+.roll-card .roll-title {
+  color: #ffffff;
+  text-shadow: 0 0 14px #ffffff;
+  animation: rollBounce 0.9s ease-out;
+}
+
+.roll-price {
+  color: #ffffff;
+}
+
+.roll-btn {
+  background: #ffffff;
+  color: #000;
+  box-shadow: 0 0 14px #ffffffaa;
+}
+
+.roll-btn:hover {
+  filter: brightness(1.05);
+}
+
+/* Bubble / bounce animation */
+@keyframes rollBounce {
+  0% {
+    transform: translateY(-30px) scale(0.7);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(8px) scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
 
 /* ============================================================
    SECTION BLOCKS
@@ -138,16 +359,50 @@ body.theme-dark::before {
   box-shadow: 0 8px 25px rgba(0,0,0,0.5);
 }
 
+.section-block h2 {
+  margin-top: 0;
+  font-size: 1.6rem;
+}
+
+.section-block p {
+  line-height: 1.6;
+}
+
+/* Buttons inside section blocks */
+.custom-btn {
+  background: #ffb347;
+  color: #000;
+  box-shadow: 0 0 10px #ffb347aa;
+}
+
+.custom-btn:hover {
+  filter: brightness(1.1);
+}
+
+.code-btn {
+  background: #00ff88;
+  color: #000;
+  box-shadow: 0 0 10px #00ff88aa;
+}
+
+.code-btn:hover {
+  filter: brightness(1.1);
+}
+
+/* Guild iframe */
 .guild-iframe {
   width: 100%;
   height: 500px;
   border-radius: 16px;
   border: none;
   background: #000;
+  margin: 18px 0;
 }
 
-@media(max-width: 600px) {
-  .guild-iframe { height: 360px; }
+@media (max-width: 600px) {
+  .guild-iframe {
+    height: 360px;
+  }
 }
 
 /* ============================================================
