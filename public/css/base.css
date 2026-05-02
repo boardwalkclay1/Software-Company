@@ -1,6 +1,5 @@
 /* ============================================================
-   GO TIME SOFTWARE — GLOWING STONE BRICK UI (FINAL WORKING BUILD)
-   Stone color • Stone glow outline • Constant welding line
+   GO TIME SOFTWARE — GLOWING STONE BRICK UI (FIXED MEDIA VERSION)
 ============================================================ */
 
 /* RESET */
@@ -14,6 +13,7 @@
 
 html, body {
   height: 100%;
+  overflow-x: hidden;
 }
 
 /* ============================================================
@@ -25,32 +25,28 @@ html, body {
   --stone-dark: #6b6458;
   --stone-deep: #2e2a26;
 
-  /* HALF BRIGHTNESS GLOW */
   --stone-glow: rgba(255,255,255,0.28);
 
   --panel-bg: rgba(0,0,0,0.45);
   --panel-border: #4a3a32;
-
-  --pcb-red: url("/assets/img/red-chip.png");
 }
 
 /* ============================================================
-   GLOBAL BODY — FIXED BACKGROUND (NO MOVEMENT)
+   GLOBAL BODY — FIXED BACKGROUND
 ============================================================ */
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: #000;
   background-attachment: fixed !important;
   background-position: center center !important;
-  overflow-x: hidden;
-  overflow-y: auto;
+  background-size: cover !important;
   line-height: 1.55;
 }
 
 /* ============================================================
-   GLOBAL TEXT — STONE BRICK + OUTER GLOW (HALF BRIGHTNESS)
+   TEXT GLOW — APPLIED ONLY TO TEXT ELEMENTS
 ============================================================ */
-body, p, li, a, span,
+p, li, a, span,
 h1, h2, h3, h4, h5, h6,
 button, .logo, .cta-btn {
   font-size: 1.2rem;
@@ -65,42 +61,10 @@ button, .logo, .cta-btn {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 
-  /* HALF BRIGHTNESS OUTER GLOW */
   filter: drop-shadow(0 0 3px var(--stone-glow))
           drop-shadow(0 0 6px var(--stone-glow));
-}
 
-/* Headings — bigger + deeper glow */
-h1 { font-size: 3.2rem; }
-h2 { font-size: 2.4rem; }
-h3 { font-size: 1.8rem; }
-
-/* ============================================================
-   RESPONSIVE TEXT FOR MOBILE
-============================================================ */
-@media (max-width: 600px) {
-  body, p, li, a, span {
-    font-size: 1.35rem;
-  }
-  h1 { font-size: 2.6rem; }
-  h2 { font-size: 2rem; }
-  h3 { font-size: 1.5rem; }
-}
-
-/* ============================================================
-   CONSTANT WELDING LINE — NO FADING
-============================================================ */
-@keyframes weldLineConstant {
-  0%   { background-position: -200% 100%; }
-  50%  { background-position: 200% 100%; }
-  100% { background-position: -200% 100%; }
-}
-
-body, p, li, a, span,
-h1, h2, h3, h4, h5, h6,
-button, .logo, .cta-btn {
   animation: weldLineConstant 6s linear infinite;
-
   background-image:
     linear-gradient(
       180deg,
@@ -114,43 +78,53 @@ button, .logo, .cta-btn {
       rgba(255,0,0,1) 50%,
       transparent 100%
     );
-
   background-size: 100% 100%, 200% 2px;
   background-repeat: no-repeat;
   background-position: center bottom, -200% 100%;
 }
 
 /* ============================================================
-   OPTIONAL PCB CHIP EFFECT
+   DO NOT APPLY GLOW OR CLIPPING TO MEDIA
 ============================================================ */
-.pcb {
-  background-image:
-    linear-gradient(
-      180deg,
-      var(--stone-light),
-      var(--stone-mid),
-      var(--stone-dark)
-    ),
-    var(--pcb-red);
-  background-size: 100% 100%, 300px;
-  background-blend-mode: screen;
+img, iframe, video, canvas {
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background: none !important;
+  animation: none !important;
+  filter: none !important;
+  box-shadow: none !important;
 }
 
 /* ============================================================
-   FIX LOGO SIZE (PERMANENT)
+   RESPONSIVE TEXT
+============================================================ */
+@media (max-width: 600px) {
+  p, li, a, span { font-size: 1.35rem; }
+  h1 { font-size: 2.6rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+}
+
+/* ============================================================
+   WELDING LINE ANIMATION
+============================================================ */
+@keyframes weldLineConstant {
+  0%   { background-position: -200% 100%; }
+  50%  { background-position: 200% 100%; }
+  100% { background-position: -200% 100%; }
+}
+
+/* ============================================================
+   FIX LOGO SIZE
 ============================================================ */
 .logo-img {
   height: 38px !important;
   width: auto !important;
-  background: none !important;
-  -webkit-background-clip: unset !important;
-  -webkit-text-fill-color: unset !important;
-  animation: none !important;
   filter: drop-shadow(0 0 6px rgba(255,255,255,0.25));
 }
 
 /* ============================================================
-   FIX NAV LINKS ALWAYS VISIBLE
+   NAV LINKS ALWAYS VISIBLE
 ============================================================ */
 .main-nav a {
   background: none !important;
@@ -166,57 +140,36 @@ button, .logo, .cta-btn {
 }
 
 /* ============================================================
-   FIX CATEGORY TITLES (THEY MUST ALWAYS SHOW)
+   SCROLLING IMAGE STRIP — FIXED
 ============================================================ */
-.category-title {
-  -webkit-text-fill-color: #f4efe6 !important;
-  color: #f4efe6 !important;
-  background: none !important;
-  filter: drop-shadow(0 0 4px rgba(255,255,255,0.25));
-}
-
-/* ============================================================
-   DROPDOWN DESCRIPTIONS (NON-IFRAME SECTIONS)
-============================================================ */
-.category {
-  margin-top: 40px;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-.category-title {
-  font-size: 28px;
-  font-weight: 900;
-  cursor: pointer;
-  padding: 18px;
-  border: 1px solid var(--panel-border);
-  border-radius: 12px;
-  background: rgba(0,0,0,0.45);
-  box-shadow: 0 0 14px #000;
-  transition: 0.3s ease;
-}
-
-.category-title:hover {
-  box-shadow: 0 0 12px var(--stone-glow);
-}
-
-.category-content {
-  max-height: 0;
+.iot-strip-gallery {
+  margin-top: 18px;
   overflow: hidden;
-  padding: 0 20px;
-  transition: max-height 0.5s ease;
+  padding-bottom: 6px;
 }
 
-.category.open .category-content {
-  max-height: 500px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+.iot-strip-track {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  animation: iotScroll 30s linear infinite;
+}
+
+.iot-strip-track img {
+  height: 110px;
+  width: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+@keyframes iotScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* ============================================================
-   IFRAMES — ALWAYS VISIBLE + DROPDOWN DESCRIPTION
+   PREVIEW CARDS
 ============================================================ */
 .preview-card {
   background: var(--panel-bg);
@@ -233,101 +186,4 @@ button, .logo, .cta-btn {
   border-radius: 12px;
   border: none;
   background: #000;
-}
-
-.frame-desc {
-  margin-top: 12px;
-  cursor: pointer;
-  padding: 12px;
-  border: 1px solid var(--panel-border);
-  border-radius: 10px;
-  background: rgba(0,0,0,0.35);
-  transition: 0.3s ease;
-}
-
-.frame-desc:hover {
-  box-shadow: 0 0 12px var(--stone-glow);
-}
-
-.frame-desc-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease;
-}
-
-.frame-desc.open .frame-desc-content {
-  max-height: 300px;
-  padding-top: 12px;
-}
-
-/* ============================================================
-   UTIL
-============================================================ */
-.hidden {
-  display: none;
-}
-
-/* ============================================================
-   HEADER LAYOUT — LOGO + TITLE SIDE BY SIDE
-   [logo] GO
-   [logo] TIME
-          Software Development
-============================================================ */
-
-/* Header container */
-.site-header {
-  display: flex;
-  align-items: center;
-  padding: 16px 20px;
-  background: rgba(0,0,0,0.7);
-  border-bottom: 1px solid #333;
-}
-
-/* Wrap logo + text together */
-.logo-block {
-  display: flex;
-  align-items: center;
-}
-
-/* Ensure logo and text are on same row */
-.site-header .logo-img {
-  margin-right: 10px;
-}
-
-/* Text block to the right of the logo */
-.logo-text-block {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: left;
-  line-height: 1.05;
-}
-
-/* First line: GO */
-.logo-line-top {
-  font-size: 1.9rem;
-  font-weight: 900;
-  letter-spacing: 1px;
-}
-
-/* Second line: TIME */
-.logo-line-mid {
-  font-size: 1.9rem;
-  font-weight: 900;
-  letter-spacing: 1px;
-}
-
-/* Third line: Software Development */
-.logo-sub {
-  font-size: 1rem;
-  font-weight: 600;
-  opacity: 0.9;
-  margin-top: 4px;
-}
-
-/* Nav pushed to the right */
-.main-nav {
-  margin-left: auto;
-  display: flex;
-  gap: 14px;
 }
