@@ -21,8 +21,14 @@
       z-index: -1;
     }
 
-    .iot-section {
+    .iot-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
       margin-top: 40px;
+    }
+
+    .iot-section {
       background: rgba(0,0,0,0.55);
       padding: 30px;
       border-radius: 16px;
@@ -59,19 +65,36 @@
       display: block;
     }
 
+    /* RIGHT SIDE DEFINITION PANEL */
+    .definition-panel {
+      background: rgba(0,0,0,0.55);
+      border-radius: 16px;
+      padding: 25px;
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 0 20px #000;
+      min-height: 300px;
+    }
+
+    .definition-panel h3 {
+      margin-top: 0;
+    }
+
+    /* BUTTONS */
     .cta-btn {
       display: inline-block;
       margin-top: 20px;
       padding: 12px 20px;
-      background: #ff4444;
+      background: #ff0000;
       color: #fff;
       border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
       transition: 0.2s;
+      border: 2px solid #000;
+      box-shadow: 0 0 10px #ff0000aa;
     }
     .cta-btn:hover {
-      background: #ff2222;
+      background: #cc0000;
     }
   </style>
 </head>
@@ -90,7 +113,7 @@
       <a href="/pages/sites.html">Sites</a>
       <a href="/pages/apps.html">Apps</a>
       <a href="/pages/iot.html" class="active">IoT</a>
-      <a href="/pages/about.html">About</a>
+      <a href="/pages/pricing.html">Pricing</a>
       <a href="/pages/contact.html">Contact</a>
     </nav>
   </header>
@@ -98,174 +121,73 @@
   <!-- MAIN -->
   <main class="page-container">
 
-    <h1 class="stone-text">IoT Systems & Automation</h1>
+    <h1 class="stone-text">Go Time IoT Systems</h1>
     <p class="stone-text">
-      Real‑time dashboards, automation, sensors, robotics, and custom electronics —  
-      built using ESP32, ESP‑CYD, and advanced microcontroller systems.
+      Custom smart systems, automation, dashboards, sensors, robotics, and invention‑ready builds —  
+      designed and engineered by Go Time Software.
     </p>
 
-    <!-- GRID -->
-    <div class="iot-grid">
+    <div class="iot-wrapper">
 
-      <div class="iot-card">
-        <h3 class="stone-text">Sensor Dashboard</h3>
-        <img src="/assets/previews/iot-sensors.png">
-        <p class="stone-text">Live temperature, humidity, motion, and environmental readings.</p>
-      </div>
+      <!-- LEFT SIDE: DROPDOWNS -->
+      <section class="iot-section">
+        <h2 class="stone-text">What Go Time Can Build</h2>
+        <p class="stone-text">Choose a category to explore what’s possible.</p>
 
-      <div class="iot-card">
-        <h3 class="stone-text">Device Control</h3>
-        <img src="/assets/previews/iot-control.png">
-        <p class="stone-text">Switches, toggles, automation triggers, and remote device control.</p>
-      </div>
+        <!-- COMMON BUILDS -->
+        <div class="dropdown" data-group="common">
+          <div class="dropdown-header stone-text">Common Smart Builds</div>
+          <div class="dropdown-content stone-text">
+            <ul>
+              <li data-item="smart-home">Smart Home Systems</li>
+              <li data-item="security">Security & Alerts</li>
+              <li data-item="automation">Automation & Triggers</li>
+              <li data-item="environment">Environmental Monitoring</li>
+              <li data-item="remote-control">Remote Device Control</li>
+            </ul>
+          </div>
+        </div>
 
-      <div class="iot-card">
-        <h3 class="stone-text">Real‑Time Alerts</h3>
-        <img src="/assets/previews/iot-alerts.png">
-        <p class="stone-text">Instant notifications for thresholds, warnings, and device events.</p>
-      </div>
+        <!-- ADVANCED BUILDS -->
+        <div class="dropdown" data-group="advanced">
+          <div class="dropdown-header stone-text">Advanced Custom Builds</div>
+          <div class="dropdown-content stone-text">
+            <ul>
+              <li data-item="touch-panels">Touchscreen Panels</li>
+              <li data-item="portable-devices">Portable Devices</li>
+              <li data-item="wireless-cams">Wireless Camera Systems</li>
+              <li data-item="vehicle-security">Vehicle Security Systems</li>
+              <li data-item="wearables">Wearable Electronics</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- INVENTION BUILDS -->
+        <div class="dropdown" data-group="inventions">
+          <div class="dropdown-header stone-text">Invention & Prototype Services</div>
+          <div class="dropdown-content stone-text">
+            <ul>
+              <li data-item="prototype">Prototype Development</li>
+              <li data-item="custom-sensors">Custom Sensor Builds</li>
+              <li data-item="logic-systems">Automation Logic Systems</li>
+              <li data-item="dashboards">Dashboard Interfaces</li>
+              <li data-item="hardware-design">Hardware & Enclosure Design</li>
+            </ul>
+          </div>
+        </div>
+
+        <a class="cta-btn" href="/pages/contact.html">Start a Build</a>
+      </section>
+
+      <!-- RIGHT SIDE: DEFINITION PANEL -->
+      <section class="definition-panel">
+        <h3 class="stone-text">Select an item to learn more</h3>
+        <p class="stone-text" id="definition-text">
+          Click any item on the left to see a full explanation here.
+        </p>
+      </section>
 
     </div>
-
-    <!-- ESP CAPABILITIES -->
-    <section class="iot-section">
-      <h2 class="stone-text">What I Can Build With ESP32 & ESP‑CYD</h2>
-      <p class="stone-text">
-        ESP boards are powerful, cheap, and perfect for custom inventions.  
-        I build full systems — hardware + software + dashboards — for homes, cars, businesses, and new product ideas.
-      </p>
-
-      <!-- DROPDOWN 1 -->
-      <div class="dropdown">
-        <div class="dropdown-header stone-text">Common ESP Projects</div>
-        <div class="dropdown-content stone-text">
-          <ul>
-            <li>Smart home dashboards</li>
-            <li>Motion‑activated lighting</li>
-            <li>Garage door automation</li>
-            <li>Temperature & humidity monitors</li>
-            <li>Security alarms & alerts</li>
-            <li>RFID/NFC access systems</li>
-            <li>Bluetooth trackers</li>
-            <li>WiFi‑controlled relays</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- DROPDOWN 2 -->
-      <div class="dropdown">
-        <div class="dropdown-header stone-text">Advanced ESP‑CYD Projects</div>
-        <div class="dropdown-content stone-text">
-          <ul>
-            <li>Touchscreen control panels</li>
-            <li>Mini handheld devices</li>
-            <li>Portable scanners</li>
-            <li>Wireless camera systems</li>
-            <li>Custom UI dashboards</li>
-            <li>Bluetooth mesh networks</li>
-            <li>Vehicle security systems</li>
-            <li>Wearable electronics</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- DROPDOWN 3 -->
-      <div class="dropdown">
-        <div class="dropdown-header stone-text">Custom Sensor Integrations</div>
-        <div class="dropdown-content stone-text">
-          <ul>
-            <li>Laser trip sensors</li>
-            <li>Human presence radar</li>
-            <li>Microwave motion sensors</li>
-            <li>Vibration & impact sensors</li>
-            <li>Sound & frequency sensors</li>
-            <li>Gas, smoke, and air quality sensors</li>
-            <li>GPS tracking modules</li>
-            <li>Relay‑controlled motors & pumps</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- DROPDOWN 4 -->
-      <div class="dropdown">
-        <div class="dropdown-header stone-text">Invention & Prototype Services</div>
-        <div class="dropdown-content stone-text">
-          <p>I help inventors turn ideas into real working prototypes:</p>
-          <ul>
-            <li>Product design & planning</li>
-            <li>Microcontroller selection</li>
-            <li>Sensor integration</li>
-            <li>Custom PCB design (optional)</li>
-            <li>3D printed enclosures</li>
-            <li>Full dashboard + app control</li>
-            <li>Testing & refinement</li>
-          </ul>
-          <p>Whether it’s a new tool, gadget, security device, or automation system — I can build it.</p>
-        </div>
-      </div>
-
-      <a class="cta-btn" href="/pages/contact.html">Start an IoT Project</a>
-    </section>
-
-    <!-- SECURITY SECTION -->
-    <section class="iot-section">
-      <h2 class="stone-text">Security, Safety & Awareness</h2>
-      <p class="stone-text">
-        IoT sensors can protect your home, your business, and even your vehicle.  
-        With the right setup, you can detect motion, presence, vibration, heat, sound,  
-        or even a laser trip line — all feeding into a real‑time dashboard.
-      </p>
-
-      <h3 class="stone-text">Examples of What You Can Do</h3>
-      <ul class="stone-text">
-        <li><strong>Laser Trip Sensors</strong> — invisible beams that trigger alerts when crossed.</li>
-        <li><strong>Human Presence Sensors</strong> — detect body heat or micro‑movement.</li>
-        <li><strong>Motion Sensors</strong> — perfect for lights, alarms, or silent notifications.</li>
-        <li><strong>Vibration Sensors</strong> — detect tampering, break‑ins, or movement.</li>
-        <li><strong>Sound Sensors</strong> — detect glass breaking, loud noises, or engine starts.</li>
-        <li><strong>Door/Window Sensors</strong> — instant alerts when opened.</li>
-        <li><strong>Car Security Sensors</strong> — detect presence around your vehicle.</li>
-        <li><strong>Motor/Relay Control</strong> — activate fans, pumps, motors, or lights remotely.</li>
-      </ul>
-
-      <a class="cta-btn" href="/pages/pricing.html">View Security Pricing</a>
-    </section>
-
-    <!-- CUSTOM BUILDS -->
-    <section class="iot-section">
-      <h2 class="stone-text">Custom Drone & RC Vehicle Builds</h2>
-      <p class="stone-text">
-        Go Time Software also offers <strong>custom drone builds</strong> and  
-        <strong>remote‑control vehicle builds</strong> with integrated sensors, cameras,  
-        GPS tracking, and automation logic.
-      </p>
-
-      <ul class="stone-text">
-        <li>FPV drones</li>
-        <li>Security drones</li>
-        <li>Delivery drones</li>
-        <li>RC cars with sensors</li>
-        <li>Rovers for inspection</li>
-        <li>Wireless camera vehicles</li>
-      </ul>
-
-      <a class="cta-btn" href="/pages/pricing.html">Drone & RC Pricing</a>
-    </section>
-
-    <!-- PRICING PREVIEW -->
-    <section class="iot-section">
-      <h2 class="stone-text">Pricing (Before Materials)</h2>
-      <ul class="stone-text">
-        <li>Sensor Setup & Integration — <strong>$150+</strong></li>
-        <li>Custom Automation Logic — <strong>$200+</strong></li>
-        <li>Home/Car Security System — <strong>$250+</strong></li>
-        <li>Drone Build (Custom) — <strong>$300+</strong></li>
-        <li>RC Vehicle Build — <strong>$200+</strong></li>
-        <li>Full Dashboard System — <strong>$350+</strong></li>
-      </ul>
-
-      <a class="cta-btn" href="/pages/contact.html">Start Your Build</a>
-    </section>
 
   </main>
 
@@ -274,13 +196,7 @@
     <span class="stone-text">© Go Time Software</span>
   </footer>
 
-  <script>
-    document.querySelectorAll(".dropdown-header").forEach(header => {
-      header.addEventListener("click", () => {
-        header.parentElement.classList.toggle("open");
-      });
-    });
-  </script>
+  <script src="/js/iot-definitions.js"></script>
 
 </body>
 </html>
