@@ -5,194 +5,7 @@
   <title>Website Templates – Go Time Software</title>
 
   <link rel="icon" type="image/png" href="/assets/img/go-time-logo.png" />
-
-  <style>
-    /* FORCE BACKGROUND */
-    body.theme-dark {
-      background: url("/assets/img/go-time-new-york.jpg") no-repeat center center fixed !important;
-      background-size: cover !important;
-      margin: 0;
-      padding: 0;
-      color: #fff;
-      font-family: Arial, sans-serif;
-    }
-
-    body.theme-dark::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(2px);
-      z-index: -1;
-    }
-
-    /* PAGE WRAPPER */
-    .page-shell {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px 16px 60px;
-    }
-
-    /* HEADER */
-    .site-header {
-      display: flex;
-      align-items: center;
-      padding: 16px 0;
-      margin-bottom: 20px;
-    }
-
-    .logo-img {
-      width: 55px;
-      height: 55px;
-      object-fit: contain;
-      margin-right: 12px;
-    }
-
-    .logo span, .logo-title {
-      font-size: 1.4rem;
-      font-weight: bold;
-    }
-
-    .main-nav {
-      margin-left: auto;
-      display: flex;
-      gap: 20px;
-    }
-
-    .main-nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 6px 10px;
-      border-radius: 6px;
-      transition: 0.2s;
-    }
-
-    .main-nav a:hover,
-    .main-nav .active {
-      background: rgba(255,255,255,0.15);
-    }
-
-    /* PAGE HEADER */
-    .page-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .page-header h1 {
-      margin: 0 0 10px;
-      font-size: 2.2rem;
-    }
-
-    .page-header p {
-      max-width: 700px;
-      margin: 0 auto;
-      opacity: 0.9;
-      line-height: 1.5;
-    }
-
-    /* GRID FIX — 2×2 EVEN LAYOUT */
-    .template-live-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 26px;
-      width: 100%;
-    }
-
-    @media(max-width: 850px) {
-      .template-live-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* TEMPLATE CARD */
-    .template-live-card {
-      background: rgba(0,0,0,0.55);
-      border-radius: 16px;
-      padding: 18px;
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-    }
-
-    .template-live-card iframe {
-      width: 100%;
-      height: 420px;
-      border-radius: 12px;
-      border: none;
-      background: #000;
-      margin-bottom: 12px;
-    }
-
-    .template-live-card h3 {
-      margin: 0 0 8px;
-      font-size: 1.3rem;
-    }
-
-    .template-desc p {
-      margin: 4px 0;
-      opacity: 0.9;
-      font-size: 0.95rem;
-    }
-
-    .price {
-      margin-top: 10px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #ffb347;
-    }
-
-    .enter-site-btn {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 10px 16px;
-      background: #ff4444;
-      color: #fff;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.2s;
-    }
-
-    .enter-site-btn:hover {
-      background: #ff2222;
-    }
-
-    /* SECTION BLOCKS */
-    .section-block {
-      background: rgba(0,0,0,0.55);
-      border-radius: 16px;
-      padding: 20px;
-      margin-top: 40px;
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-    }
-
-    .section-block h2 {
-      margin-top: 0;
-      font-size: 1.6rem;
-    }
-
-    .guild-iframe {
-      width: 100%;
-      height: 500px;
-      border-radius: 16px;
-      border: none;
-      background: #000;
-      margin-top: 14px;
-    }
-
-    @media(max-width: 600px) {
-      .guild-iframe {
-        height: 360px;
-      }
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      opacity: 0.8;
-    }
-  </style>
+  <link rel="stylesheet" href="/css/sites.css" />
 </head>
 
 <body class="theme-dark">
@@ -203,7 +16,7 @@
     <header class="site-header">
       <div class="logo">
         <img src="/assets/img/go-time-logo.png" class="logo-img" />
-        <span>Go Time Software</span>
+        <span class="logo-title">Go Time Software</span>
       </div>
 
       <nav class="main-nav">
@@ -218,75 +31,95 @@
 
     <!-- PAGE HEADER -->
     <section class="page-header">
-      <h1>Website Templates</h1>
-      <p>These are real, fully interactive templates — not screenshots.</p>
+      <h1 class="stone-glow">Website Templates</h1>
+      <p class="stone-glow">These are real, fully interactive templates — not screenshots.</p>
     </section>
 
     <!-- LIVE TEMPLATE GRID -->
     <section class="template-live-grid">
 
-      <!-- 1. COMIC -->
-      <div class="template-live-card">
+      <!-- 1. COMIC WEBSITE -->
+      <div class="template-live-card comic-card">
         <iframe src="https://comic-lct.pages.dev/"></iframe>
-        <h3>Comic Website</h3>
-        <div class="template-desc">
-          <p>A full comic reading experience with chapters and cinematic flow.</p>
+
+        <h3 class="comic-title">📘 Comic Universe Website</h3>
+
+        <div class="template-desc comic-desc">
+          <p>A full comic reading experience with animated panels, chapter flow, and cinematic pacing.</p>
+          <p>Blue‑and‑yellow comic styling with a pop‑in panel animation that feels like a real comic page flipping.</p>
+          <p>Built for creators who want a custom universe — comics, short films, interactive comics, and audio books.</p>
         </div>
-        <div class="price">$300</div>
-        <a class="enter-site-btn" href="https://comic-lct.pages.dev/" target="_blank">ENTER SITE</a>
+
+        <div class="price comic-price">$300</div>
+        <a class="enter-site-btn comic-btn" href="https://comic-lct.pages.dev/" target="_blank">ENTER COMIC SITE</a>
       </div>
 
       <!-- 2. THE CODE -->
-      <div class="template-live-card">
+      <div class="template-live-card code-card">
         <iframe src="https://the-code.pages.dev/"></iframe>
-        <h3>THE CODE – 6‑Part Course</h3>
-        <div class="template-desc">
-          <p>A full course on coding, automation, and microcontrollers.</p>
+
+        <h3 class="code-title">💻 THE CODE – 6‑Part Course</h3>
+
+        <div class="template-desc code-desc">
+          <p>A full cinematic course teaching coding, automation, microcontrollers, and real system building.</p>
+          <p>Matrix‑style falling code animation reveals the description as neon green letters form into place.</p>
+          <p>Perfect for beginners and builders who want to learn the Go Time Software way — modular, clean, powerful.</p>
         </div>
-        <div class="price">$400</div>
-        <a class="enter-site-btn" href="https://the-code.pages.dev/" target="_blank">ENTER SITE</a>
+
+        <div class="price code-price">$400</div>
+        <a class="enter-site-btn code-btn" href="https://the-code.pages.dev/" target="_blank">ENTER THE CODE</a>
       </div>
 
       <!-- 3. ROLL N CONNECT -->
-      <div class="template-live-card">
+      <div class="template-live-card roll-card">
         <iframe src="https://rollnconnect.pages.dev/"></iframe>
-        <h3>Roll N Connect</h3>
-        <div class="template-desc">
+
+        <h3 class="roll-title">🛼 Roll N Connect</h3>
+
+        <div class="template-desc roll-desc">
           <p>A full social platform with profiles, events, maps, and live features.</p>
+          <p>A glowing bubble bounces around the card and bursts into bright white text.</p>
+          <p>Built for real‑world communities who want a clean, app‑style website with movement and energy.</p>
         </div>
-        <div class="price">$650</div>
-        <a class="enter-site-btn" href="https://rollnconnect.pages.dev/" target="_blank">ENTER SITE</a>
+
+        <div class="price roll-price">$650</div>
+        <a class="enter-site-btn roll-btn" href="https://rollnconnect.pages.dev/" target="_blank">ENTER ROLL N CONNECT</a>
       </div>
 
       <!-- 4. LANDING PAGE -->
-      <div class="template-live-card">
+      <div class="template-live-card landing-card">
         <iframe src="/templates/web/pages/landing.html"></iframe>
-        <h3>Landing Page Template</h3>
-        <div class="template-desc">
-          <p>A high‑impact landing page built for conversions and clarity.</p>
+
+        <h3 class="landing-title">⚡ Landing Page Template</h3>
+
+        <div class="template-desc landing-desc">
+          <p>A high‑impact landing page built for conversions, clarity, and product launches.</p>
+          <p>Yellow‑and‑black product‑reveal animation gives it a premium, modern feel.</p>
+          <p>Perfect for launches, announcements, and high‑impact marketing campaigns.</p>
         </div>
-        <div class="price">$250</div>
-        <a class="enter-site-btn" href="/templates/web/pages/landing.html" target="_blank">ENTER SITE</a>
+
+        <div class="price landing-price">$250</div>
+        <a class="enter-site-btn landing-btn" href="/templates/web/pages/landing.html" target="_blank">ENTER LANDING PAGE</a>
       </div>
 
     </section>
 
     <!-- CUSTOM SITES -->
     <section class="section-block">
-      <h2>Custom Sites Built for Your Business</h2>
-      <p>Every business is different — so every site we build is custom.</p>
-      <a class="enter-site-btn" href="/pages/contact.html">Start a Custom Build</a>
+      <h2 class="stone-glow">Custom Sites Built for Your Business</h2>
+      <p class="stone-glow">Every business is different — so every site we build is custom.</p>
+      <a class="enter-site-btn custom-btn" href="/pages/contact.html">Start a Custom Build</a>
     </section>
 
     <!-- APPS -->
     <section class="section-block">
-      <h2>Why Apps Matter</h2>
-      <p>Apps automate work, track data, handle customers, and make you money.</p>
+      <h2 class="stone-glow">Why Apps Matter</h2>
+      <p class="stone-glow">Apps automate work, track data, handle customers, and make you money.</p>
 
       <iframe class="guild-iframe" src="https://the-guild-855.pages.dev/"></iframe>
 
-      <a class="enter-site-btn" href="/pages/apps.html">Explore All Apps</a>
-      <a class="enter-site-btn" href="/pages/contact.html" style="margin-left:10px;">Pitch an App Idea</a>
+      <a class="enter-site-btn code-btn" href="/pages/apps.html">Explore All Apps</a>
+      <a class="enter-site-btn custom-btn" href="/pages/contact.html" style="margin-left:10px;">Pitch an App Idea</a>
     </section>
 
   </div>
