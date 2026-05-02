@@ -25,8 +25,6 @@ body.theme-dark::before {
 .stone-text,
 .page-header h1,
 .page-header p,
-.template-live-card h3,
-.template-live-card p,
 .section-block h2,
 .section-block p,
 .site-footer span,
@@ -105,25 +103,13 @@ body.theme-dark::before {
 }
 
 /* ============================================================
-   GRID
+   GRID — FIXED (NO MORE SHRINKING IFRAMES)
 ============================================================ */
 .template-live-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   gap: 26px;
   width: 100%;
-}
-
-@media (max-width: 1050px) {
-  .template-live-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 750px) {
-  .template-live-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* ============================================================
