@@ -302,3 +302,48 @@ body.theme-dark::before {
   color: #e5e5e5;
   text-shadow: 0 0 6px rgba(0,0,0,1);
 }
+/* ============================================================
+   GLOBAL STONE GLOW + TEXTURE THEME
+============================================================ */
+
+/* Apply stone‑glow to ALL text elements */
+body, h1, h2, h3, h4, h5, p, a, li, span, div {
+  font-family: "Inter", system-ui, sans-serif;
+  color: #e8e8e8;
+  text-shadow:
+    0 0 6px rgba(0,0,0,1),
+    0 0 12px rgba(0,0,0,0.7);
+  letter-spacing: 0.3px;
+}
+
+/* Slight stone texture overlay on text */
+body.theme-dark::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: url("/assets/img/stone-texture.png");
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  z-index: -1;
+}
+
+/* Make section headers extra stone‑etched */
+.section h2 {
+  color: #f2f2f2;
+  text-shadow:
+    0 0 10px rgba(0,0,0,1),
+    0 0 18px rgba(0,0,0,0.8);
+  letter-spacing: 1px;
+  font-weight: 900;
+}
+
+/* Make dropdown text match stone theme */
+.frame-desc,
+.frame-desc-label,
+.frame-desc-content {
+  color: #e8e8e8 !important;
+  text-shadow:
+    0 0 6px rgba(0,0,0,1),
+    0 0 12px rgba(0,0,0,0.7);
+}
