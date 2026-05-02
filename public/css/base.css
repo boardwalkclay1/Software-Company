@@ -1,183 +1,219 @@
 /* ============================================================
-   GO TIME SOFTWARE — GLOWING STONE BRICK UI (FIXED MEDIA VERSION)
+   GLOBAL BACKGROUND + FONT THEME
 ============================================================ */
-
-/* RESET */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+body.theme-dark {
+  background: url("/assets/img/go-time-town.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Inter", system-ui, sans-serif;
+  color: #e6e6e6;
+  text-shadow: 0 0 6px rgba(0,0,0,1);
 }
 
-html, body {
-  height: 100%;
-  overflow-x: hidden;
-}
-
-/* ============================================================
-   GLOBAL VARIABLES — STONE PALETTE
-============================================================ */
-:root {
-  --stone-light: #f4efe6;
-  --stone-mid: #c9c3b8;
-  --stone-dark: #6b6458;
-  --stone-deep: #2e2a26;
-
-  --stone-glow: rgba(255,255,255,0.28);
-
-  --panel-bg: rgba(0,0,0,0.45);
-  --panel-border: #4a3a32;
+body.theme-dark::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(3px);
+  z-index: -1;
 }
 
 /* ============================================================
-   GLOBAL BODY — FIXED BACKGROUND
+   HEADER
 ============================================================ */
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #000;
-  background-attachment: fixed !important;
-  background-position: center center !important;
-  background-size: cover !important;
-  line-height: 1.55;
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 26px;
+  background: rgba(0,0,0,0.75);
+  border-bottom: 1px solid #333;
+  position: relative;
+  z-index: 10;
 }
 
-/* ============================================================
-   TEXT GLOW — APPLIED ONLY TO TEXT ELEMENTS
-============================================================ */
-p, li, a, span,
-h1, h2, h3, h4, h5, h6,
-button, .logo, .cta-btn {
-  font-size: 1.2rem;
-
-  background: linear-gradient(
-    180deg,
-    var(--stone-light),
-    var(--stone-mid),
-    var(--stone-dark)
-  );
-
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-
-  filter: drop-shadow(0 0 3px var(--stone-glow))
-          drop-shadow(0 0 6px var(--stone-glow));
-
-  animation: weldLineConstant 6s linear infinite;
-  background-image:
-    linear-gradient(
-      180deg,
-      var(--stone-light),
-      var(--stone-mid),
-      var(--stone-dark)
-    ),
-    linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(255,0,0,1) 50%,
-      transparent 100%
-    );
-  background-size: 100% 100%, 200% 2px;
-  background-repeat: no-repeat;
-  background-position: center bottom, -200% 100%;
+/* LOGO BLOCK */
+.logo-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-/* ============================================================
-   DO NOT APPLY GLOW OR CLIPPING TO MEDIA
-============================================================ */
-img, iframe, video, canvas {
-  -webkit-background-clip: unset !important;
-  -webkit-text-fill-color: unset !important;
-  background: none !important;
-  animation: none !important;
-  filter: none !important;
-  box-shadow: none !important;
-}
-
-/* ============================================================
-   RESPONSIVE TEXT
-============================================================ */
-@media (max-width: 600px) {
-  p, li, a, span { font-size: 1.35rem; }
-  h1 { font-size: 2.6rem; }
-  h2 { font-size: 2rem; }
-  h3 { font-size: 1.5rem; }
-}
-
-/* ============================================================
-   WELDING LINE ANIMATION
-============================================================ */
-@keyframes weldLineConstant {
-  0%   { background-position: -200% 100%; }
-  50%  { background-position: 200% 100%; }
-  100% { background-position: -200% 100%; }
-}
-
-/* ============================================================
-   FIX LOGO SIZE
-============================================================ */
 .logo-img {
-  height: 38px !important;
-  width: auto !important;
-  filter: drop-shadow(0 0 6px rgba(255,255,255,0.25));
+  width: 52px;
+  height: 52px;
+}
+
+.logo-text-block {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo-line-top,
+.logo-line-mid {
+  font-size: 26px;
+  font-weight: 900;
+  color: #f2f2f2;
+  text-shadow: 0 0 8px rgba(0,0,0,1);
+}
+
+.logo-sub {
+  font-size: 14px;
+  opacity: 0.85;
+  color: #e6e6e6;
+  text-shadow: 0 0 6px rgba(0,0,0,1);
 }
 
 /* ============================================================
-   NAV LINKS ALWAYS VISIBLE
+   NAVIGATION
 ============================================================ */
+.main-nav {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
 .main-nav a {
-  background: none !important;
-  -webkit-text-fill-color: #f4efe6 !important;
-  color: #f4efe6 !important;
-  filter: drop-shadow(0 0 4px rgba(255,255,255,0.25));
+  color: #e6e6e6;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 18px;
+  opacity: 0.9;
+  text-shadow: 0 0 5px rgba(0,0,0,1);
+  transition: 0.2s;
 }
 
 .main-nav a:hover {
-  -webkit-text-fill-color: #ffffff !important;
-  color: #ffffff !important;
-  filter: drop-shadow(0 0 10px rgba(255,255,255,0.45));
+  opacity: 1;
+  transform: translateY(-2px);
 }
 
 /* ============================================================
-   SCROLLING IMAGE STRIP — FIXED
+   BURGER MENU (MOBILE)
 ============================================================ */
-.iot-strip-gallery {
-  margin-top: 18px;
-  overflow: hidden;
-  padding-bottom: 6px;
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
 }
 
-.iot-strip-track {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  animation: iotScroll 30s linear infinite;
+.burger div {
+  width: 30px;
+  height: 3px;
+  background: #d0d0d0;
+  border-radius: 4px;
+  transition: 0.3s;
 }
 
-.iot-strip-track img {
-  height: 110px;
-  width: auto;
-  border-radius: 10px;
-  object-fit: cover;
-  flex-shrink: 0;
+/* OPEN STATE */
+.burger.open div:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.burger.open div:nth-child(2) {
+  opacity: 0;
+}
+.burger.open div:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
 }
 
-@keyframes iotScroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+/* MOBILE NAV */
+@media (max-width: 900px) {
+  .burger {
+    display: flex;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    flex-direction: column;
+    background: rgba(0,0,0,0.85);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #444;
+    display: none;
+  }
+
+  .main-nav.nav-open {
+    display: flex;
+  }
 }
 
 /* ============================================================
-   PREVIEW CARDS
+   PAGE CONTAINER
+============================================================ */
+.page-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* ============================================================
+   SECTIONS
+============================================================ */
+.section {
+  margin-bottom: 80px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.6s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section h2 {
+  font-size: 40px;
+  margin-bottom: 12px;
+  color: #f5f5f5;
+  text-shadow: 0 0 10px rgba(0,0,0,1);
+}
+
+.section p {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #e6e6e6;
+  text-shadow: 0 0 6px rgba(0,0,0,1);
+}
+
+/* ============================================================
+   BUBBLE LINKS
+============================================================ */
+.bubble-links {
+  margin: 20px 0;
+}
+
+.bubble-link {
+  display: inline-block;
+  padding: 10px 18px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid #ffffff44;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.2s;
+  text-shadow: 0 0 6px rgba(0,0,0,1);
+}
+
+.bubble-link:hover {
+  background: rgba(255,255,255,0.22);
+}
+
+/* ============================================================
+   PREVIEW CARD
 ============================================================ */
 .preview-card {
-  background: var(--panel-bg);
-  border: 1px solid var(--panel-border);
-  border-radius: 14px;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid #444;
+  border-radius: 16px;
   padding: 20px;
-  margin-top: 25px;
-  box-shadow: 0 0 14px #000;
+  box-shadow: 0 0 18px #00000088;
+  backdrop-filter: blur(3px);
+  margin-top: 20px;
 }
 
 .preview-card iframe {
@@ -185,5 +221,84 @@ img, iframe, video, canvas {
   height: 420px;
   border-radius: 12px;
   border: none;
-  background: #000;
+  margin-bottom: 16px;
+}
+
+/* ============================================================
+   DROPDOWNS (BIG + CINEMATIC)
+============================================================ */
+.frame-desc {
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid #444;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  color: #e6e6e6;
+  font-size: 22px;
+  font-weight: 800;
+  text-shadow: 0 0 8px rgba(0,0,0,1);
+  transition: 0.25s ease;
+}
+
+.frame-desc:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: #777;
+}
+
+.frame-desc-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #dcdcdc;
+  text-shadow: 0 0 6px rgba(0,0,0,1);
+  transition: max-height 0.45s ease, opacity 0.35s ease;
+  padding: 0 6px;
+}
+
+.frame-desc.open .frame-desc-content {
+  max-height: 600px;
+  opacity: 1;
+  margin-top: 14px;
+}
+
+/* ============================================================
+   IOT STRIP
+============================================================ */
+.iot-strip-gallery {
+  overflow: hidden;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.iot-strip-track {
+  display: flex;
+  gap: 20px;
+  animation: scroll-strip 30s linear infinite;
+}
+
+.iot-strip-track img {
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+}
+
+@keyframes scroll-strip {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+.site-footer {
+  text-align: center;
+  padding: 20px;
+  opacity: 0.85;
+  margin-top: 40px;
+  color: #e5e5e5;
+  text-shadow: 0 0 6px rgba(0,0,0,1);
 }
