@@ -6,7 +6,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap");
 
 /* ============================================================
-   BASE DROPDOWN STRUCTURE
+   BASE DROPDOWN STRUCTURE (CLEAN + MODULAR)
 ============================================================ */
 .frame-desc {
   margin-top: 20px;
@@ -14,6 +14,7 @@
   overflow: hidden;
   cursor: pointer;
   transition: 0.25s ease;
+  border: 2px solid transparent;
 }
 
 .frame-desc-label {
