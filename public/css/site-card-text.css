@@ -1,0 +1,62 @@
+/* ============================================================
+   PER-CARD TEXT STYLES (ISOLATED FILE)
+   This file ONLY affects text under each iframe.
+============================================================ */
+
+/* =======================
+   1. COMIC WEBSITE
+   Blue + Yellow Comic Style
+======================= */
+.comic-card h3,
+.comic-card .template-desc p,
+.comic-card .price {
+  font-family: "Bangers", sans-serif;
+  color: #4aa8ff !important;
+  text-shadow: 0 0 8px #0044ff, 0 0 12px #001133;
+  letter-spacing: 0.5px;
+}
+
+.comic-card .price {
+  color: #ffdd33 !important;
+  text-shadow: 0 0 10px #ffdd33aa;
+}
+
+/* =======================
+   2. THE CODE
+   Neon Green Matrix Style
+======================= */
+.code-card h3,
+.code-card .template-desc p,
+.code-card .price {
+  font-family: "JetBrains Mono", monospace;
+  color: #00ff88 !important;
+  text-shadow: 0 0 10px #00ff88aa, 0 0 14px #003322;
+  letter-spacing: 0.4px;
+}
+
+.code-card .template-desc p {
+  opacity: 0.95;
+}
+
+.code-card .price {
+  color: #00ff88 !important;
+  text-shadow: 0 0 12px #00ff88aa;
+}
+
+/* =======================
+   3. ROLL N CONNECT
+   White Glow Social Style
+======================= */
+.roll-card h3,
+.roll-card .template-desc p,
+.roll-card .price {
+  font-family: "Inter", sans-serif;
+  color: #ffffff !important;
+  text-shadow: 0 0 12px #ffffffaa, 0 0 18px #cccccc;
+  letter-spacing: 0.3px;
+}
+
+.roll-card .price {
+  color: #ffffff !important;
+  text-shadow: 0 0 14px #ffffffcc;
+}
