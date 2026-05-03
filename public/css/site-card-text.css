@@ -1,62 +1,98 @@
-/* ============================================================
-   PER-CARD TEXT STYLES (ISOLATED FILE)
-   This file ONLY affects text under each iframe.
-============================================================ */
-
-/* =======================
-   1. COMIC WEBSITE
-   Blue + Yellow Comic Style
-======================= */
-.comic-card h3,
-.comic-card .template-desc p,
-.comic-card .price {
-  font-family: "Bangers", sans-serif;
-  color: #4aa8ff !important;
-  text-shadow: 0 0 8px #0044ff, 0 0 12px #001133;
-  letter-spacing: 0.5px;
-}
-
-.comic-card .price {
-  color: #ffdd33 !important;
-  text-shadow: 0 0 10px #ffdd33aa;
-}
-
 /* =======================
    2. THE CODE
-   Neon Green Matrix Style
+   Neon Green Matrix Style + Typing + Falling Lines
 ======================= */
+
+/* Load the font if not already loaded */
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap");
+
+/* Base font + glow */
 .code-card h3,
 .code-card .template-desc p,
 .code-card .price {
-  font-family: "JetBrains Mono", monospace;
+  font-family: "JetBrains Mono", monospace !important;
   color: #00ff88 !important;
   text-shadow: 0 0 10px #00ff88aa, 0 0 14px #003322;
   letter-spacing: 0.4px;
 }
 
-.code-card .template-desc p {
-  opacity: 0.95;
+/* =======================
+   TITLE — TYPING EFFECT
+======================= */
+.code-card h3 {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #00ff88;
+  width: 0;
+  animation: codeType 2.2s steps(30) forwards, codeCursor 0.7s step-end infinite;
 }
 
-.code-card .price {
-  color: #00ff88 !important;
-  text-shadow: 0 0 12px #00ff88aa;
+@keyframes codeType {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes codeCursor {
+  0% { border-color: #00ff88; }
+  50% { border-color: transparent; }
+  100% { border-color: #00ff88; }
 }
 
 /* =======================
-   3. ROLL N CONNECT
-   White Glow Social Style
+   DESCRIPTION — FALLING LINES
 ======================= */
-.roll-card h3,
-.roll-card .template-desc p,
-.roll-card .price {
-  font-family: "Inter", sans-serif;
-  color: #ffffff !important;
-  text-shadow: 0 0 12px #ffffffaa, 0 0 18px #cccccc;
-  letter-spacing: 0.3px;
+.code-card .template-desc p {
+  opacity: 0;
+  transform: translateY(-18px);
+  animation: codeFall 0.6s ease-out forwards;
 }
 
-.roll-card .price {
-  color: #ffffff !important;
-  text-shadow: 0 0 14px #ffffffcc;
+.code-card .template-desc p:nth-child(1) { animation-delay: 0.4s; }
+.code-card .template-desc p:nth-child(2) { animation-delay: 0.7s; }
+.code-card .template-desc p:nth-child(3) { animation-delay: 1.0s; }
+
+@keyframes codeFall {
+  0% {
+    opacity: 0;
+    transform: translateY(-18px);
+    text-shadow: 0 0 0 #00ff88;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    text-shadow: 0 0 12px #00ff88aa;
+  }
+}
+
+/* =======================
+   PRICE
+======================= */
+.code-card .price {
+  color: #00ff88 !important;
+  text-shadow: 0 0 12px #00ff88aa;
+  animation: codePricePop 0.6s ease-out 1.4s forwards;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+@keyframes codePricePop {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* =======================
+   BUTTON
+======================= */
+.code-card .enter-site-btn {
+  background: #00ff88;
+  color: #000;
+  box-shadow: 0 0 12px #00ff88aa;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: codeBtnReveal 0.6s ease-out 1.6s forwards;
+}
+
+@keyframes codeBtnReveal {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
