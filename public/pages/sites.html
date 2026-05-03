@@ -11,6 +11,35 @@
 
   <!-- Load per-card text styles LAST so they override everything -->
   <link rel="stylesheet" href="/css/site-card-text.css" />
+
+  <style>
+    /* Updated logo size */
+    .logo-img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+
+    /* Better alignment for logo + text */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    /* Optional: make the Go Time Software text slightly larger */
+    .logo span {
+      font-size: 1.35rem;
+    }
+
+    /* Optional: mobile header stacking */
+    @media (max-width: 700px) {
+      .site-header {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+  </style>
 </head>
 
 <body class="theme-dark">
