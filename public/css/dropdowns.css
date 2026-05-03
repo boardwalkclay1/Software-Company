@@ -1,0 +1,97 @@
+/* ============================================================
+   FONT IMPORTS (Comic + Guild)
+============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap");
+
+/* ============================================================
+   BASE DROPDOWN STRUCTURE
+============================================================ */
+.frame-desc {
+  margin-top: 20px;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.frame-desc-label {
+  padding: 14px 18px;
+  font-weight: 700;
+  user-select: none;
+}
+
+.frame-desc-content {
+  display: none;
+  padding: 18px 22px;
+  line-height: 1.65;
+}
+
+.frame-desc.open .frame-desc-content {
+  display: block;
+}
+
+.frame-desc.open {
+  transform: scale(1.02);
+}
+
+/* ============================================================
+   COMIC DROPDOWN — Blue/Yellow Comic Panel
+============================================================ */
+.comic-dropdown {
+  background: #0d1b3d;
+  border: 3px solid #4aa8ff;
+  box-shadow: 0 0 14px #0044ffaa;
+}
+
+.comic-dropdown .frame-desc-label {
+  font-family: "Bangers", sans-serif;
+  font-size: 1.3rem;
+  color: #ffdd33;
+  background: #1a2f66;
+  text-shadow: 0 0 10px #ffdd33aa, 0 0 14px #001133;
+  border-bottom: 2px solid #4aa8ff;
+}
+
+.comic-dropdown .frame-desc-content {
+  font-family: "Bangers", sans-serif;
+  font-size: 1.05rem;
+  color: #cfe8ff;
+  text-shadow: 0 0 8px #0044ff;
+}
+
+.comic-dropdown.open {
+  transform: scale(1.03) rotate(-1deg);
+  box-shadow: 0 0 20px #4aa8ffcc;
+}
+
+/* ============================================================
+   GUILD DROPDOWN — Medieval Scroll + Gold Glow
+============================================================ */
+.guild-dropdown {
+  background: url("/assets/img/guild-parchment.jpg") center/cover;
+  border: 2px solid #6b4a1b;
+  box-shadow: 0 0 18px rgba(255, 180, 60, 0.25);
+}
+
+.guild-dropdown .frame-desc-label {
+  font-family: "Cinzel", serif;
+  font-size: 1.1rem;
+  color: #f7e7c1;
+  background: rgba(60, 40, 10, 0.65);
+  text-shadow: 0 0 8px #d4a84f;
+  border-bottom: 1px solid rgba(255, 220, 150, 0.25);
+}
+
+.guild-dropdown .frame-desc-content {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.05rem;
+  color: #f5e9d2;
+  text-shadow: 0 0 6px rgba(0,0,0,0.6);
+}
+
+.guild-dropdown.open {
+  transform: scale(1.02);
+  box-shadow: 0 0 25px rgba(255, 200, 80, 0.35);
+}
