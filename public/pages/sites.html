@@ -5,9 +5,12 @@
   <title>Website Templates – Go Time Software</title>
 
   <link rel="icon" type="image/png" href="/assets/img/go-time-logo.png" />
-  <link rel="stylesheet" href="/css/sites.css" />
-  <link rel="stylesheet" href="/css/site-card-text.css" />
 
+  <!-- Load base layout FIRST -->
+  <link rel="stylesheet" href="/css/sites.css" />
+
+  <!-- Load per-card text styles LAST so they override everything -->
+  <link rel="stylesheet" href="/css/site-card-text.css" />
 </head>
 
 <body class="theme-dark">
@@ -51,8 +54,8 @@
       <!-- 1. COMIC WEBSITE -->
       <div class="template-live-card comic-card">
         <iframe src="https://comic-lct.pages.dev/"></iframe>
-        <h3 class="comic-title stone-text">Comic Website</h3>
-        <div class="template-desc comic-desc stone-text">
+        <h3 class="comic-title">Comic Website</h3>
+        <div class="template-desc comic-desc">
           <p>A full comic reading experience with chapters, navigation, and cinematic flow.</p>
           <p>Blue‑and‑yellow comic style with animated panel transitions.</p>
           <p>Shows how far creative storytelling sites can go.</p>
@@ -61,11 +64,11 @@
         <a class="enter-site-btn comic-btn" href="https://comic-lct.pages.dev/" target="_blank">ENTER SITE</a>
       </div>
 
-      <!-- 2. THE CODE (REPLACED + FIXED) -->
+      <!-- 2. THE CODE -->
       <div class="template-live-card code-card">
         <iframe src="https://the-code.pages.dev/"></iframe>
-        <h3 class="code-title stone-text">THE CODE – 6‑Part Course</h3>
-        <div class="template-desc code-desc stone-text">
+        <h3 class="code-title">THE CODE – 6‑Part Course</h3>
+        <div class="template-desc code-desc">
           <p>THE CODE is a complete beginner‑friendly course that teaches you how to build real software step‑by‑step.</p>
           <p>It breaks coding down into simple, visual lessons so anyone can understand how apps, websites, and automation actually work.</p>
           <p>You learn by doing — building real projects, real logic, real UI, and real systems the same way Go Time Software builds them.</p>
@@ -77,8 +80,8 @@
       <!-- 3. ROLL N CONNECT -->
       <div class="template-live-card roll-card">
         <iframe src="https://rollnconnect.pages.dev/"></iframe>
-        <h3 class="roll-title stone-text">Roll N Connect</h3>
-        <div class="template-desc roll-desc stone-text">
+        <h3 class="roll-title">Roll N Connect</h3>
+        <div class="template-desc roll-desc">
           <p>A full social platform with profiles, events, maps, and live features.</p>
           <p>Includes a bouncing bubble animation that bursts into glowing white text.</p>
           <p>Shows how I build multi‑page, app‑style websites with real functionality.</p>
