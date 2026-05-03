@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Go Time CYD – Navigation UI</title>
+
+<style>
+  body {
+    background:#000;
+    display:flex;
+    justify-content:center;
+    padding:40px;
+    font-family:Arial, sans-serif;
+  }
+
+  .cyd-screen {
+    width:320px;
+    height:240px;
+    background:#000;
+    border:4px solid #111;
+    border-radius:12px;
+    overflow:hidden;
+    position:relative;
+    box-shadow:0 0 25px #000;
+    color:white;
+  }
+
+  .top-bar {
+    width:100%;
+    height:40px;
+    background:#1a1a1a;
+    border-bottom:2px solid red;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    font-weight:bold;
+  }
+
+  .panel {
+    background:#1a1a1a;
+    border:2px solid red;
+    border-radius:10px;
+    padding:10px;
+    margin:10px;
+  }
+
+  .panel-title {
+    font-size:18px;
+    margin-bottom:6px;
+  }
+
+  .panel-text {
+    font-size:14px;
+    opacity:0.85;
+  }
+
+  #compassCanvas {
+    width:100%;
+    height:80px;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="cyd-screen">
+
+  <div class="top-bar">Navigation</div>
+
+  <div class="panel">
+    <div class="panel-title">Compass</div>
+    <canvas id="compassCanvas" width="300" height="80"></canvas>
+    <div class="panel-text">Heading: <span id="heading">0°</span></div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">GPS Info</div>
+    <div class="panel-text">Lat: <span id="lat">42.123456</span></div>
+    <div class="panel-text">Lon: <span id="lon">-83.123456</span></div>
+    <div class="panel-text">Distance to Target: <span id="dist">120m</span></div>
+  </div>
+
+</div>
+
+<script>
+  let heading = 0;
+
+  function drawCompass() {
+    const canvas = document.getElementById("compassCanvas");
+    const ctx = canvas.getContext("2d");
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const cx = canvas.width / 2;
+    const cy = canvas.height / 2 + 10;
+    const len = 35;
+
+    const rad = heading * Math.PI / 180;
+
+    const ex = cx + len * Math.sin(rad);
+    const ey = cy - len * Math.cos(rad);
+
+    ctx.strokeStyle = "yellow";
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(ex, ey);
+    ctx.stroke();
+  }
+
+  function animate() {
+    heading = (heading + 1.5) % 360;
+    document.getElementById("heading").innerText = heading.toFixed(0) + "°";
+    drawCompass();
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
+
+</body>
+</html>
