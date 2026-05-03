@@ -1,0 +1,33 @@
+/* ============================================================
+   SITES PAGE — FONT CONTROL ONLY
+   This file ONLY changes fonts on the Sites page.
+   No colors, no shadows, no animations, no layout.
+============================================================ */
+
+/* Global font for all template card text */
+.template-live-card h3,
+.template-live-card .template-desc p,
+.template-live-card .price {
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* Optional: slightly tighter spacing for descriptions */
+.template-live-card .template-desc p {
+  letter-spacing: 0.2px;
+  line-height: 1.55;
+}
+
+/* Optional: make titles slightly heavier */
+.template-live-card h3 {
+  font-weight: 700;
+}
+
+/* Optional: price font weight */
+.template-live-card .price {
+  font-weight: 800;
+}
+
+/* Optional: override stone-text ONLY inside cards */
+.template-live-card .stone-text {
+  font-family: inherit !important;
+}
