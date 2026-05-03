@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Go Time CYD – Weather UI</title>
+
+<style>
+  body {
+    background:#000;
+    display:flex;
+    justify-content:center;
+    padding:40px;
+    font-family:Arial, sans-serif;
+  }
+
+  .cyd-screen {
+    width:320px;
+    height:240px;
+    background:#000;
+    border:4px solid #111;
+    border-radius:12px;
+    overflow:hidden;
+    position:relative;
+    box-shadow:0 0 25px #000;
+    color:white;
+    text-align:center;
+  }
+
+  .top-bar {
+    width:100%;
+    height:40px;
+    background:#1a1a1a;
+    border-bottom:2px solid red;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    font-weight:bold;
+  }
+
+  .temp {
+    font-size:48px;
+    margin-top:20px;
+    color:yellow;
+  }
+
+  .condition {
+    font-size:20px;
+    margin-top:10px;
+  }
+
+  .details {
+    font-size:14px;
+    opacity:0.8;
+    margin-top:6px;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="cyd-screen">
+
+  <div class="top-bar">Weather</div>
+
+  <div class="temp" id="temp">22.4°C</div>
+  <div class="condition" id="condition">Clouds</div>
+  <div class="details" id="details">broken clouds</div>
+
+</div>
+
+<script>
+  // Fake animation
+  let t = 22.4;
+  let dir = 1;
+
+  function animateTemp() {
+    t += 0.02 * dir;
+    if (t > 23 || t < 22) dir *= -1;
+
+    document.getElementById("temp").innerText = t.toFixed(1) + "°C";
+    requestAnimationFrame(animateTemp);
+  }
+
+  animateTemp();
+</script>
+
+</body>
+</html>
