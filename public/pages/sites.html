@@ -8,10 +8,11 @@
 
   <!-- Load base layout FIRST -->
   <link rel="stylesheet" href="/css/sites.css" />
+
+  <!-- Load font overrides SECOND -->
   <link rel="stylesheet" href="/css/sites-fonts.css" />
 
-
-  <!-- Load per-card text styles LAST so they override everything -->
+  <!-- Load per-card text themes LAST -->
   <link rel="stylesheet" href="/css/site-card-text.css" />
 
   <style>
@@ -29,12 +30,12 @@
       gap: 14px;
     }
 
-    /* Optional: make the Go Time Software text slightly larger */
+    /* Slightly larger Go Time Software text */
     .logo span {
       font-size: 1.35rem;
     }
 
-    /* Optional: mobile header stacking */
+    /* Mobile header stacking */
     @media (max-width: 700px) {
       .site-header {
         flex-direction: column;
