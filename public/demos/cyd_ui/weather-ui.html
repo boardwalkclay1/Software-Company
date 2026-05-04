@@ -1,28 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>CYD Weather UI Demo</title>
+<title>Go Time – Weather Device UI</title>
+
 <style>
   body {
     margin: 0;
-    background: #001122;
-    color: #4aa8ff;
-    font-family: monospace;
-    padding: 20px;
+    background: #000814;
+    font-family: "Inter", sans-serif;
+    color: #e8e8e8;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
   }
-  .panel {
+
+  .device-shell {
+    width: 380px;
+    background: #001122;
+    border: 3px solid #4aa8ff;
+    border-radius: 22px;
+    padding: 22px;
+    box-shadow: 0 0 25px #4aa8ff66;
+  }
+
+  .device-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .device-header h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    color: #4aa8ff;
+    text-shadow: 0 0 12px #4aa8ff;
+  }
+
+  .weather-block {
+    background: #001b33;
     border: 2px solid #4aa8ff;
-    padding: 20px;
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 14px #0044ffaa;
+  }
+
+  .weather-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  .weather-label {
+    color: #7fc7ff;
+    font-size: 0.95rem;
+  }
+
+  .weather-value {
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 0 8px #4aa8ff;
+  }
+
+  .button-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .ui-btn {
+    flex: 1;
+    padding: 12px;
+    background: #4aa8ff;
+    color: #000;
+    font-weight: 700;
     border-radius: 10px;
-    box-shadow: 0 0 12px #4aa8ffaa;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 0 12px #4aa8ffcc;
+    transition: 0.2s;
+  }
+
+  .ui-btn:hover {
+    background: #7fc7ff;
+    box-shadow: 0 0 18px #7fc7ffcc;
+  }
+
+  .footer-note {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 0.85rem;
+    opacity: 0.7;
   }
 </style>
+
 </head>
 <body>
-  <div class="panel">
-    <h2>Weather UI</h2>
-    <p>Temperature, conditions, and phone‑synced data.</p>
+
+<div class="device-shell">
+
+  <div class="device-header">
+    <h1>Go Time Weather UI</h1>
   </div>
+
+  <!-- WEATHER PANEL -->
+  <div class="weather-block">
+    <div class="weather-row">
+      <span class="weather-label">Temperature:</span>
+      <span class="weather-value">72°F</span>
+    </div>
+
+    <div class="weather-row">
+      <span class="weather-label">Condition:</span>
+      <span class="weather-value">Partly Cloudy</span>
+    </div>
+
+    <div class="weather-row">
+      <span class="weather-label">Humidity:</span>
+      <span class="weather-value">48%</span>
+    </div>
+
+    <div class="weather-row">
+      <span class="weather-label">Wind:</span>
+      <span class="weather-value">6 mph</span>
+    </div>
+
+    <div class="weather-row">
+      <span class="weather-label">Location:</span>
+      <span class="weather-value">Atlanta, GA</span>
+    </div>
+
+    <div class="button-row">
+      <div class="ui-btn">Refresh</div>
+      <div class="ui-btn">Sync Phone</div>
+    </div>
+  </div>
+
+  <div class="footer-note">Go Time Software – Device UI Mock</div>
+
+</div>
+
 </body>
 </html>
