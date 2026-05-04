@@ -3,27 +3,107 @@
 <head>
 <meta charset="UTF-8">
 <title>CYD Main UI Demo</title>
+
 <style>
   body {
     margin: 0;
     background: #000;
     color: #00ff88;
-    font-family: monospace;
-    padding: 20px;
+    font-family: "JetBrains Mono", monospace;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
-  .panel {
+
+  .device {
+    width: 320px;
+    height: 240px;
+    background: #000;
     border: 2px solid #00ff88;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 12px #00ff88aa;
+    border-radius: 12px;
+    box-shadow: 0 0 18px #00ff88aa;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .header {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #00ff88;
+    text-shadow: 0 0 8px #00ff88aa;
+  }
+
+  .status-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+  }
+
+  .panel {
+    flex-grow: 1;
+    border: 1px solid #00ff88;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: inset 0 0 12px #00ff8844;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .panel-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  .value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 0 0 8px #00ff88aa;
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 0.75rem;
+    opacity: 0.7;
+    padding-top: 4px;
+    border-top: 1px solid #00ff88;
   }
 </style>
+
 </head>
 <body>
-  <div class="panel">
-    <h2>Main CYD UI</h2>
-    <p>Live device UI preview placeholder.</p>
-    <p>This matches the ESP32 screen layout.</p>
+
+  <div class="device">
+
+    <div class="header">Go Time CYD — Main UI</div>
+
+    <div class="status-row">
+      <div>WiFi: ON</div>
+      <div>BT: ON</div>
+      <div>Sync ✓</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-label">SYSTEM STATUS</div>
+      <div class="value">Running</div>
+
+      <div class="panel-label">Last Sync</div>
+      <div class="value">2.3s ago</div>
+
+      <div class="panel-label">Mode</div>
+      <div class="value">Dashboard</div>
+    </div>
+
+    <div class="footer">Go Time Software • CYD Device UI</div>
+
   </div>
+
 </body>
 </html>
