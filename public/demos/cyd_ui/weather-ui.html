@@ -19,17 +19,45 @@
   }
 
   /* ============================================================
-     DEVICE SHELL
+     DEVICE SHELL (NOW SCROLLABLE)
   ============================================================ */
   .device-shell {
     width: 380px;
+    max-height: 520px; /* allows scrolling */
     background: #001122;
     border: 3px solid #4aa8ff;
     border-radius: 22px;
     padding: 22px;
     box-shadow: 0 0 25px #4aa8ff66;
+    overflow-y: auto; /* enables scrollbar */
   }
 
+  /* DEVICE SHELL SCROLLBAR */
+  .device-shell::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .device-shell::-webkit-scrollbar-track {
+    background: rgba(74, 168, 255, 0.12);
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px #4aa8ff44;
+  }
+
+  .device-shell::-webkit-scrollbar-thumb {
+    background: #4aa8ff;
+    border-radius: 10px;
+    box-shadow: 0 0 14px #4aa8ffcc;
+    border: 1px solid #002244;
+  }
+
+  .device-shell::-webkit-scrollbar-thumb:hover {
+    background: #7fc7ff;
+    box-shadow: 0 0 18px #7fc7ffcc;
+  }
+
+  /* ============================================================
+     HEADER
+  ============================================================ */
   .device-header {
     text-align: center;
     margin-bottom: 20px;
@@ -43,7 +71,7 @@
   }
 
   /* ============================================================
-     WEATHER PANEL
+     WEATHER PANEL (INNER SCROLLBAR)
   ============================================================ */
   .weather-block {
     background: #001b33;
@@ -53,7 +81,6 @@
     margin-bottom: 20px;
     box-shadow: 0 0 14px #0044ffaa;
 
-    /* enable scrolling if content grows */
     max-height: 420px;
     overflow-y: auto;
   }
@@ -73,6 +100,29 @@
     font-weight: 700;
     color: #ffffff;
     text-shadow: 0 0 8px #4aa8ff;
+  }
+
+  /* INNER SCROLLBAR */
+  .weather-block::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .weather-block::-webkit-scrollbar-track {
+    background: rgba(74, 168, 255, 0.12);
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px #4aa8ff44;
+  }
+
+  .weather-block::-webkit-scrollbar-thumb {
+    background: #4aa8ff;
+    border-radius: 10px;
+    box-shadow: 0 0 12px #4aa8ffcc;
+    border: 1px solid #002244;
+  }
+
+  .weather-block::-webkit-scrollbar-thumb:hover {
+    background: #7fc7ff;
+    box-shadow: 0 0 16px #7fc7ffcc;
   }
 
   /* ============================================================
@@ -100,31 +150,6 @@
   .ui-btn:hover {
     background: #7fc7ff;
     box-shadow: 0 0 18px #7fc7ffcc;
-  }
-
-  /* ============================================================
-     CUSTOM SCROLLBAR (NEON BLUE)
-  ============================================================ */
-  .weather-block::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  .weather-block::-webkit-scrollbar-track {
-    background: rgba(74, 168, 255, 0.12);
-    border-radius: 10px;
-    box-shadow: inset 0 0 6px #4aa8ff44;
-  }
-
-  .weather-block::-webkit-scrollbar-thumb {
-    background: #4aa8ff;
-    border-radius: 10px;
-    box-shadow: 0 0 12px #4aa8ffcc;
-    border: 1px solid #002244;
-  }
-
-  .weather-block::-webkit-scrollbar-thumb:hover {
-    background: #7fc7ff;
-    box-shadow: 0 0 16px #7fc7ffcc;
   }
 
   /* ============================================================
