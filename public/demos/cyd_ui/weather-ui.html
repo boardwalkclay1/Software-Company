@@ -8,56 +8,59 @@
   /* ============================================================
      GLOBAL
   ============================================================ */
-  body {
+  html, body {
     margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  body {
     background: #000814;
     font-family: "Inter", sans-serif;
     color: #e8e8e8;
     display: flex;
     justify-content: center;
+    align-items: flex-start;
     padding: 40px;
+    box-sizing: border-box;
+    overflow-y: auto; /* single scrollbar here */
   }
 
-  /* ============================================================
-     DEVICE SHELL (NOW SCROLLABLE)
-  ============================================================ */
-  .device-shell {
-    width: 380px;
-    max-height: 520px; /* allows scrolling */
-    background: #001122;
-    border: 3px solid #4aa8ff;
-    border-radius: 22px;
-    padding: 22px;
-    box-shadow: 0 0 25px #4aa8ff66;
-    overflow-y: auto; /* enables scrollbar */
-  }
-
-  /* DEVICE SHELL SCROLLBAR */
-  .device-shell::-webkit-scrollbar {
+  /* GLOBAL SCROLLBAR (THE ONE YOU SEE) */
+  body::-webkit-scrollbar {
     width: 12px;
   }
 
-  .device-shell::-webkit-scrollbar-track {
+  body::-webkit-scrollbar-track {
     background: rgba(74, 168, 255, 0.12);
     border-radius: 10px;
     box-shadow: inset 0 0 6px #4aa8ff44;
   }
 
-  .device-shell::-webkit-scrollbar-thumb {
+  body::-webkit-scrollbar-thumb {
     background: #4aa8ff;
     border-radius: 10px;
     box-shadow: 0 0 14px #4aa8ffcc;
     border: 1px solid #002244;
   }
 
-  .device-shell::-webkit-scrollbar-thumb:hover {
+  body::-webkit-scrollbar-thumb:hover {
     background: #7fc7ff;
     box-shadow: 0 0 18px #7fc7ffcc;
   }
 
   /* ============================================================
-     HEADER
+     DEVICE SHELL
   ============================================================ */
+  .device-shell {
+    width: 380px;
+    background: #001122;
+    border: 3px solid #4aa8ff;
+    border-radius: 22px;
+    padding: 22px;
+    box-shadow: 0 0 25px #4aa8ff66;
+  }
+
   .device-header {
     text-align: center;
     margin-bottom: 20px;
@@ -71,7 +74,7 @@
   }
 
   /* ============================================================
-     WEATHER PANEL (INNER SCROLLBAR)
+     WEATHER PANEL (NO INNER SCROLL)
   ============================================================ */
   .weather-block {
     background: #001b33;
@@ -80,9 +83,6 @@
     padding: 18px;
     margin-bottom: 20px;
     box-shadow: 0 0 14px #0044ffaa;
-
-    max-height: 420px;
-    overflow-y: auto;
   }
 
   .weather-row {
@@ -100,29 +100,6 @@
     font-weight: 700;
     color: #ffffff;
     text-shadow: 0 0 8px #4aa8ff;
-  }
-
-  /* INNER SCROLLBAR */
-  .weather-block::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  .weather-block::-webkit-scrollbar-track {
-    background: rgba(74, 168, 255, 0.12);
-    border-radius: 10px;
-    box-shadow: inset 0 0 6px #4aa8ff44;
-  }
-
-  .weather-block::-webkit-scrollbar-thumb {
-    background: #4aa8ff;
-    border-radius: 10px;
-    box-shadow: 0 0 12px #4aa8ffcc;
-    border: 1px solid #002244;
-  }
-
-  .weather-block::-webkit-scrollbar-thumb:hover {
-    background: #7fc7ff;
-    box-shadow: 0 0 16px #7fc7ffcc;
   }
 
   /* ============================================================
