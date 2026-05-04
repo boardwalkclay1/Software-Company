@@ -5,6 +5,9 @@
 <title>CYD Main UI Demo</title>
 
 <style>
+  /* ============================
+     GLOBAL
+  ============================ */
   body {
     margin: 0;
     background: #000;
@@ -17,6 +20,9 @@
     height: 100vh;
   }
 
+  /* ============================
+     DEVICE FRAME
+  ============================ */
   .device {
     width: 320px;
     height: 240px;
@@ -28,8 +34,12 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    overflow: hidden;
   }
 
+  /* ============================
+     HEADER
+  ============================ */
   .header {
     text-align: center;
     font-size: 1.1rem;
@@ -39,12 +49,18 @@
     text-shadow: 0 0 8px #00ff88aa;
   }
 
+  /* ============================
+     STATUS BAR
+  ============================ */
   .status-row {
     display: flex;
     justify-content: space-between;
     font-size: 0.85rem;
   }
 
+  /* ============================
+     MAIN PANEL (SCROLLABLE)
+  ============================ */
   .panel {
     flex-grow: 1;
     border: 1px solid #00ff88;
@@ -53,8 +69,8 @@
     box-shadow: inset 0 0 12px #00ff8844;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 6px;
+    gap: 10px;
+    overflow-y: auto;
   }
 
   .panel-label {
@@ -68,12 +84,37 @@
     text-shadow: 0 0 8px #00ff88aa;
   }
 
+  /* ============================
+     FOOTER
+  ============================ */
   .footer {
     text-align: center;
     font-size: 0.75rem;
     opacity: 0.7;
     padding-top: 4px;
     border-top: 1px solid #00ff88;
+  }
+
+  /* ============================
+     CUSTOM SCROLLBAR (NEON GREEN)
+  ============================ */
+  .panel::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .panel::-webkit-scrollbar-track {
+    background: rgba(0, 255, 136, 0.1);
+    border-radius: 10px;
+  }
+
+  .panel::-webkit-scrollbar-thumb {
+    background: #00ff88;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00ff88aa;
+  }
+
+  .panel::-webkit-scrollbar-thumb:hover {
+    background: #00cc66;
   }
 </style>
 
@@ -99,6 +140,18 @@
 
       <div class="panel-label">Mode</div>
       <div class="value">Dashboard</div>
+
+      <div class="panel-label">CPU Load</div>
+      <div class="value">14%</div>
+
+      <div class="panel-label">Memory</div>
+      <div class="value">62%</div>
+
+      <div class="panel-label">Temp</div>
+      <div class="value">41°C</div>
+
+      <div class="panel-label">Voltage</div>
+      <div class="value">4.98V</div>
     </div>
 
     <div class="footer">Go Time Software • CYD Device UI</div>
