@@ -1,28 +1,223 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>CYD Navigation UI Demo</title>
+<title>Go Time – Navigation Device UI</title>
+
 <style>
+  /* ============================================================
+     GLOBAL
+  ============================================================ */
   body {
     margin: 0;
-    background: #111;
-    color: #ffdd33;
-    font-family: monospace;
-    padding: 20px;
+    background: #000814;
+    font-family: "Inter", sans-serif;
+    color: #e8e8e8;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
   }
-  .panel {
-    border: 2px solid #ffdd33;
-    padding: 20px;
+
+  /* ============================================================
+     CUSTOM SCROLLBAR (GOLD GLOW)
+  ============================================================ */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #111;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #ffdd33;
     border-radius: 10px;
     box-shadow: 0 0 12px #ffdd33aa;
   }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ffe680;
+    box-shadow: 0 0 16px #ffe680cc;
+  }
+
+  /* ============================================================
+     DEVICE SHELL
+  ============================================================ */
+  .device-shell {
+    width: 380px;
+    background: #111;
+    border: 3px solid #ffdd33;
+    border-radius: 22px;
+    padding: 22px;
+    box-shadow: 0 0 25px #ffdd3366;
+  }
+
+  .device-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .device-header h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    color: #ffdd33;
+    text-shadow: 0 0 12px #ffdd33;
+  }
+
+  /* ============================================================
+     NAVIGATION PANEL
+  ============================================================ */
+  .nav-block {
+    background: #1a1a1a;
+    border: 2px solid #ffdd33;
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 14px #ffdd33aa;
+    max-height: 420px;
+    overflow-y: auto;
+  }
+
+  .nav-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  .nav-label {
+    color: #ffe680;
+    font-size: 0.95rem;
+  }
+
+  .nav-value {
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 0 8px #ffdd33;
+  }
+
+  /* ============================================================
+     COMPASS
+  ============================================================ */
+  .compass {
+    margin: 18px auto;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 3px solid #ffdd33;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 0 18px #ffdd33aa;
+  }
+
+  .needle {
+    width: 4px;
+    height: 60px;
+    background: #ffdd33;
+    position: absolute;
+    bottom: 50%;
+    transform-origin: bottom center;
+    animation: spinNeedle 4s linear infinite;
+    box-shadow: 0 0 10px #ffdd33;
+  }
+
+  @keyframes spinNeedle {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* ============================================================
+     BUTTONS
+  ============================================================ */
+  .button-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .ui-btn {
+    flex: 1;
+    padding: 12px;
+    background: #ffdd33;
+    color: #000;
+    font-weight: 700;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 0 12px #ffdd33cc;
+    transition: 0.2s;
+  }
+
+  .ui-btn:hover {
+    background: #ffe680;
+    box-shadow: 0 0 18px #ffe680cc;
+  }
+
+  /* ============================================================
+     FOOTER
+  ============================================================ */
+  .footer-note {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
 </style>
+
 </head>
 <body>
-  <div class="panel">
-    <h2>Navigation UI</h2>
-    <p>Heading, GPS, and directional indicators.</p>
+
+<div class="device-shell">
+
+  <div class="device-header">
+    <h1>Go Time Navigation UI</h1>
   </div>
+
+  <!-- NAVIGATION PANEL -->
+  <div class="nav-block">
+
+    <div class="nav-row">
+      <span class="nav-label">Heading:</span>
+      <span class="nav-value">NE (45°)</span>
+    </div>
+
+    <div class="nav-row">
+      <span class="nav-label">Latitude:</span>
+      <span class="nav-value">33.7490° N</span>
+    </div>
+
+    <div class="nav-row">
+      <span class="nav-label">Longitude:</span>
+      <span class="nav-value">84.3880° W</span>
+    </div>
+
+    <div class="nav-row">
+      <span class="nav-label">Speed:</span>
+      <span class="nav-value">12 mph</span>
+    </div>
+
+    <div class="nav-row">
+      <span class="nav-label">Accuracy:</span>
+      <span class="nav-value">± 3m</span>
+    </div>
+
+    <!-- Compass -->
+    <div class="compass">
+      <div class="needle"></div>
+    </div>
+
+    <div class="button-row">
+      <div class="ui-btn">Recenter</div>
+      <div class="ui-btn">Sync Phone</div>
+    </div>
+
+  </div>
+
+  <div class="footer-note">Go Time Software – Navigation UI Mock</div>
+
+</div>
+
 </body>
 </html>
