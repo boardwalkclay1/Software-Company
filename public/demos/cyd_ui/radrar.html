@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Go Time – CYD Motion Sensor Radar</title>
+
+<style>
+  /* ============================
+     GLOBAL
+  ============================ */
+  body {
+    margin: 0;
+    background: #000;
+    color: #00ff88;
+    font-family: "JetBrains Mono", monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  /* ============================
+     DEVICE FRAME
+  ============================ */
+  .device {
+    width: 360px;
+    height: 280px;
+    background: #000;
+    border: 2px solid #00ff88;
+    border-radius: 14px;
+    box-shadow: 0 0 20px #00ff88aa;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .header {
+    text-align: center;
+    font-size: 1.05rem;
+    font-weight: bold;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #00ff88;
+    text-shadow: 0 0 8px #00ff88aa;
+  }
+
+  .status-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+  }
+
+  .status-ok {
+    color: #00ff88;
+  }
+
+  .status-alert {
+    color: #ff5555;
+  }
+
+  /* ============================
+     MAIN LAYOUT
+  ============================ */
+  .main-row {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+    margin-top: 6px;
+  }
+
+  /* ============================
+     RADAR PANEL
+  ============================ */
+  .radar-shell {
+    flex: 1.2;
+    background: radial-gradient(circle at center, #002b22 0%, #000 60%);
+    border-radius: 10px;
+    border: 1px solid #00ff88;
+    box-shadow: inset 0 0 16px #00ff8844;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .radar-circle {
+    width: 100%;
+    max-width: 160px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: 1px solid #00ff88;
+    position: relative;
+    box-shadow: 0 0 14px #00ff88aa;
+  }
+
+  .radar-circle::before,
+  .radar-circle::after {
+    content: "";
+    position: absolute;
+    inset: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid rgba(0,255,136,0.4);
+  }
+
+  .radar-circle::before {
+    width: 70%;
+    height: 70%;
+  }
+
+  .radar-circle::after {
+    width: 40%;
+    height: 40%;
+  }
+
+  .radar-line {
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(to right, #00ff8800, #00ff88);
+    top: 50%;
+    left: 50%;
+    transform-origin: left center;
+    animation: sweep 3s linear infinite;
+    box-shadow: 0 0 10px #00ff88;
+  }
+
+  @keyframes sweep {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .radar-dot {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ff5555;
+    box-shadow: 0 0 10px #ff5555;
+  }
+
+  /* Example intruder dots */
+  .dot-1 { top: 20%; left: 65%; }
+  .dot-2 { top: 60%; left: 30%; }
+  .dot-3 { top: 35%; left: 40%; }
+
+  /* ============================
+     INFO PANEL
+  ============================ */
+  .info-panel {
+    flex: 1;
+    border-radius: 10px;
+    border: 1px solid #00ff88;
+    box-shadow: inset 0 0 12px #00ff8844;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.8rem;
+    overflow-y: auto;
+  }
+
+  .info-title {
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .tag {
+    padding: 2px 6px;
+    border-radius: 6px;
+    border: 1px solid #00ff88;
+    font-size: 0.7rem;
+    opacity: 0.9;
+  }
+
+  .tag-alert {
+    border-color: #ff5555;
+    color: #ff5555;
+  }
+
+  /* Scrollbar for info panel */
+  .info-panel::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .info-panel::-webkit-scrollbar-track {
+    background: rgba(0, 255, 136, 0.08);
+    border-radius: 10px;
+  }
+
+  .info-panel::-webkit-scrollbar-thumb {
+    background: #00ff88;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00ff88aa;
+  }
+
+  .info-panel::-webkit-scrollbar-thumb:hover {
+    background: #00cc66;
+  }
+
+  /* ============================
+     FOOTER
+  ============================ */
+  .footer {
+    text-align: center;
+    font-size: 0.75rem;
+    opacity: 0.7;
+    padding-top: 4px;
+    border-top: 1px solid #00ff88;
+  }
+</style>
+
+</head>
+<body>
+
+<div class="device">
+
+  <div class="header">Go Time CYD — Motion Sensor</div>
+
+  <div class="status-row">
+    <div>Perimeter: <span class="status-alert">BREACH</span></div>
+    <div>Zones: 3 Active</div>
+    <div>Sync ✓</div>
+  </div>
+
+  <div class="main-row">
+    <!-- RADAR -->
+    <div class="radar-shell">
+      <div class="radar-circle">
+        <div class="radar-line"></div>
+        <div class="radar-dot dot-1"></div>
+        <div class="radar-dot dot-2"></div>
+        <div class="radar-dot dot-3"></div>
+      </div>
+    </div>
+
+    <!-- INFO PANEL -->
+    <div class="info-panel">
+      <div class="info-title">DETECTIONS</div>
+
+      <div class="info-row">
+        <span>Target #1</span>
+        <span class="tag tag-alert">Inside perimeter</span>
+      </div>
+      <div class="info-row">
+        <span>Distance</span>
+        <span>4.2 m</span>
+      </div>
+      <div class="info-row">
+        <span>Angle</span>
+        <span>32°</span>
+      </div>
+
+      <hr style="border-color:#00ff8844; border-style:solid; border-width:1px 0 0; margin:6px 0;">
+
+      <div class="info-row">
+        <span>Target #2</span>
+        <span class="tag">Perimeter edge</span>
+      </div>
+      <div class="info-row">
+        <span>Distance</span>
+        <span>7.8 m</span>
+      </div>
+      <div class="info-row">
+        <span>Angle</span>
+        <span>281°</span>
+      </div>
+
+      <hr style="border-color:#00ff8844; border-style:solid; border-width:1px 0 0; margin:6px 0;">
+
+      <div class="info-row">
+        <span>Last motion</span>
+        <span>1.4s ago</span>
+      </div>
+      <div class="info-row">
+        <span>Mode</span>
+        <span>Live Scan</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">Go Time Software • CYD Perimeter Radar UI</div>
+
+</div>
+
+</body>
+</html>
