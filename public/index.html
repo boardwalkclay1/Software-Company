@@ -2,354 +2,382 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Website Templates – Go Time Software</title>
+  <title>Go Time Software – Custom Websites, Apps, IoT & Repairs</title>
 
   <link rel="icon" type="image/png" href="/assets/img/go-time-logo.png" />
-
-  <!-- Base layout -->
-  <link rel="stylesheet" href="/css/sites.css" />
-  <!-- Font / stone theme overrides -->
-  <link rel="stylesheet" href="/css/sites-fonts.css" />
-  <!-- Per-card text themes -->
-  <link rel="stylesheet" href="/css/site-card-text.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/dropdowns.css" />
 
   <style>
     /* ============================
-       GLOBAL STONE GLOW + CENTERING
+       GLOBAL BACKGROUND
     ============================ */
     body.theme-dark {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      background: #02040a;
-      font-family: "Inter", system-ui, sans-serif;
+      background: url("/assets/img/go-time-background.jpg") no-repeat center center fixed;
+      background-size: cover;
     }
-
-    .page-shell {
-      width: 100%;
-      max-width: 1100px;
-      padding: 40px 20px 60px;
-      text-align: center;
-    }
-
-    /* Stone glow + texture on all text */
-    body.theme-dark,
-    .stone-text,
-    h1, h2, h3, p, a, span {
-      color: #e8e8e8;
-      text-shadow:
-        0 0 6px rgba(0,0,0,1),
-        0 0 12px rgba(0,0,0,0.7);
-      letter-spacing: 0.3px;
-    }
-
-    body.theme-dark::after {
+    body.theme-dark::before {
       content: "";
       position: fixed;
       inset: 0;
-      pointer-events: none;
-      background: url("/assets/img/stone-texture.png");
-      opacity: 0.08;
-      mix-blend-mode: overlay;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(2px);
       z-index: -1;
     }
 
-    .page-header h1 {
-      font-size: 2.6rem;
-      margin-bottom: 10px;
-    }
-
-    .page-header p {
-      max-width: 780px;
-      margin: 0 auto;
-      font-size: 1.05rem;
-      line-height: 1.7;
+    /* ============================
+       STONE TEXT GLOW
+    ============================ */
+    .stone-text {
+      text-align: center;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 0 0 8px rgba(255,255,255,0.25), 0 0 14px rgba(0,0,0,0.9);
     }
 
     /* ============================
-       HEADER
+       CENTER SECTIONS
     ============================ */
-    .site-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 30px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .logo-img {
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-    }
-
-    .logo span {
-      font-size: 1.35rem;
-      font-weight: 800;
-    }
-
-    .main-nav {
-      display: flex;
-      gap: 18px;
-    }
-
-    .main-nav a {
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.98rem;
-      opacity: 0.9;
-      transition: 0.2s;
-    }
-
-    .main-nav a:hover {
-      opacity: 1;
-      transform: translateY(-1px);
-    }
-
-    .main-nav .active {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 700px) {
-      .site-header {
-        flex-direction: column;
-        gap: 12px;
-      }
-      .main-nav {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+    .section {
+      text-align: center;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* ============================
-       TEMPLATE GRID
+       PREVIEW CARDS
     ============================ */
-    .template-live-grid {
-      margin-top: 40px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 26px;
-      justify-items: center;
-    }
-
-    .template-live-card {
+    .preview-card {
       background: rgba(0,0,0,0.55);
       border-radius: 16px;
-      padding: 18px;
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 0 18px #000;
-      max-width: 340px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 0 20px #000;
+      margin-top: 20px;
     }
 
-    .template-live-card iframe {
+    .preview-card iframe {
       width: 100%;
-      height: 260px;
+      height: 360px;
       border-radius: 12px;
       border: none;
       background: #000;
       margin-bottom: 12px;
     }
 
-    .template-live-card h3 {
-      margin: 6px 0 10px;
-      font-size: 1.2rem;
+    /* ============================
+       IOT STRIP
+    ============================ */
+    .iot-strip-gallery {
+      overflow: hidden;
+      width: 100%;
+      margin-top: 30px;
     }
 
-    .template-desc p {
-      margin: 4px 0;
-      font-size: 0.95rem;
+    .iot-strip-track {
+      display: flex;
+      gap: 20px;
+      animation: scrollStrip 22s linear infinite;
     }
 
-    .price {
-      margin-top: 10px;
-      font-weight: 800;
-      font-size: 1.1rem;
+    .iot-strip-track img {
+      height: 120px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #000;
     }
 
-    .enter-site-btn {
+    @keyframes scrollStrip {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ============================
+       BUBBLE LINKS
+    ============================ */
+    .bubble-links {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .bubble-link {
       display: inline-block;
-      margin-top: 10px;
-      padding: 10px 16px;
+      padding: 10px 18px;
+      background: rgba(255,255,255,0.15);
       border-radius: 10px;
       text-decoration: none;
-      font-weight: 700;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.35);
+      color: #fff;
+      font-weight: bold;
       transition: 0.2s;
+      box-shadow: 0 0 10px rgba(255,255,255,0.25);
     }
 
-    .enter-site-btn:hover {
-      background: rgba(255,255,255,0.22);
-    }
-
-    /* ============================
-       SECTION BLOCKS
-    ============================ */
-    .section-block {
-      margin-top: 60px;
-    }
-
-    .section-block h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .section-block p {
-      max-width: 780px;
-      margin: 0 auto 14px;
-      font-size: 1.02rem;
-      line-height: 1.7;
-    }
-
-    .custom-btn {
-      margin-top: 14px;
-    }
-
-    /* ============================
-       GUILD IFRAME (APPS SECTION)
-    ============================ */
-    .guild-iframe {
-      width: 100%;
-      max-width: 900px;
-      height: 420px;
-      border-radius: 16px;
-      border: none;
-      background: #000;
-      margin: 26px auto 18px;
-      display: block;
-      box-shadow: 0 0 20px #000;
-    }
-
-    /* ============================
-       FOOTER
-    ============================ */
-    .site-footer {
-      margin-top: 40px;
-      text-align: center;
-      font-size: 0.9rem;
-      opacity: 0.85;
+    .bubble-link:hover {
+      background: rgba(255,255,255,0.25);
     }
   </style>
 </head>
 
 <body class="theme-dark">
 
-  <div class="page-shell">
+  <!-- HEADER -->
+  <header class="site-header">
 
-    <!-- HEADER -->
-    <header class="site-header">
-      <div class="logo">
-        <img src="/assets/img/go-time-logo.png" class="logo-img" />
-        <span class="stone-text">Go Time Software</span>
+    <!-- LEFT: LOGO + TEXT -->
+    <div class="logo-block">
+      <img src="/assets/img/go-time-logo.png" class="logo-img" />
+      <div class="logo-text-block">
+        <div class="logo-line-top">GO</div>
+        <div class="logo-line-mid">TIME</div>
+        <div class="logo-sub">Software Development</div>
       </div>
+    </div>
 
-      <nav class="main-nav">
-        <a href="/index.html">Home</a>
-        <a href="/pages/sites.html" class="active">Sites</a>
-        <a href="/pages/apps.html">Apps</a>
-        <a href="/pages/iot.html">IoT</a>
-        <a href="/pages/pricing.html">Pricing</a>
-        <a href="/pages/contact.html">Contact</a>
-      </nav>
-    </header>
+    <!-- BURGER MENU -->
+    <div class="burger">
+      <div></div><div></div><div></div>
+    </div>
 
-    <!-- PAGE HEADER -->
-    <section class="page-header">
-      <h1 class="stone-text">Website Templates</h1>
-      <p class="stone-text">
-        These are <strong>real, fully interactive templates</strong> — not screenshots.<br>
-        Every template below is a working website you can scroll, click, and explore.<br>
-        These represent <strong>what I can build for your business</strong>.
-      </p>
+    <!-- CENTER NAV -->
+    <nav class="main-nav">
+      <a class="nav-btn" href="/pages/sites.html">Sites</a>
+      <a class="nav-btn" href="/pages/apps.html">Apps</a>
+      <a class="nav-btn" href="/pages/contact.html">Contact</a>
+    </nav>
+
+  </header>
+
+  <main class="page-container">
+
+    <!-- WHAT WE BUILD -->
+    <section class="section visible">
+      <h2 class="stone-text">What We Build</h2>
+      <p class="stone-text">Go Time Software builds real systems — not mockups, not demos.</p>
+      <p class="stone-text">Everything is cinematic, modular, and built like a real product.</p>
     </section>
 
-    <!-- LIVE TEMPLATE GRID -->
-    <section class="template-live-grid">
+    <!-- WEBSITES -->
+    <section class="section">
+      <h2 class="stone-text">Websites</h2>
+      <p class="stone-text">Custom, cinematic, mobile‑ready websites built from scratch.</p>
 
-      <!-- 1. COMIC WEBSITE -->
-      <div class="template-live-card comic-card">
+      <div class="bubble-links">
+        <a class="bubble-link" href="/pages/sites.html">More Websites</a>
+      </div>
+
+      <div class="preview-card">
         <iframe src="https://comic-lct.pages.dev/"></iframe>
-        <h3 class="comic-title stone-text">Comic Website</h3>
-        <div class="template-desc comic-desc stone-text">
-          <p>A full comic reading experience with chapters, navigation, and cinematic flow.</p>
-          <p>Blue‑and‑yellow comic style with animated panel transitions.</p>
-          <p>Shows how far creative storytelling sites can go.</p>
+        <h3 class="stone-text">Comic Universe — Live Website</h3>
+
+        <a class="bubble-link" href="https://comic-lct.pages.dev/" target="_blank">Open Live Website</a>
+
+        <!-- COMIC DROPDOWN -->
+        <div class="frame-desc comic-dropdown">
+          <div class="frame-desc-label">DESCRIPTION</div>
+          <div class="frame-desc-content">
+            <p>
+              Comic Universe is the world’s first <strong>fully interactive comic platform</strong> —  
+              built from scratch by Boardwalk Clay and Go Time Software.
+            </p>
+            <p>
+              This isn’t a normal comic site.  
+              It’s a <strong>complete universe</strong> with:
+            </p>
+            <p>
+              • Cinematic comics<br>
+              • Short films<br>
+              • Interactive comics<br>
+              • Audio books<br>
+              • A connected storyline across multiple mediums
+            </p>
+            <p>
+              As a comic book writer, you built a platform that <strong>no one else has ever done</strong> —  
+              a living universe where every story, character, and world connects.
+            </p>
+            <p>
+              This site is the foundation of the entire Comic Universe ecosystem.
+            </p>
+          </div>
         </div>
-        <div class="price comic-price stone-text">$300</div>
-        <a class="enter-site-btn comic-btn stone-text" href="https://comic-lct.pages.dev/" target="_blank">ENTER SITE</a>
+      </div>
+    </section>
+
+    <!-- APPS -->
+    <section class="section">
+      <h2 class="stone-text">Apps</h2>
+      <p class="stone-text">Our apps are real systems — logic, state, UI, and progression.</p>
+
+      <div class="bubble-links">
+        <a class="bubble-link" href="/pages/apps.html">More Apps</a>
       </div>
 
-      <!-- 2. THE CODE -->
-      <div class="template-live-card code-card">
-        <iframe src="https://the-code.pages.dev/"></iframe>
-        <h3 class="code-title stone-text">THE CODE – 6‑Part Course</h3>
-        <div class="template-desc code-desc stone-text">
-          <p>THE CODE is a complete beginner‑friendly course that teaches you how to build real software step‑by‑step.</p>
-          <p>It breaks coding down into simple, visual lessons so anyone can understand how apps, websites, and automation actually work.</p>
-          <p>You learn by doing — building real projects, real logic, real UI, and real systems the same way Go Time Software builds them.</p>
+      <div class="preview-card">
+        <iframe src="https://the-guild-855.pages.dev/"></iframe>
+        <h3 class="stone-text">The Guild — Live App</h3>
+
+        <a class="bubble-link" href="https://the-guild-855.pages.dev/" target="_blank">Open Live App</a>
+
+        <!-- GUILD DROPDOWN -->
+        <div class="frame-desc guild-dropdown">
+          <div class="frame-desc-label">DESCRIPTION</div>
+          <div class="frame-desc-content">
+            <p>
+              The Guild is a <strong>trading education app</strong> built inside a creative medieval storyline.
+            </p>
+            <p>
+              It teaches <strong>options trading, discipline, strategy, and long‑term thinking</strong>  
+              through a world of guilds, ranks, scrolls, and ancient knowledge.
+            </p>
+            <p>
+              The Guild is also connected to the <strong>Comic Universe</strong> —  
+              characters, lore, and events overlap between the app and the comics.
+            </p>
+            <p>
+              Inside the app, users can:
+            </p>
+            <p>
+              • Learn options trading<br>
+              • Follow structured lessons<br>
+              • Unlock ranks and achievements<br>
+              • Explore lore tied to the Comic Universe<br>
+              • Access the Comic Universe repo
+            </p>
+            <p>
+              It’s a <strong>real educational system</strong> wrapped in a cinematic world.
+            </p>
+          </div>
         </div>
-        <div class="price code-price stone-text">$400</div>
-        <a class="enter-site-btn code-btn stone-text" href="https://the-code.pages.dev/" target="_blank">ENTER COURSE</a>
+      </div>
+    </section>
+
+    <!-- IOT -->
+    <section class="section">
+      <h2 class="stone-text">IoT Systems & Automation</h2>
+      <p class="stone-text">IoT connects your software to the physical world.</p>
+
+      <!-- SCROLLING STRIP (MOVED UP) -->
+      <div class="iot-strip-gallery">
+        <div class="iot-strip-track">
+          <img src="/assets/img/broke-top.jpg" />
+          <img src="/assets/img/broken-electronics.png" />
+          <img src="/assets/img/red-chip.png" />
+          <img src="/assets/img/solder.png" />
+          <img src="/assets/img/white-chip.png" />
+          <img src="/assets/img/woodchip.png" />
+          <img src="/assets/img/broke-top.jpg" />
+          <img src="/assets/img/broken-electronics.png" />
+          <img src="/assets/img/red-chip.png" />
+          <img src="/assets/img/solder.png" />
+          <img src="/assets/img/white-chip.png" />
+          <img src="/assets/img/woodchip.png" />
+        </div>
       </div>
 
-      <!-- 3. ROLL N CONNECT -->
-      <div class="template-live-card roll-card">
-        <iframe src="https://rollnconnect.pages.dev/"></iframe>
-        <h3 class="roll-title stone-text">Roll N Connect</h3>
-        <div class="template-desc roll-desc stone-text">
-          <p>A full social platform with profiles, events, maps, and live features.</p>
-          <p>Includes a bouncing bubble animation that bursts into glowing white text.</p>
-          <p>Shows how I build multi‑page, app‑style websites with real functionality.</p>
+      <!-- CYD MOTION SENSOR -->
+      <div class="frame-desc guild-dropdown" style="margin-top:40px;">
+        <div class="frame-desc-label">CYD Motion Sensor & Perimeter Radar</div>
+        <div class="frame-desc-content">
+          <p>
+            The CYD Motion Sensor System is a <strong>real perimeter‑detection tool</strong> built by Go Time Software.
+            It scans your environment, detects movement, and pinpoints the exact location of anything entering your perimeter.
+          </p>
+
+          <p><strong>Features:</strong></p>
+          <p>
+            • Live radar sweep<br>
+            • Intruder dots with distance + angle<br>
+            • Perimeter breach alerts<br>
+            • Multi‑zone monitoring<br>
+            • Real‑time motion logs<br>
+            • CYD‑grade device styling
+          </p>
+
+          <a class="bubble-link" href="/demos/cyd-motion-radar.html" target="_blank">
+            Open Motion Sensor Radar Demo
+          </a>
         </div>
-        <div class="price roll-price stone-text">$650</div>
-        <a class="enter-site-btn roll-btn stone-text" href="https://rollnconnect.pages.dev/" target="_blank">ENTER SITE</a>
+      </div>
+
+      <!-- ELECTRONICS REPAIR -->
+      <div class="frame-desc comic-dropdown" style="margin-top:30px;">
+        <div class="frame-desc-label">Electronic Repairs & Hardware Replacement</div>
+        <div class="frame-desc-content">
+          <p>
+            Go Time Software repairs <strong>software and hardware</strong> for phones, tablets, laptops, IoT devices,
+            microcontrollers, sensors, and custom electronics.
+          </p>
+
+          <p><strong>Software Repair Includes:</strong></p>
+          <p>
+            • System resets<br>
+            • OS reinstallations<br>
+            • Malware removal<br>
+            • Boot‑loop fixes<br>
+            • Data recovery<br>
+            • Firmware flashing<br>
+            • Device unlocking
+          </p>
+
+          <p><strong>Hardware Repair Includes:</strong></p>
+          <p>
+            • Screen replacement<br>
+            • Battery replacement<br>
+            • Charging port repair<br>
+            • Soldering & micro‑soldering<br>
+            • Board diagnostics<br>
+            • Sensor replacement<br>
+            • Custom part fabrication
+          </p>
+
+          <a class="bubble-link" href="/pages/contact.html">Request a Repair</a>
+        </div>
+      </div>
+
+      <!-- APP STORE (MOVED UNDER REPAIR) -->
+      <div class="bubble-links" style="margin-top:20px;">
+        <a class="bubble-link" href="/pages/app-store.html">Go Time App Store</a>
       </div>
 
     </section>
 
-    <!-- CUSTOM SITES -->
-    <section class="section-block">
-      <h2 class="stone-text">Custom Sites Built for Your Business</h2>
-      <p class="stone-text">
-        Every business is different — so every site we build is custom.<br>
-        Whether you need a brand site, a product launch, a portfolio, or a full system,<br>
-        Go Time Software builds it clean, fast, and modular.
-      </p>
-      <a class="enter-site-btn custom-btn stone-text" href="/pages/contact.html">Start a Custom Build</a>
-    </section>
+  </main>
 
-    <!-- APPS / GUILD SECTION -->
-    <section class="section-block">
-      <h2 class="stone-text">Why Apps Matter</h2>
-      <p class="stone-text">
-        Websites show your business.<br>
-        <strong>Apps run your business.</strong>
-      </p>
-      <p class="stone-text">
-        Apps automate work, track data, handle customers, and make you money while you sleep.<br>
-        A good app idea can turn into a real business — and yes, we do equity deals<br>
-        if your idea has potential.
-      </p>
+  <!-- SCRIPTS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
 
-      <!-- Ensure iframe is big, centered, and visible -->
-      <iframe class="guild-iframe" src="https://the-guild-855.pages.dev/"></iframe>
+      /* SECTION REVEAL */
+      const sections = document.querySelectorAll(".section");
+      function revealSections() {
+        const trigger = window.innerHeight * 0.85;
+        sections.forEach(sec => {
+          const top = sec.getBoundingClientRect().top;
+          if (top < trigger) sec.classList.add("visible");
+        });
+      }
+      window.addEventListener("scroll", revealSections);
+      window.addEventListener("load", revealSections);
+      revealSections();
 
-      <a class="enter-site-btn code-btn stone-text" href="/pages/apps.html">Explore All Apps</a>
-      <a class="enter-site-btn custom-btn stone-text" href="/pages/contact.html" style="margin-left:10px;">Pitch an App Idea</a>
-    </section>
+      /* DROPDOWNS */
+      document.querySelectorAll(".frame-desc").forEach(desc => {
+        desc.addEventListener("click", () => {
+          desc.classList.toggle("open");
+        });
+      });
 
-  </div>
+      /* BURGER MENU */
+      const burger = document.querySelector(".burger");
+      const nav = document.querySelector(".main-nav");
 
-  <footer class="site-footer">
-    <span class="stone-text">© Go Time Software</span>
-  </footer>
+      burger.addEventListener("click", () => {
+        nav.classList.toggle("nav-open");
+        burger.classList.toggle("open");
+      });
+
+    });
+  </script>
 
 </body>
 </html>
