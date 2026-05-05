@@ -5,19 +5,22 @@
   <title>Pricing – Go Time Software</title>
 
   <link rel="icon" type="image/png" href="/assets/img/go-time-logo.png" />
-  <link rel="stylesheet" href="/css/base.css" />
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     /* ============================================================
        GLOBAL THEME — MATTE BLACK METAL + RED TRIM
     ============================================================ */
-    body.theme-dark {
+    body {
+      margin: 0;
       background: #000;
-      font-family: "Inter", sans-serif;
+      font-family: "Rajdhani", sans-serif;
       color: #e6e6e6;
     }
 
-    body.theme-dark::before {
+    body::before {
       content: "";
       position: fixed;
       inset: 0;
@@ -26,7 +29,7 @@
       z-index: -2;
     }
 
-    body.theme-dark::after {
+    body::after {
       content: "";
       position: fixed;
       inset: 0;
@@ -52,6 +55,9 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      font-family: "Orbitron", sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
     }
 
     .logo-img {
@@ -65,13 +71,11 @@
       font-weight: 700;
       margin-left: 20px;
       transition: 0.2s;
+      font-family: "Rajdhani", sans-serif;
+      font-size: 1.1rem;
     }
 
-    .main-nav a:hover {
-      color: #ff4444;
-      text-shadow: 0 0 10px #ff4444;
-    }
-
+    .main-nav a:hover,
     .main-nav .active {
       color: #ff4444;
       text-shadow: 0 0 10px #ff4444;
@@ -81,26 +85,29 @@
        PAGE WRAPPER
     ============================================================ */
     .pricing-shell {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 50px 20px;
     }
 
     .pricing-header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
 
     .pricing-header h1 {
-      font-size: 2.6rem;
+      font-family: "Orbitron", sans-serif;
+      font-size: 3rem;
       color: #fff;
-      text-shadow: 0 0 12px #ff0000aa;
+      text-shadow: 0 0 14px #ff0000aa;
       margin-bottom: 10px;
     }
 
     .pricing-header p {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
     /* ============================================================
@@ -108,16 +115,16 @@
     ============================================================ */
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 26px;
-      margin-bottom: 50px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
     }
 
     .pricing-card {
       background: linear-gradient(145deg, #0a0a0a, #111);
       border: 1px solid #555;
       border-radius: 18px;
-      padding: 22px;
+      padding: 26px;
       box-shadow:
         0 0 18px #000,
         inset 0 0 18px #000;
@@ -136,36 +143,39 @@
     }
 
     .pricing-card h2 {
-      margin: 0 0 8px;
-      font-size: 1.4rem;
+      margin: 0 0 10px;
+      font-size: 1.6rem;
+      font-family: "Orbitron", sans-serif;
       color: #fff;
       text-shadow: 0 0 10px #ff0000aa;
     }
 
     .pricing-card p {
-      margin: 0 0 14px;
+      margin: 0 0 16px;
       opacity: 0.9;
-      font-size: 0.95rem;
+      font-size: 1rem;
     }
 
     .price-tag {
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 900;
       color: #ff4444;
       text-shadow: 0 0 12px #ff4444aa;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
+      font-family: "Orbitron", sans-serif;
     }
 
     .pricing-card ul {
-      margin: 0 0 16px;
+      margin: 0 0 20px;
       padding-left: 20px;
       opacity: 0.9;
+      font-size: 1rem;
     }
 
     /* BUTTON */
     .btn-primary {
       width: 100%;
-      padding: 12px 16px;
+      padding: 14px 16px;
       border-radius: 999px;
       border: 1px solid #ff4444;
       background: linear-gradient(135deg, #660000, #ff0000);
@@ -174,6 +184,8 @@
       cursor: pointer;
       transition: 0.25s;
       box-shadow: 0 0 12px #ff000088;
+      font-size: 1.1rem;
+      font-family: "Rajdhani", sans-serif;
     }
 
     .btn-primary:hover {
@@ -189,23 +201,27 @@
       background: linear-gradient(145deg, #0a0a0a, #111);
       border: 1px solid #555;
       border-radius: 18px;
-      padding: 22px;
-      margin-bottom: 40px;
+      padding: 26px;
+      margin-bottom: 50px;
       box-shadow:
         0 0 18px #000,
         inset 0 0 18px #000;
     }
 
     .section-block h2 {
-      margin: 0 0 10px;
+      margin: 0 0 14px;
       color: #fff;
       text-shadow: 0 0 10px #ff0000aa;
+      font-family: "Orbitron", sans-serif;
+      font-size: 1.8rem;
     }
 
     .section-block p,
     .section-block ul {
       opacity: 0.9;
+      font-size: 1.1rem;
     }
+
   </style>
 </head>
 
@@ -233,7 +249,8 @@
     <!-- TITLE -->
     <div class="pricing-header">
       <h1>Cinematic, Real Pricing</h1>
-      <p>Premium systems. Matte‑black metal panels. Real results.</p>
+      <p>Premium systems. Matte‑black metal panels. Real results.  
+      Every build is custom, cinematic, and engineered like a real product.</p>
     </div>
 
     <!-- PRICING GRID -->
@@ -242,13 +259,14 @@
       <!-- Websites -->
       <div class="pricing-card">
         <h2>Websites</h2>
-        <p>Cinematic, mobile‑ready, built clean and fast.</p>
+        <p>Cinematic, mobile‑ready, built from scratch — no templates.</p>
         <div class="price-tag">$600 – $1200</div>
         <ul>
-          <li>Landing pages</li>
-          <li>Business websites</li>
-          <li>Portfolio layouts</li>
-          <li>Custom animations</li>
+          <li>Custom layouts + animations</li>
+          <li>SEO‑ready structure</li>
+          <li>Ultra‑fast load times</li>
+          <li>Brand‑matched color systems</li>
+          <li>Mobile‑first responsive design</li>
         </ul>
         <button class="btn-primary" onclick="window.location.href='/pages/sites.html'">
           View Website Templates
@@ -258,13 +276,14 @@
       <!-- Apps -->
       <div class="pricing-card">
         <h2>Apps & Dashboards</h2>
-        <p>Real tools, real logic, real systems.</p>
+        <p>Real tools, real logic, real systems — installable like real apps.</p>
         <div class="price-tag">$1000 – $3000</div>
         <ul>
           <li>Installable PWAs</li>
-          <li>Dashboards & control panels</li>
-          <li>Automation tools</li>
-          <li>CYD‑style UIs</li>
+          <li>Offline mode available</li>
+          <li>Custom workflows + logic</li>
+          <li>Admin dashboards included</li>
+          <li>CYD‑grade UI components</li>
         </ul>
         <button class="btn-primary" onclick="window.location.href='/pages/apps.html'">
           Explore Apps
@@ -274,13 +293,14 @@
       <!-- IoT -->
       <div class="pricing-card">
         <h2>IoT & Automation</h2>
-        <p>Real‑world sensors, triggers, and automation.</p>
+        <p>Real‑world sensors, triggers, automation, and device control.</p>
         <div class="price-tag">$500 – $1800</div>
         <ul>
-          <li>Motion & distance sensors</li>
-          <li>Smart relays</li>
-          <li>Live dashboards</li>
-          <li>Automation rules</li>
+          <li>Motion, distance, temperature sensors</li>
+          <li>Smart relays + device control</li>
+          <li>Live dashboards with alerts</li>
+          <li>Automation rules (If X then Y)</li>
+          <li>Custom hardware integration</li>
         </ul>
         <button class="btn-primary" onclick="window.location.href='/pages/iot.html'">
           Learn About IoT
@@ -290,12 +310,13 @@
       <!-- Full Systems -->
       <div class="pricing-card">
         <h2>Full Systems</h2>
-        <p>Website + App + Automation + IoT.</p>
+        <p>Website + App + IoT + Automation — one unified system.</p>
         <div class="price-tag">$2400 – $5000</div>
         <ul>
           <li>Website + dashboard</li>
           <li>Automation + sensors</li>
           <li>Custom workflows</li>
+          <li>Real‑time monitoring</li>
           <li>Business‑ready system</li>
         </ul>
         <button class="btn-primary" onclick="window.location.href='/pages/contact.html'">
