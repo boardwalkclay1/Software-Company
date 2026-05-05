@@ -302,6 +302,7 @@ body.theme-dark::before {
   color: #e5e5e5;
   text-shadow: 0 0 6px rgba(0,0,0,1);
 }
+
 /* ============================================================
    GLOBAL STONE GLOW + TEXTURE THEME
 ============================================================ */
@@ -346,4 +347,38 @@ body.theme-dark::after {
   text-shadow:
     0 0 6px rgba(0,0,0,1),
     0 0 12px rgba(0,0,0,0.7);
+}
+
+/* ============================================================
+   CYD DROPDOWN COLOR THEMES
+============================================================ */
+
+/* MAIN CYD UI — NEON GREEN */
+.dropdown.main-ui .dropdown-header {
+  background: rgba(0, 255, 136, 0.15);
+  border-left: 4px solid #00ff88;
+  text-shadow: 0 0 8px #00ff88aa;
+}
+.dropdown.main-ui .dropdown-content {
+  border-left: 3px solid #00ff88;
+}
+
+/* WEATHER UI — NEON BLUE */
+.dropdown.weather-ui .dropdown-header {
+  background: rgba(74, 168, 255, 0.15);
+  border-left: 4px solid #4aa8ff;
+  text-shadow: 0 0 8px #4aa8ffaa;
+}
+.dropdown.weather-ui .dropdown-content {
+  border-left: 3px solid #4aa8ff;
+}
+
+/* NAVIGATION UI — GOLD */
+.dropdown.navigation-ui .dropdown-header {
+  background: rgba(255, 221, 51, 0.15);
+  border-left: 4px solid #ffdd33;
+  text-shadow: 0 0 8px #ffdd33aa;
+}
+.dropdown.navigation-ui .dropdown-content {
+  border-left: 3px solid #ffdd33;
 }
