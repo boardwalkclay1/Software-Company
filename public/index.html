@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Go Time Software – Custom Websites, Apps, IoT & Repairs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Go Time Software</title>
 
-  <link rel="icon" type="image/png" href="/assets/img/go-time-logo.png" />
-  <link rel="stylesheet" href="/css/base.css" />
   <link rel="stylesheet" href="/css/dropdowns.css" />
 
   <style>
@@ -26,29 +25,125 @@
     }
 
     /* ============================
-       STONE TEXT GLOW
+       HEADER
     ============================ */
-    .stone-text {
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .logo-block {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-img {
+      height: 60px;
+    }
+
+    .logo-text-block {
+      color: #fff;
+      font-weight: bold;
+      text-shadow: 0 0 10px #000;
+    }
+
+    .logo-line-top {
+      font-size: 1.4rem;
+      letter-spacing: 2px;
+    }
+    .logo-line-mid {
+      font-size: 2.2rem;
+      margin-top: -6px;
+    }
+    .logo-sub {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* HERO BUILD SUMMARY */
+    .hero-build-summary {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      text-shadow: 0 0 8px rgba(255,255,255,0.25), 0 0 14px rgba(0,0,0,0.9);
+      color: #fff;
+      text-shadow: 0 0 12px #000;
+      pointer-events: none;
+      max-width: 700px;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .hero-sub {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      line-height: 1.4;
+    }
+
+    /* NAV */
+    .main-nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-btn {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: 0.2s;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    /* BURGER */
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .burger div {
+      width: 28px;
+      height: 3px;
+      background: #fff;
     }
 
     /* ============================
-       CENTER SECTIONS
+       SECTIONS
     ============================ */
     .section {
       text-align: center;
       max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 80px auto;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 0.6s ease;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    /* ============================
-       PREVIEW CARDS
-    ============================ */
+    .stone-text {
+      text-shadow: 0 0 8px rgba(255,255,255,0.25), 0 0 14px rgba(0,0,0,0.9);
+      color: #fff;
+    }
+
+    /* PREVIEW CARDS */
     .preview-card {
       background: rgba(0,0,0,0.55);
       border-radius: 16px;
@@ -67,40 +162,10 @@
       margin-bottom: 12px;
     }
 
-    /* ============================
-       IOT STRIP
-    ============================ */
-    .iot-strip-gallery {
-      overflow: hidden;
-      width: 100%;
-      margin-top: 30px;
-    }
-
-    .iot-strip-track {
-      display: flex;
-      gap: 20px;
-      animation: scrollStrip 22s linear infinite;
-    }
-
-    .iot-strip-track img {
-      height: 120px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #000;
-    }
-
-    @keyframes scrollStrip {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
-    /* ============================
-       BUBBLE LINKS
-    ============================ */
+    /* BUBBLE LINKS */
     .bubble-links {
-      text-align: center;
       margin-top: 20px;
     }
-
     .bubble-link {
       display: inline-block;
       padding: 10px 18px;
@@ -112,9 +177,49 @@
       transition: 0.2s;
       box-shadow: 0 0 10px rgba(255,255,255,0.25);
     }
-
     .bubble-link:hover {
       background: rgba(255,255,255,0.25);
+    }
+
+    /* IOT STRIP */
+    .iot-strip-gallery {
+      overflow: hidden;
+      width: 100%;
+      margin-top: 30px;
+    }
+    .iot-strip-track {
+      display: flex;
+      gap: 20px;
+      animation: scrollStrip 22s linear infinite;
+    }
+    .iot-strip-track img {
+      height: 120px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #000;
+    }
+    @keyframes scrollStrip {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* FLOATING CONTACT BUTTON */
+    .floating-contact {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      background: #ff4444;
+      color: #fff;
+      padding: 14px 20px;
+      border-radius: 50px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 12px rgba(0,0,0,0.6);
+      transition: 0.2s;
+      z-index: 9999;
+    }
+    .floating-contact:hover {
+      background: #ff6666;
+      transform: scale(1.05);
     }
   </style>
 </head>
@@ -124,7 +229,6 @@
   <!-- HEADER -->
   <header class="site-header">
 
-    <!-- LEFT: LOGO + TEXT -->
     <div class="logo-block">
       <img src="/assets/img/go-time-logo.png" class="logo-img" />
       <div class="logo-text-block">
@@ -134,12 +238,14 @@
       </div>
     </div>
 
-    <!-- BURGER MENU -->
-    <div class="burger">
-      <div></div><div></div><div></div>
+    <div class="hero-build-summary">
+      <div class="hero-title">We Build Real Systems</div>
+      <div class="hero-sub">
+        Cinematic Websites • Full Apps • IoT Systems • Automation • Hardware Repair •  
+        Interactive Platforms • Creative Worlds • Real‑Time Tools
+      </div>
     </div>
 
-    <!-- CENTER NAV -->
     <nav class="main-nav">
       <a class="nav-btn" href="/pages/sites.html">Sites</a>
       <a class="nav-btn" href="/pages/apps.html">Apps</a>
@@ -153,7 +259,7 @@
     <!-- WHAT WE BUILD -->
     <section class="section visible">
       <h2 class="stone-text">What We Build</h2>
-      <p class="stone-text">Go Time Software builds real systems — not mockups, not demos.</p>
+      <p class="stone-text">Go Time Software builds real, production‑ready systems — not mockups.</p>
       <p class="stone-text">Everything is cinematic, modular, and built like a real product.</p>
     </section>
 
@@ -172,31 +278,12 @@
 
         <a class="bubble-link" href="https://comic-lct.pages.dev/" target="_blank">Open Live Website</a>
 
-        <!-- COMIC DROPDOWN -->
         <div class="frame-desc comic-dropdown">
           <div class="frame-desc-label">DESCRIPTION</div>
           <div class="frame-desc-content">
             <p>
-              Comic Universe is the world’s first <strong>fully interactive comic platform</strong> —  
-              built from scratch by Boardwalk Clay and Go Time Software.
-            </p>
-            <p>
-              This isn’t a normal comic site.  
-              It’s a <strong>complete universe</strong> with:
-            </p>
-            <p>
-              • Cinematic comics<br>
-              • Short films<br>
-              • Interactive comics<br>
-              • Audio books<br>
-              • A connected storyline across multiple mediums
-            </p>
-            <p>
-              As a comic book writer, you built a platform that <strong>no one else has ever done</strong> —  
-              a living universe where every story, character, and world connects.
-            </p>
-            <p>
-              This site is the foundation of the entire Comic Universe ecosystem.
+              Comic Universe is the world’s first fully interactive comic platform —  
+              a living universe across comics, films, audio, and lore.
             </p>
           </div>
         </div>
@@ -206,7 +293,7 @@
     <!-- APPS -->
     <section class="section">
       <h2 class="stone-text">Apps</h2>
-      <p class="stone-text">Our apps are real systems — logic, state, UI, and progression.</p>
+      <p class="stone-text">Real apps with logic, state, UI, progression, and world‑building.</p>
 
       <div class="bubble-links">
         <a class="bubble-link" href="/pages/apps.html">More Apps</a>
@@ -218,33 +305,12 @@
 
         <a class="bubble-link" href="https://the-guild-855.pages.dev/" target="_blank">Open Live App</a>
 
-        <!-- GUILD DROPDOWN -->
         <div class="frame-desc guild-dropdown">
           <div class="frame-desc-label">DESCRIPTION</div>
           <div class="frame-desc-content">
             <p>
-              The Guild is a <strong>trading education app</strong> built inside a creative medieval storyline.
-            </p>
-            <p>
-              It teaches <strong>options trading, discipline, strategy, and long‑term thinking</strong>  
-              through a world of guilds, ranks, scrolls, and ancient knowledge.
-            </p>
-            <p>
-              The Guild is also connected to the <strong>Comic Universe</strong> —  
-              characters, lore, and events overlap between the app and the comics.
-            </p>
-            <p>
-              Inside the app, users can:
-            </p>
-            <p>
-              • Learn options trading<br>
-              • Follow structured lessons<br>
-              • Unlock ranks and achievements<br>
-              • Explore lore tied to the Comic Universe<br>
-              • Access the Comic Universe repo
-            </p>
-            <p>
-              It’s a <strong>real educational system</strong> wrapped in a cinematic world.
+              The Guild teaches options trading through a medieval storyline with ranks, lore,  
+              achievements, and a connected universe.
             </p>
           </div>
         </div>
@@ -254,9 +320,8 @@
     <!-- IOT -->
     <section class="section">
       <h2 class="stone-text">IoT Systems & Automation</h2>
-      <p class="stone-text">IoT connects your software to the physical world.</p>
+      <p class="stone-text">We connect software to the physical world.</p>
 
-      <!-- SCROLLING STRIP (MOVED UP) -->
       <div class="iot-strip-gallery">
         <div class="iot-strip-track">
           <img src="/assets/img/broke-top.jpg" />
@@ -274,67 +339,30 @@
         </div>
       </div>
 
-      <!-- CYD MOTION SENSOR -->
       <div class="frame-desc guild-dropdown" style="margin-top:40px;">
         <div class="frame-desc-label">CYD Motion Sensor & Perimeter Radar</div>
         <div class="frame-desc-content">
           <p>
-            The CYD Motion Sensor System is a <strong>real perimeter‑detection tool</strong> built by Go Time Software.
-            It scans your environment, detects movement, and pinpoints the exact location of anything entering your perimeter.
+            A real perimeter‑detection radar with live sweep, intruder dots,  
+            distance/angle tracking, and multi‑zone monitoring.
           </p>
-
-          <p><strong>Features:</strong></p>
-          <p>
-            • Live radar sweep<br>
-            • Intruder dots with distance + angle<br>
-            • Perimeter breach alerts<br>
-            • Multi‑zone monitoring<br>
-            • Real‑time motion logs<br>
-            • CYD‑grade device styling
-          </p>
-
           <a class="bubble-link" href="/demos/cyd-motion-radar.html" target="_blank">
             Open Motion Sensor Radar Demo
           </a>
         </div>
       </div>
 
-      <!-- ELECTRONICS REPAIR -->
       <div class="frame-desc comic-dropdown" style="margin-top:30px;">
         <div class="frame-desc-label">Electronic Repairs & Hardware Replacement</div>
         <div class="frame-desc-content">
           <p>
-            Go Time Software repairs <strong>software and hardware</strong> for phones, tablets, laptops, IoT devices,
-            microcontrollers, sensors, and custom electronics.
+            We repair phones, tablets, laptops, IoT devices, microcontrollers,  
+            sensors, and custom electronics.
           </p>
-
-          <p><strong>Software Repair Includes:</strong></p>
-          <p>
-            • System resets<br>
-            • OS reinstallations<br>
-            • Malware removal<br>
-            • Boot‑loop fixes<br>
-            • Data recovery<br>
-            • Firmware flashing<br>
-            • Device unlocking
-          </p>
-
-          <p><strong>Hardware Repair Includes:</strong></p>
-          <p>
-            • Screen replacement<br>
-            • Battery replacement<br>
-            • Charging port repair<br>
-            • Soldering & micro‑soldering<br>
-            • Board diagnostics<br>
-            • Sensor replacement<br>
-            • Custom part fabrication
-          </p>
-
           <a class="bubble-link" href="/pages/contact.html">Request a Repair</a>
         </div>
       </div>
 
-      <!-- APP STORE (MOVED UNDER REPAIR) -->
       <div class="bubble-links" style="margin-top:20px;">
         <a class="bubble-link" href="/pages/app-store.html">Go Time App Store</a>
       </div>
@@ -343,11 +371,13 @@
 
   </main>
 
+  <!-- FLOATING CONTACT BUTTON -->
+  <a href="/pages/contact.html" class="floating-contact">Contact</a>
+
   <!-- SCRIPTS -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
 
-      /* SECTION REVEAL */
       const sections = document.querySelectorAll(".section");
       function revealSections() {
         const trigger = window.innerHeight * 0.85;
@@ -360,20 +390,10 @@
       window.addEventListener("load", revealSections);
       revealSections();
 
-      /* DROPDOWNS */
       document.querySelectorAll(".frame-desc").forEach(desc => {
         desc.addEventListener("click", () => {
           desc.classList.toggle("open");
         });
-      });
-
-      /* BURGER MENU */
-      const burger = document.querySelector(".burger");
-      const nav = document.querySelector(".main-nav");
-
-      burger.addEventListener("click", () => {
-        nav.classList.toggle("nav-open");
-        burger.classList.toggle("open");
       });
 
     });
