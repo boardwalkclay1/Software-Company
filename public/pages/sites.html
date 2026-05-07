@@ -8,9 +8,7 @@
 
   <!-- Base layout -->
   <link rel="stylesheet" href="/css/sites.css" />
-  <!-- Font / stone theme overrides -->
   <link rel="stylesheet" href="/css/sites-fonts.css" />
-  <!-- Per-card text themes -->
   <link rel="stylesheet" href="/css/site-card-text.css" />
 
   <style>
@@ -34,7 +32,6 @@
       text-align: center;
     }
 
-    /* Stone glow + texture on all text */
     body.theme-dark,
     .stone-text,
     h1, h2, h3, p, a, span {
@@ -129,54 +126,51 @@
     }
 
     /* ============================
-       TEMPLATE GRID
+       FULL-WIDTH TEMPLATE PANELS
     ============================ */
-    .template-live-grid {
-      margin-top: 40px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 26px;
-      justify-items: center;
-    }
-
-    .template-live-card {
-      background: rgba(0,0,0,0.55);
-      border-radius: 16px;
-      padding: 18px;
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 0 18px #000;
-      max-width: 340px;
-    }
-
-    .template-live-card iframe {
+    .template-panel {
       width: 100%;
-      height: 260px;
-      border-radius: 12px;
+      background: rgba(0,0,0,0.55);
+      border-radius: 18px;
+      padding: 26px;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 0 22px #000;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+
+    .template-panel iframe {
+      width: 100%;
+      height: 420px;
+      border-radius: 14px;
       border: none;
       background: #000;
-      margin-bottom: 12px;
+      margin-bottom: 18px;
+      box-shadow: 0 0 20px #000;
     }
 
-    .template-live-card h3 {
+    .template-panel h3 {
       margin: 6px 0 10px;
-      font-size: 1.2rem;
+      font-size: 1.6rem;
     }
 
-    .template-desc p {
-      margin: 4px 0;
-      font-size: 0.95rem;
+    .template-panel p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin: 6px 0;
     }
 
     .price {
-      margin-top: 10px;
-      font-weight: 800;
-      font-size: 1.1rem;
+      margin-top: 14px;
+      font-weight: 900;
+      font-size: 1.25rem;
+      color: #fff;
     }
 
     .enter-site-btn {
       display: inline-block;
-      margin-top: 10px;
-      padding: 10px 16px;
+      margin-top: 14px;
+      padding: 12px 20px;
       border-radius: 10px;
       text-decoration: none;
       font-weight: 700;
@@ -210,21 +204,6 @@
 
     .custom-btn {
       margin-top: 14px;
-    }
-
-    /* ============================
-       GUILD IFRAME (APPS SECTION)
-    ============================ */
-    .guild-iframe {
-      width: 100%;
-      max-width: 900px;
-      height: 420px;
-      border-radius: 16px;
-      border: none;
-      background: #000;
-      margin: 26px auto 18px;
-      display: block;
-      box-shadow: 0 0 20px #000;
     }
 
     /* ============================
@@ -270,48 +249,39 @@
       </p>
     </section>
 
-    <!-- LIVE TEMPLATE GRID -->
-    <section class="template-live-grid">
+    <!-- FULL-WIDTH TEMPLATE PANELS -->
 
-      <!-- 1. COMIC WEBSITE -->
-      <div class="template-live-card comic-card">
-        <iframe src="https://comic-lct.pages.dev/"></iframe>
-        <h3 class="comic-title stone-text">Comic Website</h3>
-        <div class="template-desc comic-desc stone-text">
-          <p>A full comic reading experience with chapters, navigation, and cinematic flow.</p>
-          <p>Blue‑and‑yellow comic style with animated panel transitions.</p>
-          <p>Shows how far creative storytelling sites can go.</p>
-        </div>
-        <div class="price comic-price stone-text">$300</div>
-        <a class="enter-site-btn comic-btn stone-text" href="https://comic-lct.pages.dev/" target="_blank">ENTER SITE</a>
-      </div>
+    <!-- 1. COMIC WEBSITE -->
+    <section class="template-panel">
+      <iframe src="https://comic-lct.pages.dev/"></iframe>
+      <h3 class="stone-text">Comic Website</h3>
+      <p class="stone-text">A full comic reading experience with chapters, navigation, and cinematic flow.</p>
+      <p class="stone-text">Blue‑and‑yellow comic style with animated panel transitions.</p>
+      <p class="stone-text">Shows how far creative storytelling sites can go.</p>
+      <div class="price stone-text">Starting at $600</div>
+      <a class="enter-site-btn stone-text" href="https://comic-lct.pages.dev/" target="_blank">ENTER SITE</a>
+    </section>
 
-      <!-- 2. THE CODE -->
-      <div class="template-live-card code-card">
-        <iframe src="https://the-code.pages.dev/"></iframe>
-        <h3 class="code-title stone-text">THE CODE – 6‑Part Course</h3>
-        <div class="template-desc code-desc stone-text">
-          <p>THE CODE is a complete beginner‑friendly course that teaches you how to build real software step‑by‑step.</p>
-          <p>It breaks coding down into simple, visual lessons so anyone can understand how apps, websites, and automation actually work.</p>
-          <p>You learn by doing — building real projects, real logic, real UI, and real systems the same way Go Time Software builds them.</p>
-        </div>
-        <div class="price code-price stone-text">$400</div>
-        <a class="enter-site-btn code-btn stone-text" href="https://the-code.pages.dev/" target="_blank">ENTER COURSE</a>
-      </div>
+    <!-- 2. THE CODE -->
+    <section class="template-panel">
+      <iframe src="https://the-code.pages.dev/"></iframe>
+      <h3 class="stone-text">THE CODE – 6‑Part Course</h3>
+      <p class="stone-text">A complete beginner‑friendly course that teaches you how to build real software step‑by‑step.</p>
+      <p class="stone-text">Simple, visual lessons that explain how apps, websites, and automation actually work.</p>
+      <p class="stone-text">You learn by doing — building real projects, real logic, real UI, and real systems.</p>
+      <div class="price stone-text">Starting at $600</div>
+      <a class="enter-site-btn stone-text" href="https://the-code.pages.dev/" target="_blank">ENTER COURSE</a>
+    </section>
 
-      <!-- 3. ROLL N CONNECT -->
-      <div class="template-live-card roll-card">
-        <iframe src="https://rollnconnect.pages.dev/"></iframe>
-        <h3 class="roll-title stone-text">Roll N Connect</h3>
-        <div class="template-desc roll-desc stone-text">
-          <p>A full social platform with profiles, events, maps, and live features.</p>
-          <p>Includes a bouncing bubble animation that bursts into glowing white text.</p>
-          <p>Shows how I build multi‑page, app‑style websites with real functionality.</p>
-        </div>
-        <div class="price roll-price stone-text">$650</div>
-        <a class="enter-site-btn roll-btn stone-text" href="https://rollnconnect.pages.dev/" target="_blank">ENTER SITE</a>
-      </div>
-
+    <!-- 3. ROLL N CONNECT -->
+    <section class="template-panel">
+      <iframe src="https://rollnconnect.pages.dev/"></iframe>
+      <h3 class="stone-text">Roll N Connect</h3>
+      <p class="stone-text">A full social platform with profiles, events, maps, and live features.</p>
+      <p class="stone-text">Includes a bouncing bubble animation that bursts into glowing white text.</p>
+      <p class="stone-text">Shows how I build multi‑page, app‑style websites with real functionality.</p>
+      <div class="price stone-text">Starting at $900</div>
+      <a class="enter-site-btn stone-text" href="https://rollnconnect.pages.dev/" target="_blank">ENTER SITE</a>
     </section>
 
     <!-- CUSTOM SITES -->
@@ -323,26 +293,6 @@
         Go Time Software builds it clean, fast, and modular.
       </p>
       <a class="enter-site-btn custom-btn stone-text" href="/pages/contact.html">Start a Custom Build</a>
-    </section>
-
-    <!-- APPS / GUILD SECTION -->
-    <section class="section-block">
-      <h2 class="stone-text">Why Apps Matter</h2>
-      <p class="stone-text">
-        Websites show your business.<br>
-        <strong>Apps run your business.</strong>
-      </p>
-      <p class="stone-text">
-        Apps automate work, track data, handle customers, and make you money while you sleep.<br>
-        A good app idea can turn into a real business — and yes, we do equity deals<br>
-        if your idea has potential.
-      </p>
-
-      <!-- Ensure iframe is big, centered, and visible -->
-      <iframe class="guild-iframe" src="https://the-guild-855.pages.dev/"></iframe>
-
-      <a class="enter-site-btn code-btn stone-text" href="/pages/apps.html">Explore All Apps</a>
-      <a class="enter-site-btn custom-btn stone-text" href="/pages/contact.html" style="margin-left:10px;">Pitch an App Idea</a>
     </section>
 
   </div>
