@@ -10,9 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* ============================================================
-       GLOBAL THEME — MATTE BLACK METAL + RED TRIM
-    ============================================================ */
     body {
       margin: 0;
       background: #000;
@@ -38,9 +35,6 @@
       z-index: -1;
     }
 
-    /* ============================================================
-       HEADER
-    ============================================================ */
     .site-header {
       display: flex;
       justify-content: space-between;
@@ -81,9 +75,6 @@
       text-shadow: 0 0 10px #ff4444;
     }
 
-    /* ============================================================
-       PAGE WRAPPER
-    ============================================================ */
     .pricing-shell {
       max-width: 1200px;
       margin: 0 auto;
@@ -110,9 +101,6 @@
       margin: 0 auto;
     }
 
-    /* ============================================================
-       METALLIC PANELS
-    ============================================================ */
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -125,9 +113,7 @@
       border: 1px solid #555;
       border-radius: 18px;
       padding: 26px;
-      box-shadow:
-        0 0 18px #000,
-        inset 0 0 18px #000;
+      box-shadow: 0 0 18px #000, inset 0 0 18px #000;
       position: relative;
       overflow: hidden;
     }
@@ -172,7 +158,6 @@
       font-size: 1rem;
     }
 
-    /* BUTTON */
     .btn-primary {
       width: 100%;
       padding: 14px 16px;
@@ -194,18 +179,13 @@
       transform: translateY(-2px);
     }
 
-    /* ============================================================
-       SECTION BLOCKS
-    ============================================================ */
     .section-block {
       background: linear-gradient(145deg, #0a0a0a, #111);
       border: 1px solid #555;
       border-radius: 18px;
       padding: 26px;
       margin-bottom: 50px;
-      box-shadow:
-        0 0 18px #000,
-        inset 0 0 18px #000;
+      box-shadow: 0 0 18px #000, inset 0 0 18px #000;
     }
 
     .section-block h2 {
@@ -221,7 +201,6 @@
       opacity: 0.9;
       font-size: 1.1rem;
     }
-
   </style>
 </head>
 
@@ -229,7 +208,6 @@
 
   <div class="pricing-shell">
 
-    <!-- HEADER -->
     <header class="site-header">
       <div class="logo">
         <img src="/assets/img/go-time-logo.png" class="logo-img" />
@@ -246,17 +224,14 @@
       </nav>
     </header>
 
-    <!-- TITLE -->
     <div class="pricing-header">
       <h1>Cinematic, Real Pricing</h1>
       <p>Premium systems. Matte‑black metal panels. Real results.  
       Every build is custom, cinematic, and engineered like a real product.</p>
     </div>
 
-    <!-- PRICING GRID -->
     <section class="pricing-grid">
 
-      <!-- Websites -->
       <div class="pricing-card">
         <h2>Websites</h2>
         <p>Cinematic, mobile‑ready, built from scratch — no templates.</p>
@@ -273,7 +248,6 @@
         </button>
       </div>
 
-      <!-- Apps -->
       <div class="pricing-card">
         <h2>Apps & Dashboards</h2>
         <p>Real tools, real logic, real systems — installable like real apps.</p>
@@ -290,7 +264,6 @@
         </button>
       </div>
 
-      <!-- IoT -->
       <div class="pricing-card">
         <h2>IoT & Automation</h2>
         <p>Real‑world sensors, triggers, automation, and device control.</p>
@@ -307,7 +280,6 @@
         </button>
       </div>
 
-      <!-- Full Systems -->
       <div class="pricing-card">
         <h2>Full Systems</h2>
         <p>Website + App + IoT + Automation — one unified system.</p>
@@ -324,9 +296,40 @@
         </button>
       </div>
 
+      <div class="pricing-card">
+        <h2>Custom Widgets</h2>
+        <p>Mini‑tools, components, and UI elements engineered for your system.</p>
+        <div class="price-tag">$240 – $900</div>
+        <ul>
+          <li>Reusable UI components</li>
+          <li>Live data widgets</li>
+          <li>Interactive controls</li>
+          <li>Embeddable modules</li>
+          <li>Optimized for speed + clarity</li>
+        </ul>
+        <button class="btn-primary" onclick="window.location.href='/pages/apps.html'">
+          View Widget Examples
+        </button>
+      </div>
+
+      <div class="pricing-card">
+        <h2>Custom Builds</h2>
+        <p>Fully tailored systems built from scratch for your exact workflow.</p>
+        <div class="price-tag">$1200 – $5000</div>
+        <ul>
+          <li>Custom logic + workflows</li>
+          <li>API integrations</li>
+          <li>Automation + triggers</li>
+          <li>Real‑time dashboards</li>
+          <li>Business‑grade performance</li>
+        </ul>
+        <button class="btn-primary" onclick="window.location.href='/pages/contact.html'">
+          Start a Custom Build
+        </button>
+      </div>
+
     </section>
 
-    <!-- WHY THIS MATTERS -->
     <section class="section-block">
       <h2>Why These Prices Work</h2>
       <p>These aren’t random numbers — they’re based on real builds, real time, and real results.</p>
@@ -337,10 +340,11 @@
         <li><strong>Dashboards</strong> show you what’s happening in real time.</li>
         <li><strong>IoT</strong> connects the real world to your software.</li>
         <li><strong>Full systems</strong> give you everything in one place.</li>
+        <li><strong>Widgets</strong> give you small, powerful tools without a full build.</li>
+        <li><strong>Custom builds</strong> give you tailored workflows without paying for a full app.</li>
       </ul>
     </section>
 
-    <!-- CTA -->
     <section class="section-block">
       <h2>Ready to Start?</h2>
       <p>Tell me what you want to build — and I’ll build it clean, fast, and cinematic.</p>
