@@ -21,9 +21,7 @@
       z-index: -1;
     }
 
-    /* ============================
-       NAVIGATION BAR
-    ============================ */
+    /* NAVIGATION */
     .site-header {
       display: flex;
       justify-content: space-between;
@@ -65,22 +63,7 @@
       text-shadow: 0 0 10px #ff4444;
     }
 
-    @media (max-width: 700px) {
-      .site-header {
-        flex-direction: column;
-        gap: 12px;
-      }
-      .main-nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 14px;
-      }
-    }
-
-    /* ============================
-       CONTACT PAGE
-    ============================ */
+    /* CONTACT PAGE */
     .contact-page {
       max-width: 900px;
       margin: 0 auto 60px;
@@ -137,17 +120,6 @@
       background: #cc2a2a;
     }
 
-    .success-box {
-      display: none;
-      margin-top: 20px;
-      padding: 20px;
-      background: rgba(0,255,0,0.15);
-      border: 1px solid #00aa00;
-      border-radius: 10px;
-      color: #b6ffb6;
-      font-size: 18px;
-    }
-
     .hidden {
       display: none;
     }
@@ -171,9 +143,7 @@
 
 <body class="theme-dark">
 
-  <!-- ============================
-       NAVIGATION
-  ============================ -->
+  <!-- NAVIGATION -->
   <header class="site-header">
     <div class="logo">
       <img src="/assets/img/go-time-logo.png" class="logo-img" />
@@ -213,6 +183,7 @@
     <!-- FORMS -->
     <div id="formsContainer">
 
+      <!-- Each form stays the same — mailto logic handles sending -->
       <form class="contact-form hidden" data-type="Website">
         <input placeholder="Your Name" required />
         <input placeholder="Your Email" required />
@@ -293,10 +264,6 @@
 
     </div>
 
-    <div id="successBox" class="success-box">
-      Message sent! We’ll reach out shortly.
-    </div>
-
     <!-- COMPANY INFO -->
     <div class="info-block">
       <h2>About Go Time Software</h2>
@@ -322,13 +289,12 @@
 
   </main>
 
-  <!-- FULL WORKING JS -->
+  <!-- MAILTO SYSTEM -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
 
       const selector = document.getElementById("projectType");
       const forms = document.querySelectorAll("#formsContainer form");
-      const successBox = document.getElementById("successBox");
 
       selector.addEventListener("change", () => {
         forms.forEach(f => f.classList.add("hidden"));
@@ -339,37 +305,22 @@
       });
 
       forms.forEach(form => {
-        form.addEventListener("submit", async (e) => {
+        form.addEventListener("submit", (e) => {
           e.preventDefault();
 
-          const type = form.dataset.type;
           const inputs = form.querySelectorAll("input, textarea, select");
+          let body = "";
 
-          const details = {};
           inputs.forEach(i => {
-            const key = i.placeholder || i.name || "Field";
-            details[key] = i.value;
+            const label = i.placeholder || i.name || "Field";
+            body += `${label}: ${i.value}\n`;
           });
 
-          const payload = {
-            type,
-            details,
-            timestamp: new Date().toISOString()
-          };
+          const mailto = `mailto:boardwalkclay1@gmail.com
+            ?subject=${encodeURIComponent("New Project Request")}
+            &body=${encodeURIComponent(body)}`;
 
-          try {
-            await fetch("/api/form", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(payload)
-            });
-
-            successBox.style.display = "block";
-            form.reset();
-          } catch (err) {
-            console.error(err);
-            alert("Error sending message");
-          }
+          window.location.href = mailto;
         });
       });
 
