@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go Time — Classic Analog Clock</title>
+
+  <link rel="stylesheet" href="neon.css">
+</head>
+
+<body>
+
+  <div class="clock">
+    <div class="hand hour"></div>
+    <div class="hand minute"></div>
+    <div class="hand second"></div>
+    <div class="center-dot"></div>
+  </div>
+
+  <script src="../../engine/engine.js"></script>
+  <script>
+    startClock(({ hourDeg, minDeg, secDeg }) => {
+      document.querySelector(".hour").style.transform = `rotate(${hourDeg}deg)`;
+      document.querySelector(".minute").style.transform = `rotate(${minDeg}deg)`;
+      document.querySelector(".second").style.transform = `rotate(${secDeg}deg)`;
+    });
+  </script>
+
+</body>
+</html>
