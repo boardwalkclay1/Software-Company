@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Widgets – Go Time Software</title>
+
+  <link rel="icon" type="image/png" href="/assets/img/go-time-logo.png" />
+  <link rel="stylesheet" href="/css/base.css" />
+
+  <style>
+    body.theme-dark {
+      background: radial-gradient(circle at top, #001018 0, #020308 40%, #000 100%);
+      color: #f5f5f5;
+    }
+
+    body.theme-dark::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("/assets/img/stone-texture.png");
+      opacity: 0.08;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* HEADER / NAV */
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 26px;
+      background: rgba(0,0,0,0.85);
+      border-bottom: 1px solid #003344;
+      box-shadow: 0 0 22px #000;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: "Orbitron", system-ui, sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .logo-img {
+      width: 52px;
+      height: 52px;
+    }
+
+    .main-nav a {
+      color: #f5f5f5;
+      text-decoration: none;
+      font-weight: 700;
+      margin-left: 20px;
+      transition: 0.2s;
+      font-size: 1.02rem;
+    }
+
+    .main-nav a:hover,
+    .main-nav .active {
+      color: #33ddff;
+      text-shadow: 0 0 10px #33ddff;
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      .main-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .main-nav a {
+        margin-left: 0;
+      }
+    }
+
+    /* PAGE SHELL */
+    .page-shell {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
+    }
+
+    /* HERO */
+    .hero-block {
+      background: radial-gradient(circle at top right, #003344 0, #050509 45%, #000 100%);
+      border-radius: 18px;
+      padding: 30px 24px 26px;
+      border: 1px solid rgba(80,200,255,0.35);
+      box-shadow: 0 0 26px #000;
+      margin-bottom: 40px;
+    }
+
+    .hero-block h1 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 16px #000;
+    }
+
+    .hero-block p {
+      font-size: 1.02rem;
+      line-height: 1.7;
+      max-width: 780px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .hero-pill {
+      background: rgba(0,0,0,0.65);
+      border-radius: 14px;
+      padding: 14px 16px;
+      border: 1px solid rgba(80,200,255,0.4);
+      font-size: 0.98rem;
+      box-shadow: 0 0 16px #000;
+    }
+
+    .hero-pill strong {
+      color: #66e0ff;
+    }
+
+    /* SECTION TITLES */
+    .section-title {
+      margin-top: 40px;
+      margin-bottom: 10px;
+      font-size: 1.8rem;
+    }
+
+    .section-sub {
+      margin-bottom: 20px;
+      font-size: 1.02rem;
+      color: #dddddd;
+    }
+
+    /* WIDGET LIST */
+    .widget-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      font-size: 0.98rem;
+    }
+
+    .widget-list li::before {
+      content: "• ";
+      color: #33ddff;
+    }
+
+    /* DROPDOWNS */
+    details.widget-item {
+      background: rgba(0,0,0,0.7);
+      border-radius: 16px;
+      border: 1px solid rgba(80,200,255,0.35);
+      margin-bottom: 18px;
+      box-shadow: 0 0 20px #000;
+      overflow: hidden;
+    }
+
+    details.widget-item[open] {
+      box-shadow: 0 0 26px #000;
+      border-color: #55e0ff;
+    }
+
+    details.widget-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.02rem;
+    }
+
+    details.widget-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .widget-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .widget-tag {
+      font-size: 0.78rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(80,200,255,0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #b8f3ff;
+    }
+
+    .widget-chevron {
+      font-size: 1.1rem;
+      opacity: 0.8;
+    }
+
+    .widget-body {
+      padding: 0 18px 18px;
+      border-top: 1px solid rgba(80,200,255,0.25);
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 820px) {
+      .widget-body {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .widget-copy p {
+      font-size: 0.98rem;
+      line-height: 1.7;
+      margin: 6px 0;
+    }
+
+    .widget-copy ul {
+      margin: 6px 0 10px;
+      padding-left: 18px;
+      font-size: 0.96rem;
+    }
+
+    .widget-copy li {
+      margin-bottom: 4px;
+    }
+
+    .widget-meta h4 {
+      margin: 6px 0 4px;
+      font-size: 1rem;
+      color: #88e9ff;
+    }
+
+    .widget-meta p {
+      margin: 2px 0 6px;
+      font-size: 0.95rem;
+    }
+
+    .widget-meta ul {
+      margin: 4px 0 8px;
+      padding-left: 18px;
+      font-size: 0.94rem;
+    }
+
+    .widget-actions {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn-ghost,
+    .btn-solid {
+      display: inline-block;
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid #33ddff;
+      transition: 0.18s;
+    }
+
+    .btn-solid {
+      background: #33ddff;
+      color: #001018;
+      box-shadow: 0 0 14px #33ddff88;
+    }
+
+    .btn-solid:hover {
+      background: #11c4eb;
+      box-shadow: 0 0 18px #33ddffaa;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #a8f0ff;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(51,221,255,0.12);
+    }
+
+    /* IFRAME PREVIEW */
+    .widget-preview {
+      background: #000;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 0 20px #000;
+      overflow: hidden;
+    }
+
+    .widget-preview iframe {
+      width: 100%;
+      height: 240px;
+      border: none;
+      background: #000;
+    }
+
+    .preview-label {
+      padding: 8px 12px;
+      font-size: 0.86rem;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      background: radial-gradient(circle at top, #003344 0, #050505 60%);
+      color: #c8f6ff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+  </style>
+</head>
+
+<body class="theme-dark">
+
+  <header class="site-header">
+    <div class="logo">
+      <img src="/assets/img/go-time-logo.png" class="logo-img" />
+      <span>Go Time Software</span>
+    </div>
+
+    <nav class="main-nav">
+      <a href="/index.html">Home</a>
+      <a href="/pages/sites.html">Sites</a>
+      <a href="/pages/apps.html">Apps</a>
+      <a href="/pages/iot.html">IoT</a>
+      <a href="/pages/pricing.html">Pricing</a>
+      <a href="/pages/contact.html">Contact</a>
+      <a href="/pages/tools.html">Tools</a>
+      <a href="/pages/widgets.html" class="active">Widgets</a>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+
+    <!-- HERO -->
+    <section class="hero-block">
+      <h1>Widgets Library</h1>
+      <p>
+        Widgets are the <strong>small, sharp pieces</strong> of your system — clocks, timers,
+        calculators, quick‑dial buttons, and more. Each one is a real, interactive widget
+        built by Go Time Software, designed to drop into dashboards, sites, and apps
+        without breaking your flow.
+      </p>
+
+      <div class="hero-grid">
+        <div class="hero-pill">
+          <strong>Pricing & Payments</strong><br>
+          Most widgets start around <strong>$75–$300</strong> depending on complexity.
+          I accept major credit cards and can bundle multiple widgets into a single,
+          discounted build.
+        </div>
+        <div class="hero-pill">
+          <strong>Add‑Ons & Deals</strong><br>
+          Combine widgets into a <strong>control panel</strong> or dashboard and I’ll
+          treat it as one system, not a bunch of separate invoices.
+        </div>
+        <div class="hero-pill">
+          <strong>Custom Widgets</strong><br>
+          If you can imagine a small tool that lives on your screen, we can probably
+          build it. Use any widget below as a starting point and hit
+          <strong>“Message Me About a Custom Widget”</strong>.
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK LIST -->
+    <section class="widget-list">
+      <h2 class="section-title">All Widgets (Alphabetical)</h2>
+      <p class="section-sub">
+        Click any widget to open its description, live preview, pricing notes,
+        and options for custom versions.
+      </p>
+
+      <ul>
+        <li>Clock Widget</li>
+        <li>Mini Calculator</li>
+        <li>Notes Widget</li>
+        <li>Quick‑Dial Button</li>
+        <li>Screenshot Tool</li>
+        <li>Timer / Stopwatch</li>
+        <li>Weather Strip</li>
+      </ul>
+    </section>
+
+    <!-- DROPDOWNS -->
+
+    <!-- CLOCK WIDGET -->
+    <details class="widget-item">
+      <summary>
+        <div class="widget-name">
+          <span>Clock Widget</span>
+          <span class="widget-tag">Time</span>
+        </div>
+        <span class="widget-chevron">▾</span>
+      </summary>
+      <div class="widget-body">
+        <div class="widget-copy">
+          <p>
+            A clean, animated clock that lives on your dashboard or site — digital, analog,
+            or both. Perfect for control centers, studio setups, and focus workspaces.
+          </p>
+          <h4>Features</h4>
+          <ul>
+            <li>Digital, analog, or hybrid clock styles.</li>
+            <li>Time zone selection and labels.</li>
+            <li>Brand‑matched colors and glow.</li>
+            <li>Optional 24‑hour or AM/PM modes.</li>
+          </ul>
+
+          <div class="widget-meta">
+            <h4>Pricing & Add‑Ons</h4>
+            <p>
+              Most clock widgets are in the <strong>$75–$200</strong> range.
+              Add‑ons:
+            </p>
+            <ul>
+              <li>Multiple clocks for different time zones.</li>
+              <li>Integration into a larger dashboard.</li>
+            </ul>
+
+            <h4>Payments & Workflow</h4>
+            <p>
+              Quick builds like this are usually a single card payment.
+              If we bundle it with other widgets, it becomes part of a discounted set.
+            </p>
+
+            <div class="widget-actions">
+              <a class="btn-solid" href="/pages/contact.html">Message Me About This Widget</a>
+              <a class="btn-ghost" href="mailto:boardwalkclay1@gmail.com?subject=Clock%20Widget&body=I%27m%20interested%20in%20a%20custom%20Clock%20Widget." target="_blank">Email About This Widget</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="widget-preview">
+          <div class="preview-label">Live Widget Preview (Example)</div>
+          <iframe src="/widgets/clock-widget/index.html"></iframe>
+        </div>
+      </div>
+    </details>
+
+    <!-- MINI CALCULATOR -->
+    <details class="widget-item">
+      <summary>
+        <div class="widget-name">
+          <span>Mini Calculator</span>
+          <span class="widget-tag">Utility</span>
+        </div>
+        <span class="widget-chevron">▾</span>
+      </summary>
+      <div class="widget-body">
+        <div class="widget-copy">
+          <p>
+            A small, always‑available calculator that sits inside your dashboard or site.
+            No ads, no clutter — just a clean, themed calculator that matches your system.
+          </p>
+          <h4>Features</h4>
+          <ul>
+            <li>Basic operations with keyboard support.</li>
+            <li>Dark, cinematic UI with your colors.</li>
+            <li>Optional memory and quick‑copy results.</li>
+          </ul>
+
+          <div class="widget-meta">
+            <h4>Pricing & Add‑Ons</h4>
+            <p>
+              Typically <strong>$100–$250</strong> depending on styling and embedding.
+              Add‑ons:
+            </p>
+            <ul>
+              <li>Specialized calculators (margin, ROI, etc.).</li>
+              <li>Integration into a finance or analytics dashboard.</li>
+            </ul>
+
+            <h4>Payments & Workflow</h4>
+            <p>
+              Usually a single payment. If we build multiple calculators,
+              I treat them as one system and discount the bundle.
+            </p>
+
+            <div class="widget-actions">
+              <a class="btn-solid" href="/pages/contact.html">Message Me About Calculators</a>
+              <a class="btn-ghost" href="mailto:boardwalkclay1@gmail.com?subject=Mini%20Calculator%20Widget&body=I%27m%20interested%20in%20a%20custom%20Mini%20Calculator." target="_blank">Email About This Widget</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="widget-preview">
+          <div class="preview-label">Live Widget Preview (Example)</div>
+          <iframe src="/widgets/mini-calculator/index.html"></iframe>
+        </div>
+      </div>
+    </details>
+
+    <!-- NOTES WIDGET -->
+    <details class="widget-item">
+      <summary>
+        <div class="widget-name">
+          <span>Notes Widget</span>
+          <span class="widget-tag">Productivity</span>
+        </div>
+        <span class="widget-chevron">▾</span>
+      </summary>
+      <div class="widget-body">
+        <div class="widget-copy">
+          <p>
+            A sticky‑note style widget for quick thoughts, todos, and reminders that
+            lives right inside your system. No separate app, no context switching.
+          </p>
+          <h4>Features</h4>
+          <ul>
+            <li>Quick add, edit, and delete notes.</li>
+            <li>Optional color tags or categories.</li>
+            <li>Local or account‑based saving.</li>
+          </ul>
+
+          <div class="widget-meta">
+            <h4>Pricing & Add‑Ons</h4>
+            <p>
+              Most notes widgets are <strong>$150–$350</strong>. Add‑ons:
+            </p>
+            <ul>
+              <li>Sync across devices or users.</li>
+              <li>Integration with tasks or calendars.</li>
+            </ul>
+
+            <h4>Payments & Workflow</h4>
+            <p>
+              You can pay by card, and if we connect this to a larger dashboard,
+              it becomes part of that system’s pricing instead of a separate line item.
+            </p>
+
+            <div class="widget-actions">
+              <a class="btn-solid" href="/pages/contact.html">Message Me About Notes</a>
+              <a class="btn-ghost" href="mailto:boardwalkclay1@gmail.com?subject=Notes%20Widget&body=I%27m%20interested%20in%20a%20custom%20Notes%20Widget." target="_blank">Email About This Widget</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="widget-preview">
+          <div class="preview-label">Live Widget Preview (Example)</div>
+          <iframe src="/widgets/notes-widget/index.html"></iframe>
+        </div>
+      </div>
+    </details>
+
+    <!-- QUICK-DIAL BUTTON -->
+    <details class="widget-item">
+      <summary>
+        <div class="widget-name">
+          <span>Quick‑Dial Button</span>
+          <span class="widget-tag">Contact</span>
+        </div>
+        <span class="widget-chevron">▾</span>
+      </summary>
+      <div class="widget-body">
+        <div class="widget-copy">
+          <p>
+            A single, glowing button that instantly calls, texts, or opens a chat
+            when tapped — perfect for mobile‑heavy audiences and service businesses.
+          </p>
+          <h4>Features</h4>
+          <ul>
+            <li>Tap‑to‑call, tap‑to‑text, or tap‑to‑chat behavior.</li>
+            <li>Floating or fixed placement on your site.</li>
+            <li>Brand‑matched glow and animation.</li>
+          </ul>
+
+          <div class="widget-meta">
+            <h4>Pricing & Add‑Ons</h4>
+            <p>
+              Usually <strong>$100–$250</strong> depending on behavior and placement.
+              Add‑ons:
+            </p>
+            <ul>
+              <li>Multiple quick‑dial targets (sales, support, etc.).</li>
+              <li>Analytics on clicks and usage.</li>
+            </ul>
+
+            <h4>Payments & Workflow</h4>
+            <p>
+              Quick, single‑payment build. If we add this to multiple pages or apps,
+              I treat it as one widget deployed in multiple places.
+            </p>
+
+            <div class="widget-actions">
+              <a class="btn-solid" href="/pages/contact.html">Message Me About Quick‑Dial</a>
+              <a class="btn-ghost" href="mailto:boardwalkclay1@gmail.com?subject=Quick-Dial%20Widget&body=I%27m%20interested%20in%20a%20custom%20Quick-Dial%20Widget." target="_blank">Email About This Widget</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="widget-preview">
+          <div class="preview-label">Live Widget Preview (Example)</div>
+          <iframe src="/widgets/quick-dial-button/index.html"></iframe>
+        </div>
+      </div>
+    </details>
+
+    <!-- SCREENSHOT TOOL -->
+    <details class="widget-item">
+      <summary>
+        <div class="widget-name">
+          <span>Screenshot Tool</span>
+          <span class="widget-tag">Capture</span>
+        </div>
+        <span class="widget-chevron">▾</span>
+      </summary>
+      <div class="widget-body">
+        <div class="widget-copy">
+          <p>
+            A capture widget that lets users grab screenshots of a specific area,
+            component, or canvas inside your app or dashboard.
+          </p>
+          <h4>Features</h4>
+          <ul>
+            <li>Capture specific panels or regions.</li>
+            <li>Download or copy to clipboard.</li>
+            <li>Optional annotation tools.</li>
+          </ul>
+
+          <div class="widget-meta">
+            <h4>Pricing & Add‑Ons</h4>
+            <p>
+              Typically <strong>$200–$450</strong> depending on annotation and export.
+              Add‑ons:
+            </p>
+            <ul>
+              <li>Save captures to user accounts.</li>
+              <li>Send captures via email or ticket systems.</li>
+            </ul>
+
+            <h4>Payments & Workflow</h4>
+            <p>
+              You can pay by card or split into 2 parts if we’re doing a heavier
+              annotation system. I keep it modular so it can be reused across screens.
+            </p>
+
+            <div class="widget-actions">
+              <a class="btn-solid" href="/pages/contact.html">Message Me About Capture</a>
+              <a class="btn-ghost" href="mailto:boardwalkclay1@gmail.com?subject=Screenshot%20Widget&body=I%27m%20interested%20in%20a%20custom%20Screenshot%20Widget." target="_blank">Email About This Widget</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="widget-preview">
+          <div class="preview-label">Live Widget Preview (Example)</div>
+          <iframe src="/widgets/screenshot-tool/index.html"></iframe>
+        </div>
+      </div>
+    </details>
+
+    <!-- TIMER / STOPWATCH -->
+    <details class="widget-item">
+      <summary>
+        <div class="widget-name">
+          <span>Timer / Stopwatch</span>
+          <span class="widget-tag">Time</span>
+        </div>
+        <span class="widget-chevron">▾</span>
+      </summary>
+      <div class="widget-body">
+        <div class="widget-copy">
+          <p>
+            A focused timer and stopwatch widget for sprints, workouts, sessions,
+            or production runs — built to feel like a physical device on your screen.
+          </p>
+          <h4>Features</h4>
+          <ul>
+            <li>Countdown timer and stopwatch modes.</li>
+            <li>Sound or visual alerts at completion.</li>
+            <li>Brand‑matched glow and motion.</li>
+          </ul>
+
+          <div class="widget-meta">
+            <h4>Pricing & Add‑Ons</h4>
+            <p>
+              Usually <strong>$150–$350</strong>. Add‑ons:
+            </p>
+            <ul>
+              <li>Session logging and history.</li>
+              <li>Integration with task or workout systems.</li>
+            </ul>
+
+            <h4>Payments & Workflow</h4>
+            <p>
+              Single payment, or bundled with other time widgets (like the Clock)
+              as a discounted set.
+            </p>
+
+            <div class="widget-actions">
+              <a class="btn-solid" href="/pages/contact.html">Message Me About Timers</a>
+              <a class="btn-ghost" href="mailto:boardwalkclay1@gmail.com?subject=Timer%20Widget&body=I%27m%20interested%20in%20a%20custom%20Timer%20or%20Stopwatch%20Widget." target="_blank">Email About This Widget</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="widget-preview">
+          <div class="preview-label">Live Widget Preview (Example)</div>
+          <iframe src="/widgets/timer-stopwatch/index.html"></iframe>
+        </div>
+      </div>
+    </details>
+
+    <!-- WEATHER STRIP -->
+    <details class="widget-item">
+      <summary>
+        <div class="widget-name">
+          <span>Weather Strip</span>
+          <span class="widget-tag">Info</span>
+        </div>
+        <span class="widget-chevron">▾</span>
+      </summary>
+      <div class="widget-body">
+        <div class="widget-copy">
+          <p>
+            A slim weather bar that shows current conditions and upcoming hours or days,
+            perfect for dashboards, travel tools, and outdoor‑focused businesses.
+          </p>
+          <h4>Features</h4>
+          <ul>
+            <li>Current temperature, condition, and icon.</li>
+            <li>Hourly or daily forecast strip.</li>
+            <li>Location selection or auto‑detect.</li>
+          </ul>
+
+          <div class="widget-meta">
+            <h4>Pricing & Add‑Ons</h4>
+            <p>
+              Weather widgets usually land around <strong>$200–$450</strong> depending
+              on data sources and visuals. Add‑ons:
+            </p>
+            <ul>
+              <li>Multiple locations and saved favorites.</li>
+              <li>Integration into a larger operations dashboard.</li>
+            </ul>
+
+            <h4>Payments & Workflow</h4>
+            <p>
+              You can pay by card, and if we connect this to other widgets or tools,
+              I treat it as part of a unified system instead of separate charges.
+            </p>
+
+            <div class="widget-actions">
+              <a class="btn-solid" href="/pages/contact.html">Message Me About Weather Widgets</a>
+              <a class="btn-ghost" href="mailto:boardwalkclay1@gmail.com?subject=Weather%20Strip%20Widget&body=I%27m%20interested%20in%20a%20custom%20Weather%20Strip%20Widget." target="_blank">Email About This Widget</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="widget-preview">
+          <div class="preview-label">Live Widget Preview (Example)</div>
+          <iframe src="/widgets/weather-strip/index.html"></iframe>
+        </div>
+      </div>
+    </details>
+
+  </main>
+
+</body>
+</html>
