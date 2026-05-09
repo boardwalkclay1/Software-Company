@@ -40,7 +40,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      cursor: pointer; /* <-- makes logo clickable for nav */
+      cursor: pointer;
     }
 
     .logo-img {
@@ -111,7 +111,7 @@
     }
 
     /* ============================
-       FULLSCREEN NAV PANEL (NEW)
+       FULLSCREEN NAV PANEL
     ============================ */
     .nav-panel {
       position: fixed;
@@ -172,6 +172,7 @@
       opacity: 0;
       transform: translateY(40px);
       transition: 0.6s ease;
+      padding: 0 20px;
     }
     .section.visible {
       opacity: 1;
@@ -242,7 +243,7 @@
       to { transform: translateX(-50%); }
     }
 
-    /* FLOATING CONTACT BUTTON (SILVER) */
+    /* FLOATING CONTACT BUTTON */
     .floating-contact {
       position: fixed;
       bottom: 22px;
@@ -261,6 +262,68 @@
     .floating-contact:hover {
       background: linear-gradient(135deg, #ffffff, #e6e6e6);
       transform: scale(1.05);
+    }
+
+    /* ============================
+       MOBILE FIXES
+    ============================ */
+    @media (max-width: 768px) {
+
+      .site-header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .main-nav {
+        display: none; /* burger menu replaces this on mobile */
+      }
+
+      .hero-build-summary {
+        position: static;
+        transform: none;
+        margin-top: 20px;
+        padding: 0 20px;
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+        line-height: 1.2;
+      }
+
+      .hero-sub {
+        font-size: 1.1rem;
+        line-height: 1.4;
+        margin-top: 10px;
+      }
+
+      .preview-card iframe {
+        height: 260px;
+      }
+
+      .iot-strip-track img {
+        height: 90px;
+      }
+
+      .section {
+        margin: 60px auto;
+        padding: 0 16px;
+      }
+
+      .bubble-link {
+        padding: 10px 14px;
+        font-size: 0.95rem;
+      }
+
+      .logo-line-top {
+        font-size: 1.1rem;
+      }
+      .logo-line-mid {
+        font-size: 1.6rem;
+      }
+      .logo-sub {
+        font-size: 0.75rem;
+      }
     }
   </style>
 </head>
@@ -288,7 +351,7 @@
       </div>
     </div>
 
-    <!-- ORIGINAL NAV (UNCHANGED) -->
+    <!-- ORIGINAL NAV (DESKTOP ONLY) -->
     <nav class="main-nav">
       <a class="nav-btn" href="/pages/sites.html">Sites</a>
       <a class="nav-btn" href="/pages/apps.html">Apps</a>
@@ -297,7 +360,7 @@
 
   </header>
 
-  <!-- FULLSCREEN NAV PANEL (NEW) -->
+  <!-- FULLSCREEN NAV PANEL -->
   <nav id="navPanel" class="nav-panel">
     <button id="closeNav" class="close-btn">✕</button>
 
@@ -313,10 +376,7 @@
     </div>
   </nav>
 
-  <!-- ============================
-       MAIN CONTENT (UNCHANGED)
-  ============================ -->
-
+  <!-- MAIN CONTENT (UNCHANGED) -->
   <main class="page-container">
 
     <!-- WEBSITES -->
