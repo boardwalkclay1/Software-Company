@@ -42,7 +42,7 @@
        PAGE WRAPPER
     ============================================================ */
     .page-shell {
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 0 auto;
       padding: 40px 20px 80px;
     }
@@ -68,7 +68,7 @@
     }
 
     /* ============================================================
-       TEMPLATE STORE GRID
+       STORE GRID
     ============================================================ */
     .store-grid {
       display: grid;
@@ -99,13 +99,13 @@
       box-shadow: 0 0 18px #ff000055;
     }
 
-    .store-card iframe {
+    .preview-img {
       width: 100%;
-      height: 260px;
+      height: 220px;
+      object-fit: cover;
       border-radius: 14px;
-      border: none;
-      background: #000;
       margin-bottom: 14px;
+      box-shadow: 0 0 20px #000;
     }
 
     .store-card h3 {
@@ -131,6 +131,10 @@
     }
 
     /* BUTTONS */
+    .btn-row {
+      margin-bottom: 14px;
+    }
+
     .btn {
       display: inline-block;
       padding: 12px 18px;
@@ -143,6 +147,7 @@
       transition: 0.25s;
       box-shadow: 0 0 12px #ff000088;
       margin-right: 8px;
+      margin-bottom: 8px;
     }
 
     .btn:hover {
@@ -187,7 +192,7 @@
     }
 
     /* ============================================================
-       PURCHASE INSTRUCTIONS
+       INSTRUCTIONS
     ============================================================ */
     .instructions {
       background: linear-gradient(145deg, #0a0a0a, #111);
@@ -207,16 +212,10 @@
       text-shadow: 0 0 10px #ff0000aa;
     }
 
-    .instructions p {
-      font-size: 1.1rem;
-      opacity: 0.9;
-      margin-bottom: 10px;
-    }
-
+    .instructions p,
     .instructions ul {
       opacity: 0.9;
-      font-size: 1.05rem;
-      margin-left: 20px;
+      font-size: 1.1rem;
     }
 
   </style>
@@ -230,7 +229,7 @@
     <section class="page-header">
       <h1>Website Store</h1>
       <p>
-        Buy a template instantly or message me to build a custom version for your business.  
+        Choose a template, view the live demo, buy instantly, or message me for a custom build.  
         Every template is a <strong>real, working website</strong> — not a screenshot.
       </p>
     </section>
@@ -240,13 +239,16 @@
 
       <!-- COMIC WEBSITE -->
       <div class="store-card">
-        <iframe src="https://comic-lct.pages.dev/"></iframe>
+        <img src="/assets/img/templates/comic.jpg" class="preview-img" />
         <h3>Comic Website</h3>
-        <p>A cinematic comic‑reading platform with chapters, transitions, and universe‑style storytelling.</p>
+        <p>Cinematic comic‑reading platform with chapters and animated transitions.</p>
         <div class="price-tag">$600</div>
 
-        <a class="btn" href="/checkout/comic.html">Buy Template</a>
-        <a class="btn" href="/pages/contact.html">Message Me</a>
+        <div class="btn-row">
+          <a class="btn" href="/live/comic">View Live Demo</a>
+          <a class="btn" href="/checkout/comic">Buy Template</a>
+          <a class="btn" href="/pages/contact.html">Message Me</a>
+        </div>
 
         <div class="dropdown">
           <div class="dropdown-header">What’s Included</div>
@@ -264,13 +266,16 @@
 
       <!-- THE CODE -->
       <div class="store-card">
-        <iframe src="https://the-code.pages.dev/"></iframe>
+        <img src="/assets/img/templates/the-code.jpg" class="preview-img" />
         <h3>THE CODE – 6‑Part Course</h3>
-        <p>A full beginner‑friendly course system with lessons, UI, and real project structure.</p>
+        <p>A complete course system with lessons, UI, and real project structure.</p>
         <div class="price-tag">$600</div>
 
-        <a class="btn" href="/checkout/the-code.html">Buy Template</a>
-        <a class="btn" href="/pages/contact.html">Message Me</a>
+        <div class="btn-row">
+          <a class="btn" href="/live/the-code">View Live Demo</a>
+          <a class="btn" href="/checkout/the-code">Buy Template</a>
+          <a class="btn" href="/pages/contact.html">Message Me</a>
+        </div>
 
         <div class="dropdown">
           <div class="dropdown-header">What’s Included</div>
@@ -288,13 +293,16 @@
 
       <!-- ROLL N CONNECT -->
       <div class="store-card">
-        <iframe src="https://rollnconnect.pages.dev/"></iframe>
+        <img src="/assets/img/templates/rollnconnect.jpg" class="preview-img" />
         <h3>Roll N Connect</h3>
         <p>A full social platform with profiles, events, maps, and animated UI.</p>
         <div class="price-tag">$900</div>
 
-        <a class="btn" href="/checkout/rollnconnect.html">Buy Template</a>
-        <a class="btn" href="/pages/contact.html">Message Me</a>
+        <div class="btn-row">
+          <a class="btn" href="/live/rollnconnect">View Live Demo</a>
+          <a class="btn" href="/checkout/rollnconnect">Buy Template</a>
+          <a class="btn" href="/pages/contact.html">Message Me</a>
+        </div>
 
         <div class="dropdown">
           <div class="dropdown-header">What’s Included</div>
@@ -305,6 +313,87 @@
               <li>Bubble animations</li>
               <li>Multi‑page structure</li>
               <li>App‑style UI</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOARDWALK PUBLISHING -->
+      <div class="store-card">
+        <img src="/assets/img/templates/boardwalk-publishing.jpg" class="preview-img" />
+        <h3>Boardwalk Publishing</h3>
+        <p>A cinematic publishing studio site for books, comics, and stories.</p>
+        <div class="price-tag">$600</div>
+
+        <div class="btn-row">
+          <a class="btn" href="/live/boardwalk-publishing">View Live Demo</a>
+          <a class="btn" href="/checkout/boardwalk-publishing">Buy Template</a>
+          <a class="btn" href="/pages/contact.html">Message Me</a>
+        </div>
+
+        <div class="dropdown">
+          <div class="dropdown-header">What’s Included</div>
+          <div class="dropdown-content">
+            <ul>
+              <li>Book showcase pages</li>
+              <li>Author sections</li>
+              <li>Publishing tools layout</li>
+              <li>Mobile‑ready design</li>
+              <li>Brand‑matched theme</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- KEV CM7 -->
+      <div class="store-card">
+        <img src="/assets/img/templates/kev-cm7.jpg" class="preview-img" />
+        <h3>Kev CM7</h3>
+        <p>A clean creator site with music, videos, and personal branding.</p>
+        <div class="price-tag">$600</div>
+
+        <div class="btn-row">
+          <a class="btn" href="/live/kev-cm7">View Live Demo</a>
+          <a class="btn" href="/checkout/kev-cm7">Buy Template</a>
+          <a class="btn" href="/pages/contact.html">Message Me</a>
+        </div>
+
+        <div class="dropdown">
+          <div class="dropdown-header">What’s Included</div>
+          <div class="dropdown-content">
+            <ul>
+              <li>Music + video embeds</li>
+              <li>Creator bio layout</li>
+              <li>Gallery + media sections</li>
+              <li>Mobile‑first UI</li>
+              <li>Brand color matching</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEVY MEDIA STUDIOS -->
+      <div class="store-card">
+        <img src="/assets/img/templates/levy-media.jpg" class="preview-img" />
+        <h3>Levy Media Studios</h3>
+        <p>A cinematic media studio site for photography and video services.</p>
+        <div class="price-tag">$700</div>
+
+        <div class="btn-row">
+          <a class="btn" href="/live/levy-media">View Live Demo</a>
+          <a class="btn" href="/checkout/levy-media">Buy Template</a>
+          <a class="btn" href="/pages/contact.html">Message Me</a>
+        </div>
+
+        <div class="dropdown">
+          <div class="dropdown-header">What’s Included</div>
+          <div class="dropdown-content">
+            <ul>
+              <li>Portfolio gallery</li>
+              <li>Service pages</li>
+              <li>Studio branding</li>
+              <li>Contact + booking layout</li>
+              <li>Mobile‑ready design</li>
             </ul>
           </div>
         </div>
