@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Website Store – Go Time Software</title>
+
+  <link rel="icon" type="image/png" href="/assets/img/go-time-logo.png" />
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       GLOBAL THEME — MATTE BLACK METAL + RED TRIM
+    ============================================================ */
+    body {
+      margin: 0;
+      background: #000;
+      font-family: "Rajdhani", sans-serif;
+      color: #e6e6e6;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("/assets/img/go-time-background.jpg") center/cover no-repeat;
+      opacity: 0.18;
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(4px);
+      z-index: -1;
+    }
+
+    /* ============================================================
+       PAGE WRAPPER
+    ============================================================ */
+    .page-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .page-header h1 {
+      font-family: "Orbitron", sans-serif;
+      font-size: 3rem;
+      color: #fff;
+      text-shadow: 0 0 14px #ff0000aa;
+      margin-bottom: 10px;
+    }
+
+    .page-header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* ============================================================
+       TEMPLATE STORE GRID
+    ============================================================ */
+    .store-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .store-card {
+      background: linear-gradient(145deg, #0a0a0a, #111);
+      border: 1px solid #555;
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow:
+        0 0 18px #000,
+        inset 0 0 18px #000;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .store-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      border: 2px solid rgba(255,0,0,0.35);
+      pointer-events: none;
+      box-shadow: 0 0 18px #ff000055;
+    }
+
+    .store-card iframe {
+      width: 100%;
+      height: 260px;
+      border-radius: 14px;
+      border: none;
+      background: #000;
+      margin-bottom: 14px;
+    }
+
+    .store-card h3 {
+      font-family: "Orbitron", sans-serif;
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      text-shadow: 0 0 10px #ff0000aa;
+    }
+
+    .store-card p {
+      opacity: 0.9;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .price-tag {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #ff4444;
+      text-shadow: 0 0 12px #ff4444aa;
+      margin-bottom: 16px;
+      font-family: "Orbitron", sans-serif;
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid #ff4444;
+      background: linear-gradient(135deg, #660000, #ff0000);
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.25s;
+      box-shadow: 0 0 12px #ff000088;
+      margin-right: 8px;
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, #880000, #ff4444);
+      box-shadow: 0 0 18px #ff0000cc;
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       DROPDOWNS
+    ============================================================ */
+    .dropdown {
+      margin-top: 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid #444;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .dropdown-header {
+      padding: 12px 16px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1.1rem;
+      background: rgba(255,255,255,0.08);
+      transition: 0.2s;
+    }
+
+    .dropdown-header:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    .dropdown-content {
+      display: none;
+      padding: 16px;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .dropdown.open .dropdown-content {
+      display: block;
+    }
+
+    /* ============================================================
+       PURCHASE INSTRUCTIONS
+    ============================================================ */
+    .instructions {
+      background: linear-gradient(145deg, #0a0a0a, #111);
+      border: 1px solid #555;
+      border-radius: 18px;
+      padding: 26px;
+      margin-bottom: 50px;
+      box-shadow:
+        0 0 18px #000,
+        inset 0 0 18px #000;
+    }
+
+    .instructions h2 {
+      font-family: "Orbitron", sans-serif;
+      font-size: 2rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #ff0000aa;
+    }
+
+    .instructions p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 10px;
+    }
+
+    .instructions ul {
+      opacity: 0.9;
+      font-size: 1.05rem;
+      margin-left: 20px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="page-shell">
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+      <h1>Website Store</h1>
+      <p>
+        Buy a template instantly or message me to build a custom version for your business.  
+        Every template is a <strong>real, working website</strong> — not a screenshot.
+      </p>
+    </section>
+
+    <!-- STORE GRID -->
+    <section class="store-grid">
+
+      <!-- COMIC WEBSITE -->
+      <div class="store-card">
+        <iframe src="https://comic-lct.pages.dev/"></iframe>
+        <h3>Comic Website</h3>
+        <p>A cinematic comic‑reading platform with chapters, transitions, and universe‑style storytelling.</p>
+        <div class="price-tag">$600</div>
+
+        <a class="btn" href="/checkout/comic.html">Buy Template</a>
+        <a class="btn" href="/pages/contact.html">Message Me</a>
+
+        <div class="dropdown">
+          <div class="dropdown-header">What’s Included</div>
+          <div class="dropdown-content">
+            <ul>
+              <li>Full comic reader</li>
+              <li>Chapter navigation</li>
+              <li>Animated transitions</li>
+              <li>Mobile‑ready layout</li>
+              <li>Brand color matching</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- THE CODE -->
+      <div class="store-card">
+        <iframe src="https://the-code.pages.dev/"></iframe>
+        <h3>THE CODE – 6‑Part Course</h3>
+        <p>A full beginner‑friendly course system with lessons, UI, and real project structure.</p>
+        <div class="price-tag">$600</div>
+
+        <a class="btn" href="/checkout/the-code.html">Buy Template</a>
+        <a class="btn" href="/pages/contact.html">Message Me</a>
+
+        <div class="dropdown">
+          <div class="dropdown-header">What’s Included</div>
+          <div class="dropdown-content">
+            <ul>
+              <li>6‑part course system</li>
+              <li>Lesson unlock logic</li>
+              <li>Progress tracking</li>
+              <li>Mobile‑first UI</li>
+              <li>Brand‑matched theme</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROLL N CONNECT -->
+      <div class="store-card">
+        <iframe src="https://rollnconnect.pages.dev/"></iframe>
+        <h3>Roll N Connect</h3>
+        <p>A full social platform with profiles, events, maps, and animated UI.</p>
+        <div class="price-tag">$900</div>
+
+        <a class="btn" href="/checkout/rollnconnect.html">Buy Template</a>
+        <a class="btn" href="/pages/contact.html">Message Me</a>
+
+        <div class="dropdown">
+          <div class="dropdown-header">What’s Included</div>
+          <div class="dropdown-content">
+            <ul>
+              <li>Profile system</li>
+              <li>Events + maps</li>
+              <li>Bubble animations</li>
+              <li>Multi‑page structure</li>
+              <li>App‑style UI</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- PURCHASE INSTRUCTIONS -->
+    <section class="instructions">
+      <h2>How Purchasing Works</h2>
+      <p>You have two options:</p>
+
+      <ul>
+        <li><strong>Buy the template instantly</strong> — you receive the full code, files, and instructions.</li>
+        <li><strong>Message me</strong> — I will customize the template for your business.</li>
+      </ul>
+
+      <p><strong>Customization includes:</strong></p>
+      <ul>
+        <li>Brand colors + fonts</li>
+        <li>Your text + images</li>
+        <li>Extra pages</li>
+        <li>Animations</li>
+        <li>Forms + contact systems</li>
+        <li>Dashboard or app add‑ons</li>
+      </ul>
+
+      <p><strong>Payment Methods:</strong> Cash App, PayPal, Stripe, or invoice.</p>
+      <p><strong>Delivery Time:</strong> 1–3 days for templates, 3–7 days for custom builds.</p>
+    </section>
+
+  </div>
+
+  <script>
+    document.querySelectorAll(".dropdown-header").forEach(header => {
+      header.addEventListener("click", () => {
+        header.parentElement.classList.toggle("open");
+      });
+    });
+  </script>
+
+</body>
+</html>
