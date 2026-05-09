@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tools – Go Time Software</title>
+
+  <link rel="icon" type="image/png" href="/assets/img/go-time-logo.png" />
+  <link rel="stylesheet" href="/css/base.css" />
+
+  <style>
+    body.theme-dark {
+      background: radial-gradient(circle at top, #330000 0, #020308 40%, #000 100%);
+      color: #f5f5f5;
+    }
+
+    body.theme-dark::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("/assets/img/stone-texture.png");
+      opacity: 0.08;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* HEADER / NAV */
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 26px;
+      background: rgba(0,0,0,0.85);
+      border-bottom: 1px solid #550000;
+      box-shadow: 0 0 22px #000;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: "Orbitron", system-ui, sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .logo-img {
+      width: 52px;
+      height: 52px;
+    }
+
+    .main-nav a {
+      color: #f5f5f5;
+      text-decoration: none;
+      font-weight: 700;
+      margin-left: 20px;
+      transition: 0.2s;
+      font-size: 1.02rem;
+    }
+
+    .main-nav a:hover,
+    .main-nav .active {
+      color: #ff4444;
+      text-shadow: 0 0 10px #ff4444;
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      .main-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .main-nav a {
+        margin-left: 0;
+      }
+    }
+
+    /* PAGE SHELL */
+    .page-shell {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
+    }
+
+    /* HERO */
+    .hero-block {
+      background: radial-gradient(circle at top left, #550000 0, #050509 45%, #000 100%);
+      border-radius: 18px;
+      padding: 30px 24px 26px;
+      border: 1px solid rgba(255,80,80,0.35);
+      box-shadow: 0 0 26px #000;
+      margin-bottom: 40px;
+    }
+
+    .hero-block h1 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 16px #000;
+    }
+
+    .hero-block p {
+      font-size: 1.02rem;
+      line-height: 1.7;
+      max-width: 780px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .hero-pill {
+      background: rgba(0,0,0,0.65);
+      border-radius: 14px;
+      padding: 14px 16px;
+      border: 1px solid rgba(255,80,80,0.4);
+      font-size: 0.98rem;
+      box-shadow: 0 0 16px #000;
+    }
+
+    .hero-pill strong {
+      color: #ff6666;
+    }
+
+    /* SECTION TITLES */
+    .section-title {
+      margin-top: 40px;
+      margin-bottom: 10px;
+      font-size: 1.8rem;
+    }
+
+    .section-sub {
+      margin-bottom: 20px;
+      font-size: 1.02rem;
+      color: #dddddd;
+    }
+
+    /* TOOL LIST */
+    .tool-list {
+      margin-top: 10px;
+    }
+
+    .tool-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      font-size: 0.98rem;
+    }
+
+    .tool-list li::before {
+      content: "• ";
+      color: #ff4444;
+    }
+
+    /* DROPDOWNS */
+    details.tool-item {
+      background: rgba(0,0,0,0.7);
+      border-radius: 16px;
+      border: 1px solid rgba(255,80,80,0.35);
+      margin-bottom: 18px;
+      box-shadow: 0 0 20px #000;
+      overflow: hidden;
+    }
+
+    details.tool-item[open] {
+      box-shadow: 0 0 26px #000;
+      border-color: #ff5555;
+    }
+
+    details.tool-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.02rem;
+    }
+
+    details.tool-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .tool-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tool-tag {
+      font-size: 0.78rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,80,80,0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #ffaaaa;
+    }
+
+    .tool-chevron {
+      font-size: 1.1rem;
+      opacity: 0.8;
+    }
+
+    .tool-body {
+      padding: 0 18px 18px;
+      border-top: 1px solid rgba(255,80,80,0.25);
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 820px) {
+      .tool-body {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .tool-copy p {
+      font-size: 0.98rem;
+      line-height: 1.7;
+      margin: 6px 0;
+    }
+
+    .tool-copy ul {
+      margin: 6px 0 10px;
+      padding-left: 18px;
+      font-size: 0.96rem;
+    }
+
+    .tool-copy li {
+      margin-bottom: 4px;
+    }
+
+    .tool-meta {
+      font-size: 0.95rem;
+    }
+
+    .tool-meta h4 {
+      margin: 6px 0 4px;
+      font-size: 1rem;
+      color: #ff8888;
+    }
+
+    .tool-meta p {
+      margin: 2px 0 6px;
+    }
+
+    .tool-meta small {
+      opacity: 0.85;
+    }
+
+    .tool-actions {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn-ghost,
+    .btn-solid {
+      display: inline-block;
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid #ff4444;
+      transition: 0.18s;
+    }
+
+    .btn-solid {
+      background: #ff4444;
+      color: #fff;
+      box-shadow: 0 0 14px #ff444488;
+    }
+
+    .btn-solid:hover {
+      background: #dd2222;
+      box-shadow: 0 0 18px #ff4444aa;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #ff8888;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255,68,68,0.12);
+    }
+
+    /* IFRAME PREVIEW */
+    .tool-preview {
+      background: #000;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 0 20px #000;
+      overflow: hidden;
+    }
+
+    .tool-preview iframe {
+      width: 100%;
+      height: 260px;
+      border: none;
+      background: #000;
+    }
+
+    .preview-label {
+      padding: 8px 12px;
+      font-size: 0.86rem;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      background: radial-gradient(circle at top, #330000 0, #050505 60%);
+      color: #ffbbbb;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+  </style>
+</head>
+
+<body class="theme-dark">
+
+  <header class="site-header">
+    <div class="logo">
+      <img src="/assets/img/go-time-logo.png" class="logo-img" />
+      <span>Go Time Software</span>
+    </div>
+
+    <nav class="main-nav">
+      <a href="/index.html">Home</a>
+      <a href="/pages/sites.html">Sites</a>
+      <a href="/pages/apps.html">Apps</a>
+      <a href="/pages/iot.html">IoT</a>
+      <a href="/pages/pricing.html">Pricing</a>
+      <a href="/pages/contact.html">Contact</a>
+      <a href="/pages/tools.html" class="active">Tools</a>
+      <a href="/pages/widgets.html">Widgets</a>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+
+    <!-- HERO -->
+    <section class="hero-block">
+      <h1>Tools Library</h1>
+      <p>
+        These are <strong>real, working tools</strong> built by Go Time Software — not mockups.
+        Every tool below is interactive, live, and designed to plug into your systems:
+        invoices, scheduling, automation, content, and more. Explore them, click through,
+        and imagine how they can be wired into your business.
+      </p>
+
+      <div class="hero-grid">
+        <div class="hero-pill">
+          <strong>Pricing & Payments</strong><br>
+          Most tools start between <strong>$150–$600</strong> depending on complexity.
+          I accept major credit cards and can set up <stronginstallment plans</strong> for larger builds.
+        </div>
+        <div class="hero-pill">
+          <strong>Add‑Ons & Deals</strong><br>
+          Bundle multiple tools (like an Invoice Generator + Appointment Scheduler)
+          and I’ll discount the total build. Ongoing tweaks are handled as
+          <strong>small upgrade passes</strong>, not full rebuilds.
+        </div>
+        <div class="hero-pill">
+          <strong>Custom Builds</strong><br>
+          Every tool here can be cloned, themed, or extended for your exact workflow.
+          If you don’t see what you need, hit <strong>“Message Me About a Custom Tool”</strong>
+          on any item.
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK LIST -->
+    <section class="tool-list">
+      <h2 class="section-title">All Tools (Alphabetical)</h2>
+      <p class="section-sub">
+        Click any tool below to open its full description, live preview, pricing notes,
+        and options for custom builds.
+      </p>
+
+      <ul>
+        <li>AI Resume Builder</li>
+        <li>Appointment Scheduler</li>
+        <li>File Converter</li>
+        <li>Invoice Generator</li>
+        <li>Password Generator</li>
+        <li>Photo Compressor</li>
+        <li>QR Code Maker</li>
+        <li>Social Media Auto‑Poster</li>
+      </ul>
+    </section>
+
+    <!-- DROPDOWNS -->
+
+    <!-- AI RESUME BUILDER -->
+    <details class="tool-item">
+      <summary>
+        <div class="tool-name">
+          <span>AI Resume Builder</span>
+          <span class="tool-tag">Career Tool</span>
+        </div>
+        <span class="tool-chevron">▾</span>
+      </summary>
+      <div class="tool-body">
+        <div class="tool-copy">
+          <p>
+            A focused resume builder that helps users generate clean, modern resumes
+            using guided prompts and smart templates. Perfect for job seekers, schools,
+            and agencies that want a polished, repeatable resume flow.
+          </p>
+          <h4>Features</h4>
+          <ul>
+            <li>Step‑by‑step resume sections (experience, skills, education, projects).</li>
+            <li>Multiple layout presets and export‑ready formats (PDF/print‑friendly).</li>
+            <li>Optional AI‑assisted bullet suggestions and phrasing.</li>
+            <li>Brandable colors, fonts, and logo for your organization.</li>
+          </ul>
+
+          <div class="tool-meta">
+            <h4>Pricing & Add‑Ons</h4>
+            <p>
+              Typical builds start around <strong>$350–$700</strong> depending on AI integration,
+              export options, and branding. Add‑ons include:
+            </p>
+            <ul>
+              <li>Multi‑user dashboard for schools or agencies.</li>
+              <li>Saved profiles and login system.</li>
+              <li>Custom export templates for your brand.</li>
+            </ul>
+
+            <h4>Payments & Workflow</h4>
+            <p>
+              I accept major credit cards and can split larger builds into
+              <strong>2–4 installments</strong>. We’ll scope the tool, lock in a price,
+              and then move in clear phases: design → build → refine → launch.
+            </p>
+
+            <div class="tool-actions">
+              <a class="btn-solid" href="/pages/contact.html">Message Me About a Custom Tool</a>
+              <a class="btn-ghost" href="mailto:boardwalkclay1@gmail.com?subject=AI%20Resume%20Builder%20Tool&body=I%27m%20interested%20in%20a%20custom%20AI%20Resume%20Builder." target="_blank">Email About This Tool</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-preview">
+          <div class="preview-label">Live Tool Preview (Example)</div>
+          <iframe src="/tools/ai-resume-builder/index.html"></iframe>
+        </div>
+      </div>
+    </details>
+
+    <!-- APPOINTMENT SCHEDULER -->
+    <details class="tool-item">
+      <summary>
+        <div class="tool-name">
+          <span>Appointment Scheduler</span>
+          <span class="tool-tag">Booking Tool</span>
+        </div>
+        <span class="tool-chevron">▾</span>
+      </summary>
+      <div class="tool-body">
+        <div class="tool-copy">
+          <p>
+            A clean, embedded scheduler that lets your clients pick times, fill in details,
+            and confirm bookings without leaving your site. Ideal for service businesses,
+            coaching, studios, and repair shops.
+          </p>
+          <h4>Features</h4>
+          <ul>
+            <li>Time slot selection with buffer times and blackout dates.</li>
+            <li>Optional email confirmations and reminders.</li>
+            <li>Service types (consult, repair, session, etc.).</li>
+            <li>Can integrate with your existing calendar tools.</li>
+          </ul>
+
+          <div class="tool-meta">
+            <h4>Pricing & Add‑Ons</h4>
+            <p>
+              Most schedulers land between <strong>$250–$650</strong> depending on
+              integrations and automation. Add‑ons:
+            </p>
+            <ul>
+              <li>Payment collection at booking.</li>
+              <li>Multi‑staff scheduling and routing.</li>
+              <li>Custom admin dashboard for managing bookings.</li>
+            </ul>
+
+            <h4>Payments & Workflow</h4>
+            <p>
+              You can pay by card in one go or split into <strong2–3 installments</strong>.
+              I keep the build modular so we can add features later without a full rebuild.
+            </p>
+
+            <div class="tool-actions">
+              <a class="btn-solid" href="/pages/contact.html">Message Me About a Scheduler</a>
+              <a class="btn-ghost" href="mailto:boardwalkclay1@gmail.com?subject=Appointment%20Scheduler%20Tool&body=I%27m%20interested%20in%20a%20custom%20Appointment%20Scheduler." target="_blank">Email About This Tool</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-preview">
+          <div class="preview-label">Live Tool Preview (Example)</div>
+          <iframe src="/tools/appointment-scheduler/index.html"></iframe>
+        </div>
+      </div>
+    </details>
+
+    <!-- FILE CONVERTER -->
+    <details class="tool-item">
+      <summary>
+        <div class="tool-name">
+          <span>File Converter</span>
+          <span class="tool-tag">Utility Tool</span>
+        </div>
+        <span class="tool-chevron">▾</span>
+      </summary>
+      <div class="tool-body">
+        <div class="tool-copy">
+          <p>
+            A focused converter for the file types you actually use — images, documents,
+            audio, or internal formats. Built to feel like a physical machine: drop a file in,
+            choose the output, and get a clean result.
+          </p>
+          <h4>Features</h4>
+          <ul>
+            <li>Custom conversion pipelines (e.g., PNG → WebP, DOCX → PDF).</li>
+            <li>Batch conversion for multiple files at once.</li>
+            <li>Brand‑themed UI with progress indicators.</li>
+            <li>Optional login and history for frequent users.</li>
+          </ul>
+
+          <div class="tool-meta">
+            <h4>Pricing & Add‑Ons</h4>
+            <p>
+              Converters typically range from <strong>$300–$900</strong> depending on
+              formats and hosting requirements. Add‑ons:
+            </p>
+            <ul>
+              <li>Cloud storage integration.</li>
+              <li>Admin dashboard for usage stats.</li>
+              <li>API endpoints for other systems to call.</li>
+            </ul>
+
+            <h4>Payments & Workflow</h4>
+            <p>
+              Larger converters can be split into <strong>milestone payments</strong>
+              (design, core engine, integrations). You always see working versions
+              as we go — not just screenshots.
+            </p>
+
+            <div class="tool-actions">
+              <a class="btn-solid" href="/pages/contact.html">Message Me About a Converter</a>
+              <a class="btn-ghost" href="mailto:boardwalkclay1@gmail.com?subject=File%20Converter%20Tool&body=I%27m%20interested%20in%20a%20custom%20File%20Converter." target="_blank">Email About This Tool</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-preview">
+          <div class="preview-label">Live Tool Preview (Example)</div>
+          <iframe src="/tools/file-converter/index.html"></iframe>
+        </div>
+      </div>
+    </details>
+
+    <!-- INVOICE GENERATOR -->
+    <details class="tool-item">
+      <summary>
+        <div class="tool-name">
+          <span>Invoice Generator</span>
+          <span class="tool-tag">Business Tool</span>
+        </div>
+        <span class="tool-chevron">▾</span>
+      </summary>
+      <div class="tool-body">
+        <div class="tool-copy">
+          <p>
+            A clean, branded invoice generator that lets you create, send, and track invoices
+            without wrestling with bloated software. Built to match your logo, colors, and
+            the way you actually bill clients.
+          </p>
+          <h4>Features</h4>
+          <ul>
+            <li>Line items, taxes, discounts, and notes.</li>
+            <li>PDF or print‑ready invoice output.</li>
+            <li>Client list and quick‑fill fields.</li>
+            <li>Optional payment links or QR codes on each invoice.</li>
+          </ul>
+
+          <div class="tool-meta">
+            <h4>Pricing & Add‑Ons</h4>
+            <p>
+              Most invoice tools land between <strong>$250–$750</strong> depending on
+              tracking, exports, and integrations. Add‑ons:
+            </p>
+            <ul>
+              <li>Payment status tracking and reminders.</li>
+              <li>Multi‑currency support.</li>
+              <li>Dashboard for monthly totals and reports.</li>
+            </ul>
+
+            <h4>Payments & Workflow</h4>
+            <p>
+              You can pay in full or split into <strong>2–3 payments</strong>.
+              I keep the system modular so we can add dashboards, exports, or
+              automations later without breaking the core.
+            </p>
+
+            <div class="tool-actions">
+              <a class="btn-solid" href="/pages/contact.html">Message Me About Invoices</a>
+              <a class="btn-ghost" href="mailto:boardwalkclay1@gmail.com?subject=Invoice%20Generator%20Tool&body=I%27m%20interested%20in%20a%20custom%20Invoice%20Generator." target="_blank">Email About This Tool</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-preview">
+          <div class="preview-label">Live Tool Preview (Example)</div>
+          <iframe src="/tools/invoice-generator/index.html"></iframe>
+        </div>
+      </div>
+    </details>
+
+    <!-- PASSWORD GENERATOR -->
+    <details class="tool-item">
+      <summary>
+        <div class="tool-name">
+          <span>Password Generator</span>
+          <span class="tool-tag">Security Tool</span>
+        </div>
+        <span class="tool-chevron">▾</span>
+      </summary>
+      <div class="tool-body">
+        <div class="tool-copy">
+          <p>
+            A simple, branded password generator that lives on your site or dashboard,
+            giving you and your team strong, copy‑ready passwords on demand.
+          </p>
+          <h4>Features</h4>
+          <ul>
+            <li>Length and character options (symbols, numbers, etc.).</li>
+            <li>One‑click copy and regeneration.</li>
+            <li>Dark, cinematic UI that matches your brand.</li>
+            <li>Can be embedded into internal tools or portals.</li>
+          </ul>
+
+          <div class="tool-meta">
+            <h4>Pricing & Add‑Ons</h4>
+            <p>
+              This is a lighter build — usually <strong>$150–$350</strong> depending on
+              embedding and theming. Add‑ons:
+            </p>
+            <ul>
+              <li>Multi‑tool security panel (password + notes + generator).</li>
+              <li>Internal‑only access controls.</li>
+            </ul>
+
+            <h4>Payments & Workflow</h4>
+            <p>
+              Quick builds like this are usually a single payment. If we bundle it with
+              other tools, it becomes part of a discounted package.
+            </p>
+
+            <div class="tool-actions">
+              <a class="btn-solid" href="/pages/contact.html">Message Me About Security Tools</a>
+              <a class="btn-ghost" href="mailto:boardwalkclay1@gmail.com?subject=Password%20Generator%20Tool&body=I%27m%20interested%20in%20a%20custom%20Password%20Generator." target="_blank">Email About This Tool</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-preview">
+          <div class="preview-label">Live Tool Preview (Example)</div>
+          <iframe src="/tools/password-generator/index.html"></iframe>
+        </div>
+      </div>
+    </details>
+
+    <!-- PHOTO COMPRESSOR -->
+    <details class="tool-item">
+      <summary>
+        <div class="tool-name">
+          <span>Photo Compressor</span>
+          <span class="tool-tag">Media Tool</span>
+        </div>
+        <span class="tool-chevron">▾</span>
+      </summary>
+      <div class="tool-body">
+        <div class="tool-copy">
+          <p>
+            A drag‑and‑drop photo compressor that shrinks images for web, email,
+            and social without destroying quality. Great for photographers, agencies,
+            and anyone managing lots of media.
+          </p>
+          <h4>Features</h4>
+          <ul>
+            <li>Drag‑and‑drop upload with progress.</li>
+            <li>Quality slider and size estimates.</li>
+            <li>Batch compression and download.</li>
+            <li>Optional presets for your platforms.</li>
+          </ul>
+
+          <div class="tool-meta">
+            <h4>Pricing & Add‑Ons</h4>
+            <p>
+              Compressors usually land around <strong>$300–$800</strong> depending on
+              batch size, formats, and hosting. Add‑ons:
+            </p>
+            <ul>
+              <li>Cloud storage integration.</li>
+              <li>Client‑facing portal with login.</li>
+            </ul>
+
+            <h4>Payments & Workflow</h4>
+            <p>
+              You can pay by card or split into <strong>2 payments</strong> (core build + polish).
+              I keep the UI cinematic and responsive so it feels like a real machine.
+            </p>
+
+            <div class="tool-actions">
+              <a class="btn-solid" href="/pages/contact.html">Message Me About Media Tools</a>
+              <a class="btn-ghost" href="mailto:boardwalkclay1@gmail.com?subject=Photo%20Compressor%20Tool&body=I%27m%20interested%20in%20a%20custom%20Photo%20Compressor." target="_blank">Email About This Tool</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-preview">
+          <div class="preview-label">Live Tool Preview (Example)</div>
+          <iframe src="/tools/photo-compressor/index.html"></iframe>
+        </div>
+      </div>
+    </details>
+
+    <!-- QR CODE MAKER -->
+    <details class="tool-item">
+      <summary>
+        <div class="tool-name">
+          <span>QR Code Maker</span>
+          <span class="tool-tag">Utility Tool</span>
+        </div>
+        <span class="tool-chevron">▾</span>
+      </summary>
+      <div class="tool-body">
+        <div class="tool-copy">
+          <p>
+            A branded QR generator that lets you create codes for links, menus, downloads,
+            and campaigns — all from your own site, with your own look.
+          </p>
+          <h4>Features</h4>
+          <ul>
+            <li>URL, text, and contact QR generation.</li>
+            <li>Downloadable PNG/SVG codes.</li>
+            <li>Brand colors and logo overlay options.</li>
+            <li>Optional tracking via redirect links.</li>
+          </ul>
+
+          <div class="tool-meta">
+            <h4>Pricing & Add‑Ons</h4>
+            <p>
+              QR tools are usually <strong>$200–$500</strong> depending on tracking
+              and branding. Add‑ons:
+            </p>
+            <ul>
+              <li>Analytics dashboard for scans.</li>
+              <li>Campaign tagging and export.</li>
+            </ul>
+
+            <h4>Payments & Workflow</h4>
+            <p>
+              Simple builds are typically a single payment. If we bundle this with
+              other tools (like an Invoice Generator or Scheduler), I discount the total.
+            </p>
+
+            <div class="tool-actions">
+              <a class="btn-solid" href="/pages/contact.html">Message Me About QR Tools</a>
+              <a class="btn-ghost" href="mailto:boardwalkclay1@gmail.com?subject=QR%20Code%20Maker%20Tool&body=I%27m%20interested%20in%20a%20custom%20QR%20Code%20Maker." target="_blank">Email About This Tool</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-preview">
+          <div class="preview-label">Live Tool Preview (Example)</div>
+          <iframe src="/tools/qr-code-maker/index.html"></iframe>
+        </div>
+      </div>
+    </details>
+
+    <!-- SOCIAL MEDIA AUTO-POSTER -->
+    <details class="tool-item">
+      <summary>
+        <div class="tool-name">
+          <span>Social Media Auto‑Poster</span>
+          <span class="tool-tag">Automation Tool</span>
+        </div>
+        <span class="tool-chevron">▾</span>
+      </summary>
+      <div class="tool-body">
+        <div class="tool-copy">
+          <p>
+            A scheduling and auto‑posting tool that lets you queue content and push it
+            to multiple platforms from one place. Built to match your workflow, not a generic dashboard.
+          </p>
+          <h4>Features</h4>
+          <ul>
+            <li>Content queue with scheduled times.</li>
+            <li>Per‑platform previews and formatting.</li>
+            <li>Drafts, templates, and saved captions.</li>
+            <li>Optional analytics and performance views.</li>
+          </ul>
+
+          <div class="tool-meta">
+            <h4>Pricing & Add‑Ons</h4>
+            <p>
+              Automation tools are deeper builds — usually <strong>$600–$2,000+</strong>
+              depending on integrations and analytics. Add‑ons:
+            </p>
+            <ul>
+              <li>Multi‑user roles and permissions.</li>
+              <li>Client‑facing portals for agencies.</li>
+              <li>Custom reporting dashboards.</li>
+            </ul>
+
+            <h4>Payments & Workflow</h4>
+            <p>
+              These are almost always done in <strongphased installments</strong>:
+              core system first, then integrations, then analytics. You see it working
+              at each stage, not just at the end.
+            </p>
+
+            <div class="tool-actions">
+              <a class="btn-solid" href="/pages/contact.html">Message Me About Automation</a>
+              <a class="btn-ghost" href="mailto:boardwalkclay1@gmail.com?subject=Social%20Media%20Auto-Poster%20Tool&body=I%27m%20interested%20in%20a%20custom%20Social%20Media%20Auto-Poster." target="_blank">Email About This Tool</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-preview">
+          <div class="preview-label">Live Tool Preview (Example)</div>
+          <iframe src="/tools/social-media-auto-poster/index.html"></iframe>
+        </div>
+      </div>
+    </details>
+
+  </main>
+
+</body>
+</html>
