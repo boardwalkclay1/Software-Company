@@ -40,6 +40,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      cursor: pointer; /* <-- makes logo clickable for nav */
     }
 
     .logo-img {
@@ -107,6 +108,58 @@
 
     .nav-btn:hover {
       background: rgba(255,255,255,0.15);
+    }
+
+    /* ============================
+       FULLSCREEN NAV PANEL (NEW)
+    ============================ */
+    .nav-panel {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(6px);
+      transform: translateX(-100%);
+      transition: 0.35s ease;
+      z-index: 9999;
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-panel.open {
+      transform: translateX(0);
+    }
+
+    .close-btn {
+      background: transparent;
+      border: none;
+      color: #ff4444;
+      font-size: 2.4rem;
+      cursor: pointer;
+      align-self: flex-end;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #000;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      margin-top: 20px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-decoration: none;
+      text-shadow: 0 0 10px #000;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #ff4444;
+      transform: translateX(6px);
     }
 
     /* ============================
@@ -217,7 +270,8 @@
   <!-- HEADER -->
   <header class="site-header">
 
-    <div class="logo-block">
+    <!-- LOGO (BURGER TRIGGER) -->
+    <div class="logo-block" id="menuTrigger">
       <img src="/assets/img/go-time-logo.png" class="logo-img" />
       <div class="logo-text-block">
         <div class="logo-line-top">GO</div>
@@ -234,6 +288,7 @@
       </div>
     </div>
 
+    <!-- ORIGINAL NAV (UNCHANGED) -->
     <nav class="main-nav">
       <a class="nav-btn" href="/pages/sites.html">Sites</a>
       <a class="nav-btn" href="/pages/apps.html">Apps</a>
@@ -241,6 +296,26 @@
     </nav>
 
   </header>
+
+  <!-- FULLSCREEN NAV PANEL (NEW) -->
+  <nav id="navPanel" class="nav-panel">
+    <button id="closeNav" class="close-btn">✕</button>
+
+    <div class="nav-links">
+      <a href="/index.html">Home</a>
+      <a href="/pages/sites.html">Sites</a>
+      <a href="/pages/apps.html">Apps</a>
+      <a href="/pages/iot.html">IoT</a>
+      <a href="/pages/tools.html">Tools</a>
+      <a href="/pages/widgets.html">Widgets</a>
+      <a href="/pages/pricing.html">Pricing</a>
+      <a href="/pages/contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ============================
+       MAIN CONTENT (UNCHANGED)
+  ============================ -->
 
   <main class="page-container">
 
@@ -359,6 +434,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
 
+      /* SECTION REVEAL */
       const sections = document.querySelectorAll(".section");
       function revealSections() {
         const trigger = window.innerHeight * 0.85;
@@ -371,10 +447,24 @@
       window.addEventListener("load", revealSections);
       revealSections();
 
+      /* DROPDOWNS */
       document.querySelectorAll(".frame-desc").forEach(desc => {
         desc.addEventListener("click", () => {
           desc.classList.toggle("open");
         });
+      });
+
+      /* BURGER MENU */
+      const trigger = document.getElementById("menuTrigger");
+      const panel = document.getElementById("navPanel");
+      const closeBtn = document.getElementById("closeNav");
+
+      trigger.addEventListener("click", () => {
+        panel.classList.add("open");
+      });
+
+      closeBtn.addEventListener("click", () => {
+        panel.classList.remove("open");
       });
 
     });
