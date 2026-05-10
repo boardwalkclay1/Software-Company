@@ -2,56 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Pricing – Go Time Software</title>
-
-  <link rel="icon" type="image/png" href="/assets/img/go-time-logo.png" />
-
-  <!-- FONTS -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Go Time Software — Pricing</title>
 
   <style>
-    body {
+    body.theme-dark {
       margin: 0;
-      background: #000;
-      font-family: "Rajdhani", sans-serif;
-      color: #e6e6e6;
+      background: #0a0a0a;
+      font-family: "Inter", system-ui, sans-serif;
+      color: #f2f2f2;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: url("/assets/img/go-time-town.jpg") center/cover no-repeat;
-      opacity: 0.18;
-      z-index: -2;
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.75);
-      backdrop-filter: blur(4px);
-      z-index: -1;
-    }
-
+    /* HEADER */
     .site-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 26px;
-      background: rgba(0,0,0,0.85);
-      border-bottom: 1px solid #444;
-      box-shadow: 0 0 18px #000;
+      padding: 22px 26px;
+      background: rgba(0,0,0,0.75);
+      border-bottom: 1px solid #550000;
+      box-shadow: 0 0 22px #000;
+      position: sticky;
+      top: 0;
+      z-index: 20;
     }
 
     .logo {
       display: flex;
       align-items: center;
       gap: 12px;
-      font-family: "Orbitron", sans-serif;
-      font-size: 1.2rem;
       font-weight: 700;
+      font-size: 1.2rem;
     }
 
     .logo-img {
@@ -60,13 +41,11 @@
     }
 
     .main-nav a {
-      color: #e6e6e6;
+      color: #fff;
       text-decoration: none;
-      font-weight: 700;
       margin-left: 20px;
+      font-weight: 700;
       transition: 0.2s;
-      font-family: "Rajdhani", sans-serif;
-      font-size: 1.1rem;
     }
 
     .main-nav a:hover,
@@ -75,131 +54,145 @@
       text-shadow: 0 0 10px #ff4444;
     }
 
+    /* PAGE SHELL */
     .pricing-shell {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 50px 20px;
+      padding: 40px 20px 80px;
     }
 
+    /* HEADER TEXT */
     .pricing-header {
       text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 40px;
     }
 
     .pricing-header h1 {
-      font-family: "Orbitron", sans-serif;
-      font-size: 3rem;
-      color: #fff;
-      text-shadow: 0 0 14px #ff0000aa;
+      font-size: 2.8rem;
       margin-bottom: 10px;
+      text-shadow: 0 0 16px #000;
     }
 
     .pricing-header p {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       opacity: 0.9;
       max-width: 700px;
       margin: 0 auto;
+      line-height: 1.6;
     }
 
+    /* GRID */
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-bottom: 60px;
+      gap: 26px;
+      margin-top: 30px;
     }
 
+    /* CARD */
     .pricing-card {
-      background: linear-gradient(145deg, #0a0a0a, #111);
-      border: 1px solid #555;
-      border-radius: 18px;
-      padding: 26px;
-      box-shadow: 0 0 18px #000, inset 0 0 18px #000;
-      position: relative;
-      overflow: hidden;
+      background: rgba(0,0,0,0.55);
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 0 22px #000;
+      transition: 0.25s;
     }
 
-    .pricing-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 18px;
-      border: 2px solid rgba(255,0,0,0.35);
-      pointer-events: none;
-      box-shadow: 0 0 18px #ff000055;
+    .pricing-card:hover {
+      border-color: #ff4444;
+      box-shadow: 0 0 26px #ff444488;
+      transform: translateY(-4px);
     }
 
     .pricing-card h2 {
-      margin: 0 0 10px;
       font-size: 1.6rem;
-      font-family: "Orbitron", sans-serif;
-      color: #fff;
-      text-shadow: 0 0 10px #ff0000aa;
+      margin-bottom: 6px;
+      color: #ff6666;
     }
 
     .pricing-card p {
-      margin: 0 0 16px;
+      font-size: 0.98rem;
       opacity: 0.9;
-      font-size: 1rem;
+      margin-bottom: 14px;
+      line-height: 1.5;
     }
 
     .price-tag {
-      font-size: 2rem;
-      font-weight: 900;
-      color: #ff4444;
-      text-shadow: 0 0 12px #ff4444aa;
-      margin-bottom: 16px;
-      font-family: "Orbitron", sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: #fff;
+      text-shadow: 0 0 10px #000;
     }
 
     .pricing-card ul {
-      margin: 0 0 20px;
-      padding-left: 20px;
-      opacity: 0.9;
-      font-size: 1rem;
+      padding-left: 18px;
+      margin-bottom: 20px;
+      line-height: 1.5;
+      font-size: 0.95rem;
     }
 
     .btn-primary {
       width: 100%;
-      padding: 14px 16px;
-      border-radius: 999px;
-      border: 1px solid #ff4444;
-      background: linear-gradient(135deg, #660000, #ff0000);
+      padding: 12px 16px;
+      background: #ff4444;
       color: #fff;
+      border: none;
+      border-radius: 10px;
       font-weight: 700;
       cursor: pointer;
-      transition: 0.25s;
-      box-shadow: 0 0 12px #ff000088;
-      font-size: 1.1rem;
-      font-family: "Rajdhani", sans-serif;
+      transition: 0.2s;
+      box-shadow: 0 0 14px #ff444488;
     }
 
     .btn-primary:hover {
-      background: linear-gradient(135deg, #880000, #ff4444);
-      box-shadow: 0 0 18px #ff0000cc;
-      transform: translateY(-2px);
+      background: #dd2222;
+      box-shadow: 0 0 18px #ff4444aa;
     }
 
+    /* SECTION BLOCKS */
     .section-block {
-      background: linear-gradient(145deg, #0a0a0a, #111);
-      border: 1px solid #555;
-      border-radius: 18px;
-      padding: 26px;
-      margin-bottom: 50px;
-      box-shadow: 0 0 18px #000, inset 0 0 18px #000;
+      margin-top: 60px;
+      background: rgba(0,0,0,0.55);
+      padding: 30px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 0 22px #000;
     }
 
     .section-block h2 {
-      margin: 0 0 14px;
-      color: #fff;
-      text-shadow: 0 0 10px #ff0000aa;
-      font-family: "Orbitron", sans-serif;
       font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #ff6666;
     }
 
-    .section-block p,
-    .section-block ul {
+    .section-block p {
+      font-size: 1.05rem;
       opacity: 0.9;
-      font-size: 1.1rem;
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .section-block ul {
+      padding-left: 20px;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .pricing-header h1 {
+        font-size: 2.2rem;
+      }
+      .pricing-header p {
+        font-size: 1rem;
+      }
+      .pricing-card h2 {
+        font-size: 1.4rem;
+      }
+      .price-tag {
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
@@ -208,6 +201,7 @@
 
   <div class="pricing-shell">
 
+    <!-- HEADER -->
     <header class="site-header">
       <div class="logo">
         <img src="/assets/img/go-time-logo.png" class="logo-img" />
@@ -224,24 +218,28 @@
       </nav>
     </header>
 
+    <!-- HEADER TEXT -->
     <div class="pricing-header">
       <h1>Cinematic, Real Pricing</h1>
-      <p>Premium systems. Matte‑black metal panels. Real results.  
-      Every build is custom, cinematic, and engineered like a real product.</p>
+      <p>
+        No fluff. No fake “packages.”  
+        Just real numbers for real builds — the same way I talk to clients in person.
+      </p>
     </div>
 
+    <!-- GRID -->
     <section class="pricing-grid">
 
       <div class="pricing-card">
         <h2>Websites</h2>
-        <p>Cinematic, mobile‑ready, built from scratch — no templates.</p>
+        <p>Clean, cinematic, mobile‑ready. Built from scratch — not dragged from a template bin.</p>
         <div class="price-tag">$600 – $1200</div>
         <ul>
           <li>Custom layouts + animations</li>
+          <li>Fast, clean code</li>
           <li>SEO‑ready structure</li>
-          <li>Ultra‑fast load times</li>
-          <li>Brand‑matched color systems</li>
-          <li>Mobile‑first responsive design</li>
+          <li>Brand‑matched color system</li>
+          <li>Mobile‑first design</li>
         </ul>
         <button class="btn-primary" onclick="window.location.href='/pages/sites.html'">
           View Website Templates
@@ -250,13 +248,13 @@
 
       <div class="pricing-card">
         <h2>Apps & Dashboards</h2>
-        <p>Real tools, real logic, real systems — installable like real apps.</p>
+        <p>Real apps with logic, state, UI, and workflows — not “websites pretending to be apps.”</p>
         <div class="price-tag">$1000 – $3000</div>
         <ul>
           <li>Installable PWAs</li>
-          <li>Offline mode available</li>
-          <li>Custom workflows + logic</li>
-          <li>Admin dashboards included</li>
+          <li>Offline mode</li>
+          <li>Custom workflows</li>
+          <li>Admin dashboards</li>
           <li>CYD‑grade UI components</li>
         </ul>
         <button class="btn-primary" onclick="window.location.href='/pages/apps.html'">
@@ -266,13 +264,13 @@
 
       <div class="pricing-card">
         <h2>IoT & Automation</h2>
-        <p>Real‑world sensors, triggers, automation, and device control.</p>
+        <p>Real sensors, real triggers, real automation — not simulated demos.</p>
         <div class="price-tag">$500 – $1800</div>
         <ul>
-          <li>Motion, distance, temperature sensors</li>
+          <li>Motion + distance sensors</li>
           <li>Smart relays + device control</li>
-          <li>Live dashboards with alerts</li>
-          <li>Automation rules (If X then Y)</li>
+          <li>Live dashboards</li>
+          <li>Automation rules</li>
           <li>Custom hardware integration</li>
         </ul>
         <button class="btn-primary" onclick="window.location.href='/pages/iot.html'">
@@ -282,14 +280,14 @@
 
       <div class="pricing-card">
         <h2>Full Systems</h2>
-        <p>Website + App + IoT + Automation — one unified system.</p>
+        <p>Website + App + IoT + Automation — everything working together like one machine.</p>
         <div class="price-tag">$2400 – $5000</div>
         <ul>
-          <li>Website + dashboard</li>
-          <li>Automation + sensors</li>
-          <li>Custom workflows</li>
+          <li>Unified system</li>
           <li>Real‑time monitoring</li>
-          <li>Business‑ready system</li>
+          <li>Custom workflows</li>
+          <li>Automation + sensors</li>
+          <li>Business‑ready setup</li>
         </ul>
         <button class="btn-primary" onclick="window.location.href='/pages/contact.html'">
           Start a Full Build
@@ -298,28 +296,28 @@
 
       <div class="pricing-card">
         <h2>Custom Widgets</h2>
-        <p>Mini‑tools, components, and UI elements engineered for your system.</p>
+        <p>Small tools that make your system feel alive — clocks, timers, calculators, etc.</p>
         <div class="price-tag">$240 – $900</div>
         <ul>
           <li>Reusable UI components</li>
           <li>Live data widgets</li>
           <li>Interactive controls</li>
           <li>Embeddable modules</li>
-          <li>Optimized for speed + clarity</li>
+          <li>Fast + lightweight</li>
         </ul>
-        <button class="btn-primary" onclick="window.location.href='/pages/apps.html'">
+        <button class="btn-primary" onclick="window.location.href='/pages/widgets.html'">
           View Widget Examples
         </button>
       </div>
 
       <div class="pricing-card">
         <h2>Custom Builds</h2>
-        <p>Fully tailored systems built from scratch for your exact workflow.</p>
+        <p>If you need something that doesn’t exist yet — I’ll build it from scratch.</p>
         <div class="price-tag">$1200 – $5000</div>
         <ul>
-          <li>Custom logic + workflows</li>
+          <li>Custom logic</li>
           <li>API integrations</li>
-          <li>Automation + triggers</li>
+          <li>Automation</li>
           <li>Real‑time dashboards</li>
           <li>Business‑grade performance</li>
         </ul>
@@ -330,24 +328,32 @@
 
     </section>
 
+    <!-- WHY THESE PRICES -->
     <section class="section-block">
-      <h2>Why These Prices Work</h2>
-      <p>These aren’t random numbers — they’re based on real builds, real time, and real results.</p>
+      <h2>Why These Prices Make Sense</h2>
+      <p>
+        These numbers aren’t random. They’re based on real builds, real time, and real work.
+        I don’t inflate anything. I don’t upsell. I build what you actually need.
+      </p>
 
       <ul>
-        <li><strong>Websites</strong> make you look professional and help people trust you.</li>
-        <li><strong>Apps</strong> automate work and run your business smoother.</li>
+        <li><strong>Websites</strong> make you look legit and help people trust you.</li>
+        <li><strong>Apps</strong> automate the stuff you’re tired of doing manually.</li>
         <li><strong>Dashboards</strong> show you what’s happening in real time.</li>
-        <li><strong>IoT</strong> connects the real world to your software.</li>
+        <li><strong>IoT</strong> connects your software to the real world.</li>
         <li><strong>Full systems</strong> give you everything in one place.</li>
-        <li><strong>Widgets</strong> give you small, powerful tools without a full build.</li>
-        <li><strong>Custom builds</strong> give you tailored workflows without paying for a full app.</li>
+        <li><strong>Widgets</strong> give you small tools without a full rebuild.</li>
+        <li><strong>Custom builds</strong> solve problems nothing else can.</li>
       </ul>
     </section>
 
+    <!-- CTA -->
     <section class="section-block">
-      <h2>Ready to Start?</h2>
-      <p>Tell me what you want to build — and I’ll build it clean, fast, and cinematic.</p>
+      <h2>Ready When You Are</h2>
+      <p>
+        Tell me what you want to build.  
+        I’ll build it clean, fast, and cinematic — the right way.
+      </p>
       <button class="btn-primary" onclick="window.location.href='/pages/contact.html'">
         Contact Go Time Software
       </button>
