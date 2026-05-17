@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Go Time Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="calc">
+  <input id="display" disabled>
+
+  <div class="keys">
+    <button data-num="7">7</button>
+    <button data-num="8">8</button>
+    <button data-num="9">9</button>
+    <button data-op="/">÷</button>
+
+    <button data-num="4">4</button>
+    <button data-num="5">5</button>
+    <button data-num="6">6</button>
+    <button data-op="*">×</button>
+
+    <button data-num="1">1</button>
+    <button data-num="2">2</button>
+    <button data-num="3">3</button>
+    <button data-op="-">−</button>
+
+    <button data-num="0">0</button>
+    <button data-num="456">456</button>
+    <button id="equals">=</button>
+    <button data-op="+">+</button>
+  </div>
+</div>
+
+<!-- SECRET VOICE VAULT -->
+<div id="vault" class="hidden">
+  <h2>Voice Recorder</h2>
+
+  <button id="recordBtn">Start Recording</button>
+  <button id="stopBtn" disabled>Stop</button>
+
+  <ul id="recordingsList"></ul>
+</div>
+
+<script src="db.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
