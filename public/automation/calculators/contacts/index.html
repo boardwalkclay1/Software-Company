@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="calc">
+  <input id="display" disabled>
+
+  <div class="keys">
+    <button data-num="7">7</button>
+    <button data-num="8">8</button>
+    <button data-num="9">9</button>
+    <button data-op="/">÷</button>
+
+    <button data-num="4">4</button>
+    <button data-num="5">5</button>
+    <button data-num="6">6</button>
+    <button data-op="*">×</button>
+
+    <button data-num="1">1</button>
+    <button data-num="2">2</button>
+    <button data-num="3">3</button>
+    <button data-op="-">−</button>
+
+    <button data-num="0">0</button>
+    <button data-num="00">00</button>
+    <button id="equals">=</button>
+    <button data-op="+">+</button>
+  </div>
+</div>
+
+<!-- SECRET CONTACTS PANEL -->
+<div id="contacts-panel" class="hidden">
+  <h2>Your Contacts</h2>
+  <button id="addContact">Add Contact</button>
+  <ul id="contactList"></ul>
+</div>
+
+<!-- PASSCODE MODAL -->
+<div id="passcodeModal" class="hidden">
+  <h3>Enter Passcode</h3>
+  <input id="passInput" maxlength="6">
+  <button id="passSubmit">Unlock</button>
+</div>
+
+<script src="db.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
