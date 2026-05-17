@@ -1,0 +1,48 @@
+body {
+  background: #000;
+  color: #fff;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+#calc {
+  width: 300px;
+  margin: 40px auto;
+}
+
+#display {
+  width: 100%;
+  height: 60px;
+  font-size: 32px;
+  text-align: right;
+  padding: 10px;
+  background: #111;
+  color: #0f0;
+  border: none;
+}
+
+.keys button {
+  width: 70px;
+  height: 70px;
+  margin: 5px;
+  font-size: 24px;
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+#contacts-panel {
+  padding: 20px;
+}
+
+#contactList li {
+  margin: 10px 0;
+  background: #111;
+  padding: 10px;
+  border-radius: 8px;
+}
