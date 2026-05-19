@@ -1,0 +1,340 @@
+========================
+AUTOMATION CATALOG – FULL DESCRIPTIONS
+========================
+
+This file explains, in plain language, what each automation does, step by step, and what problem it solves.
+You can reuse these descriptions on:
+- Your website
+- Product pages
+- PDFs
+- Emails
+- Inside the automations themselves (help text, notes, etc.)
+
+--------------------------------------------------
+1. LEAD CAPTURE → CRM SYNC
+--------------------------------------------------
+
+NAME:
+Lead Capture → CRM Sync
+
+SHORT SUMMARY:
+Automatically takes new leads from forms or lead sources and sends them into a CRM or database, fully organized, with no manual copy-paste.
+
+WHAT IT DOES (PLAIN LANGUAGE):
+- This automation “listens” for new leads from one or more sources, such as:
+  - Website contact forms
+  - Typeform / Jotform / Google Forms
+  - Facebook Lead Ads or other ad platforms
+- Every time someone submits their information, the automation:
+  - Collects their name, email, phone number, and any other fields (budget, service type, message, etc.)
+  - Checks if this person already exists in the CRM (to avoid duplicates)
+  - If they are new, it creates a new contact record
+  - If they already exist, it updates their existing record instead of creating a duplicate
+- It can also:
+  - Add tags (for example: “Facebook Ad Lead”, “Website Lead”, “High Budget”)
+  - Add the lead to a specific pipeline or stage (for example: “New Lead”)
+  - Send an email or SMS notification to the business owner or sales team
+  - Log the lead in a backup spreadsheet (for reporting and safety)
+
+WHAT PROBLEM IT SOLVES:
+- No more manually copying leads from email into a CRM or spreadsheet.
+- No more losing leads because someone forgot to log them.
+- Every lead is stored in one place, organized and ready for follow-up.
+
+WHO THIS IS FOR:
+- Any business that collects leads online and wants them automatically organized in a CRM.
+
+--------------------------------------------------
+2. SOCIAL MEDIA AUTO-POSTER
+--------------------------------------------------
+
+NAME:
+Social Media Auto-Poster
+
+SHORT SUMMARY:
+Automatically posts content to social media accounts on a schedule. The user only has to prepare content and drop it into a folder or form.
+
+WHAT IT DOES (PLAIN LANGUAGE):
+- This automation is designed to remove the need to manually log into social media and post.
+- The user prepares content in advance:
+  - Images, videos, or text posts
+  - Captions, hashtags, and links
+- The automation watches a specific source, such as:
+  - A folder (e.g., Google Drive, Dropbox)
+  - A spreadsheet with post text and image links
+  - A form where the user submits content
+- On a schedule (for example, every day at 10 AM), the automation:
+  - Picks the next piece of content
+  - Uploads the image or video to the chosen platform(s)
+  - Adds the caption, hashtags, and mentions
+  - Publishes immediately or schedules it for a specific time
+- It can also:
+  - Log each published post in a spreadsheet (date, time, platform, link)
+  - Send a confirmation email or message saying “Your post has been published”
+
+WHAT PROBLEM IT SOLVES:
+- The user doesn’t have to remember to post.
+- No need to log into multiple platforms.
+- Consistent posting without daily effort.
+
+WHO THIS IS FOR:
+- Creators, small businesses, agencies, or anyone who wants consistent social media activity with minimal effort.
+
+--------------------------------------------------
+3. AUTO-INVOICE GENERATOR
+--------------------------------------------------
+
+NAME:
+Auto-Invoice Generator
+
+SHORT SUMMARY:
+Automatically creates and sends professional invoices when a job is completed, a form is submitted, or a payment event occurs.
+
+WHAT IT DOES (PLAIN LANGUAGE):
+- This automation is triggered when:
+  - A client submits a “work completed” form
+  - A project is marked as done in a project management tool
+  - A sale or order is recorded in an e-commerce system
+- When triggered, it:
+  - Uses a pre-designed invoice template with the business logo and details
+  - Fills in:
+    - Client name and contact info
+    - Description of the service or product
+    - Quantity, price, taxes, and total amount
+    - Invoice number and date
+  - Generates a PDF invoice file
+- Then it:
+  - Emails the invoice PDF to the client
+  - Optionally CCs the business owner or accountant
+  - Saves a copy of the invoice in a folder (e.g., “Invoices/2026”)
+  - Logs the invoice in a spreadsheet or accounting sheet (date, client, amount, status)
+
+WHAT PROBLEM IT SOLVES:
+- No more manually creating invoices in Word or Excel.
+- No forgetting to send invoices.
+- All invoices are stored and tracked automatically.
+
+WHO THIS IS FOR:
+- Freelancers, agencies, service providers, and small businesses that invoice clients regularly.
+
+--------------------------------------------------
+4. EMAIL DRIP SEQUENCE ENGINE
+--------------------------------------------------
+
+NAME:
+Email Drip Sequence Engine
+
+SHORT SUMMARY:
+Sends a series of pre-written emails to new leads or customers over time, automatically, based on a schedule.
+
+WHAT IT DOES (PLAIN LANGUAGE):
+- This automation starts when:
+  - A new lead is added to a list
+  - Someone fills out a form
+  - Someone makes a purchase or signs up
+- Once triggered, it:
+  - Sends a first “Welcome” email immediately or shortly after
+  - Schedules follow-up emails (for example):
+    - Day 1: Welcome + introduction
+    - Day 3: Story or case study
+    - Day 5: Value email (tips, guide, or tutorial)
+    - Day 7: Offer or call-to-action
+- Each email can:
+  - Use the person’s name and other details (personalization)
+  - Include links, buttons, and calls-to-action
+- The automation can:
+  - Stop the sequence if the person replies
+  - Move the person to another list or segment after the sequence ends
+  - Track opens and clicks (if supported by the email platform)
+
+WHAT PROBLEM IT SOLVES:
+- Ensures every new lead gets consistent follow-up.
+- Saves time writing and sending individual emails.
+- Warms up leads automatically before a sales conversation.
+
+WHO THIS IS FOR:
+- Anyone who wants automatic follow-up: coaches, agencies, course creators, SaaS, etc.
+
+--------------------------------------------------
+5. CLIENT ONBOARDING PIPELINE
+--------------------------------------------------
+
+NAME:
+Client Onboarding Pipeline
+
+SHORT SUMMARY:
+Automatically handles the steps that happen after a new client signs up, giving them a smooth, professional onboarding experience.
+
+WHAT IT DOES (PLAIN LANGUAGE):
+- This automation starts when:
+  - A client pays
+  - A contract is signed
+  - A “New Client” form is submitted
+- Once triggered, it:
+  - Sends a welcome email with:
+    - A thank-you message
+    - Next steps
+    - Important links (portal, calendar, resources)
+  - Creates a client folder in cloud storage (e.g., “Clients/Client Name”)
+  - Adds the client to the CRM with the correct tags and pipeline stage
+  - Creates tasks for the internal team (e.g., “Schedule kickoff call”, “Prepare documents”)
+  - Optionally sends the client:
+    - An onboarding questionnaire
+    - A link to book a call
+- It can also:
+  - Notify the business owner or team in Slack/Email
+  - Log the onboarding event in a spreadsheet
+
+WHAT PROBLEM IT SOLVES:
+- No more messy, inconsistent onboarding.
+- Every client gets the same professional experience.
+- The team knows exactly what to do next.
+
+WHO THIS IS FOR:
+- Service businesses, agencies, consultants, and anyone who works with clients.
+
+--------------------------------------------------
+6. AUTO-CONTRACT SENDER
+--------------------------------------------------
+
+NAME:
+Auto-Contract Sender
+
+SHORT SUMMARY:
+Automatically generates and sends contracts for e-signature when a client reaches a certain stage (e.g., “Ready to start”).
+
+WHAT IT DOES (PLAIN LANGUAGE):
+- This automation starts when:
+  - A client fills out a “Ready to start” form
+  - A deal in the CRM moves to a specific stage (e.g., “Contract Needed”)
+- Once triggered, it:
+  - Uses a contract template (with your legal text)
+  - Fills in:
+    - Client name and business name
+    - Project or service description
+    - Price, payment terms, and dates
+  - Creates a contract document (PDF or e-sign document)
+- Then it:
+  - Sends the contract to the client via an e-sign platform (e.g., DocuSign, HelloSign, etc.)
+  - Tracks whether the client has opened and signed it
+  - Sends reminders if it’s not signed after a certain number of days
+  - Saves the signed contract in a client folder
+  - Notifies the business owner when it’s signed
+
+WHAT PROBLEM IT SOLVES:
+- No more manually editing contracts for each client.
+- No forgetting to send contracts or follow up.
+- All signed contracts are stored and easy to find.
+
+WHO THIS IS FOR:
+- Any business that uses contracts or agreements with clients.
+
+--------------------------------------------------
+7. CONTENT REPURPOSING ENGINE
+--------------------------------------------------
+
+NAME:
+Content Repurposing Engine
+
+SHORT SUMMARY:
+Takes long-form content (video, audio, or text) and turns it into multiple smaller pieces of content for social media, blogs, and emails.
+
+WHAT IT DOES (PLAIN LANGUAGE):
+- This automation starts when:
+  - A long video, audio file, or document is uploaded to a specific folder
+  - Or a link to a video (e.g., YouTube) is submitted
+- Once triggered, it:
+  - Extracts the audio or text (using transcription if needed)
+  - Identifies key moments, quotes, or sections
+  - Creates:
+    - Short video clips (for Reels, Shorts, TikTok)
+    - Social media captions
+    - Tweet / post threads
+    - Short summaries
+    - Bullet-point highlights
+- It then:
+  - Saves all outputs in organized folders (e.g., “Clips”, “Captions”, “Summaries”)
+  - Optionally sends a summary email with links to all generated content
+
+WHAT PROBLEM IT SOLVES:
+- Turns one piece of content into many without manual editing.
+- Saves hours of work per week.
+- Helps clients stay active on multiple platforms using content they already have.
+
+WHO THIS IS FOR:
+- Content creators, coaches, agencies, and anyone who makes long-form content.
+
+--------------------------------------------------
+8. APPOINTMENT SCHEDULER + REMINDERS
+--------------------------------------------------
+
+NAME:
+Appointment Scheduler + Reminders
+
+SHORT SUMMARY:
+Lets customers book appointments and automatically sends confirmations and reminders to reduce no-shows.
+
+WHAT IT DOES (PLAIN LANGUAGE):
+- This automation connects a booking form or scheduling tool to a calendar and messaging system.
+- When a customer books an appointment:
+  - The appointment is added to the calendar (Google Calendar, Outlook, etc.)
+  - The customer receives a confirmation email or SMS with:
+    - Date and time
+    - Location or meeting link
+    - Any instructions
+- Before the appointment:
+  - The automation sends reminder messages (for example):
+    - 24 hours before
+    - 1 hour before
+- It can also:
+  - Update the CRM with the appointment details
+  - Notify the business owner or team
+  - Log all appointments in a spreadsheet
+
+WHAT PROBLEM IT SOLVES:
+- Fewer missed appointments.
+- No manual reminder messages.
+- Clear, automatic communication with customers.
+
+WHO THIS IS FOR:
+- Any business that books calls, meetings, or sessions.
+
+--------------------------------------------------
+9. E-COMMERCE ORDER PROCESSOR
+--------------------------------------------------
+
+NAME:
+E-commerce Order Processor
+
+SHORT SUMMARY:
+Automatically processes new orders from an online store and keeps everything organized and up to date.
+
+WHAT IT DOES (PLAIN LANGUAGE):
+- This automation starts when:
+  - A new order is placed in an online store (e.g., Shopify, WooCommerce, etc.)
+- Once triggered, it:
+  - Captures order details:
+    - Customer name and contact info
+    - Products purchased
+    - Prices, taxes, and total
+    - Shipping address
+  - Sends an order confirmation email (if not already sent by the store)
+  - Updates inventory levels (if connected)
+  - Logs the order in a spreadsheet or database
+  - Adds the customer to the CRM with tags like “Customer”, “Product X Buyer”
+- It can also:
+  - Trigger a shipping workflow
+  - Send internal notifications to the fulfillment team
+  - Start a post-purchase email sequence
+
+WHAT PROBLEM IT SOLVES:
+- Keeps orders organized without manual data entry.
+- Makes sure inventory, CRM, and records are always up to date.
+- Saves time and reduces mistakes.
+
+WHO THIS IS FOR:
+- Online stores, product businesses, and anyone selling physical or digital products.
+
+========================
+END OF FILE
+========================
