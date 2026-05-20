@@ -25,6 +25,19 @@
     }
 
     /* ============================
+       STONE GLOW TEXT
+    ============================ */
+    .stone-glow,
+    .stone-glow a,
+    .stone-text {
+      color: #f3f3f3;
+      text-shadow:
+        0 0 6px rgba(255,255,255,0.35),
+        0 0 12px rgba(255,255,255,0.25),
+        0 0 18px rgba(0,0,0,0.9);
+    }
+
+    /* ============================
        HEADER
     ============================ */
     .site-header {
@@ -48,9 +61,7 @@
     }
 
     .logo-text-block {
-      color: #fff;
       font-weight: bold;
-      text-shadow: 0 0 10px #000;
     }
 
     .logo-line-top {
@@ -73,16 +84,13 @@
       top: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
-      color: #fff;
-      text-shadow: 0 0 12px #000;
-      pointer-events: none;
       max-width: 700px;
+      pointer-events: none;
     }
 
     .hero-title {
       font-size: 3rem;
       font-weight: bold;
-      margin-bottom: 10px;
     }
 
     .hero-sub {
@@ -91,14 +99,15 @@
       line-height: 1.4;
     }
 
-    /* NAV */
+    /* ============================
+       DESKTOP NAV
+    ============================ */
     .main-nav {
       display: flex;
       gap: 20px;
     }
 
     .nav-btn {
-      color: #fff;
       text-decoration: none;
       font-weight: bold;
       padding: 8px 14px;
@@ -138,7 +147,6 @@
       cursor: pointer;
       align-self: flex-end;
       margin-bottom: 20px;
-      text-shadow: 0 0 10px #000;
     }
 
     .nav-links {
@@ -149,11 +157,9 @@
     }
 
     .nav-links a {
-      color: #fff;
       font-size: 1.6rem;
       font-weight: 700;
       text-decoration: none;
-      text-shadow: 0 0 10px #000;
       transition: 0.2s;
     }
 
@@ -177,11 +183,6 @@
     .section.visible {
       opacity: 1;
       transform: translateY(0);
-    }
-
-    .stone-text {
-      text-shadow: 0 0 8px rgba(255,255,255,0.25), 0 0 14px rgba(0,0,0,0.9);
-      color: #fff;
     }
 
     /* PREVIEW CARDS */
@@ -213,7 +214,6 @@
       background: rgba(255,255,255,0.15);
       border-radius: 10px;
       text-decoration: none;
-      color: #fff;
       font-weight: bold;
       transition: 0.2s;
       box-shadow: 0 0 10px rgba(255,255,255,0.25);
@@ -264,11 +264,8 @@
       transform: scale(1.05);
     }
 
-    /* ============================
-       MOBILE FIXES
-    ============================ */
+    /* MOBILE FIXES */
     @media (max-width: 768px) {
-
       .site-header {
         flex-direction: column;
         gap: 20px;
@@ -276,7 +273,7 @@
       }
 
       .main-nav {
-        display: none; /* burger menu replaces this on mobile */
+        display: none;
       }
 
       .hero-build-summary {
@@ -288,13 +285,10 @@
 
       .hero-title {
         font-size: 2.2rem;
-        line-height: 1.2;
       }
 
       .hero-sub {
         font-size: 1.1rem;
-        line-height: 1.4;
-        margin-top: 10px;
       }
 
       .preview-card iframe {
@@ -309,21 +303,6 @@
         margin: 60px auto;
         padding: 0 16px;
       }
-
-      .bubble-link {
-        padding: 10px 14px;
-        font-size: 0.95rem;
-      }
-
-      .logo-line-top {
-        font-size: 1.1rem;
-      }
-      .logo-line-mid {
-        font-size: 1.6rem;
-      }
-      .logo-sub {
-        font-size: 0.75rem;
-      }
     }
   </style>
 </head>
@@ -334,7 +313,7 @@
   <header class="site-header">
 
     <!-- LOGO (BURGER TRIGGER) -->
-    <div class="logo-block" id="menuTrigger">
+    <div class="logo-block stone-glow" id="menuTrigger">
       <img src="/assets/img/go-time-logo.png" class="logo-img" />
       <div class="logo-text-block">
         <div class="logo-line-top">GO</div>
@@ -343,7 +322,8 @@
       </div>
     </div>
 
-    <div class="hero-build-summary">
+    <!-- HERO -->
+    <div class="hero-build-summary stone-glow">
       <div class="hero-title">We Build Real Systems</div>
       <div class="hero-sub">
         Cinematic Websites • Full Apps • IoT Systems • Automation • Hardware Repair •  
@@ -351,10 +331,11 @@
       </div>
     </div>
 
-    <!-- ORIGINAL NAV (DESKTOP ONLY) -->
-    <nav class="main-nav">
+    <!-- DESKTOP NAV -->
+    <nav class="main-nav stone-glow">
       <a class="nav-btn" href="/pages/sites.html">Sites</a>
       <a class="nav-btn" href="/pages/apps.html">Apps</a>
+      <a class="nav-btn" href="/pages/pricing.html">Pricing</a>
       <a class="nav-btn" href="/pages/contact.html">Contact</a>
     </nav>
 
@@ -364,7 +345,7 @@
   <nav id="navPanel" class="nav-panel">
     <button id="closeNav" class="close-btn">✕</button>
 
-    <div class="nav-links">
+    <div class="nav-links stone-glow">
       <a href="/index.html">Home</a>
       <a href="/pages/sites.html">Sites</a>
       <a href="/pages/apps.html">Apps</a>
@@ -376,7 +357,7 @@
     </div>
   </nav>
 
-  <!-- MAIN CONTENT (UNCHANGED) -->
+  <!-- MAIN CONTENT -->
   <main class="page-container">
 
     <!-- WEBSITES -->
@@ -395,8 +376,8 @@
         <a class="bubble-link" href="https://comic-lct.pages.dev/" target="_blank">Open Live Website</a>
 
         <div class="frame-desc comic-dropdown">
-          <div class="frame-desc-label">DESCRIPTION</div>
-          <div class="frame-desc-content">
+          <div class="frame-desc-label stone-text">DESCRIPTION</div>
+          <div class="frame-desc-content stone-text">
             <p>
               Comic Universe is the world’s first fully interactive comic platform —  
               a living universe across comics, films, audio, and lore.
@@ -422,8 +403,8 @@
         <a class="bubble-link" href="https://the-guild-855.pages.dev/" target="_blank">Open Live App</a>
 
         <div class="frame-desc guild-dropdown">
-          <div class="frame-desc-label">DESCRIPTION</div>
-          <div class="frame-desc-content">
+          <div class="frame-desc-label stone-text">DESCRIPTION</div>
+          <div class="frame-desc-content stone-text">
             <p>
               The Guild teaches options trading through a medieval storyline with ranks, lore,  
               achievements, and a connected universe.
@@ -456,8 +437,8 @@
       </div>
 
       <div class="frame-desc guild-dropdown" style="margin-top:40px;">
-        <div class="frame-desc-label">CYD Motion Sensor & Perimeter Radar</div>
-        <div class="frame-desc-content">
+        <div class="frame-desc-label stone-text">CYD Motion Sensor & Perimeter Radar</div>
+        <div class="frame-desc-content stone-text">
           <p>
             A real perimeter‑detection radar with live sweep, intruder dots,  
             distance/angle tracking, and multi‑zone monitoring.
@@ -469,8 +450,8 @@
       </div>
 
       <div class="frame-desc comic-dropdown" style="margin-top:30px;">
-        <div class="frame-desc-label">Electronic Repairs & Hardware Replacement</div>
-        <div class="frame-desc-content">
+        <div class="frame-desc-label stone-text">Electronic Repairs & Hardware Replacement</div>
+        <div class="frame-desc-content stone-text">
           <p>
             We repair phones, tablets, laptops, IoT devices, microcontrollers,  
             sensors, and custom electronics.
