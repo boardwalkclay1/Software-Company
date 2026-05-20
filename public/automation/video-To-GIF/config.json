@@ -1,0 +1,6 @@
+{
+  "name": "Video to GIF Converter",
+  "version": "1.0",
+  "local": true,
+  "description": "Converts video files to GIF entirely in the browser."
+}
