@@ -1,24 +1,49 @@
+// automation.js — Go-Time Edition
+
 const { createFFmpeg, fetchFile } = FFmpeg;
-const ffmpeg = createFFmpeg({ log: true });
+const ffmpeg = createFFmpeg({ log: false });
 
-document.getElementById("convertBtn").onclick = async () => {
-  const fileInput = document.getElementById("videoInput");
-  const status = document.getElementById("status");
-  const downloadLink = document.getElementById("downloadLink");
+const videoInput = document.getElementById("videoInput");
+const convertBtn = document.getElementById("convertBtn");
+const statusBox = document.getElementById("status");
+const progressBar = document.getElementById("progress");
+const downloadLink = document.getElementById("downloadLink");
 
-  if (!fileInput.files.length) {
-    status.textContent = "Please upload a video file.";
+function setStatus(msg) {
+  statusBox.textContent = msg;
+}
+
+function setProgress(value) {
+  progressBar.style.width = value + "%";
+}
+
+convertBtn.onclick = async () => {
+  if (!videoInput.files.length) {
+    setStatus("Please upload a video file first.");
     return;
   }
 
-  status.textContent = "Loading FFmpeg...";
+  convertBtn.disabled = true;
+  setStatus("Loading FFmpeg engine...");
+  setProgress(10);
+
   await ffmpeg.load();
 
-  const videoFile = fileInput.files[0];
-  ffmpeg.FS("writeFile", "input.mp4", await fetchFile(videoFile));
+  const file = videoInput.files[0];
+  ffmpeg.FS("writeFile", "input.mp4", await fetchFile(file));
 
-  status.textContent = "Converting to GIF...";
-  await ffmpeg.run("-i", "input.mp4", "output.gif");
+  setStatus("Converting video → GIF...");
+  setProgress(40);
+
+  await ffmpeg.run(
+    "-i", "input.mp4",
+    "-vf", "fps=12,scale=480:-1:flags=lanczos",
+    "-loop", "0",
+    "output.gif"
+  );
+
+  setStatus("Finalizing...");
+  setProgress(80);
 
   const data = ffmpeg.FS("readFile", "output.gif");
   const blob = new Blob([data.buffer], { type: "image/gif" });
@@ -26,8 +51,9 @@ document.getElementById("convertBtn").onclick = async () => {
 
   downloadLink.href = url;
   downloadLink.download = "converted.gif";
-  downloadLink.style.display = "block";
-  downloadLink.textContent = "Download GIF";
+  downloadLink.style.display = "inline-block";
 
-  status.textContent = "Conversion complete!";
+  setProgress(100);
+  setStatus("Done! Your GIF is ready.");
+  convertBtn.disabled = false;
 };
