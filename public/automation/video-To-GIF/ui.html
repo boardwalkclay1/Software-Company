@@ -103,7 +103,14 @@
   <a id="downloadLink">Download GIF</a>
 </div>
 
-<script src="https://unpkg.com/@ffmpeg/ffmpeg@0.12.4/dist/ffmpeg.min.js"></script>
+<!-- FFmpeg MUST load BEFORE automation.js -->
+<script type="module">
+  import { createFFmpeg, fetchFile } from "https://unpkg.com/@ffmpeg/ffmpeg@0.12.4/dist/ffmpeg.min.js";
+
+  // Expose globally so automation.js can use it
+  window.FFmpeg = { createFFmpeg, fetchFile };
+</script>
+
 <script src="automation.js"></script>
 
 </body>
