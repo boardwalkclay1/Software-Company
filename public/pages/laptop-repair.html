@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Go Time Laptop Repair</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<section class="repair-wrapper">
+
+  <h1>Go Time Laptop Repair</h1>
+  <p class="sub">Premium On‑Site Laptop Repair • Atlanta + Surrounding Areas</p>
+
+  <!-- LAPTOP BRAND -->
+  <div class="block">
+    <label>Laptop Brand</label>
+    <select id="laptopBrand">
+      <option value="">Select your laptop</option>
+      <option value="macbook">MacBook (Air / Pro)</option>
+      <option value="windows">Windows Laptop</option>
+      <option value="gaming">Gaming Laptop</option>
+    </select>
+  </div>
+
+  <!-- REPAIR TYPE -->
+  <div class="block">
+    <label>Repair Needed</label>
+    <select id="repairType">
+      <option value="">Select repair type</option>
+      <option value="screen">Screen Replacement</option>
+      <option value="battery">Battery Replacement</option>
+      <option value="keyboard">Keyboard Replacement</option>
+      <option value="water">Water Damage Repair</option>
+      <option value="diagnostic">Full Diagnostic</option>
+    </select>
+  </div>
+
+  <!-- EXPLANATION -->
+  <div id="explainBox" class="hidden">
+    <h2 id="repairTitle"></h2>
+
+    <div class="img-row">
+      <img id="symptomImg" src="" alt="">
+      <img id="resultImg" src="" alt="">
+    </div>
+
+    <h3>Symptoms</h3>
+    <ul id="symptoms"></ul>
+
+    <h3>What You Get With Go Time</h3>
+    <ul id="results"></ul>
+  </div>
+
+  <!-- PRICE + DEPOSIT -->
+  <div id="priceBox" class="hidden">
+    <h2>Total Price: <span id="totalPrice"></span></h2>
+    <h3>Deposit Required: <span id="depositPrice"></span></h3>
+
+    <a id="formLink" class="btn" href="#">Continue to Booking Form</a>
+  </div>
+
+</section>
+
+<script src="laptop-repair.js"></script>
+</body>
+</html>
