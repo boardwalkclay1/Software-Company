@@ -382,3 +382,21 @@ body.theme-dark::after {
 .dropdown.navigation-ui .dropdown-content {
   border-left: 3px solid #ffdd33;
 }
+/* Repair Page Image Controls */
+.service-section .img-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.service-section .img-row img {
+  width: 280px;        /* controls size */
+  max-width: 100%;     /* responsive */
+  height: auto;        /* keeps aspect ratio */
+  border-radius: 12px; /* clean Go Time style */
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
