@@ -3,10 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <title>Go Time Repair Services</title>
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="/assets/img/logo.png">
+
+  <!-- SOCIAL PREVIEW -->
+  <meta property="og:title" content="Go Time Repair Services">
+  <meta property="og:description" content="Premium on-site phone, laptop, and electronics repair anywhere in Atlanta. We come to you.">
+  <meta property="og:image" content="/assets/img/go-time-city.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/repair-services.html">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Go Time Repair Services">
+  <meta name="twitter:description" content="Premium on-site electronics repair in Atlanta. Fast, mobile, professional.">
+  <meta name="twitter:image" content="/assets/img/go-time-city.jpg">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="/css/base.css">
 </head>
 
 <body>
+
+<!-- HEADER WITH LOGO BURGER -->
+<header class="gt-header">
+  <img src="/assets/img/logo.png" class="gt-logo" id="menuTrigger" alt="Go Time Logo">
+  <nav id="gtMenu" class="gt-menu hidden">
+    <a href="/">Home</a>
+    <a href="/repair-services.html">Repair Services</a>
+    <a href="/phone-repair.html">Phone Repair</a>
+    <a href="/laptop-repair.html">Laptop Repair</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+</header>
+
 
 <section class="repair-wrapper">
 
@@ -185,6 +215,16 @@
 
 
 </section>
+
+<script>
+  // SIMPLE BURGER MENU
+  const menuTrigger = document.getElementById("menuTrigger");
+  const gtMenu = document.getElementById("gtMenu");
+
+  menuTrigger.addEventListener("click", () => {
+    gtMenu.classList.toggle("hidden");
+  });
+</script>
 
 </body>
 </html>
