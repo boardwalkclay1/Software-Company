@@ -12,7 +12,6 @@
   <meta property="og:description" content="Premium on-site phone, laptop, and electronics repair anywhere in Atlanta. We come to you.">
   <meta property="og:image" content="/assets/img/go-time-city.jpg">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yourdomain.com/repair-services.html">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Go Time Repair Services">
@@ -21,6 +20,114 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="/css/base.css">
+
+  <style>
+    /* FULL PAGE BACKGROUND */
+    body {
+      background: url("/assets/img/go-time-city.jpg") no-repeat center center/cover;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* DARK OVERLAY */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: -1;
+    }
+
+    /* HEADER */
+    .gt-header {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .gt-logo {
+      width: 60px;
+      cursor: pointer;
+    }
+
+    .gt-menu {
+      position: absolute;
+      top: 80px;
+      left: 20px;
+      background: rgba(0,0,0,0.85);
+      padding: 20px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .gt-menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* MAIN WRAPPER */
+    .repair-wrapper {
+      padding: 60px 40px;
+      max-width: 1100px;
+      margin: auto;
+      color: white;
+    }
+
+    h1, h2, h3 {
+      color: white;
+    }
+
+    .sub {
+      font-size: 20px;
+      opacity: 0.9;
+    }
+
+    /* IMAGE ROW */
+    .img-row {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+
+    .img-row img {
+      width: 260px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 22px;
+      background: #007bff;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .desc {
+      margin-bottom: 10px;
+      opacity: 0.9;
+    }
+
+    .list li {
+      margin-bottom: 6px;
+    }
+  </style>
 </head>
 
 <body>
